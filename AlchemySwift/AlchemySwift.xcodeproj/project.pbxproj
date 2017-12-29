@@ -71,6 +71,7 @@
 		DE125EE01FF6999300A3C98B /* AlchemySwift */ = {
 			isa = PBXGroup;
 			children = (
+				DE125EF81FF699C600A3C98B /* Extensions */,
 				DE125EE11FF6999300A3C98B /* AlchemySwift.h */,
 				DE125EE21FF6999300A3C98B /* Info.plist */,
 			);
@@ -84,6 +85,13 @@
 				DE125EEE1FF6999300A3C98B /* Info.plist */,
 			);
 			path = AlchemySwiftTests;
+			sourceTree = "<group>";
+		};
+		DE125EF81FF699C600A3C98B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,7 +152,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
-				ORGANIZATIONNAME = "Sir Wellington";
+				ORGANIZATIONNAME = "Wellington Moreno";
 				TargetAttributes = {
 					DE125EDD1FF6999300A3C98B = {
 						CreatedOnToolsVersion = 9.2;
@@ -344,7 +352,7 @@
 				INFOPLIST_FILE = AlchemySwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tech.sirwellington.AlchemySwift;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.sirwellington.alchemy.AlchemySwift;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -365,7 +373,7 @@
 				INFOPLIST_FILE = AlchemySwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tech.sirwellington.AlchemySwift;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.sirwellington.alchemy.AlchemySwift;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
