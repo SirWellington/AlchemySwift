@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		853F2E00AA835C0ABDFCDD34 /* Array+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F2DC607C5CF99C79CA9A0 /* Array+Alchemy.swift */; };
+		853F2E18C3690022503629EE /* Int+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F249DCC87F53843928A16 /* Int+Alchemy.swift */; };
 		DE125EE81FF6999300A3C98B /* AlchemySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE125EDE1FF6999300A3C98B /* AlchemySwift.framework */; };
 		DE125EED1FF6999300A3C98B /* AlchemySwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE125EEC1FF6999300A3C98B /* AlchemySwiftTests.swift */; };
 		DE125EEF1FF6999300A3C98B /* AlchemySwift.h in Headers */ = {isa = PBXBuildFile; fileRef = DE125EE11FF6999300A3C98B /* AlchemySwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,6 +25,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		853F249DCC87F53843928A16 /* Int+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Alchemy.swift"; sourceTree = "<group>"; };
+		853F2DC607C5CF99C79CA9A0 /* Array+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Alchemy.swift"; sourceTree = "<group>"; };
 		DE125EDE1FF6999300A3C98B /* AlchemySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlchemySwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE125EE11FF6999300A3C98B /* AlchemySwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlchemySwift.h; sourceTree = "<group>"; };
 		DE125EE21FF6999300A3C98B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 		DE125EF81FF699C600A3C98B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				853F2DC607C5CF99C79CA9A0 /* Array+Alchemy.swift */,
+				853F249DCC87F53843928A16 /* Int+Alchemy.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -204,6 +210,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				853F2E00AA835C0ABDFCDD34 /* Array+Alchemy.swift in Sources */,
+				853F2E18C3690022503629EE /* Int+Alchemy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
