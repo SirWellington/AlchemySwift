@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		853F22D2785E7D03636D857B /* Int+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F2D559445E2536370EE8A /* Int+AlchemyTests.swift */; };
+		853F2D14B057899CB33518A5 /* TestFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F27E56033950CA52016EE /* TestFunctions.swift */; };
 		853F2E00AA835C0ABDFCDD34 /* Array+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F2DC607C5CF99C79CA9A0 /* Array+Alchemy.swift */; };
 		853F2E119E9E3C6EFD86B8C8 /* Arrays+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F267048CB728E2E38ED62 /* Arrays+AlchemyTests.swift */; };
 		853F2E18C3690022503629EE /* Int+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F249DCC87F53843928A16 /* Int+Alchemy.swift */; };
@@ -44,6 +46,8 @@
 /* Begin PBXFileReference section */
 		853F249DCC87F53843928A16 /* Int+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Alchemy.swift"; sourceTree = "<group>"; };
 		853F267048CB728E2E38ED62 /* Arrays+AlchemyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Arrays+AlchemyTests.swift"; sourceTree = "<group>"; };
+		853F27E56033950CA52016EE /* TestFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFunctions.swift; sourceTree = "<group>"; };
+		853F2D559445E2536370EE8A /* Int+AlchemyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+AlchemyTests.swift"; sourceTree = "<group>"; };
 		853F2DC607C5CF99C79CA9A0 /* Array+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Alchemy.swift"; sourceTree = "<group>"; };
 		DE125EDE1FF6999300A3C98B /* AlchemySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlchemySwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE125EE11FF6999300A3C98B /* AlchemySwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlchemySwift.h; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				853F267048CB728E2E38ED62 /* Arrays+AlchemyTests.swift */,
+				853F2D559445E2536370EE8A /* Int+AlchemyTests.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -117,6 +122,7 @@
 				DE125EEC1FF6999300A3C98B /* AlchemySwiftTests.swift */,
 				DE125EEE1FF6999300A3C98B /* Info.plist */,
 				853F2B5FE9CA46D18DBD01A9 /* Extensions */,
+				853F27E56033950CA52016EE /* TestFunctions.swift */,
 			);
 			path = AlchemySwiftTests;
 			sourceTree = "<group>";
@@ -260,6 +266,8 @@
 			files = (
 				DE125EED1FF6999300A3C98B /* AlchemySwiftTests.swift in Sources */,
 				853F2E119E9E3C6EFD86B8C8 /* Arrays+AlchemyTests.swift in Sources */,
+				853F22D2785E7D03636D857B /* Int+AlchemyTests.swift in Sources */,
+				853F2D14B057899CB33518A5 /* TestFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
