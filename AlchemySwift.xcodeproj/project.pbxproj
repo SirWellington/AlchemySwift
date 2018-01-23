@@ -9,14 +9,13 @@
 /* Begin PBXBuildFile section */
 		853F22D2785E7D03636D857B /* Int+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F2D559445E2536370EE8A /* Int+AlchemyTests.swift */; };
 		853F2D14B057899CB33518A5 /* TestFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F27E56033950CA52016EE /* TestFunctions.swift */; };
+		853F2D2ECA3CDE7AEB897FBF /* AlchemyGenerator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 853F28AC3FBD1D6699D973F1 /* AlchemyGenerator.framework */; };
 		853F2E00AA835C0ABDFCDD34 /* Array+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F2DC607C5CF99C79CA9A0 /* Array+Alchemy.swift */; };
 		853F2E119E9E3C6EFD86B8C8 /* Arrays+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F267048CB728E2E38ED62 /* Arrays+AlchemyTests.swift */; };
 		853F2E18C3690022503629EE /* Int+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F249DCC87F53843928A16 /* Int+Alchemy.swift */; };
 		DE125EE81FF6999300A3C98B /* AlchemySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE125EDE1FF6999300A3C98B /* AlchemySwift.framework */; };
 		DE125EED1FF6999300A3C98B /* AlchemySwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE125EEC1FF6999300A3C98B /* AlchemySwiftTests.swift */; };
 		DE125EEF1FF6999300A3C98B /* AlchemySwift.h in Headers */ = {isa = PBXBuildFile; fileRef = DE125EE11FF6999300A3C98B /* AlchemySwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DE9E8B7A2016E5C400101B83 /* AlchemyGenerator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9E8B792016E5C400101B83 /* AlchemyGenerator.framework */; };
-		DE9E8B7C2016E60F00101B83 /* AlchemyGenerator.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = DE9E8B792016E5C400101B83 /* AlchemyGenerator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +35,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DE9E8B7C2016E60F00101B83 /* AlchemyGenerator.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,6 +45,7 @@
 		853F249DCC87F53843928A16 /* Int+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Alchemy.swift"; sourceTree = "<group>"; };
 		853F267048CB728E2E38ED62 /* Arrays+AlchemyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Arrays+AlchemyTests.swift"; sourceTree = "<group>"; };
 		853F27E56033950CA52016EE /* TestFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFunctions.swift; sourceTree = "<group>"; };
+		853F28AC3FBD1D6699D973F1 /* AlchemyGenerator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlchemyGenerator.framework; path = Carthage/Build/iOS/AlchemyGenerator.framework; sourceTree = SOURCE_ROOT; };
 		853F2D559445E2536370EE8A /* Int+AlchemyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+AlchemyTests.swift"; sourceTree = "<group>"; };
 		853F2DC607C5CF99C79CA9A0 /* Array+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Alchemy.swift"; sourceTree = "<group>"; };
 		DE125EDE1FF6999300A3C98B /* AlchemySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlchemySwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,7 +54,6 @@
 		DE125EE71FF6999300A3C98B /* AlchemySwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlchemySwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE125EEC1FF6999300A3C98B /* AlchemySwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlchemySwiftTests.swift; sourceTree = "<group>"; };
 		DE125EEE1FF6999300A3C98B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DE9E8B792016E5C400101B83 /* AlchemyGenerator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlchemyGenerator.framework; path = Carthage/Build/iOS/AlchemyGenerator.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,14 +68,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE9E8B7A2016E5C400101B83 /* AlchemyGenerator.framework in Frameworks */,
 				DE125EE81FF6999300A3C98B /* AlchemySwift.framework in Frameworks */,
+				853F2D2ECA3CDE7AEB897FBF /* AlchemyGenerator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		853F22F6386DA57BB661BB58 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				853F28AC3FBD1D6699D973F1 /* AlchemyGenerator.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 		853F2B5FE9CA46D18DBD01A9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +99,7 @@
 				DE125EE01FF6999300A3C98B /* AlchemySwift */,
 				DE125EEB1FF6999300A3C98B /* AlchemySwiftTests */,
 				DE125EDF1FF6999300A3C98B /* Products */,
+				853F22F6386DA57BB661BB58 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,7 +115,6 @@
 		DE125EE01FF6999300A3C98B /* AlchemySwift */ = {
 			isa = PBXGroup;
 			children = (
-				DE9E8B782016E5B800101B83 /* Frameworks */,
 				DE125EF81FF699C600A3C98B /* Extensions */,
 				DE125EE11FF6999300A3C98B /* AlchemySwift.h */,
 				DE125EE21FF6999300A3C98B /* Info.plist */,
@@ -134,14 +140,6 @@
 				853F249DCC87F53843928A16 /* Int+Alchemy.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		DE9E8B782016E5B800101B83 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				DE9E8B792016E5C400101B83 /* AlchemyGenerator.framework */,
-			);
-			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
