@@ -28,7 +28,26 @@
       language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DE125EE61FF6999300A3C98B"
+               BuildableName = "AlchemySwiftTests.xctest"
+               BlueprintName = "AlchemySwiftTests"
+               ReferencedContainer = "container:AlchemySwift.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "DE125EDD1FF6999300A3C98B"
+            BuildableName = "AlchemySwift.framework"
+            BlueprintName = "AlchemySwift"
+            ReferencedContainer = "container:AlchemySwift.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -61,6 +80,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "DE125EDD1FF6999300A3C98B"
+            BuildableName = "AlchemySwift.framework"
+            BlueprintName = "AlchemySwift"
+            ReferencedContainer = "container:AlchemySwift.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
