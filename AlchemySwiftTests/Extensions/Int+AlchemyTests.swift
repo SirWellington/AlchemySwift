@@ -15,16 +15,16 @@ import XCTest
 class IntsPlusAlchemyTests: XCTestCase
 {
 
-    var min = 0
-    var max = 0
-
-    var array: [String] = []
+    fileprivate var min = 0
+    fileprivate var max = 0
+    fileprivate var array: [String] = []
+    fileprivate var integer = 0
 
     override func setUp()
     {
         max = AlchemyGenerator.positiveInteger()
-
         array = AlchemyGenerator.Arrays.ofAlphabeticString
+        integer = AlchemyGenerator.Integers.any
     }
 
     func testIsEven()
@@ -39,10 +39,8 @@ class IntsPlusAlchemyTests: XCTestCase
 
     func testIsOdd()
     {
-        let number = AlchemyGenerator.anyInteger()
-
-        let expected = number % 2 != 0
-        let result = number.isOdd
+        let expected = integer % 2 != 0
+        let result = integer.isOdd
 
         assertEquals(result, expected)
     }
@@ -129,19 +127,25 @@ extension IntsPlusAlchemyTests
 {
     func testAsDouble()
     {
-        let int = AlchemyGenerator.anyInteger()
-        let expected = Double(int)
+        let expected = Double(integer)
 
-        let result = int.asDouble
+        let result = integer.asDouble
         assertEquals(result, expected)
     }
 
     func testDoubleValue()
     {
-        let int = AlchemyGenerator.Integers.any
-        let expected = Double(int)
+        let expected = Double(integer)
 
-        let result = int.doubleValue
+        let result = integer.doubleValue
+        assertEquals(result, expected)
+    }
+
+    func testAsString()
+    {
+        let expected = "\(integer)"
+        let result = integer.asString
+
         assertEquals(result, expected)
     }
 }

@@ -75,6 +75,7 @@ public extension Int
     var asDouble: Double { return Double(self) }
     var doubleValue: Double { return asDouble }
     var uInt32: UInt32 { return UInt32(self) }
+    var asString: String { return String(self) }
 }
 
 public extension UInt32
