@@ -30,13 +30,13 @@ public extension String
     var firstLetter: String?
     {
         guard notEmpty else { return nil }
-        return self.first?.string
+        return self.first?.asString
     }
 
     var lastLetter: String?
     {
         guard notEmpty else { return nil }
-        return self.last?.string
+        return self.last?.asString
     }
 
     var asAttributed: NSAttributedString
@@ -90,7 +90,7 @@ public extension String
 //=====================================
 //MARK: Character Extensions
 //=====================================
-extension Character
+public extension Character
 {
-    var string: String { return "\(self)" }
+    var asString: String { return "\(self)" }
 }

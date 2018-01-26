@@ -75,7 +75,7 @@ class StringsPlusAlchemyTests: XCTestCase
         iterations.repeatBlock
         {
             let string = self.string
-            let expected = string.first!.string
+            let expected = string.first!.asString
             let result = string.firstLetter
 
             assertNotNil(result)
@@ -88,7 +88,7 @@ class StringsPlusAlchemyTests: XCTestCase
         iterations.repeatBlock
         {
             let string = self.string
-            let expected = string.last!.string
+            let expected = string.last!.asString
             let result = string.lastLetter
 
             assertNotNil(result)
@@ -161,7 +161,7 @@ extension StringsPlusAlchemyTests
             let character = string.first!
 
             let expected = "\(character)"
-            let result = character.string
+            let result = character.asString
 
             assertEquals(result, expected)
         }
