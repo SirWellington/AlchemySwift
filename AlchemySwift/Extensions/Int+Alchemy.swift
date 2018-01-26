@@ -11,7 +11,7 @@ import Foundation
 //=====================================
 //MARK: Basics
 //=====================================
-extension Int
+public extension Int
 {
 
     func isValidIndex<T>(toArray array: Array<T>) -> Bool
