@@ -74,8 +74,21 @@ public extension Int
 {
     var asDouble: Double { return Double(self) }
     var doubleValue: Double { return asDouble }
+
+    var asUInt: UInt { return UInt(self) }
+    var asUInt32: UInt32 { return UInt32(self) }
     var uInt32: UInt32 { return UInt32(self) }
+
     var asString: String { return String(self) }
+
+    /**
+        Converts Megabytes to bytes.
+        For example, `4.mb == 4_000_000 bytes`
+
+        - Returns the number of bytes represented by `self.mb`.
+    */
+    var mb: Int { return round(self.asDouble * pow(1.0, 6)).intValue }
+
 }
 
 public extension UInt32

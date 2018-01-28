@@ -148,5 +148,19 @@ extension IntsPlusAlchemyTests
 
         assertEquals(result, expected)
     }
+
+    func testAsUInt()
+    {
+        integer = AlchemyGenerator.positiveInteger()
+        assertEquals(integer.asUInt, UInt(integer))
+    }
+
+    func testAsUInt32()
+    {
+        integer = AlchemyGenerator.positiveInteger()
+        assertEquals(integer.asUInt32, UInt32(integer))
+        assertEquals(integer.uInt32, UInt32(integer))
+    }
+
 }
 

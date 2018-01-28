@@ -17,4 +17,17 @@ public extension Double
     var asInt: Int { return Int(self) }
     var intValue: Int { return asInt }
     var asString: String { return String(self) }
+
+}
+
+
+//=====================================
+//MARK: Time Conversions
+//=====================================
+public extension TimeInterval
+{
+    var minutes: TimeInterval { return self * 60 }
+    var hours: TimeInterval { return minutes * 60 }
+    var days: TimeInterval { return hours * 24 }
+    var weeks: TimeInterval { return days * 7 }
 }
