@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		853F20C98CBC6C7C2857EFCF /* Doubles+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F2E7BA160BB0EC9DBE272 /* Doubles+AlchemyTests.swift */; };
 		853F221E077E6C9B2B9268C1 /* Booleans+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F209D6DB05C12C0318506 /* Booleans+AlchemyTests.swift */; };
-		853F22D2785E7D03636D857B /* Int+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F2D559445E2536370EE8A /* Int+AlchemyTests.swift */; };
+		853F22D2785E7D03636D857B /* Integers+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F2D559445E2536370EE8A /* Integers+AlchemyTests.swift */; };
 		853F23D483403DF8FAE3D466 /* NSObjects+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F22B81C8977BFEDFCADAF /* NSObjects+Alchemy.swift */; };
 		853F2521A6698DEBEF7B4C2E /* Booleans+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F211E66F6399D012D3D4F /* Booleans+Alchemy.swift */; };
 		853F25657B64819E3C7F1234 /* Doubles+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F27A221EA30D2FFF63AFF /* Doubles+Alchemy.swift */; };
@@ -62,7 +62,7 @@
 		853F27E56033950CA52016EE /* TestFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFunctions.swift; sourceTree = "<group>"; };
 		853F28AC3FBD1D6699D973F1 /* AlchemyGenerator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlchemyGenerator.framework; path = Carthage/Build/iOS/AlchemyGenerator.framework; sourceTree = SOURCE_ROOT; };
 		853F2BC81C636D82A3D58E66 /* Strings+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Alchemy.swift"; sourceTree = "<group>"; };
-		853F2D559445E2536370EE8A /* Int+AlchemyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+AlchemyTests.swift"; sourceTree = "<group>"; };
+		853F2D559445E2536370EE8A /* Integers+AlchemyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Integers+AlchemyTests.swift"; sourceTree = "<group>"; };
 		853F2D7CCE7C9A3D622484CA /* Strings+AlchemyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+AlchemyTests.swift"; sourceTree = "<group>"; };
 		853F2DC607C5CF99C79CA9A0 /* Arrays+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Arrays+Alchemy.swift"; sourceTree = "<group>"; };
 		853F2E7BA160BB0EC9DBE272 /* Doubles+AlchemyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Doubles+AlchemyTests.swift"; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 				853F267048CB728E2E38ED62 /* Arrays+AlchemyTests.swift */,
 				853F209D6DB05C12C0318506 /* Booleans+AlchemyTests.swift */,
 				853F2E7BA160BB0EC9DBE272 /* Doubles+AlchemyTests.swift */,
-				853F2D559445E2536370EE8A /* Int+AlchemyTests.swift */,
+				853F2D559445E2536370EE8A /* Integers+AlchemyTests.swift */,
 				853F256D5533D0342C5D68F5 /* NSObjects+AlchemyTests.swift */,
 				853F2D7CCE7C9A3D622484CA /* Strings+AlchemyTests.swift */,
 			);
@@ -294,7 +294,7 @@
 			files = (
 				DE125EED1FF6999300A3C98B /* AlchemySwiftTests.swift in Sources */,
 				853F2E119E9E3C6EFD86B8C8 /* Arrays+AlchemyTests.swift in Sources */,
-				853F22D2785E7D03636D857B /* Int+AlchemyTests.swift in Sources */,
+				853F22D2785E7D03636D857B /* Integers+AlchemyTests.swift in Sources */,
 				853F2D14B057899CB33518A5 /* TestFunctions.swift in Sources */,
 				853F2717BAF32BE2789F855C /* Strings+AlchemyTests.swift in Sources */,
 				853F20C98CBC6C7C2857EFCF /* Doubles+AlchemyTests.swift in Sources */,

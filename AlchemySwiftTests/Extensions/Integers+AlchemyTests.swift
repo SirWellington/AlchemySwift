@@ -1,5 +1,5 @@
 //
-//  Int+AlchemyTests.swift
+//  Integers+AlchemyTests.swift
 //  AlchemySwift
 //
 //  Created by Wellington Moreno on 01/22/2018.
@@ -12,7 +12,7 @@ import Foundation
 import XCTest
 
 
-class IntsPlusAlchemyTests: XCTestCase
+class IntegersPlusAlchemyTests: XCTestCase
 {
 
     fileprivate var min = 0
@@ -123,7 +123,7 @@ class IntsPlusAlchemyTests: XCTestCase
 //=====================================
 //MARK: Conversion Tests
 //=====================================
-extension IntsPlusAlchemyTests
+extension IntegersPlusAlchemyTests
 {
     func testAsDouble()
     {
