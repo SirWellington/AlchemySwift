@@ -9,10 +9,6 @@
 import Foundation
 
 
-
-//TODO: Add Date function to format, `formatTo(format: String)`
-//TODO: Add Date function `dateBySubtracting()`
-
 //======================================
 // MARK: Convenience Functions
 //======================================
@@ -44,6 +40,7 @@ extension Date
     {
         let formatter = DateFormatter()
         formatter.timeZone = timeZone
+        formatter.dateFormat = dateFormat
 
         return formatter.string(from: self)
     }
