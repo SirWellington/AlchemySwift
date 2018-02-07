@@ -1,5 +1,5 @@
 //
-//  Array+Alchemy.swift
+//  Arrays+Alchemy.swift
 //  AlchemySwift
 //
 //  Created by Wellington Moreno on 12/29/2017.
