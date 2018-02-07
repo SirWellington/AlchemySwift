@@ -167,3 +167,27 @@ extension StringsPlusAlchemyTests
         }
     }
 }
+
+
+//=====================================
+//MARK: Custom Operators
+//=====================================
+extension StringsPlusAlchemyTests
+{
+    func testStringCoalesceOperator()
+    {
+        iterations.repeatBlock
+        {
+            let optional: Any? = self.string
+            let defaultValue = self.string
+            assertEquals(optional ??? defaultValue, "\(optional!)")
+        }
+
+        iterations.repeatBlock
+        {
+            let defaultValue = self.string
+            let optional: Any? = nil
+            assertEquals(optional ??? defaultValue, defaultValue)
+        }
+    }
+}

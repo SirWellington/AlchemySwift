@@ -94,3 +94,29 @@ public extension Character
 {
     var asString: String { return "\(self)" }
 }
+
+
+
+//=====================================
+//MARK: Custom Operators
+//=====================================
+
+infix operator ???: NilCoalescingPrecedence
+
+/**
+    This nifty little function allows you to coalesce an optional value into a String.
+
+    If the optional value exists, the usual String representation will be returned.
+    If it does not exist, `defaultValue` will be used instead.
+*/
+public func ???<T>(optional: T?, defaultValue: @autoclosure () -> String) -> String
+{
+    if let value = optional
+    {
+        return String(describing: value)
+    }
+    else
+    {
+        return defaultValue()
+    }
+}
