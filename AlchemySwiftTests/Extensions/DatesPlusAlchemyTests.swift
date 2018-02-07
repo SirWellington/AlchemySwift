@@ -52,11 +52,11 @@ class DatesPlusAlchemyTests: XCTestCase
     {
         let date = Date()
 
-        var formatter = DateFormatter()
+        let formatter = DateFormatter()
         formatter.timeZone = .current
         formatter.dateFormat = format
 
-        var expected = formatter.string(from: date)
+        let expected = formatter.string(from: date)
         let result = date.formatTo(dateFormat: format)
 
         assertEquals(result, expected)
