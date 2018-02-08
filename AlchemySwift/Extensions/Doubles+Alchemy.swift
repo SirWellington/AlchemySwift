@@ -26,7 +26,9 @@ public extension Double
 //=====================================
 public extension Double
 {
-    var milliseconds: TimeInterval { return self / 1000 }
+    var millis: TimeInterval { return self / 1000}
+    /** Alias for `millis` */
+    var milliseconds: TimeInterval { return millis }
     var seconds: TimeInterval { return self }
     var minutes: TimeInterval { return self * 60 }
     var hours: TimeInterval { return minutes * 60 }
