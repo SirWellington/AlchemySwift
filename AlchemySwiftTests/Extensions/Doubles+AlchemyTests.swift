@@ -45,6 +45,24 @@ class DoublesPlusAlchemyTests : XCTestCase
         assertEquals(result, expected)
     }
 
+    func testTimeIntervalMilliSeconds()
+    {
+        100.repeatBlock
+        {
+            let time: TimeInterval = AlchemyGenerator.Doubles.any
+            assertEquals(time.milliseconds, time/1000, marginOfError: 0.00001)
+        }
+    }
+
+    func testTimeIntervalSeconds()
+    {
+        100.repeatBlock
+        {
+            let time: TimeInterval = AlchemyGenerator.Doubles.any
+            assertEquals(time.seconds, time)
+        }
+    }
+
     func testTimeIntervalMinutes()
     {
         assertEquals(0.0.minutes, 0.0)
