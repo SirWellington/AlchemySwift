@@ -35,6 +35,24 @@ public extension Date
     }
 }
 
+
+//======================================
+// MARK: Comparisons
+//======================================
+public extension Date
+{
+    
+    func isBefore(date: Date) -> Bool
+    {
+        return self.timeIntervalSince1970 < date.timeIntervalSince1970
+    }
+    
+    func isAfter(date: Date) -> Bool
+    {
+        return self.timeIntervalSince1970 > date.timeIntervalSince1970
+    }
+}
+
 //======================================
 // MARK: Formatting Dates
 //======================================

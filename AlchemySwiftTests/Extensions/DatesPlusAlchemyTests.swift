@@ -21,14 +21,17 @@ class DatesPlusAlchemyTests: XCTestCase
 
     private var testIterations =  100
     
+    private var now: Date { return Date() }
+    private var seconds: TimeInterval { return AlchemyGenerator.doubles(fromInclusive: 1.0, toInclusive: 10.0.days) }
+    private var dateInThePast: Date { return now.subtractingTimeInterval(seconds) }
+    private var dateInTheFuture: Date { return now.addingTimeInterval(seconds) }
+    
     func testIsInThePast()
     {
         testIterations.repeatBlock
         {
-            let now = Date()
-            let secondsAgo = AlchemyGenerator.doubles(fromInclusive: 10, toInclusive: 10.0.days)
-            let pastDate = now.subtractingTimeInterval(secondsAgo)
-            let futureDate = now.addingTimeInterval(secondsAgo)
+            let pastDate = self.dateInThePast
+            let futureDate = self.dateInTheFuture
             
             assertTrue(pastDate.isInThePast)
             assertFalse(futureDate.isInThePast)
@@ -39,10 +42,8 @@ class DatesPlusAlchemyTests: XCTestCase
     {
         testIterations.repeatBlock
         {
-            let now = Date()
-            let seconds = AlchemyGenerator.doubles(fromInclusive: 10.0, toInclusive: 3.0.weeks)
-            let pastDate = now.subtractingTimeInterval(seconds)
-            let futureDate = now.addingTimeInterval(seconds)
+            let pastDate = self.dateInThePast
+            let futureDate = self.dateInTheFuture
             
             assertTrue(futureDate.isInTheFuture)
             assertFalse(pastDate.isInTheFuture	)
@@ -65,7 +66,39 @@ class DatesPlusAlchemyTests: XCTestCase
         }
     }
 
+    
+    func testIsBefore()
+    {
+        testIterations.repeatBlock
+        {
+            let pastDate = self.dateInThePast
+            let futureDate = self.dateInTheFuture
+            
+            assertTrue(pastDate.isBefore(date: now))
+            assertFalse(futureDate.isBefore(date: now))
+            assertTrue(pastDate.isBefore(date: futureDate))
+            assertFalse(futureDate.isBefore(date: pastDate))
+        }
+    }
 
+    func testIsAfter()
+    {
+        testIterations.repeatBlock
+        {
+            let now = self.now
+            let pastDate = self.dateInThePast
+            let futureDate = self.dateInTheFuture
+            
+            assertTrue(now.isAfter(date: pastDate))
+            assertTrue(futureDate.isAfter(date: now))
+            assertTrue(futureDate.isAfter(date: pastDate))
+            
+            assertFalse(pastDate.isAfter(date: futureDate))
+            assertFalse(pastDate.isAfter(date: now))
+            assertFalse(now.isAfter(date: futureDate))
+        }
+    }
+    
     func testDateFormatter()
     {
         testIterations.repeatBlock
