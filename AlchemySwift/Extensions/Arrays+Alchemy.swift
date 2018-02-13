@@ -16,6 +16,8 @@ import Foundation
 public extension Array
 {
     var notEmpty: Bool { return !isEmpty }
+    
+    var size: Int { return count }
 
     var anyElement: Element?
     {

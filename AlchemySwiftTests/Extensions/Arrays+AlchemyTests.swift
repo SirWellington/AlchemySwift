@@ -34,6 +34,11 @@ class ArraysPlusAlchemyTests: XCTestCase
 
         XCTAssertTrue(strings.notEmpty)
     }
+    
+    func testSize()
+    {
+        assertEquals(strings.size, strings.count	)
+    }
 
     func testAnyElement()
     {
