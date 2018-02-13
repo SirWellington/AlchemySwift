@@ -12,7 +12,7 @@ import Foundation
 //======================================
 // MARK: Convenience Functions
 //======================================
-extension Date
+public extension Date
 {
     var isInThePast: Bool
     {
@@ -38,7 +38,7 @@ extension Date
 //======================================
 // MARK: Formatting Dates
 //======================================
-extension Date
+public extension Date
 {
 
     /**
