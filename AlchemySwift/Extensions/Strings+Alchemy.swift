@@ -21,6 +21,8 @@ public extension String
     {
         return !isEmpty
     }
+    
+    var length: Int { return count }
 
     var intValue: Int?
     {

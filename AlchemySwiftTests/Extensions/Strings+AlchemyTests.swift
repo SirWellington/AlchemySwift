@@ -28,6 +28,15 @@ class StringsPlusAlchemyTests: XCTestCase
             assertTrue(string.notEmpty)
         }
     }
+    
+    func testLength()
+    {
+        iterations.repeatBlock
+        {
+            let string = self.string
+            assertEquals(string.length, string.count)
+        }
+    }
 
     func testNotEmptyWithEmptyString()
     {
