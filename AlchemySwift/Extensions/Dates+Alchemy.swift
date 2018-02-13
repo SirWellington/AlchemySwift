@@ -14,6 +14,18 @@ import Foundation
 //======================================
 extension Date
 {
+    var isInThePast: Bool
+    {
+        let now = Date()
+        return self.timeIntervalSince1970 < now.timeIntervalSince1970
+    }
+    
+    var isInTheFuture: Bool
+    {
+        let now = Date()
+        return self.timeIntervalSince1970 > now.timeIntervalSince1970
+    }
+    
     /**
         Returns a new date that is `timeInterval` seconds before this date.
     */

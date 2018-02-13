@@ -20,6 +20,34 @@ class DatesPlusAlchemyTests: XCTestCase
 {
 
     private var testIterations =  100
+    
+    func testIsInThePast()
+    {
+        testIterations.repeatBlock
+        {
+            let now = Date()
+            let secondsAgo = AlchemyGenerator.doubles(fromInclusive: 10, toInclusive: 10.0.days)
+            let pastDate = now.subtractingTimeInterval(secondsAgo)
+            let futureDate = now.addingTimeInterval(secondsAgo)
+            
+            assertTrue(pastDate.isInThePast)
+            assertFalse(futureDate.isInThePast)
+        }
+    }
+    
+    func testIsInTheFuture()
+    {
+        testIterations.repeatBlock
+        {
+            let now = Date()
+            let seconds = AlchemyGenerator.doubles(fromInclusive: 10.0, toInclusive: 3.0.weeks)
+            let pastDate = now.subtractingTimeInterval(seconds)
+            let futureDate = now.addingTimeInterval(seconds)
+            
+            assertTrue(futureDate.isInTheFuture)
+            assertFalse(pastDate.isInTheFuture	)
+        }
+    }
 
     func testDateBySubtracting()
     {
