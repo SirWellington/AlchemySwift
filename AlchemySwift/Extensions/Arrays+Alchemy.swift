@@ -58,8 +58,10 @@ public extension Array
     }
     
     /**
-     Removes the first element from the array and returns it.
-     If the array is empty, or has no first element, nil is returned.
+         Removes the first element from the array and returns it.
+         If the array is empty, or has no first element, nil is returned.
+
+         - returns : The first element of the array, if present, `null` otherwise.
      */
     mutating func popFirst() -> Element?
     {
