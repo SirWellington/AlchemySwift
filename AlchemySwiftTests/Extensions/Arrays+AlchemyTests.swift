@@ -274,7 +274,6 @@ extension ArraysPlusAlchemyTests
 
     func testCountWhere()
     {
-
         iterations.repeatBlock
         {
             let count = strings.countWhere  { _ in true }

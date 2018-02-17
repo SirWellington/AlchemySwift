@@ -24,6 +24,7 @@ public extension Double
 //=====================================
 //MARK: Time Conversions
 //=====================================
+
 public extension Double
 {
     var millis: TimeInterval { return self / 1000}
@@ -34,4 +35,14 @@ public extension Double
     var hours: TimeInterval { return minutes * 60 }
     var days: TimeInterval { return hours * 24 }
     var weeks: TimeInterval { return days * 7 }
+}
+
+public extension Int
+{
+    var millis: TimeInterval { return self.asDouble.millis }
+    var seconds: TimeInterval { return self.asDouble.seconds}
+    var minutes: TimeInterval { return self.asDouble.minutes }
+    var hours: TimeInterval { return self.asDouble.hours }
+    var days: TimeInterval { return self.asDouble.days }
+    var weeks: TimeInterval { return self.asDouble.weeks }
 }
