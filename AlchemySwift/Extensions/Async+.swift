@@ -35,8 +35,8 @@ public extension DispatchQueue
      */
     func asyncAfter(delay: TimeInterval, block: @escaping Block)
     {
-        let millis = delay.millis.intValue
-        let delay: DispatchTime = DispatchTime.now() + DispatchTimeInterval.milliseconds(millis)
+        let millis = delay.toMillis
+        let delay: DispatchTime = DispatchTime.now() + DispatchTimeInterval.milliseconds(millis.intValue)
         asyncAfter(deadline: delay, execute: block)
     }
 }
