@@ -37,7 +37,7 @@ public extension Double
     var weeks: TimeInterval { return days * 7 }
 }
 
-extension TimeInterval
+public extension TimeInterval
 {
     var toMillis: Double { return self * 1000.0 }
     var toSeconds: Double { return self }
