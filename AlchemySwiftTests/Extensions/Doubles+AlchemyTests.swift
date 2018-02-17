@@ -96,4 +96,58 @@ class DoublesPlusAlchemyTests : XCTestCase
         assertEquals(3.weeks, 21.days)
     }
 
+    func testTimeIntervalToMillis()
+    {
+        assertEquals(0.0.toMillis, 0.0)
+        assertEquals(1.0.toMillis, 1000.0)
+        assertEquals(10.0.toMillis, 10_000.0)
+        assertEquals(0.1.toMillis, 100.0)
+    }
+
+    func testTimeIntervalToSeconds()
+    {
+        100.repeatBlock
+        {
+            let time = AlchemyGenerator.doubles(fromInclusive: 0.1, toInclusive: 1000.0)
+            assertEquals(time.toSeconds, time)
+        }
+    }
+
+    func testTimeIntervalToMinutes()
+    {
+        100.repeatBlock
+        {
+            let time = AlchemyGenerator.doubles(fromInclusive: 0.1, toInclusive: 1000.0)
+            assertEquals(time.toMinutes, time / 60.0)
+        }
+    }
+
+    func testTimeIntervalToHours()
+    {
+        100.repeatBlock
+        {
+            let time = AlchemyGenerator.doubles(fromInclusive: 0.1, toInclusive: 1000.0)
+            assertEquals(time.toHours, time / (60.0 * 60.0), withMarginOfError: 0.0000001)
+        }
+    }
+
+    func testTimeIntervalToDays()
+    {
+        100.repeatBlock
+        {
+            let time = AlchemyGenerator.doubles(fromInclusive: 0.1, toInclusive: 1000.0)
+            assertEquals(time.toDays, time.toHours / 24.0)
+        }
+    }
+
+
+    func testTimeIntervalToWeeks()
+    {
+        100.repeatBlock
+        {
+            let time = AlchemyGenerator.doubles(fromInclusive: 0.1, toInclusive: 1000.0)
+            assertEquals(time.toWeeks, time.toDays / 7.0)
+        }
+    }
+
 }

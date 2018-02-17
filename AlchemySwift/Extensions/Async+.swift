@@ -33,9 +33,9 @@ public extension DispatchQueue
     /**
          - parameter seconds: The number of seconds to wait until executing the given block.
      */
-    func asyncAfter(seconds: TimeInterval, block: @escaping Block)
+    func asyncAfter(delay: TimeInterval, block: @escaping Block)
     {
-        let millis = seconds.millis.intValue
+        let millis = delay.millis.intValue
         let delay: DispatchTime = DispatchTime.now() + DispatchTimeInterval.milliseconds(millis)
         asyncAfter(deadline: delay, execute: block)
     }

@@ -66,7 +66,7 @@ extension AsyncPlusAlchemyTests
 
         expectation(for: predicate, evaluatedWith: expected, handler: nil)
 
-        queue.asyncAfter(seconds: secondsToWait)
+        queue.asyncAfter(delay: secondsToWait)
         {
             counter += 1
         }

@@ -36,3 +36,13 @@ public extension Double
     var days: TimeInterval { return hours * 24 }
     var weeks: TimeInterval { return days * 7 }
 }
+
+extension TimeInterval
+{
+    var toMillis: Double { return self * 1000.0 }
+    var toSeconds: Double { return self }
+    var toMinutes: Double { return self / 60.0 }
+    var toHours: Double { return self.toMinutes / 60.0 }
+    var toDays: Double { return self.toHours / 24.0 }
+    var toWeeks: Double { return self.toDays / 7.0 }
+}
