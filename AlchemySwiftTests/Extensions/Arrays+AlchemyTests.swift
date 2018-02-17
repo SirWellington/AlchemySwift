@@ -15,7 +15,7 @@ import XCTest
 
 class ArraysPlusAlchemyTests: XCTestCase
 {
-    fileprivate var iterations = 100
+    private var iterations = 100
 
     private var anyString: String { return AlchemyGenerator.Strings.alphanumeric }
     private var strings: [String] = []
@@ -46,22 +46,27 @@ class ArraysPlusAlchemyTests: XCTestCase
         let emptyArray = [String]()
         assertNil(emptyArray.anyElement)
 
-        let result: String! = strings.anyElement
-        assertNotNil(result)
-        assertTrue(strings.contains(result))
+        iterations.repeatBlock
+        {
+            let result: String! = strings.anyElement
+            assertNotNil(result)
+            assertTrue(strings.contains(result))
+        }
     }
 
     func testShuffle()
     {
-
-        let result = strings.shuffled()
-
-        assertTrue(result != strings)
-        assertEquals(result.size, strings.size)
-
-        for string in result
+        iterations.repeatBlock
         {
-            assertTrue(result.contains(string))
+            let result = strings.shuffled()
+
+            assertTrue(result != strings)
+            assertEquals(result.size, strings.size)
+
+            for string in result
+            {
+                assertTrue(result.contains(string))
+            }
         }
     }
 
@@ -80,7 +85,7 @@ class ArraysPlusAlchemyTests: XCTestCase
 
     func testAnyElementInRange()
     {
-        100.repeatBlock
+        iterations.repeatBlock
         {
             let min = 0
             let max = Int.randomFrom(minInclusive: 1, maxExclusive: 1_000)
@@ -94,12 +99,15 @@ class ArraysPlusAlchemyTests: XCTestCase
 
     func testPrepend()
     {
-        let newString = self.anyString
+        iterations.repeatBlock
+        {
+            let newString = self.anyString
 
-        let expected = [newString] + strings
-        strings.prepend(newString)
+            let expected = [newString] + strings
+            strings.prepend(newString)
 
-        assertEquals(strings, expected)
+            assertEquals(strings, expected)
+        }
     }
 
     func testPrependWhenEmpty()
@@ -114,26 +122,32 @@ class ArraysPlusAlchemyTests: XCTestCase
 
     func testPrependMultipleTimes()
     {
-        let elementsToPrepend = AlchemyGenerator.Arrays.ofAlphanumericString
-        let expected = elementsToPrepend.reversed() + strings
-
-        elementsToPrepend.forEach
+        iterations.repeatBlock
         {
-            strings.prepend($0)
-        }
+            let elementsToPrepend = AlchemyGenerator.Arrays.ofAlphanumericString
+            let expected = elementsToPrepend.reversed() + strings
 
-        assertEquals(strings, expected)
+            elementsToPrepend.forEach
+            {
+                strings.prepend($0)
+            }
+
+            assertEquals(strings, expected)
+        }
     }
     
     func testAdd()
     {
-        var array = strings
-        let newItem = anyString
-        
-        let expected = strings + [newItem]
-        
-        array.add(newItem)
-        assertEquals(array, expected)
+        iterations.repeatBlock
+        {
+            var array = strings
+            let newItem = anyString
+
+            let expected = strings + [newItem]
+
+            array.add(newItem)
+            assertEquals(array, expected)
+        }
         
     }
     
@@ -164,19 +178,22 @@ class ArraysPlusAlchemyTests: XCTestCase
     
     func testPopFirstOnEntireArray()
     {
-        let original = strings
-        var array = original
-        
-        var storage = [String]()
-        
-        while array.notEmpty
+        iterations.repeatBlock
         {
-            let element = array.popFirst()!
-            storage.append(element)
+            let original = strings
+            var array = original
+
+            var storage = [String]()
+
+            while array.notEmpty
+            {
+                let element = array.popFirst()!
+                storage.append(element)
+            }
+
+            assertEquals(storage, original)
+            assertEmpty(array)
         }
-        
-        assertEquals(storage, original)
-        assertEmpty(array)
     }
 }
 
