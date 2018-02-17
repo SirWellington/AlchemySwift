@@ -15,7 +15,7 @@ import XCTest
 
 class ArraysPlusAlchemyTests: XCTestCase
 {
-    fileprivate var repetitions = 100
+    fileprivate var iterations = 100
 
     private var anyString: String { return AlchemyGenerator.Strings.alphanumeric }
     private var strings: [String] = []
@@ -32,25 +32,23 @@ class ArraysPlusAlchemyTests: XCTestCase
     func testNotEmpty()
     {
         let emptyArray = [String]()
-        XCTAssertFalse(emptyArray.notEmpty)
-
-        XCTAssertTrue(strings.notEmpty)
+        assertFalse(emptyArray.notEmpty)
+        assertTrue(strings.notEmpty)
     }
     
     func testSize()
     {
-        assertEquals(strings.size, strings.count	)
+        assertEquals(strings.size, strings.count)
     }
 
     func testAnyElement()
     {
         let emptyArray = [String]()
-        XCTAssertTrue(emptyArray.anyElement == nil)
+        assertNil(emptyArray.anyElement)
 
         let result: String! = strings.anyElement
-        XCTAssertFalse(result == nil)
-
-        XCTAssertTrue(strings.contains(result))
+        assertNotNil(result)
+        assertTrue(strings.contains(result))
     }
 
     func testShuffle()
@@ -58,37 +56,26 @@ class ArraysPlusAlchemyTests: XCTestCase
 
         let result = strings.shuffled()
 
-        XCTAssertTrue(result != strings)
-        XCTAssertTrue(result.count == strings.count)
+        assertTrue(result != strings)
+        assertEquals(result.size, strings.size)
 
-        for string in result {
-            XCTAssertTrue(result.contains(string))
+        for string in result
+        {
+            assertTrue(result.contains(string))
         }
     }
 
     func testIsValidIndex()
     {
-        let validIndex = AlchemyGenerator.integer(from: 0, to: strings.count)
+        let validIndex = AlchemyGenerator.integer(from: 0, to: strings.size)
 
-        XCTAssertTrue(strings.isValidIndex(validIndex))
+        assertTrue(strings.isValidIndex(validIndex))
 
         let negativeIndex = AlchemyGenerator.negativeInteger()
-        XCTAssertFalse(strings.isValidIndex(negativeIndex))
+        assertFalse(strings.isValidIndex(negativeIndex))
 
         let invalidIndex = AlchemyGenerator.integer(from: strings.count, to: UInt32.max.intValue)
-        XCTAssertFalse(strings.isValidIndex(invalidIndex))
-    }
-
-    func testCountWhere()
-    {
-        let count = strings.countWhere { _ in true }
-        XCTAssertTrue(count == strings.count)
-    }
-
-    func testCountWhereWhenNone()
-    {
-        let count = strings.countWhere{ _ in false }
-        XCTAssertTrue(count == 0)
+        assertFalse(strings.isValidIndex(invalidIndex))
     }
 
     func testAnyElementInRange()
@@ -100,21 +87,9 @@ class ArraysPlusAlchemyTests: XCTestCase
             let range = min..<max
 
             let result = range.anyElement!
-            XCTAssertTrue(result >= min)
-            XCTAssertTrue(result  < max)
+            assertTrue(result >= min)
+            assertTrue(result  < max)
         }
-    }
-
-    func testRepeatBlock()
-    {
-        var counter = 0
-        let block = {
-            counter += 1
-        }
-
-        (1...100).repeatBlock(block)
-
-        XCTAssertTrue(counter == 100)
     }
 
     func testPrepend()
@@ -124,7 +99,7 @@ class ArraysPlusAlchemyTests: XCTestCase
         let expected = [newString] + strings
         strings.prepend(newString)
 
-        XCTAssertEqual(strings, expected)
+        assertEquals(strings, expected)
     }
 
     func testPrependWhenEmpty()
@@ -134,7 +109,7 @@ class ArraysPlusAlchemyTests: XCTestCase
         let expected = [newElement]
 
         array.prepend(newElement)
-        XCTAssertEqual(array, expected)
+        assertEquals(array, expected)
     }
 
     func testPrependMultipleTimes()
@@ -142,11 +117,12 @@ class ArraysPlusAlchemyTests: XCTestCase
         let elementsToPrepend = AlchemyGenerator.Arrays.ofAlphanumericString
         let expected = elementsToPrepend.reversed() + strings
 
-        elementsToPrepend.forEach {
+        elementsToPrepend.forEach
+        {
             strings.prepend($0)
         }
 
-        XCTAssertEqual(strings, expected)
+        assertEquals(strings, expected)
     }
     
     func testAdd()
@@ -163,16 +139,19 @@ class ArraysPlusAlchemyTests: XCTestCase
     
     func testPopFirst()
     {
-        let expected = strings
-        let newItem = anyString
-        let original = [newItem] + expected
-        
-        var array = original
-        let poppedElement = array.popFirst()
-        assertNotNil(poppedElement)
-        assertEquals(poppedElement, newItem)
-        
-        assertEquals(array, expected)
+        iterations.repeatBlock
+        {
+            let expected = strings
+            let newItem = anyString
+            let original = [newItem] + expected
+
+            var array = original
+            let poppedElement = array.popFirst()
+            
+            assertNotNil(poppedElement)
+            assertEquals(poppedElement, newItem)
+            assertEquals(array, expected)
+        }
     }
     
     func testPopFirstOnEmptyArray()
@@ -208,29 +187,31 @@ extension ArraysPlusAlchemyTests
 {
     func testEqualityWhenNotEqual()
     {
-        XCTAssertFalse(strings == secondStrings)
+        assertFalse(strings == secondStrings)
     }
 
     func testEqualityWhenShuffled()
     {
-        repetitions.repeatBlock {
+        iterations.repeatBlock
+        {
 
             let original = strings
             let shuffled = strings.shuffled()
 
-            XCTAssertFalse(original == shuffled)
+            assertFalse(original == shuffled)
         }
     }
 
     func testEqualityWhenNewElementAdded()
     {
-        repetitions.repeatBlock {
+        iterations.repeatBlock
+        {
 
             let original = strings
             let newString = AlchemyGenerator.alphanumericString()
             let new = strings + [newString]
 
-            XCTAssertFalse(new == original)
+            assertFalse(new == original)
         }
 
     }
@@ -239,7 +220,7 @@ extension ArraysPlusAlchemyTests
     {
         let copy = strings
 
-        XCTAssertTrue(copy == strings)
+        assertTrue(copy == strings)
     }
 
     func testEqualityWhenEmpty()
@@ -247,17 +228,75 @@ extension ArraysPlusAlchemyTests
         let first = [String]()
         let second = [String]()
 
-        XCTAssertTrue(first == second)
+        assertTrue(first == second)
     }
 
     func testEqualityWithDeepCopy()
     {
-        var copy = [String]()
+        iterations.repeatBlock
+        {
+            var copy = [String]()
 
-        strings.forEach { copy.append($0) }
+            strings.forEach
+            {
+                copy.append($0)
+            }
 
-        XCTAssertTrue(copy == strings)
+            assertTrue(copy == strings)
+        }
+
     }
 }
 
 
+//======================================
+//MARK: Sequence Tests
+//======================================
+extension ArraysPlusAlchemyTests
+{
+
+    func testCountWhere()
+    {
+
+        iterations.repeatBlock
+        {
+            let count = strings.countWhere  { _ in true }
+            assertEquals(count, strings.size)
+        }
+    }
+
+    func testCountWhereWhenNone()
+    {
+        iterations.repeatBlock
+        {
+            let count = strings.countWhere  { _ in false }
+            assertTrue(count == 0)
+        }
+    }
+
+    func testRepeatBlock()
+    {
+        var counter = 0
+        let block =
+        {
+            counter += 1
+        }
+
+        (1...100).repeatBlock(block)
+
+        assertTrue(counter == 100)
+    }
+
+    func testOnEach()
+    {
+        var counter = 0
+        let size = AlchemyGenerator.integer(from: 10, to: 100)
+        let array = Array(repeating: 2, count: size)
+
+        let result = array.onEach { counter += $0 }
+        
+        assertEquals(counter, size * 2)
+        assertEquals(result, array)
+    }
+
+}

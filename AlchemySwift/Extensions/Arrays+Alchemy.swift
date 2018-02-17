@@ -141,12 +141,25 @@ public extension Sequence where Element: Equatable
     {
         return filter(predicate).count
     }
+}
+
+public extension Sequence
+{
 
     func repeatBlock(_ block: () -> ())
     {
         for _ in self
         {
             block()
+        }
+    }
+
+    func onEach(_ block: (Element) -> ()) -> [Element]
+    {
+        return self.map
+        {
+            block($0)
+            return $0
         }
     }
 }
