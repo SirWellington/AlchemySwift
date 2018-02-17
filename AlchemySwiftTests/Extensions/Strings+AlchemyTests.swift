@@ -8,6 +8,7 @@
 
 import AlchemyGenerator
 @testable import AlchemySwift
+import AlchemyTest
 import Foundation
 import XCTest
 
@@ -107,11 +108,14 @@ class StringsPlusAlchemyTests: XCTestCase
 
     func testAsAttributed()
     {
-        let string = self.string
-        let expected = NSAttributedString(string: string)
-        let result = string.asAttributed
-
-        assertEquals(result, expected)
+        iterations.repeatBlock
+        {
+            let string = self.string
+            let expected = NSAttributedString(string: string)
+            let result = string.asAttributed
+            
+            assertEquals(result, expected)
+        }
     }
 
     func testStringDotEmpty()
@@ -119,6 +123,20 @@ class StringsPlusAlchemyTests: XCTestCase
         assertEquals(String.empty, "")
     }
     
+    func testTitleCased()
+    {
+        iterations.repeatBlock
+        {
+            let string = self.string
+            let firstLetter = self.string.firstLetter!
+            let combined = firstLetter + string
+            let expected = firstLetter.uppercased() + string
+            
+            let result = combined.titlecased()
+            
+            assertEquals(result, expected)
+        }
+    }
 }
 
 

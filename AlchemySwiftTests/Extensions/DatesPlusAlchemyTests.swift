@@ -9,6 +9,7 @@
 
 import AlchemyGenerator
 @testable import AlchemySwift
+import AlchemyTest
 import Foundation
 import XCTest
 
@@ -62,7 +63,7 @@ class DatesPlusAlchemyTests: XCTestCase
 
             let result = date.subtractingTimeInterval(timeToSubtract)
 
-            assertEquals(result, expectedDate, marginOfError: 0.00001)
+            assertEquals(result, expectedDate, withMarginOfError: 0.00001)
         }
     }
 

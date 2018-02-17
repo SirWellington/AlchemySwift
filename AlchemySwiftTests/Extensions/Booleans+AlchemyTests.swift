@@ -9,6 +9,7 @@
 
 import AlchemyGenerator
 @testable import AlchemySwift
+import AlchemyTest
 import Foundation
 import XCTest
 

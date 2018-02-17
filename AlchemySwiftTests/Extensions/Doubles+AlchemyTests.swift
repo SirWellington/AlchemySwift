@@ -8,6 +8,7 @@
 
 import AlchemyGenerator
 @testable import AlchemySwift
+import AlchemyTest
 import Foundation
 import XCTest
 
@@ -50,7 +51,7 @@ class DoublesPlusAlchemyTests : XCTestCase
         100.repeatBlock
         {
             let time: TimeInterval = AlchemyGenerator.Doubles.any
-            assertEquals(time.milliseconds, time/1000, marginOfError: 0.00001)
+            assertEquals(time.milliseconds, time/1000, withMarginOfError: 0.00001)
         }
     }
 
