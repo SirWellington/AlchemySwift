@@ -12,6 +12,7 @@
 		853F22D2785E7D03636D857B /* Integers+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F2D559445E2536370EE8A /* Integers+AlchemyTests.swift */; };
 		853F23D483403DF8FAE3D466 /* NSObjects+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F22B81C8977BFEDFCADAF /* NSObjects+Alchemy.swift */; };
 		853F2521A6698DEBEF7B4C2E /* Booleans+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F211E66F6399D012D3D4F /* Booleans+Alchemy.swift */; };
+		853F25340F892B68E1DC222D /* AttributedStringBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F2FA2ABEC2EC0A5BAF0F8 /* AttributedStringBuilderTests.swift */; };
 		853F2535E304989A170F3C17 /* Async+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F24F6ECF17BE8618F7573 /* Async+AlchemyTests.swift */; };
 		853F25657B64819E3C7F1234 /* Doubles+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F27A221EA30D2FFF63AFF /* Doubles+Alchemy.swift */; };
 		853F25A6C675FB5CD7DD0510 /* Async+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F2EDB0C161B518E81B22A /* Async+.swift */; };
@@ -76,6 +77,7 @@
 		853F2DC607C5CF99C79CA9A0 /* Arrays+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Arrays+Alchemy.swift"; sourceTree = "<group>"; };
 		853F2E7BA160BB0EC9DBE272 /* Doubles+AlchemyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Doubles+AlchemyTests.swift"; sourceTree = "<group>"; };
 		853F2EDB0C161B518E81B22A /* Async+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Async+.swift"; sourceTree = "<group>"; };
+		853F2FA2ABEC2EC0A5BAF0F8 /* AttributedStringBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedStringBuilderTests.swift; sourceTree = "<group>"; };
 		DE125EDE1FF6999300A3C98B /* AlchemySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlchemySwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE125EE11FF6999300A3C98B /* AlchemySwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlchemySwift.h; sourceTree = "<group>"; };
 		DE125EE21FF6999300A3C98B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				853F2B5FE9CA46D18DBD01A9 /* Extensions */,
 				DE125EEE1FF6999300A3C98B /* Info.plist */,
 				DE125EEC1FF6999300A3C98B /* AlchemySwiftTests.swift */,
+				853F2FA2ABEC2EC0A5BAF0F8 /* AttributedStringBuilderTests.swift */,
 			);
 			path = AlchemySwiftTests;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				853F2D5490643E4975966B6E /* NSObjects+AlchemyTests.swift in Sources */,
 				853F2DE0A9188E76CB9EBF0D /* DatesPlusAlchemyTests.swift in Sources */,
 				853F2535E304989A170F3C17 /* Async+AlchemyTests.swift in Sources */,
+				853F25340F892B68E1DC222D /* AttributedStringBuilderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

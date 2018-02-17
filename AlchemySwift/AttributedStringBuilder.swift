@@ -10,7 +10,7 @@ import Foundation
 
 
 /**
-    This class allows you to conveninently build an Attributed String,
+    This class allows you to conveniently build an Attributed String,
     one part at a time.
  */
 public class AttributedStringBuilder
@@ -20,6 +20,11 @@ public class AttributedStringBuilder
     public init()
     {
         
+    }
+    
+    public func clear()
+    {
+        strings.removeAll()
     }
     
     public func add(string: String, attribute: NSAttributedStringKey, value: Any)
