@@ -8,6 +8,7 @@
 
 import AlchemyGenerator
 @testable import AlchemySwift
+import AlchemyTest
 import Foundation
 import XCTest
 
@@ -16,9 +17,10 @@ class ArraysPlusAlchemyTests: XCTestCase
 {
     fileprivate var repetitions = 100
 
-    fileprivate var strings: [String] = []
-    fileprivate var secondStrings: [String] = []
-    fileprivate var numbers: [Int] = []
+    private var anyString: String { return AlchemyGenerator.Strings.alphanumeric }
+    private var strings: [String] = []
+    private var secondStrings: [String] = []
+    private var numbers: [Int] = []
 
     override func setUp()
     {
@@ -91,8 +93,7 @@ class ArraysPlusAlchemyTests: XCTestCase
 
     func testAnyElementInRange()
     {
-
-        (0...100).repeatBlock
+        100.repeatBlock
         {
             let min = 0
             let max = Int.randomFrom(minInclusive: 1, maxExclusive: 1_000)
@@ -102,7 +103,6 @@ class ArraysPlusAlchemyTests: XCTestCase
             XCTAssertTrue(result >= min)
             XCTAssertTrue(result  < max)
         }
-
     }
 
     func testRepeatBlock()
@@ -119,7 +119,7 @@ class ArraysPlusAlchemyTests: XCTestCase
 
     func testPrepend()
     {
-        let newString = AlchemyGenerator.Strings.alphanumeric
+        let newString = self.anyString
 
         let expected = [newString] + strings
         strings.prepend(newString)
@@ -130,7 +130,7 @@ class ArraysPlusAlchemyTests: XCTestCase
     func testPrependWhenEmpty()
     {
         var array = [String]()
-        let newElement = strings.anyElement ?? ""
+        let newElement = anyString
         let expected = [newElement]
 
         array.prepend(newElement)
@@ -147,6 +147,57 @@ class ArraysPlusAlchemyTests: XCTestCase
         }
 
         XCTAssertEqual(strings, expected)
+    }
+    
+    func testAdd()
+    {
+        var array = strings
+        let newItem = anyString
+        
+        let expected = strings + [newItem]
+        
+        array.add(newItem)
+        assertEquals(array, expected)
+        
+    }
+    
+    func testPopFirst()
+    {
+        let expected = strings
+        let newItem = anyString
+        let original = [newItem] + expected
+        
+        var array = original
+        let poppedElement = array.popFirst()
+        assertNotNil(poppedElement)
+        assertEquals(poppedElement, newItem)
+        
+        assertEquals(array, expected)
+    }
+    
+    func testPopFirstOnEmptyArray()
+    {
+        var array = [String]()
+        
+        let result = array.popFirst()
+        assertNil(result)
+    }
+    
+    func testPopFirstOnEntireArray()
+    {
+        let original = strings
+        var array = original
+        
+        var storage = [String]()
+        
+        while array.notEmpty
+        {
+            let element = array.popFirst()!
+            storage.append(element)
+        }
+        
+        assertEquals(storage, original)
+        assertEmpty(array)
     }
 }
 

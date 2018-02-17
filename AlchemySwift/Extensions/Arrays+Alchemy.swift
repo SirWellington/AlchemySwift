@@ -51,6 +51,23 @@ public extension Array
     {
         insert(element, at: 0)
     }
+    
+    mutating func add(_ element: Element)
+    {
+        append(element)
+    }
+    
+    /**
+     Removes the first element from the array and returns it.
+     If the array is empty, or has no first element, nil is returned.
+     */
+    mutating func popFirst() -> Element?
+    {
+        guard let first = self.first else { return nil }
+        self.remove(at: 0)
+        
+        return first
+    }
 }
 
 public extension CountableRange where Element == Int
@@ -71,7 +88,6 @@ public extension Array
 
     func shuffled() -> Array<Element>
     {
-
         guard count >= 2
         else
         {
