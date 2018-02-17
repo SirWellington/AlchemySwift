@@ -53,7 +53,7 @@ public extension String
 }
 
 //=====================================
-//MARK: Convenience Functions
+//MARK: String Transformations
 //=====================================
 public extension String
 {
@@ -86,6 +86,16 @@ public extension String
     {
         return trimmingCharacters(in: CharacterSet(charactersIn: " "))
     }
+    
+    func titlecased() -> String
+    {
+        var lowercased = self.lowercased()
+        let firstCharacter = lowercased.removeFirst()
+        let firstCharacterUpper = "\(firstCharacter)".uppercased()
+        
+        return "\(firstCharacterUpper)\(lowercased)"
+    }
+    
 }
 
 
@@ -96,7 +106,6 @@ public extension Character
 {
     var asString: String { return "\(self)" }
 }
-
 
 
 //=====================================
