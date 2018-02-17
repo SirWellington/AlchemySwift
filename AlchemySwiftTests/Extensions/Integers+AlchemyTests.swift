@@ -15,11 +15,12 @@ import XCTest
 
 class IntegersPlusAlchemyTests: XCTestCase
 {
+    private var iterations = 100
 
-    fileprivate var min = 0
-    fileprivate var max = 0
-    fileprivate var array: [String] = []
-    fileprivate var integer = 0
+    private var min = 0
+    private var max = 0
+    private var array: [String] = []
+    private var integer = 0
 
     override func setUp()
     {
@@ -165,3 +166,75 @@ extension IntegersPlusAlchemyTests
 
 }
 
+
+//=====================================
+//MARK: Time Conversion Tests
+//=====================================
+extension IntegersPlusAlchemyTests
+{
+    func testMillis()
+    {
+        iterations.repeatBlock
+        {
+            let amount = integer
+            let result = amount.millis
+            let expected = TimeInterval(amount).millis
+
+            assertEquals(expected, result)
+        }
+    }
+
+    func testSeconds()
+    {
+        iterations.repeatBlock
+        {
+            let amount = self.integer
+            assertEquals(amount.seconds, amount.asDouble)
+        }
+    }
+
+    func testMinutes()
+    {
+        iterations.repeatBlock
+        {
+            let amount = self.integer
+            let result = amount.minutes
+            let expected = amount.seconds * 60.0
+
+            assertEquals(result, expected)
+        }
+    }
+
+    func testHours()
+    {
+        iterations.repeatBlock
+        {
+            let amount = self.integer
+            let result = amount.hours
+            let expected = amount.doubleValue.hours
+            assertEquals(expected, result)
+        }
+    }
+
+    func testDays()
+    {
+        iterations.repeatBlock
+        {
+            let amount = self.integer
+            let result = amount.days
+            let expected = amount.doubleValue.days
+            assertEquals(expected, result)
+        }
+    }
+
+    func testWeeks()
+    {
+        iterations.repeatBlock
+        {
+            let amount = self.integer
+            let result = amount.weeks
+            let expected = amount.doubleValue.weeks
+            assertEquals(expected, result)
+        }
+    }
+}

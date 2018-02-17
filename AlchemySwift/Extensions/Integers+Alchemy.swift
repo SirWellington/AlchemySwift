@@ -99,3 +99,18 @@ public extension UInt32
         return Int(self)
     }
 }
+
+
+//=====================================
+//MARK: Time Conversions
+//=====================================
+
+public extension Int
+{
+    var millis: TimeInterval { return self.asDouble.millis }
+    var seconds: TimeInterval { return self.asDouble.seconds}
+    var minutes: TimeInterval { return self.asDouble.minutes }
+    var hours: TimeInterval { return self.asDouble.hours }
+    var days: TimeInterval { return self.asDouble.days }
+    var weeks: TimeInterval { return self.asDouble.weeks }
+}
