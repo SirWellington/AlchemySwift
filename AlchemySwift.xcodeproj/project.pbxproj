@@ -27,6 +27,9 @@
 		DE125EED1FF6999300A3C98B /* AlchemySwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE125EEC1FF6999300A3C98B /* AlchemySwiftTests.swift */; };
 		DE125EEF1FF6999300A3C98B /* AlchemySwift.h in Headers */ = {isa = PBXBuildFile; fileRef = DE125EE11FF6999300A3C98B /* AlchemySwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE15D162201B97030006FA5D /* AlchemyGenerator.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 853F28AC3FBD1D6699D973F1 /* AlchemyGenerator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DE9C59D52037FA3B00147679 /* AttributedStringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C59D42037FA3B00147679 /* AttributedStringBuilder.swift */; };
+		DE9C59D72038012E00147679 /* AlchemyTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9C59D62038012E00147679 /* AlchemyTest.framework */; };
+		DE9C59D82038013800147679 /* AlchemyTest.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = DE9C59D62038012E00147679 /* AlchemyTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				DE15D162201B97030006FA5D /* AlchemyGenerator.framework in Copy Frameworks */,
+				DE9C59D82038013800147679 /* AlchemyTest.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,6 +80,8 @@
 		DE125EE71FF6999300A3C98B /* AlchemySwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlchemySwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE125EEC1FF6999300A3C98B /* AlchemySwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlchemySwiftTests.swift; sourceTree = "<group>"; };
 		DE125EEE1FF6999300A3C98B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE9C59D42037FA3B00147679 /* AttributedStringBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringBuilder.swift; sourceTree = "<group>"; };
+		DE9C59D62038012E00147679 /* AlchemyTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlchemyTest.framework; path = Carthage/Build/iOS/AlchemyTest.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE9C59D72038012E00147679 /* AlchemyTest.framework in Frameworks */,
 				853F2D2ECA3CDE7AEB897FBF /* AlchemyGenerator.framework in Frameworks */,
 				DE125EE81FF6999300A3C98B /* AlchemySwift.framework in Frameworks */,
 			);
@@ -102,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				853F28AC3FBD1D6699D973F1 /* AlchemyGenerator.framework */,
+				DE9C59D62038012E00147679 /* AlchemyTest.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -145,6 +153,7 @@
 				DE125EF81FF699C600A3C98B /* Extensions */,
 				DE125EE11FF6999300A3C98B /* AlchemySwift.h */,
 				DE125EE21FF6999300A3C98B /* Info.plist */,
+				DE9C59D42037FA3B00147679 /* AttributedStringBuilder.swift */,
 			);
 			path = AlchemySwift;
 			sourceTree = "<group>";
@@ -291,6 +300,7 @@
 				853F25657B64819E3C7F1234 /* Doubles+Alchemy.swift in Sources */,
 				853F23D483403DF8FAE3D466 /* NSObjects+Alchemy.swift in Sources */,
 				853F2F7626ADADBEF819E13E /* Strings+Alchemy.swift in Sources */,
+				DE9C59D52037FA3B00147679 /* AttributedStringBuilder.swift in Sources */,
 				853F2761080049F8BBF1F551 /* Dates+Alchemy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
