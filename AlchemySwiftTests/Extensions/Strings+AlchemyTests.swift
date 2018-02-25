@@ -22,6 +22,27 @@ class StringsPlusAlchemyTests: XCTestCase
     {
     }
 
+    func testStaticNotEmpty()
+    {
+        iterations.repeatBlock
+        {
+            assertTrue(String.notEmpty(string))
+            assertFalse(String.notEmpty(""))
+            assertFalse(String.notEmpty(nil))
+        }
+    }
+
+    func testStaticIsEmpty()
+    {
+        iterations.repeatBlock
+        {
+            assertFalse(String.isEmpty(string))
+            assertTrue(String.isEmpty(""))
+            assertTrue(String.isEmpty(nil))
+        }
+    }
+
+
     func testNotEmpty()
     {
         iterations.repeatBlock
@@ -29,7 +50,7 @@ class StringsPlusAlchemyTests: XCTestCase
             assertTrue(string.notEmpty)
         }
     }
-    
+
     func testLength()
     {
         iterations.repeatBlock

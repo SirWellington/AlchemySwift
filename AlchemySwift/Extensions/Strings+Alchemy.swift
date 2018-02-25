@@ -17,6 +17,16 @@ public extension String
 
     static let empty = ""
 
+    static func isEmpty(_ string: String?) -> Bool
+    {
+        return string?.isEmpty ?? true
+    }
+
+    static func notEmpty(_ string: String?) -> Bool
+    {
+        return string?.notEmpty ?? true
+    }
+
     var notEmpty: Bool
     {
         return !isEmpty
