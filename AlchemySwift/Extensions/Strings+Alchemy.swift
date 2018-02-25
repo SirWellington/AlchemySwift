@@ -60,6 +60,16 @@ public extension String
     {
         return URL(string: self)
     }
+
+    func asDate(dateFormat: String, timeZone: TimeZone = .autoupdatingCurrent) -> Date?
+    {
+        let formatter = DateFormatter()
+        formatter.dateFormat = dateFormat
+        formatter.timeZone = timeZone
+
+        return formatter.date(from: self)
+    }
+
 }
 
 //=====================================
@@ -105,7 +115,6 @@ public extension String
         
         return "\(firstCharacterUpper)\(lowercased)"
     }
-    
 }
 
 

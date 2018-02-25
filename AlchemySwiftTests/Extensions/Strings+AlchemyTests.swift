@@ -101,6 +101,24 @@ class StringsPlusAlchemyTests: XCTestCase
         }
     }
 
+    func testAsDate()
+    {
+        let calendar = Calendar.autoupdatingCurrent
+
+        iterations.repeatBlock
+        {
+            let date = AlchemyGenerator.Dates.any
+            let format = "yyyy/MM/dd"
+            let string = date.formatTo(dateFormat: format)
+
+            let result = string.asDate(dateFormat: format)
+            let expectedComponents = calendar.dateComponents([.year, .month, .day], from: date)
+            let expectedDate = calendar.date(from: expectedComponents)
+
+            assertEquals(result, expectedDate)
+        }
+    }
+
     func testFirstLetter()
     {
         iterations.repeatBlock
