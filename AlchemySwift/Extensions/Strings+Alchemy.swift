@@ -24,7 +24,7 @@ public extension String
 
     static func notEmpty(_ string: String?) -> Bool
     {
-        return string?.notEmpty ?? true
+        return string?.notEmpty ?? false
     }
 
     var notEmpty: Bool
