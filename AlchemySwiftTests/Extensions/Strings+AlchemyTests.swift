@@ -119,6 +119,16 @@ class StringsPlusAlchemyTests: XCTestCase
         }
     }
 
+    func testAsDateWhenNotADate()
+    {
+        iterations.repeatBlock
+        {
+            let string = AlchemyGenerator.alphabeticString()
+            let date = string.asDate(dateFormat: "yyyy/MM/dd")
+            assertNil(date)
+        }
+    }
+
     func testFirstLetter()
     {
         iterations.repeatBlock
