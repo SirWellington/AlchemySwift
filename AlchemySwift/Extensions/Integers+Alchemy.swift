@@ -87,7 +87,7 @@ public extension Int
 
         - Returns the number of bytes represented by `self.mb`.
     */
-    var mb: Int { return round(self.asDouble * pow(1.0, 6)).intValue }
+    var mb: Int { return round(self.asDouble * pow(10.0, 6)).intValue }
 
 }
 

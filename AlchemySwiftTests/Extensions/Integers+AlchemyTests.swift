@@ -129,41 +129,67 @@ extension IntegersPlusAlchemyTests
 {
     func testAsDouble()
     {
-        let expected = Double(integer)
+        iterations.repeatBlock
+        {
+            let expected = Double(integer)
 
-        let result = integer.asDouble
-        assertEquals(result, expected)
+            let result = integer.asDouble
+            assertEquals(result, expected)
+        }
     }
 
     func testDoubleValue()
     {
-        let expected = Double(integer)
+        iterations.repeatBlock
+        {
+            let expected = Double(integer)
 
-        let result = integer.doubleValue
-        assertEquals(result, expected)
+            let result = integer.doubleValue
+            assertEquals(result, expected)
+        }
     }
 
     func testAsString()
     {
-        let expected = "\(integer)"
-        let result = integer.asString
+        iterations.repeatBlock
+        {
+            let expected = "\(integer)"
+            let result = integer.asString
 
-        assertEquals(result, expected)
+            assertEquals(result, expected)
+        }
     }
 
     func testAsUInt()
     {
-        integer = AlchemyGenerator.positiveInteger()
-        assertEquals(integer.asUInt, UInt(integer))
+        iterations.repeatBlock
+        {
+            integer = AlchemyGenerator.positiveInteger()
+            assertEquals(integer.asUInt, UInt(integer))
+        }
     }
 
     func testAsUInt32()
     {
-        integer = AlchemyGenerator.positiveInteger()
-        assertEquals(integer.asUInt32, UInt32(integer))
-        assertEquals(integer.uInt32, UInt32(integer))
+        iterations.repeatBlock
+        {
+            integer = AlchemyGenerator.positiveInteger()
+            assertEquals(integer.asUInt32, UInt32(integer))
+            assertEquals(integer.uInt32, UInt32(integer))
+        }
     }
 
+    func testMB()
+    {
+        iterations.repeatBlock
+        {
+            let megabytes = AlchemyGenerator.integer(from: 1, to: 1_000)
+            let resultBytes = megabytes.mb
+
+            let expected = megabytes * 1_000_000
+            assertEquals(resultBytes, expected)
+        }
+    }
 }
 
 
