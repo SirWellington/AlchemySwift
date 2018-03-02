@@ -154,6 +154,7 @@ public extension Sequence
         }
     }
 
+    @discardableResult
     func onEach(_ block: (Element) -> ()) -> [Element]
     {
         return self.map
