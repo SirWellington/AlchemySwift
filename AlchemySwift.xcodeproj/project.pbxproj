@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		853F20C98CBC6C7C2857EFCF /* Doubles+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F2E7BA160BB0EC9DBE272 /* Doubles+AlchemyTests.swift */; };
 		853F221E077E6C9B2B9268C1 /* Booleans+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F209D6DB05C12C0318506 /* Booleans+AlchemyTests.swift */; };
+		853F2236B78E46D696C8B723 /* OperatorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F243D69C5C2C6533103DA /* OperatorsTest.swift */; };
 		853F22D2785E7D03636D857B /* Integers+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F2D559445E2536370EE8A /* Integers+AlchemyTests.swift */; };
 		853F23D483403DF8FAE3D466 /* NSObjects+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F22B81C8977BFEDFCADAF /* NSObjects+Alchemy.swift */; };
 		853F2521A6698DEBEF7B4C2E /* Booleans+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F211E66F6399D012D3D4F /* Booleans+Alchemy.swift */; };
@@ -20,6 +21,7 @@
 		853F2761080049F8BBF1F551 /* Dates+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F20369EBC2431D23E9594 /* Dates+Alchemy.swift */; };
 		853F2D2ECA3CDE7AEB897FBF /* AlchemyGenerator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 853F28AC3FBD1D6699D973F1 /* AlchemyGenerator.framework */; };
 		853F2D5490643E4975966B6E /* NSObjects+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F256D5533D0342C5D68F5 /* NSObjects+AlchemyTests.swift */; };
+		853F2D97BC35B924EFF296FC /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F2382A261030675A63E17 /* Operators.swift */; };
 		853F2DE0A9188E76CB9EBF0D /* DatesPlusAlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F2761B6C5938DDDE200F9 /* DatesPlusAlchemyTests.swift */; };
 		853F2E00AA835C0ABDFCDD34 /* Arrays+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F2DC607C5CF99C79CA9A0 /* Arrays+Alchemy.swift */; };
 		853F2E119E9E3C6EFD86B8C8 /* Arrays+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F267048CB728E2E38ED62 /* Arrays+AlchemyTests.swift */; };
@@ -64,6 +66,8 @@
 		853F209D6DB05C12C0318506 /* Booleans+AlchemyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Booleans+AlchemyTests.swift"; sourceTree = "<group>"; };
 		853F211E66F6399D012D3D4F /* Booleans+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Booleans+Alchemy.swift"; sourceTree = "<group>"; };
 		853F22B81C8977BFEDFCADAF /* NSObjects+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObjects+Alchemy.swift"; sourceTree = "<group>"; };
+		853F2382A261030675A63E17 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		853F243D69C5C2C6533103DA /* OperatorsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperatorsTest.swift; sourceTree = "<group>"; };
 		853F249DCC87F53843928A16 /* Integers+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Integers+Alchemy.swift"; sourceTree = "<group>"; };
 		853F24F6ECF17BE8618F7573 /* Async+AlchemyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Async+AlchemyTests.swift"; sourceTree = "<group>"; };
 		853F256D5533D0342C5D68F5 /* NSObjects+AlchemyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObjects+AlchemyTests.swift"; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 				DE125EE11FF6999300A3C98B /* AlchemySwift.h */,
 				DE125EE21FF6999300A3C98B /* Info.plist */,
 				DE9C59D42037FA3B00147679 /* AttributedStringBuilder.swift */,
+				853F2382A261030675A63E17 /* Operators.swift */,
 			);
 			path = AlchemySwift;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 				DE125EEE1FF6999300A3C98B /* Info.plist */,
 				DE125EEC1FF6999300A3C98B /* AlchemySwiftTests.swift */,
 				853F2FA2ABEC2EC0A5BAF0F8 /* AttributedStringBuilderTests.swift */,
+				853F243D69C5C2C6533103DA /* OperatorsTest.swift */,
 			);
 			path = AlchemySwiftTests;
 			sourceTree = "<group>";
@@ -309,6 +315,7 @@
 				DE9C59D52037FA3B00147679 /* AttributedStringBuilder.swift in Sources */,
 				853F2761080049F8BBF1F551 /* Dates+Alchemy.swift in Sources */,
 				853F25A6C675FB5CD7DD0510 /* Async+.swift in Sources */,
+				853F2D97BC35B924EFF296FC /* Operators.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +333,7 @@
 				853F2DE0A9188E76CB9EBF0D /* DatesPlusAlchemyTests.swift in Sources */,
 				853F2535E304989A170F3C17 /* Async+AlchemyTests.swift in Sources */,
 				853F25340F892B68E1DC222D /* AttributedStringBuilderTests.swift in Sources */,
+				853F2236B78E46D696C8B723 /* OperatorsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
