@@ -10,7 +10,7 @@ import Foundation
 
 
 //======================================
-//MARK: Accessing and Inserting Elements
+//MARK: ACCESSING AND INSERTING ELEMENTS
 //======================================
 
 public extension Array
@@ -83,7 +83,7 @@ public extension CountableRange where Element == Int
 }
 
 //======================================
-//MARK: Shuffling
+//MARK: SHUFFLING
 //======================================
 public extension Array
 {
@@ -108,8 +108,50 @@ public extension Array
     }
 }
 
+
 //======================================
-//MARK: Equality
+//MARK: CIRCULATION
+//======================================
+public extension Array
+{
+    public mutating func circulateNext() -> Element
+    {
+        let head = removeFirst()
+        append(head)
+        return head
+    }
+
+    public mutating func circulatePrevious() -> Element
+    {
+        let tail = removeLast()
+        prepend(tail)
+        return tail
+    }
+
+    public mutating func circulateNextSafe() -> Element?
+    {
+        guard !isEmpty
+        else
+        {
+            return nil
+        }
+        return circulateNext()
+    }
+
+    public mutating func circulatePreviousSafe() -> Element?
+    {
+        guard !isEmpty
+        else
+        {
+            return nil
+        }
+        return circulatePreviousSafe()
+    }
+}
+
+
+//======================================
+//MARK: EQUALITY
 //======================================
 public extension Array where  Element: Equatable
 {
@@ -133,7 +175,7 @@ public extension Array where  Element: Equatable
 }
 
 //======================================
-//MARK: Sequence Operations
+//MARK: SEQUENCE OPERATIONS
 //======================================
 public extension Sequence where Element: Equatable
 {

@@ -7,22 +7,23 @@
 //
 
 import AlchemyGenerator
-@testable import AlchemySwift
+@testable
+import AlchemySwift
 import AlchemyTest
 import Foundation
-import XCTest
 
 
-class ArraysPlusAlchemyTests: XCTestCase
+//======================================
+// MARK: CONVENIENCE METHOD TESTS
+//======================================
+class ArraysPlusAlchemyTests: AlchemyTest
 {
-    private var iterations = 100
-
     private var anyString: String { return AlchemyGenerator.Strings.alphanumeric }
     private var strings: [String] = []
     private var secondStrings: [String] = []
     private var numbers: [Int] = []
 
-    override func setUp()
+    override func beforeEachTest()
     {
         strings = AlchemyGenerator.array { AlchemyGenerator.Strings.alphabetic }
         secondStrings = AlchemyGenerator.array { AlchemyGenerator.alphanumericString() }
@@ -38,7 +39,10 @@ class ArraysPlusAlchemyTests: XCTestCase
     
     func testSize()
     {
-        assertEquals(strings.size, strings.count)
+        runTest
+        {
+            assertEquals(strings.size, strings.count)
+        }
     }
 
     func testAnyElement()
@@ -46,7 +50,7 @@ class ArraysPlusAlchemyTests: XCTestCase
         let emptyArray = [String]()
         assertNil(emptyArray.anyElement)
 
-        iterations.repeatBlock
+        runTest
         {
             let result: String! = strings.anyElement
             assertNotNil(result)
@@ -56,7 +60,7 @@ class ArraysPlusAlchemyTests: XCTestCase
 
     func testShuffle()
     {
-        iterations.repeatBlock
+        runTest
         {
             let result = strings.shuffled()
 
@@ -85,7 +89,7 @@ class ArraysPlusAlchemyTests: XCTestCase
 
     func testAnyElementInRange()
     {
-        iterations.repeatBlock
+        runTest
         {
             let min = 0
             let max = Int.randomFrom(minInclusive: 1, maxExclusive: 1_000)
@@ -99,7 +103,7 @@ class ArraysPlusAlchemyTests: XCTestCase
 
     func testPrepend()
     {
-        iterations.repeatBlock
+        runTest
         {
             let newString = self.anyString
 
@@ -122,7 +126,7 @@ class ArraysPlusAlchemyTests: XCTestCase
 
     func testPrependMultipleTimes()
     {
-        iterations.repeatBlock
+        runTest
         {
             let elementsToPrepend = AlchemyGenerator.Arrays.ofAlphanumericString
             let expected = elementsToPrepend.reversed() + strings
@@ -138,7 +142,7 @@ class ArraysPlusAlchemyTests: XCTestCase
     
     func testAdd()
     {
-        iterations.repeatBlock
+        runTest
         {
             var array = strings
             let newItem = anyString
@@ -153,7 +157,7 @@ class ArraysPlusAlchemyTests: XCTestCase
     
     func testPopFirst()
     {
-        iterations.repeatBlock
+        runTest
         {
             let expected = strings
             let newItem = anyString
@@ -178,7 +182,7 @@ class ArraysPlusAlchemyTests: XCTestCase
     
     func testPopFirstOnEntireArray()
     {
-        iterations.repeatBlock
+        runTest
         {
             let original = strings
             var array = original
@@ -198,7 +202,65 @@ class ArraysPlusAlchemyTests: XCTestCase
 }
 
 //======================================
-//MARK: Equality Tests
+// MARK: CIRCULATION TESTS
+//======================================
+extension ArraysPlusAlchemyTests
+{
+    func testCirculateNext()
+    {
+        let range = (0...99)
+        var numbers = Array(range)
+
+        var result = [Int]()
+
+        for i in range
+        {
+            let expected = i
+            let next = numbers.circulateNext()
+            assertEquals(next, expected)
+            assertEquals(numbers.size, range.count)
+            assertEquals(numbers.last!, next)
+        }
+    }
+
+    func testCirculatePrevious()
+    {
+        let range = (0...99)
+        var numbers = Array(range)
+        let size = numbers.size
+
+        for i in range
+        {
+            let expected = numbers.last!
+            let result = numbers.circulatePrevious()
+            assertEquals(result, expected)
+            assertEquals(numbers.size, range.count)
+            assertEquals(numbers.first!, result)
+        }
+    }
+
+    func testCirculateNextSafe()
+    {
+        runTest
+        {
+            var empty = [String]()
+            assertNil(empty.circulateNextSafe())
+        }
+    }
+
+    func testCirculatePreviousSafe()
+    {
+        runTest
+        {
+            var empty = [String]()
+            assertNil(empty.circulatePreviousSafe())
+        }
+    }
+}
+
+
+//======================================
+//MARK: EQUALITY TESTS
 //======================================
 extension ArraysPlusAlchemyTests
 {
@@ -209,7 +271,7 @@ extension ArraysPlusAlchemyTests
 
     func testEqualityWhenShuffled()
     {
-        iterations.repeatBlock
+        runTest
         {
 
             let original = strings
@@ -221,7 +283,7 @@ extension ArraysPlusAlchemyTests
 
     func testEqualityWhenNewElementAdded()
     {
-        iterations.repeatBlock
+        runTest
         {
 
             let original = strings
@@ -250,7 +312,7 @@ extension ArraysPlusAlchemyTests
 
     func testEqualityWithDeepCopy()
     {
-        iterations.repeatBlock
+        runTest
         {
             var copy = [String]()
 
@@ -267,14 +329,14 @@ extension ArraysPlusAlchemyTests
 
 
 //======================================
-//MARK: Sequence Tests
+//MARK: SEQUENCE TESTS
 //======================================
 extension ArraysPlusAlchemyTests
 {
 
     func testCountWhere()
     {
-        iterations.repeatBlock
+        runTest
         {
             let count = strings.countWhere  { _ in true }
             assertEquals(count, strings.size)
@@ -283,7 +345,7 @@ extension ArraysPlusAlchemyTests
 
     func testCountWhereWhenNone()
     {
-        iterations.repeatBlock
+        runTest
         {
             let count = strings.countWhere  { _ in false }
             assertTrue(count == 0)
