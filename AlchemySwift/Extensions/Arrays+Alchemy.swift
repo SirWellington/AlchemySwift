@@ -135,6 +135,7 @@ public extension Array
         {
             return nil
         }
+
         return circulateNext()
     }
 
@@ -145,7 +146,8 @@ public extension Array
         {
             return nil
         }
-        return circulatePreviousSafe()
+
+        return circulatePrevious()
     }
 }
 
