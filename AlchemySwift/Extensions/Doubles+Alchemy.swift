@@ -27,14 +27,14 @@ public extension Double
 
 public extension Double
 {
-    var millis: TimeInterval { return self / 1000}
+    var fromMillis: TimeInterval { return self / 1000}
     /** Alias for `millis` */
-    var milliseconds: TimeInterval { return millis }
-    var seconds: TimeInterval { return self }
-    var minutes: TimeInterval { return self * 60 }
-    var hours: TimeInterval { return minutes * 60 }
-    var days: TimeInterval { return hours * 24 }
-    var weeks: TimeInterval { return days * 7 }
+    var fromMilliseconds: TimeInterval { return fromMillis }
+    var fromSeconds: TimeInterval { return self }
+    var fromMinutes: TimeInterval { return self * 60 }
+    var fromHours: TimeInterval { return fromMinutes * 60 }
+    var fromDays: TimeInterval { return fromHours * 24 }
+    var fromWeeks: TimeInterval { return fromDays * 7 }
 }
 
 public extension TimeInterval

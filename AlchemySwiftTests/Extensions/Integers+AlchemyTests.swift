@@ -204,7 +204,7 @@ extension IntegersPlusAlchemyTests
         {
             let amount = integer
             let result = amount.millis
-            let expected = TimeInterval(amount).millis
+            let expected = TimeInterval(amount).fromMillis
 
             assertEquals(expected, result)
         }
@@ -237,7 +237,7 @@ extension IntegersPlusAlchemyTests
         {
             let amount = self.integer
             let result = amount.hours
-            let expected = amount.doubleValue.hours
+            let expected = amount.doubleValue.fromHours
             assertEquals(expected, result)
         }
     }
@@ -248,7 +248,7 @@ extension IntegersPlusAlchemyTests
         {
             let amount = self.integer
             let result = amount.days
-            let expected = amount.doubleValue.days
+            let expected = amount.doubleValue.fromDays
             assertEquals(expected, result)
         }
     }
@@ -259,7 +259,7 @@ extension IntegersPlusAlchemyTests
         {
             let amount = self.integer
             let result = amount.weeks
-            let expected = amount.doubleValue.weeks
+            let expected = amount.doubleValue.fromWeeks
             assertEquals(expected, result)
         }
     }

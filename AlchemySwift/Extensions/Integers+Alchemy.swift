@@ -107,10 +107,10 @@ public extension UInt32
 
 public extension Int
 {
-    var millis: TimeInterval { return self.asDouble.millis }
-    var seconds: TimeInterval { return self.asDouble.seconds}
-    var minutes: TimeInterval { return self.asDouble.minutes }
-    var hours: TimeInterval { return self.asDouble.hours }
-    var days: TimeInterval { return self.asDouble.days }
-    var weeks: TimeInterval { return self.asDouble.weeks }
+    var millis: TimeInterval { return self.asDouble.fromMillis }
+    var seconds: TimeInterval { return self.asDouble.fromSeconds}
+    var minutes: TimeInterval { return self.asDouble.fromMinutes }
+    var hours: TimeInterval { return self.asDouble.fromHours }
+    var days: TimeInterval { return self.asDouble.fromDays }
+    var weeks: TimeInterval { return self.asDouble.fromWeeks }
 }

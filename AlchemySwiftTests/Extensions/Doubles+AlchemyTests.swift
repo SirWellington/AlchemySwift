@@ -46,54 +46,54 @@ class DoublesPlusAlchemyTests : XCTestCase
         assertEquals(result, expected)
     }
 
-    func testTimeIntervalMilliSeconds()
+    func testTimeIntervalFromMilliSeconds()
     {
         100.repeatBlock
         {
             let time: TimeInterval = AlchemyGenerator.Doubles.any
-            assertEquals(time.milliseconds, time/1000, withMarginOfError: 0.00001)
+            assertEquals(time.fromMilliseconds, time/1000, withMarginOfError: 0.00001)
         }
     }
 
-    func testTimeIntervalSeconds()
+    func testTimeIntervalFromSeconds()
     {
         100.repeatBlock
         {
             let time: TimeInterval = AlchemyGenerator.Doubles.any
-            assertEquals(time.seconds, time)
+            assertEquals(time.fromSeconds, time)
         }
     }
 
-    func testTimeIntervalMinutes()
+    func testTimeIntervalFromMinutes()
     {
-        assertEquals(0.0.minutes, 0.0)
-        assertEquals(0.5.minutes, 30.0)
-        assertEquals(1.0.minutes, 60.0)
-        assertEquals(10.0.minutes, 600.0)
+        assertEquals(0.0.fromMinutes, 0.0)
+        assertEquals(0.5.fromMinutes, 30.0)
+        assertEquals(1.0.fromMinutes, 60.0)
+        assertEquals(10.0.fromMinutes, 600.0)
     }
 
-    func testTimeIntervalHours()
+    func testTimeIntervalFromHours()
     {
-        assertEquals(0.0.hours, 0.0)
-        assertEquals(0.5.hours, (60.0 * 30.0))
-        assertEquals(1.0.hours, (60.0 * 60.0))
-        assertEquals(10.0.hours, (60.0 * 600.0))
+        assertEquals(0.0.fromHours, 0.0)
+        assertEquals(0.5.fromHours, (60.0 * 30.0))
+        assertEquals(1.0.fromHours, (60.0 * 60.0))
+        assertEquals(10.0.fromHours, (60.0 * 600.0))
     }
 
-    func testTimeIntervalDays()
+    func testTimeIntervalFromDays()
     {
-        assertEquals(0.0.days, 0.0)
-        assertEquals(1.0.days, 24.hours)
-        assertEquals(1.0.days, (60.0 * 24.0).minutes)
-        assertEquals(0.5.days, 12.hours)
-        assertEquals(3.days, 72.hours)
+        assertEquals(0.0.fromDays, 0.0)
+        assertEquals(1.0.fromDays, 24.hours)
+        assertEquals(1.0.fromDays, (60.0 * 24.0).fromMinutes)
+        assertEquals(0.5.fromDays, 12.hours)
+        assertEquals(3.fromDays, 72.hours)
     }
 
-    func testTimeIntervalWeeks()
+    func testTimeIntervalFromWeeks()
     {
-        assertEquals(0.0.weeks, 0.0)
-        assertEquals(1.weeks, 7.days)
-        assertEquals(3.weeks, 21.days)
+        assertEquals(0.0.fromWeeks, 0.0)
+        assertEquals(1.fromWeeks, 7.days)
+        assertEquals(3.fromWeeks, 21.days)
     }
 
     func testTimeIntervalToMillis()
