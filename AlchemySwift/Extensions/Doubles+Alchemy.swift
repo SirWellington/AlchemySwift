@@ -63,10 +63,37 @@ public extension Double
 
 public extension TimeInterval
 {
-    var toMillis: Double { return self * 1000.0 }
-    var toSeconds: Double { return self }
-    var toMinutes: Double { return self / 60.0 }
-    var toHours: Double { return self.toMinutes / 60.0 }
-    var toDays: Double { return self.toHours / 24.0 }
-    var toWeeks: Double { return self.toDays / 7.0 }
+    func toMillis() -> Double
+    {
+        return self * 1000.0
+    }
+
+    func toSeconds() -> Double
+    {
+        return self
+    }
+
+    func toMinutes() -> Double
+    {
+        return self / 60.0
+    }
+
+    func toHours() -> Double
+    {
+        let minutes = self.toMinutes()
+        return minutes / 60.0
+    }
+
+    func toDays() -> Double
+    {
+        let hours = self.toHours()
+        return hours / 24.0
+    }
+
+    func toWeeks() -> Double
+    {
+        let days = self.toDays()
+        return days / 7.0
+    }
+
 }

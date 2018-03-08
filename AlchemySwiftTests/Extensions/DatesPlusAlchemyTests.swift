@@ -23,7 +23,7 @@ class DatesPlusAlchemyTests: XCTestCase
     private var testIterations =  100
     
     private var now: Date { return Date() }
-    private var seconds: TimeInterval { return AlchemyGenerator.doubles(fromInclusive: 1.0, toInclusive: 10.0.fromDays) }
+    private var seconds: TimeInterval { return AlchemyGenerator.doubles(fromInclusive: 1.0, toInclusive: TimeInterval.from(days: 10.0)) }
     private var dateInThePast: Date { return now.subtractingTimeInterval(seconds) }
     private var dateInTheFuture: Date { return now.addingTimeInterval(seconds) }
     
