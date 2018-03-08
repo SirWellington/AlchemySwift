@@ -66,34 +66,34 @@ class DoublesPlusAlchemyTests : XCTestCase
 
     func testTimeIntervalFromMinutes()
     {
-        assertEquals(0.0.fromMinutes, 0.0)
-        assertEquals(0.5.fromMinutes, 30.0)
-        assertEquals(1.0.fromMinutes, 60.0)
-        assertEquals(10.0.fromMinutes, 600.0)
+        assertEquals(TimeInterval.from(minutes: 0.0), 0.0)
+        assertEquals(TimeInterval.from(minutes: 0.5), 30.0)
+        assertEquals(TimeInterval.from(minutes: 1.0), 60.0)
+        assertEquals(TimeInterval.from(minutes: 10.0), 600.0)
     }
 
     func testTimeIntervalFromHours()
     {
-        assertEquals(0.0.fromHours, 0.0)
-        assertEquals(0.5.fromHours, (60.0 * 30.0))
-        assertEquals(1.0.fromHours, (60.0 * 60.0))
-        assertEquals(10.0.fromHours, (60.0 * 600.0))
+        assertEquals(TimeInterval.from(hours: 0.0), 0.0)
+        assertEquals(TimeInterval.from(hours: 0.5), (60.0 * 30.0))
+        assertEquals(TimeInterval.from(hours: 1.0), (60.0 * 60.0))
+        assertEquals(TimeInterval.from(hours: 10.0), (60.0 * 600.0))
     }
 
     func testTimeIntervalFromDays()
     {
-        assertEquals(0.0.fromDays, 0.0)
-        assertEquals(1.0.fromDays, 24.hours)
-        assertEquals(1.0.fromDays, (60.0 * 24.0).fromMinutes)
-        assertEquals(0.5.fromDays, 12.hours)
-        assertEquals(3.fromDays, 72.hours)
+        assertEquals(TimeInterval.from(days: 0.0), 0.0)
+        assertEquals(TimeInterval.from(days: 1.0), 24.hours)
+        assertEquals(TimeInterval.from(days: 1.0), (60.0 * 60.0 * 24.0))
+        assertEquals(TimeInterval.from(days: 0.5), TimeInterval.from(hours: 12))
+        assertEquals(TimeInterval.from(days: 3), TimeInterval.from(hours: 72))
     }
 
     func testTimeIntervalFromWeeks()
     {
-        assertEquals(0.0.fromWeeks, 0.0)
-        assertEquals(1.fromWeeks, 7.days)
-        assertEquals(3.fromWeeks, 21.days)
+        assertEquals(TimeInterval.from(weeks: 0), 0.0)
+        assertEquals(TimeInterval.from(weeks: 1), 7.days)
+        assertEquals(TimeInterval.from(weeks: 3), 21.days)
     }
 
     func testTimeIntervalToMillis()

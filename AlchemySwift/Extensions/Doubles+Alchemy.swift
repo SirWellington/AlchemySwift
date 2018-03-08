@@ -27,14 +27,38 @@ public extension Double
 
 public extension Double
 {
-    var fromMillis: TimeInterval { return self / 1000}
-    /** Alias for `millis` */
-    var fromMilliseconds: TimeInterval { return fromMillis }
-    var fromSeconds: TimeInterval { return self }
-    var fromMinutes: TimeInterval { return self * 60 }
-    var fromHours: TimeInterval { return fromMinutes * 60 }
-    var fromDays: TimeInterval { return fromHours * 24 }
-    var fromWeeks: TimeInterval { return fromDays * 7 }
+    static func from(millis: Double) -> TimeInterval
+    {
+        return millis / 1000.0
+    }
+
+    static func from(seconds: Double) -> TimeInterval
+    {
+        return seconds
+    }
+
+    static func from(minutes: Double) -> TimeInterval
+    {
+        return minutes * 60
+    }
+
+    static func from(hours: Double) -> TimeInterval
+    {
+        let minutes = hours * 60
+        return from(minutes: minutes)
+    }
+
+    static func from(days: Double) -> TimeInterval
+    {
+        let hours = days * 24
+        return from(hours: hours)
+    }
+
+    static func from(weeks: Double) -> TimeInterval
+    {
+        let days = weeks * 7
+        return from(days: days)
+    }
 }
 
 public extension TimeInterval
