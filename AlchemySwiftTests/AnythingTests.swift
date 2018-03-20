@@ -50,4 +50,21 @@ class AnythingTests: AlchemyTest
         length = empty?.with { $0.length } ?? 0
         assertEquals(length, 0)
     }
+    
+    func testAnythingInt()
+    {
+        var result: String? = int.with {_ in returnValue }
+        assertEquals(result, returnValue)
+        
+        var doubled: Int? = int.with { $0 * 2 }
+        assertEquals(doubled, int * 2)
+        
+        var empty: Int? = nil
+        doubled = empty?.with { $0 * 2 }
+        assertNil(doubled)
+        doubled = empty?.with { $0 * 2 } ?? 0
+        assertEquals(doubled, 0)
+    }
+    
+    
 }
