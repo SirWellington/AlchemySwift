@@ -31,6 +31,8 @@
 		DE125EED1FF6999300A3C98B /* AlchemySwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE125EEC1FF6999300A3C98B /* AlchemySwiftTests.swift */; };
 		DE125EEF1FF6999300A3C98B /* AlchemySwift.h in Headers */ = {isa = PBXBuildFile; fileRef = DE125EE11FF6999300A3C98B /* AlchemySwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE15D162201B97030006FA5D /* AlchemyGenerator.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 853F28AC3FBD1D6699D973F1 /* AlchemyGenerator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DE99391320618891000D1D2C /* Anything.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99391220618891000D1D2C /* Anything.swift */; };
+		DE993915206189DB000D1D2C /* AnythingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE993914206189DB000D1D2C /* AnythingTests.swift */; };
 		DE9C59D52037FA3B00147679 /* AttributedStringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C59D42037FA3B00147679 /* AttributedStringBuilder.swift */; };
 		DE9C59D72038012E00147679 /* AlchemyTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9C59D62038012E00147679 /* AlchemyTest.framework */; };
 		DE9C59D82038013800147679 /* AlchemyTest.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = DE9C59D62038012E00147679 /* AlchemyTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -88,6 +90,8 @@
 		DE125EE71FF6999300A3C98B /* AlchemySwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlchemySwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE125EEC1FF6999300A3C98B /* AlchemySwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlchemySwiftTests.swift; sourceTree = "<group>"; };
 		DE125EEE1FF6999300A3C98B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE99391220618891000D1D2C /* Anything.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anything.swift; sourceTree = "<group>"; };
+		DE993914206189DB000D1D2C /* AnythingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnythingTests.swift; sourceTree = "<group>"; };
 		DE9C59D42037FA3B00147679 /* AttributedStringBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringBuilder.swift; sourceTree = "<group>"; };
 		DE9C59D62038012E00147679 /* AlchemyTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlchemyTest.framework; path = Carthage/Build/iOS/AlchemyTest.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -160,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				DE125EF81FF699C600A3C98B /* Extensions */,
+				DE99391220618891000D1D2C /* Anything.swift */,
 				DE125EE11FF6999300A3C98B /* AlchemySwift.h */,
 				DE125EE21FF6999300A3C98B /* Info.plist */,
 				DE9C59D42037FA3B00147679 /* AttributedStringBuilder.swift */,
@@ -174,6 +179,7 @@
 				853F2B5FE9CA46D18DBD01A9 /* Extensions */,
 				DE125EEE1FF6999300A3C98B /* Info.plist */,
 				DE125EEC1FF6999300A3C98B /* AlchemySwiftTests.swift */,
+				DE993914206189DB000D1D2C /* AnythingTests.swift */,
 				853F2FA2ABEC2EC0A5BAF0F8 /* AttributedStringBuilderTests.swift */,
 				853F243D69C5C2C6533103DA /* OperatorsTest.swift */,
 			);
@@ -306,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE99391320618891000D1D2C /* Anything.swift in Sources */,
 				853F2E00AA835C0ABDFCDD34 /* Arrays+Alchemy.swift in Sources */,
 				853F2E18C3690022503629EE /* Integers+Alchemy.swift in Sources */,
 				853F2521A6698DEBEF7B4C2E /* Booleans+Alchemy.swift in Sources */,
@@ -334,6 +341,7 @@
 				853F2535E304989A170F3C17 /* Async+AlchemyTests.swift in Sources */,
 				853F25340F892B68E1DC222D /* AttributedStringBuilderTests.swift in Sources */,
 				853F2236B78E46D696C8B723 /* OperatorsTest.swift in Sources */,
+				DE993915206189DB000D1D2C /* AnythingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
