@@ -13,7 +13,7 @@ import Foundation
 import XCTest
 
 //======================================
-// MARK: TESTS
+// MARK: BASE TEST
 //======================================
 class AnythingTests: AlchemyTest
 {
@@ -34,6 +34,15 @@ class AnythingTests: AlchemyTest
         array = AlchemyGenerator.Arrays.ofAlphanumericString
         dictionary = AlchemyGenerator.Arrays.ofAlphabeticString.reduce(into: [String: String]()) { $0[$1] = $1 }
     }
+}
+
+
+//======================================
+// MARK: WITH TESTS
+//======================================
+
+extension AnythingTests
+{
     
     func testAnythingString()
     {
