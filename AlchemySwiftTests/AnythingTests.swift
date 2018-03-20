@@ -67,4 +67,50 @@ class AnythingTests: AlchemyTest
     }
     
     
+    func testAnythingDouble()
+    {
+        var result: String? = double.with {_ in returnValue }
+        assertEquals(result, returnValue)
+        
+        var tripled: Double? = double.with { $0 * 3 }
+        assertEquals(tripled, double * 3)
+        
+        var empty: Double? = nil
+        tripled = empty?.with { $0 * 3 }
+        assertNil(tripled)
+        result = empty?.with {_ in returnValue } ?? returnValue
+        assertEquals(result, returnValue)
+    }
+    
+    func testAnythingArray()
+    {
+        var result: String? = array.with {_ in returnValue }
+        assertEquals(result, returnValue)
+        
+        var joined: String? = array.with { $0.joined() }
+        assertEquals(joined, array.joined())
+        
+        var empty: [String]? = nil
+        result = empty?.with { _ in returnValue }
+        assertNil(result)
+        joined = empty?.with { $0.joined() } ?? ""
+        assertEquals(joined, "")
+    }
+    
+    func testAnythingDictionary()
+    {
+        var result: String? = dictionary.with {_ in returnValue }
+        assertEquals(result, returnValue)
+        
+        var size: Int? = dictionary.with { $0.count }
+        assertEquals(size, dictionary.count)
+        
+        let empty: [String: String]? = nil
+        result = empty?.with {_ in returnValue }
+        assertNil(result)
+        
+        size = empty?.with { $0.count } ?? 0
+        assertEquals(size, 0)
+    }
+    
 }
