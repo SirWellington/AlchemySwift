@@ -334,6 +334,16 @@ extension ArraysPlusAlchemyTests
 extension ArraysPlusAlchemyTests
 {
 
+    func testDoesNotContain()
+    {
+        let element = strings.anyElement!
+        
+        assertFalse(strings.doesNotContain(element))
+        
+        let randomString = AlchemyGenerator.alphabeticString()
+        assertTrue(strings.doesNotContain(randomString))
+    }
+    
     func testCountWhere()
     {
         runTest
@@ -377,6 +387,16 @@ extension ArraysPlusAlchemyTests
         assertEquals(result, array)
     }
 
+    func testDistinct()
+    {
+        let array = (strings + strings).shuffled()
+        let result = array.distinct()
+        
+        assertEquals(result.size, strings.size)
+        result.forEach { assertTrue(array.contains($0)) }
+        array.forEach { assertTrue(result.contains($0)) }
+    }
+    
     func testDistinctWhenSameElement()
     {
         let value = AlchemyGenerator.alphabeticString()
@@ -395,4 +415,35 @@ extension ArraysPlusAlchemyTests
         let result = array.distinct()
         assertEquals(result, expected)
     }
+    
+    func testUnique()
+    {
+        let array = (strings + strings).shuffled()
+        let result = array.unique()
+        
+        assertEquals(result.size, strings.size)
+        result.forEach { assertTrue(array.contains($0)) }
+        array.forEach { assertTrue(result.contains($0)) }
+    }
+    
+    func testUniqueWhenDuplicatedElement()
+    {
+        let value = AlchemyGenerator.alphabeticString()
+        let array = AlchemyGenerator.Arrays.of(size: 20, { value })
+        let expected = [value]
+        
+        let result = array.unique()
+        assertEquals(result, expected)
+    }
+    
+    func testUniqueWhenDifferentElements()
+    {
+        let array = strings
+        let expected = array
+        
+        let result = array.unique()
+        
+        assertEquals(result, expected)
+    }
+    
 }

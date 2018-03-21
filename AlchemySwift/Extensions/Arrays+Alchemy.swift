@@ -182,21 +182,91 @@ public extension Array where  Element: Equatable
 public extension Sequence where Element: Equatable
 {
     /**
-        Counts all of the elements that pass the `predicate`
- 
-        - Parameter predicate: Determines whether to count the element or not
+     This is a simple reverse condition to the `contains(Element)` function
      
-        - Returns: The number of elements that match the predicate
-    */
+     For Example:
+     ``` if array.doesNotContain("this") { thenDoThat() } ```
+     */
+    func doesNotContain(_ element: Element) -> Bool
+    {
+        return !contains(element)
+    }
+    
+    /**
+     Counts all of the elements that pass the `predicate`
+     
+     - Parameter predicate: Determines whether to count the element or not
+     
+     - Returns: The number of elements that match the predicate
+     */
     func countWhere(_ predicate: (Element) -> Bool) -> Int
     {
         return filter(predicate).count
     }
     
+    /**
+     Returns a sequence with all of the unique elements
+     of the `Sequence`.
+     
+     Unlike `distinct()` this operation keeps the original order
+     of elements in the array.
+     
+     - Performance: `O(n²)`
+     
+    */
+    func unique() -> [Element]
+    {
+        return unique(on: { $0 })
+    }
+    
+    /**
+     Returns a sequence with all of the unique elements, determined by the `on` function.
+     
+     ```
+     struct User
+     {
+        var userId: String
+        var name: String
+        var age: Int
+     }
+     
+     let users = [User]() //Populated by some call
+     
+     let uniqueUsers = users.unique(on: { $0.userId } )
+     
+     ```
+     
+     - Performance: `O(n²)`
+    */
+    func unique<T: Equatable>(on: (Element) -> T) -> [Element]
+    {
+        var results = [T]()
+        
+        return self.filter
+        {
+            let property = on($0)
+            if results.contains(property)
+            {
+                return false
+            }
+            else
+            {
+                results.add(property)
+                return true
+            }
+        }
+    }
 }
 
 public extension Sequence where Element: Hashable
 {
+    /**
+     Just like `unique()`, this function returns all
+     of the unique elements of this sequence.
+     
+     Unlike `distinct()`, this function does not keep the order
+     of elements in the original sequence. This operation is also more performant, running in `O(n)` time, instead of `O(n²)`
+    */
     func distinct() -> [Element]
     {
         var seen = [Element: Bool]()
