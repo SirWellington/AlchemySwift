@@ -181,11 +181,41 @@ public extension Array where  Element: Equatable
 //======================================
 public extension Sequence where Element: Equatable
 {
+    /**
+        Counts all of the elements that pass the `predicate`
+ 
+        - Parameter predicate: Determines whether to count the element or not
+     
+        - Returns: The number of elements that match the predicate
+    */
     func countWhere(_ predicate: (Element) -> Bool) -> Int
     {
         return filter(predicate).count
     }
+    
 }
+
+public extension Sequence where Element: Hashable
+{
+    func distinct() -> [Element]
+    {
+        var seen = [Element: Bool]()
+        
+        return self.filter
+        {
+            if let _ = seen[$0]
+            {
+                return false
+            }
+            else
+            {
+                seen[$0] = true
+                return true
+            }
+        }
+    }
+}
+
 
 public extension Sequence
 {

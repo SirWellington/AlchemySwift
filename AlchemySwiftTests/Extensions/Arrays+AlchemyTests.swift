@@ -377,4 +377,22 @@ extension ArraysPlusAlchemyTests
         assertEquals(result, array)
     }
 
+    func testDistinctWhenSameElement()
+    {
+        let value = AlchemyGenerator.alphabeticString()
+        let array = AlchemyGenerator.Arrays.of(size: 10, { value })
+        let expected = [value]
+        
+        let result = array.distinct()
+        assertEquals(result, expected)
+    }
+    
+    func testDistinctWithDifferentElements()
+    {
+        let array = self.strings
+        let expected = self.strings
+        
+        let result = array.distinct()
+        assertEquals(result, expected)
+    }
 }
