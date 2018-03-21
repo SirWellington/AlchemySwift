@@ -446,4 +446,22 @@ extension ArraysPlusAlchemyTests
         assertEquals(result, expected)
     }
     
+    
+    func testUniqueOn()
+    {
+        runTest
+        {
+            let array = AlchemyGenerator.Arrays.ofAlphabeticString
+            
+            let result = array.unique(on: { $0.firstLetter! })
+            
+            
+            let mappedByFirstLetter = array.reduce(into: [String: Int]())
+            {
+                let existingCount = $0[$1] ?? 0
+                $0[$1] = existingCount + 1
+            }
+            
+        }
+    }
 }
