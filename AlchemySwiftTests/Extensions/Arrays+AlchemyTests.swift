@@ -452,10 +452,8 @@ extension ArraysPlusAlchemyTests
         runTest
         {
             let array = AlchemyGenerator.Arrays.ofAlphabeticString
-            
-            let result = array.unique(on: { $0.firstLetter! })
-            
-            
+            let result = array.unique { $0.firstLetter! }
+
             let mappedByFirstLetter = array.reduce(into: [String: Int]())
             {
                 let existingCount = $0[$1] ?? 0
@@ -464,4 +462,40 @@ extension ArraysPlusAlchemyTests
             
         }
     }
+
+    func testUniqueOnWhenTheSame()
+    {
+        runTest
+        {
+            let stringSize = Int.randomFrom(minInclusive: 5, maxExclusive: 20)
+            let generator = { return AlchemyGenerator.alphabeticString(ofSize: stringSize) }
+            let array = AlchemyGenerator.Arrays.of(size: 10, generator)
+
+            let result = array.unique { $0.length }
+            assertEquals(result.size, 1)
+            assertTrue(array.contains(result.first!))
+        }
+    }
+
+    func testUniqueOnWhenDifferent()
+    {
+        runTest
+        {
+            let array = AlchemyGenerator.Arrays.ofAlphabeticString
+            let result = array.unique { $0.hashValue }
+
+            //Should be true most of the time
+            var expected = [String]()
+            array.forEach
+            {
+                if expected.doesNotContain($0)
+                {
+                    expected.add($0)
+                }
+            }
+
+            assertEquals(result, expected)
+        }
+    }
+
 }

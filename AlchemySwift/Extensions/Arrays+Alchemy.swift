@@ -216,7 +216,7 @@ public extension Sequence where Element: Equatable
     */
     func unique() -> [Element]
     {
-        return unique(on: { $0 })
+        return unique { $0 }
     }
     
     /**
