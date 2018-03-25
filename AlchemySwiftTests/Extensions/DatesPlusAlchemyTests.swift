@@ -141,6 +141,21 @@ class DatesPlusAlchemyTests: AlchemyTest
         }
     }
 
+    func testYearsAgoWithFutureDate()
+    {
+        runTest(iterations: testIterations)
+        {
+            let yearsAhead = AlchemyGenerator.integer(from: 0, to: 100)
+            let now = Date()
+            var date = calendar.date(byAdding: .year, value: yearsAhead, to: now)!
+            //Adjust for a couple of millis of computation time
+            date = date.addingTimeInterval(1.0)
+
+            let result = date.yearsAgo
+            assertEquals(result, -yearsAhead)
+        }
+    }
+
     func testMonthsAgo()
     {
         runTest(iterations: testIterations)
@@ -151,6 +166,21 @@ class DatesPlusAlchemyTests: AlchemyTest
 
             let result = date.monthsAgo
             assertEquals(result, monthsAgo)
+        }
+    }
+
+    func testMonthsAgoWithFutureDate()
+    {
+        runTest(iterations: testIterations)
+        {
+            let monthsAhead = AlchemyGenerator.integer(from: 0, to: 200)
+            let now = Date()
+            var date = calendar.date(byAdding: .month, value: monthsAhead, to: now)!
+            //Adjust for computation time
+            date = date.addingTimeInterval(1.0)
+
+            let result = date.monthsAgo
+            assertEquals(result, -monthsAhead)
         }
     }
 }
