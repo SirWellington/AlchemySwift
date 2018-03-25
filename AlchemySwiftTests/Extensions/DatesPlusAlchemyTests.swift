@@ -17,10 +17,11 @@ import XCTest
 //======================================
 // MARK: Tests
 //======================================
-class DatesPlusAlchemyTests: XCTestCase
+class DatesPlusAlchemyTests: AlchemyTest
 {
 
     private var testIterations =  100
+    private let calendar = Calendar.autoupdatingCurrent
     
     private var now: Date { return Date() }
     private var seconds: TimeInterval { return AlchemyGenerator.doubles(fromInclusive: 1.0, toInclusive: TimeInterval.from(days: 10.0)) }
@@ -29,7 +30,7 @@ class DatesPlusAlchemyTests: XCTestCase
     
     func testIsInThePast()
     {
-        testIterations.repeatBlock
+        runTest(iterations: testIterations)
         {
             let pastDate = self.dateInThePast
             let futureDate = self.dateInTheFuture
@@ -41,7 +42,7 @@ class DatesPlusAlchemyTests: XCTestCase
     
     func testIsInTheFuture()
     {
-        testIterations.repeatBlock
+        runTest(iterations: testIterations)
         {
             let pastDate = self.dateInThePast
             let futureDate = self.dateInTheFuture
@@ -53,7 +54,7 @@ class DatesPlusAlchemyTests: XCTestCase
 
     func testDateBySubtracting()
     {
-        testIterations.repeatBlock
+        runTest(iterations: testIterations)
         {
             let date = Date()
 
@@ -70,7 +71,7 @@ class DatesPlusAlchemyTests: XCTestCase
     
     func testIsBefore()
     {
-        testIterations.repeatBlock
+        runTest(iterations: testIterations)
         {
             let pastDate = self.dateInThePast
             let futureDate = self.dateInTheFuture
@@ -84,7 +85,7 @@ class DatesPlusAlchemyTests: XCTestCase
 
     func testIsAfter()
     {
-        testIterations.repeatBlock
+        runTest(iterations: testIterations)
         {
             let now = self.now
             let pastDate = self.dateInThePast
@@ -102,7 +103,7 @@ class DatesPlusAlchemyTests: XCTestCase
     
     func testDateFormatter()
     {
-        testIterations.repeatBlock
+        runTest(iterations: testIterations)
         {
             _testDateFormatterWithFormat("MM/dd/yyyy")
             _testDateFormatterWithFormat("yyyy.MM.dd")
@@ -112,15 +113,44 @@ class DatesPlusAlchemyTests: XCTestCase
 
     private func _testDateFormatterWithFormat(_ format: String)
     {
-        let date = Date()
+        runTest(iterations: testIterations)
+        {
+            let date = Date()
 
-        let formatter = DateFormatter()
-        formatter.timeZone = .current
-        formatter.dateFormat = format
+            let formatter = DateFormatter()
+            formatter.timeZone = .current
+            formatter.dateFormat = format
 
-        let expected = formatter.string(from: date)
-        let result = date.formatTo(dateFormat: format)
+            let expected = formatter.string(from: date)
+            let result = date.formatTo(dateFormat: format)
 
-        assertEquals(result, expected)
+            assertEquals(result, expected)
+        }
+    }
+
+    func testYearsAgo()
+    {
+        runTest(iterations: testIterations)
+        {
+            let yearsAgo = AlchemyGenerator.integer(from: 0, to: 100)
+            let now = Date()
+            let date = calendar.date(byAdding: .year, value: -yearsAgo, to: now)!
+
+            let result = date.yearsAgo
+            assertEquals(result, yearsAgo)
+        }
+    }
+
+    func testMonthsAgo()
+    {
+        runTest(iterations: testIterations)
+        {
+            let monthsAgo = AlchemyGenerator.integer(from: 0, to: 200)
+            let now = Date()
+            let date = calendar.date(byAdding: .month, value: -monthsAgo, to: now)!
+
+            let result = date.monthsAgo
+            assertEquals(result, monthsAgo)
+        }
     }
 }

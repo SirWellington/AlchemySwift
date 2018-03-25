@@ -75,3 +75,27 @@ public extension Date
         return formatter.string(from: self)
     }
 }
+
+
+
+//======================================
+// MARK: DATE INFORMATION
+//======================================
+public extension Date
+{
+    var yearsAgo: Int
+    {
+        let calendar = Calendar.autoupdatingCurrent
+        let now = Date()
+        let components = calendar.dateComponents([.year], from: self, to: now)
+        return components.year!
+    }
+
+    var monthsAgo: Int
+    {
+        let calendar = Calendar.autoupdatingCurrent
+        let now = Date()
+        let components = calendar.dateComponents([.month], from: self, to: now)
+        return components.month!
+    }
+}
