@@ -11,7 +11,7 @@ import Foundation
 
 /**
     This class allows you to conveniently build an Attributed String,
-    one part at a time.
+    one part at a time by using the Builder Pattern.
  */
 public class AttributedStringBuilder
 {
@@ -27,15 +27,17 @@ public class AttributedStringBuilder
         strings.removeAll()
     }
     
-    public func add(string: String, attribute: NSAttributedStringKey, value: Any)
+    public func add(string: String, attribute: NSAttributedStringKey, value: Any) -> Self
     {
-        add(string: string, attributes: [attribute: value])
+        return add(string: string, attributes: [attribute: value])
     }
     
-    public func add(string: String, attributes: [NSAttributedStringKey: Any])
+    public func add(string: String, attributes: [NSAttributedStringKey: Any]) -> Self
     {
         let newString = NSAttributedString(string: string, attributes: attributes)
         strings.add(newString)
+
+        return self
     }
     
     public func build() -> NSAttributedString
