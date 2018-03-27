@@ -49,3 +49,4 @@ extension Bool: Anything { }
 extension Array: Anything { }
 extension Set: Anything { }
 extension Dictionary: Anything { }
+extension NSObject: Anything { }
