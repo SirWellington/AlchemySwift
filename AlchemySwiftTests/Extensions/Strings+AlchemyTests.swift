@@ -17,7 +17,7 @@ class StringsPlusAlchemyTests: AlchemyTest
 
     private let _iterations = 100
 
-    private var string: String { return AlchemyGenerator.Strings.alphabetic }
+    private var newString: String { return AlchemyGenerator.Strings.alphabetic }
 
     override func setUp()
     {
@@ -27,7 +27,7 @@ class StringsPlusAlchemyTests: AlchemyTest
     {
         runTest(iterations: _iterations)
         {
-            assertTrue(String.notEmpty(string))
+            assertTrue(String.notEmpty(newString))
             assertFalse(String.notEmpty(""))
             assertFalse(String.notEmpty(nil))
         }
@@ -37,7 +37,7 @@ class StringsPlusAlchemyTests: AlchemyTest
     {
         runTest(iterations: _iterations)
         {
-            assertFalse(String.isEmpty(string))
+            assertFalse(String.isEmpty(newString))
             assertTrue(String.isEmpty(""))
             assertTrue(String.isEmpty(nil))
         }
@@ -48,7 +48,7 @@ class StringsPlusAlchemyTests: AlchemyTest
     {
         runTest(iterations: _iterations)
         {
-            assertTrue(string.notEmpty)
+            assertTrue(newString.notEmpty)
         }
     }
 
@@ -56,7 +56,7 @@ class StringsPlusAlchemyTests: AlchemyTest
     {
         runTest(iterations: _iterations)
         {
-            let string = self.string
+            let string = self.newString
             assertEquals(string.length, string.count)
         }
     }
@@ -97,7 +97,7 @@ class StringsPlusAlchemyTests: AlchemyTest
     {
         runTest(iterations: _iterations)
         {
-            let result = string.intValue
+            let result = newString.intValue
             assertNil(result)
         }
     }
@@ -134,7 +134,7 @@ class StringsPlusAlchemyTests: AlchemyTest
     {
         runTest(iterations: _iterations)
         {
-            let string = self.string
+            let string = self.newString
             let expected = string.first!.asString
             let result = string.firstLetter
 
@@ -147,7 +147,7 @@ class StringsPlusAlchemyTests: AlchemyTest
     {
         runTest(iterations: _iterations)
         {
-            let string = self.string
+            let string = self.newString
             let expected = string.last!.asString
             let result = string.lastLetter
 
@@ -160,7 +160,7 @@ class StringsPlusAlchemyTests: AlchemyTest
     {
         runTest(iterations: _iterations)
         {
-            let string = self.string
+            let string = self.newString
             let expected = NSAttributedString(string: string)
             let result = string.asAttributed
             
@@ -177,8 +177,8 @@ class StringsPlusAlchemyTests: AlchemyTest
     {
         runTest(iterations: _iterations)
         {
-            let string = self.string
-            let firstLetter = self.string.firstLetter!
+            let string = self.newString
+            let firstLetter = self.newString.firstLetter!
             let combined = firstLetter + string
             let expected = firstLetter.uppercased() + string
             
@@ -200,7 +200,7 @@ extension StringsPlusAlchemyTests
     {
         runTest(iterations: _iterations)
         {
-            let string = self.string
+            let string = self.newString
 
             let beginIndex = string.index(after: string.startIndex)
             let expected = string.substring(from: beginIndex)
@@ -213,7 +213,7 @@ extension StringsPlusAlchemyTests
     {
         runTest(iterations: _iterations)
         {
-            let string = self.string
+            let string = self.newString
 
             let endIndex = string.index(before: string.endIndex)
             let expected = string.substring(to: endIndex)
@@ -223,6 +223,32 @@ extension StringsPlusAlchemyTests
         }
     }
 
+    func testRemovingPrefix()
+    {
+        runTest(iterations: _iterations)
+        {
+            let prefix = self.newString
+            let string = self.newString
+            let combined = prefix + string
+            let result = combined.removingPrefix(prefix: prefix)
+            assertEquals(result, string)
+        }
+    }
+
+    func testTrimmingEmptySpaces()
+    {
+        runTest(iterations: _iterations)
+        {
+            let simpleString = self.newString
+            var trimmed = simpleString.trimmingEmptySpaces()
+            assertEquals(trimmed, simpleString)
+
+            let string = self.newString
+            let stringWithSpaces = " " + string + " "
+            trimmed = stringWithSpaces.trimmingEmptySpaces()
+            assertEquals(trimmed, string)
+        }
+    }
 }
 
 
@@ -235,7 +261,7 @@ extension StringsPlusAlchemyTests
     {
         runTest(iterations: _iterations)
         {
-            let string = self.string
+            let string = self.newString
             let character = string.first!
 
             let expected = "\(character)"
@@ -256,14 +282,14 @@ extension StringsPlusAlchemyTests
     {
         runTest(iterations: _iterations)
         {
-            let optional: Any? = self.string
-            let defaultValue = self.string
+            let optional: Any? = self.newString
+            let defaultValue = self.newString
             assertEquals(optional ??? defaultValue, "\(optional!)")
         }
 
         runTest(iterations: _iterations)
         {
-            let defaultValue = self.string
+            let defaultValue = self.newString
             let optional: Any? = nil
             assertEquals(optional ??? defaultValue, defaultValue)
         }
