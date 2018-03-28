@@ -172,21 +172,7 @@ class StringsPlusAlchemyTests: AlchemyTest
     {
         assertEquals(String.empty, "")
     }
-    
-    func testTitleCased()
-    {
-        runTest(iterations: _iterations)
-        {
-            let string = self.newString
-            let firstLetter = self.newString.firstLetter!
-            let combined = firstLetter + string
-            let expected = firstLetter.uppercased() + string
-            
-            let result = combined.titlecased()
-            
-            assertEquals(result, expected)
-        }
-    }
+
 }
 
 
@@ -247,6 +233,32 @@ extension StringsPlusAlchemyTests
             let stringWithSpaces = " " + string + " "
             trimmed = stringWithSpaces.trimmingEmptySpaces()
             assertEquals(trimmed, string)
+        }
+    }
+
+    func testTitleCased()
+    {
+        runTest(iterations: _iterations)
+        {
+            let string = self.newString
+            let firstLetter = self.newString.firstLetter!
+            let combined = firstLetter + string
+            let expected = firstLetter.uppercased() + string
+
+            let result = combined.titlecased()
+
+            assertEquals(result, expected)
+        }
+    }
+
+    func testSurroundedByQuotationMarks()
+    {
+        runTest(iterations: _iterations)
+        {
+            let string = self.newString
+            let expected = "“\(string)”"
+            let result = string.surroundedByQuotationMarks()
+            assertEquals(result, expected)
         }
     }
 }

@@ -73,7 +73,7 @@ public extension String
 }
 
 //=====================================
-//MARK: String Transformations
+//MARK: STRING TRANSFORMATIONS
 //=====================================
 public extension String
 {
@@ -114,6 +114,11 @@ public extension String
         let firstCharacterUpper = "\(firstCharacter)".uppercased()
         
         return "\(firstCharacterUpper)\(lowercased)"
+    }
+
+    func surroundedByQuotationMarks() -> String
+    {
+        return "“\(self)”"
     }
 }
 
