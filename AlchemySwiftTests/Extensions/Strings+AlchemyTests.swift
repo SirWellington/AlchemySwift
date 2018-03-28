@@ -12,11 +12,12 @@ import AlchemyTest
 import Foundation
 import XCTest
 
-class StringsPlusAlchemyTests: XCTestCase
+class StringsPlusAlchemyTests: AlchemyTest
 {
 
-    let iterations = 100
-    var string: String { return AlchemyGenerator.Strings.alphabetic }
+    private let _iterations = 100
+
+    private var string: String { return AlchemyGenerator.Strings.alphabetic }
 
     override func setUp()
     {
@@ -24,7 +25,7 @@ class StringsPlusAlchemyTests: XCTestCase
 
     func testStaticNotEmpty()
     {
-        iterations.repeatBlock
+        runTest(iterations: _iterations)
         {
             assertTrue(String.notEmpty(string))
             assertFalse(String.notEmpty(""))
@@ -34,7 +35,7 @@ class StringsPlusAlchemyTests: XCTestCase
 
     func testStaticIsEmpty()
     {
-        iterations.repeatBlock
+        runTest(iterations: _iterations)
         {
             assertFalse(String.isEmpty(string))
             assertTrue(String.isEmpty(""))
@@ -45,7 +46,7 @@ class StringsPlusAlchemyTests: XCTestCase
 
     func testNotEmpty()
     {
-        iterations.repeatBlock
+        runTest(iterations: _iterations)
         {
             assertTrue(string.notEmpty)
         }
@@ -53,7 +54,7 @@ class StringsPlusAlchemyTests: XCTestCase
 
     func testLength()
     {
-        iterations.repeatBlock
+        runTest(iterations: _iterations)
         {
             let string = self.string
             assertEquals(string.length, string.count)
@@ -68,7 +69,7 @@ class StringsPlusAlchemyTests: XCTestCase
 
     func testIntValueWithValidString()
     {
-        iterations.repeatBlock
+        runTest(iterations: _iterations)
         {
             let number = AlchemyGenerator.positiveInteger()
             let string = "\(number)"
@@ -81,7 +82,7 @@ class StringsPlusAlchemyTests: XCTestCase
 
     func testIntValueWithNegativeNumber()
     {
-        iterations.repeatBlock
+        runTest(iterations: _iterations)
         {
             let number = AlchemyGenerator.negativeInteger()
             let string = "\(number)"
@@ -94,7 +95,7 @@ class StringsPlusAlchemyTests: XCTestCase
 
     func testIntValueWithNonNumber()
     {
-        iterations.repeatBlock
+        runTest(iterations: _iterations)
         {
             let result = string.intValue
             assertNil(result)
@@ -105,7 +106,7 @@ class StringsPlusAlchemyTests: XCTestCase
     {
         let calendar = Calendar.autoupdatingCurrent
 
-        iterations.repeatBlock
+        runTest(iterations: _iterations)
         {
             let date = AlchemyGenerator.Dates.any
             let format = "yyyy/MM/dd"
@@ -121,7 +122,7 @@ class StringsPlusAlchemyTests: XCTestCase
 
     func testAsDateWhenNotADate()
     {
-        iterations.repeatBlock
+        runTest(iterations: _iterations)
         {
             let string = AlchemyGenerator.alphabeticString()
             let date = string.asDate(dateFormat: "yyyy/MM/dd")
@@ -131,7 +132,7 @@ class StringsPlusAlchemyTests: XCTestCase
 
     func testFirstLetter()
     {
-        iterations.repeatBlock
+        runTest(iterations: _iterations)
         {
             let string = self.string
             let expected = string.first!.asString
@@ -144,7 +145,7 @@ class StringsPlusAlchemyTests: XCTestCase
 
     func testLastLetter()
     {
-        iterations.repeatBlock
+        runTest(iterations: _iterations)
         {
             let string = self.string
             let expected = string.last!.asString
@@ -157,7 +158,7 @@ class StringsPlusAlchemyTests: XCTestCase
 
     func testAsAttributed()
     {
-        iterations.repeatBlock
+        runTest(iterations: _iterations)
         {
             let string = self.string
             let expected = NSAttributedString(string: string)
@@ -174,7 +175,7 @@ class StringsPlusAlchemyTests: XCTestCase
     
     func testTitleCased()
     {
-        iterations.repeatBlock
+        runTest(iterations: _iterations)
         {
             let string = self.string
             let firstLetter = self.string.firstLetter!
@@ -190,14 +191,14 @@ class StringsPlusAlchemyTests: XCTestCase
 
 
 //=====================================
-//MARK: Convenience Functions
+//MARK: TRANSFORMATIONS
 //=====================================
 extension StringsPlusAlchemyTests
 {
 
     func testWithoutFirstLetter()
     {
-        iterations.repeatBlock
+        runTest(iterations: _iterations)
         {
             let string = self.string
 
@@ -210,7 +211,7 @@ extension StringsPlusAlchemyTests
 
     func testWithoutLastLetter()
     {
-        iterations.repeatBlock
+        runTest(iterations: _iterations)
         {
             let string = self.string
 
@@ -221,6 +222,7 @@ extension StringsPlusAlchemyTests
             assertEquals(result, expected)
         }
     }
+
 }
 
 
@@ -231,7 +233,7 @@ extension StringsPlusAlchemyTests
 {
     func testStringFromCharacter()
     {
-        iterations.repeatBlock
+        runTest(iterations: _iterations)
         {
             let string = self.string
             let character = string.first!
@@ -252,14 +254,14 @@ extension StringsPlusAlchemyTests
 {
     func testStringCoalesceOperator()
     {
-        iterations.repeatBlock
+        runTest(iterations: _iterations)
         {
             let optional: Any? = self.string
             let defaultValue = self.string
             assertEquals(optional ??? defaultValue, "\(optional!)")
         }
 
-        iterations.repeatBlock
+        runTest(iterations: _iterations)
         {
             let defaultValue = self.string
             let optional: Any? = nil
