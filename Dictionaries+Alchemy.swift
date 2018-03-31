@@ -14,7 +14,7 @@ import UIKit
 */
 
 //======================================
-// MARK: DICTIONARY EXTENSIONS
+// MARK: DICTIONARY EXTENSIONS - COMPUTED VARIABLES
 //======================================
 public extension Dictionary
 {
