@@ -50,6 +50,16 @@ class DictionariesPlusAlchemyTests: AlchemyTest
             assertEquals(dictionary.size, dictionary.count)
         }
     }
+    
+    func testKeysArray()
+    {
+        runTest(iterations: 100)
+        {
+            let expected = Array(dictionary.keys)
+            let result = dictionary.keysArray
+            assertEquals(result, expected)
+        }
+    }
 
     func testValuesArray()
     {

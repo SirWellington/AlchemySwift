@@ -18,7 +18,12 @@ import UIKit
 //======================================
 public extension Dictionary
 {
+    ///Alias for `count`
     var size: Int { return self.count }
 
+    ///Returns an Array containing all of the dictionary's keys.
+    var keysArray: [Key] { return Array(self.keys) }
+    
+    ///Returns an Array containing all of the dictionary's values
     var valuesArray: [Value] { return Array(self.values) }
 }
