@@ -153,30 +153,6 @@ public extension Array
 
 
 //======================================
-//MARK: EQUALITY
-//======================================
-public extension Array where  Element: Equatable
-{
-    static func ==(lhs: Array<Element>, rhs: Array<Element>) -> Bool
-    {
-        guard lhs.notEmpty, rhs.notEmpty else { return true }
-        guard lhs.count == rhs.count else { return false }
-
-        let size = lhs.count
-
-        for index in 0..<size
-        {
-            let leftValue = lhs[index]
-            let rightValue = rhs[index]
-
-            guard leftValue == rightValue else { return false }
-        }
-
-        return true
-    }
-}
-
-//======================================
 //MARK: SEQUENCE OPERATIONS
 //======================================
 public extension Sequence where Element: Equatable
