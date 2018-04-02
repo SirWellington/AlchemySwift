@@ -337,7 +337,7 @@ extension ArraysPlusAlchemyTests
             let original = strings
             let shuffled = strings.shuffled()
 
-            assertFalse(original == shuffled)
+            assertNotEquals(original, shuffled)
         }
     }
 
