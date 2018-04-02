@@ -82,6 +82,32 @@ public extension CountableRange where Element == Int
     }
 }
 
+
+//======================================
+// MARK: REMOVING ELEMENTS
+//======================================
+public extension Array where Element: Equatable
+{
+    mutating func removeElements(_ elements: [Element])
+    {
+        elements.compactMap { self.index(of: $0) }
+                .reversed()
+                .forEach { self.remove(at: $0) }
+    }
+}
+
+public extension Array
+{
+    mutating func removeWhere(_ predicate: (Element) -> (Bool))
+    {
+        self.enumerated()
+            .compactMap { predicate($1) ? $0 : nil }
+            .reversed()
+            .forEach { self.remove(at: $0) }
+    }
+}
+
+
 //======================================
 //MARK: SHUFFLING
 //======================================
@@ -90,8 +116,7 @@ public extension Array
 
     func shuffled() -> Array<Element>
     {
-        guard count >= 2
-        else
+        guard count >= 2 else
         {
             return self
         }
@@ -282,5 +307,17 @@ public extension Sequence
             block($0)
             return $0
         }
+    }
+}
+
+
+//======================================
+// MARK: CONVENIENCE ARRAY SLICE FUNCTION
+//======================================
+public extension ArraySlice
+{
+    func toArray() -> [Element]
+    {
+        return Array(self)
     }
 }

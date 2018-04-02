@@ -1,4 +1,4 @@
-//
+    //
 //  Arrays+AlchemyTests.swift
 //  AlchemySwift
 //
@@ -25,6 +25,8 @@ class ArraysPlusAlchemyTests: AlchemyTest
 
     override func beforeEachTest()
     {
+        iterations = 100
+
         strings = AlchemyGenerator.array { AlchemyGenerator.Strings.alphabetic }
         secondStrings = AlchemyGenerator.array { AlchemyGenerator.alphanumericString() }
         numbers = AlchemyGenerator.array { AlchemyGenerator.anyInteger() }
@@ -200,6 +202,64 @@ class ArraysPlusAlchemyTests: AlchemyTest
         }
     }
 }
+
+
+//======================================
+// MARK: REMOVING ELEMENTS
+//======================================
+extension ArraysPlusAlchemyTests
+{
+    func testRemoveElementsWithEmpty()
+    {
+        runTest
+        {
+            let original = strings
+            strings.removeElements([])
+            assertEquals(strings, original)
+        }
+
+    }
+    
+    func testRemoveElements()
+    {
+        runTest
+        {
+            let first = strings.first!
+            let last = strings.last!
+            let expected = strings[1..<strings.size-1].toArray()
+            strings.removeElements([first, last])
+            assertEquals(strings, expected)
+        }
+    }
+    
+    func testRemoveWhere()
+    {
+        runTest
+        {
+            let expected = strings
+            strings.removeWhere {_ in false }
+            assertEquals(strings, expected)
+        }
+        
+        runTest
+        {
+            let expected: [String] = []
+            strings.removeWhere {_ in true }
+            assertEquals(strings, expected)
+        }
+        
+        runTest
+        {
+            let expected = strings
+            let newString = self.anyString
+            strings.add(newString)
+            strings.removeWhere { $0 == newString }
+            assertEquals(strings, expected)
+        }
+        
+    }
+}
+
 
 //======================================
 // MARK: CIRCULATION TESTS
@@ -498,4 +558,20 @@ extension ArraysPlusAlchemyTests
         }
     }
 
+}
+
+//======================================
+// MARK: ARRAY SLICE TESTS
+//======================== ==============
+extension ArraysPlusAlchemyTests
+{
+    func testArraySliceToArray()
+    {
+        runTest
+        {
+            let slice = strings[0..<strings.size]
+            let result = slice.toArray()
+            assertEquals(result, strings)
+        }
+    }
 }
