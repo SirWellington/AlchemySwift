@@ -17,19 +17,16 @@ import XCTest
 //======================================
 // MARK: Operation Queue Tests
 //======================================
-class AsyncPlusAlchemyTests: XCTestCase
+class AsyncPlusAlchemyTests: AlchemyTest
 {
-    private var iterations = 100
-
     private var counter = 0
     private var queue: DispatchQueue!
     private var operationQueue: OperationQueue!
 
-    override func setUp()
+    override func beforeEachTest()
     {
-        super.setUp()
-
         counter = 0
+        iterations = 100
         queue = DispatchQueue(label: "test")
         operationQueue = OperationQueue(maxConcurrency: 1)
     }
@@ -47,14 +44,18 @@ class AsyncPlusAlchemyTests: XCTestCase
     
     func testSync()
     {
-        let number = Int.random
-        let expected = number * 2
-        
-        let result = operationQueue.sync { completion in
-            completion(number*2)
+        runTest(iterations: iterations)
+        {
+            let first = Int.random
+            let second = Int.random
+            let expected = first + second
+            
+            let result = operationQueue.sync { completion in
+                completion(first + second)
+            }
+            
+            assertEquals(result, expected)
         }
-        
-        assertEquals(result, expected)
     }
 }
 
