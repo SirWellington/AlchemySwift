@@ -134,14 +134,14 @@
 			isa = PBXGroup;
 			children = (
 				853F267048CB728E2E38ED62 /* Arrays+AlchemyTests.swift */,
+				853F24F6ECF17BE8618F7573 /* Async+AlchemyTests.swift */,
 				853F209D6DB05C12C0318506 /* Booleans+AlchemyTests.swift */,
 				853F2761B6C5938DDDE200F9 /* DatesPlusAlchemyTests.swift */,
+				EAAEDA231E93D68736B4A0D6 /* Dictionaries+AlchemyTests.swift */,
 				853F2E7BA160BB0EC9DBE272 /* Doubles+AlchemyTests.swift */,
 				853F2D559445E2536370EE8A /* Integers+AlchemyTests.swift */,
 				853F256D5533D0342C5D68F5 /* NSObjects+AlchemyTests.swift */,
 				853F2D7CCE7C9A3D622484CA /* Strings+AlchemyTests.swift */,
-				853F24F6ECF17BE8618F7573 /* Async+AlchemyTests.swift */,
-				EAAEDA231E93D68736B4A0D6 /* Dictionaries+AlchemyTests.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -196,13 +196,13 @@
 			isa = PBXGroup;
 			children = (
 				853F2DC607C5CF99C79CA9A0 /* Arrays+Alchemy.swift */,
+				853F2EDB0C161B518E81B22A /* Async+.swift */,
 				853F211E66F6399D012D3D4F /* Booleans+Alchemy.swift */,
 				853F20369EBC2431D23E9594 /* Dates+Alchemy.swift */,
 				853F27A221EA30D2FFF63AFF /* Doubles+Alchemy.swift */,
 				853F249DCC87F53843928A16 /* Integers+Alchemy.swift */,
 				853F22B81C8977BFEDFCADAF /* NSObjects+Alchemy.swift */,
 				853F2BC81C636D82A3D58E66 /* Strings+Alchemy.swift */,
-				853F2EDB0C161B518E81B22A /* Async+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
