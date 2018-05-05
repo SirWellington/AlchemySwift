@@ -63,6 +63,7 @@ public extension Array
 
          - returns : The first element of the array, if present, `null` otherwise.
      */
+    @discardableResult
     mutating func popFirst() -> Element?
     {
         guard let first = self.first else { return nil }
