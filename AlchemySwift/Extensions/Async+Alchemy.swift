@@ -28,7 +28,7 @@ public extension OperationQueue
         operation will permanently block.
      */
     @discardableResult
-    func sync<T>(_ block: @escaping ((T?) -> Void) -> Void) -> T?
+    func sync<T>(_ block: @escaping (@escaping (T?) -> Void) -> Void) -> T?
     {
         var result: T? = nil
         let group = DispatchGroup()
