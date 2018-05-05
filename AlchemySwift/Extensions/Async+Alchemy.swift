@@ -23,6 +23,9 @@ public extension OperationQueue
     /**
         Performs an operation synchronously awaits the result, blocking the calling thread
         until the operation is finished.
+     
+        **IMPORTANT** – You must ensure that the completion function that is passed into the `block` is called, or the
+        operation will permanently block.
      */
     @discardableResult
     func sync<T>(_ block: @escaping ((T) -> Void) -> Void) -> T
