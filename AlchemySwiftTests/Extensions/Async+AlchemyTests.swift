@@ -23,6 +23,7 @@ class AsyncPlusAlchemyTests: XCTestCase
 
     private var counter = 0
     private var queue: DispatchQueue!
+    private var operationQueue: OperationQueue!
 
     override func setUp()
     {
@@ -30,6 +31,7 @@ class AsyncPlusAlchemyTests: XCTestCase
 
         counter = 0
         queue = DispatchQueue(label: "test")
+        operationQueue = OperationQueue(maxConcurrency: 1)
     }
 
     func testOperationQueueInitializer()
@@ -41,6 +43,18 @@ class AsyncPlusAlchemyTests: XCTestCase
 
             assertEquals(queue.maxConcurrentOperationCount, concurrency)
         }
+    }
+    
+    func testSync()
+    {
+        let number = Int.random
+        let expected = number * 2
+        
+        let result = operationQueue.sync { completion in
+            completion(number*2)
+        }
+        
+        assertEquals(result, expected)
     }
 }
 

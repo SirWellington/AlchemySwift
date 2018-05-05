@@ -16,7 +16,7 @@
 		853F25340F892B68E1DC222D /* AttributedStringBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F2FA2ABEC2EC0A5BAF0F8 /* AttributedStringBuilderTests.swift */; };
 		853F2535E304989A170F3C17 /* Async+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F24F6ECF17BE8618F7573 /* Async+AlchemyTests.swift */; };
 		853F25657B64819E3C7F1234 /* Doubles+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F27A221EA30D2FFF63AFF /* Doubles+Alchemy.swift */; };
-		853F25A6C675FB5CD7DD0510 /* Async+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F2EDB0C161B518E81B22A /* Async+.swift */; };
+		853F25A6C675FB5CD7DD0510 /* Async+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F2EDB0C161B518E81B22A /* Async+Alchemy.swift */; };
 		853F2717BAF32BE2789F855C /* Strings+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F2D7CCE7C9A3D622484CA /* Strings+AlchemyTests.swift */; };
 		853F2761080049F8BBF1F551 /* Dates+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F20369EBC2431D23E9594 /* Dates+Alchemy.swift */; };
 		853F2D2ECA3CDE7AEB897FBF /* AlchemyGenerator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 853F28AC3FBD1D6699D973F1 /* AlchemyGenerator.framework */; };
@@ -84,7 +84,7 @@
 		853F2D7CCE7C9A3D622484CA /* Strings+AlchemyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+AlchemyTests.swift"; sourceTree = "<group>"; };
 		853F2DC607C5CF99C79CA9A0 /* Arrays+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Arrays+Alchemy.swift"; sourceTree = "<group>"; };
 		853F2E7BA160BB0EC9DBE272 /* Doubles+AlchemyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Doubles+AlchemyTests.swift"; sourceTree = "<group>"; };
-		853F2EDB0C161B518E81B22A /* Async+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Async+.swift"; sourceTree = "<group>"; };
+		853F2EDB0C161B518E81B22A /* Async+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Async+Alchemy.swift"; sourceTree = "<group>"; };
 		853F2FA2ABEC2EC0A5BAF0F8 /* AttributedStringBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedStringBuilderTests.swift; sourceTree = "<group>"; };
 		DE125EDE1FF6999300A3C98B /* AlchemySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlchemySwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE125EE11FF6999300A3C98B /* AlchemySwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlchemySwift.h; sourceTree = "<group>"; };
@@ -196,7 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				853F2DC607C5CF99C79CA9A0 /* Arrays+Alchemy.swift */,
-				853F2EDB0C161B518E81B22A /* Async+.swift */,
+				853F2EDB0C161B518E81B22A /* Async+Alchemy.swift */,
 				853F211E66F6399D012D3D4F /* Booleans+Alchemy.swift */,
 				853F20369EBC2431D23E9594 /* Dates+Alchemy.swift */,
 				853F27A221EA30D2FFF63AFF /* Doubles+Alchemy.swift */,
@@ -327,7 +327,7 @@
 				853F2F7626ADADBEF819E13E /* Strings+Alchemy.swift in Sources */,
 				DE9C59D52037FA3B00147679 /* AttributedStringBuilder.swift in Sources */,
 				853F2761080049F8BBF1F551 /* Dates+Alchemy.swift in Sources */,
-				853F25A6C675FB5CD7DD0510 /* Async+.swift in Sources */,
+				853F25A6C675FB5CD7DD0510 /* Async+Alchemy.swift in Sources */,
 				853F2D97BC35B924EFF296FC /* Operators.swift in Sources */,
 				EAAEDFD089FC527B7622EB26 /* Dictionaries+Alchemy.swift in Sources */,
 			);

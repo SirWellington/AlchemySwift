@@ -25,15 +25,19 @@ public extension OperationQueue
         until the operation is finished.
      */
     @discardableResult
-    func sync<T>(_ block: @escaping () -> T?) -> T?
+    func sync<T>(_ block: @escaping ((T) -> Void) -> Void) -> T
     {
-        var result: T? = nil
+        var result: T!
         let group = DispatchGroup()
         group.enter()
         
-        addOperation {
-            result = block()
+        let completion: (T?) -> Void = {
+            result = $0
             group.leave()
+        }
+        
+        addOperation {
+            block(completion)
         }
         
         return result
