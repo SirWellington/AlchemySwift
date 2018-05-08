@@ -57,6 +57,25 @@ class AsyncPlusAlchemyTests: AlchemyTest
             assertEquals(result, expected)
         }
     }
+    
+    func testOnMain()
+    {
+        
+        runTest
+        {
+            var number = 0
+            let promise = expectation(description: "main thread")
+            
+            onMain
+            {
+                number = AlchemyGenerator.Integers.positive
+                promise.fulfill()
+            }
+            
+            wait(for: [promise], timeout: 10.0)
+            assertThat(number > 0)
+        }
+    }
 }
 
 

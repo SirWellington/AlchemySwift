@@ -49,6 +49,17 @@ public extension OperationQueue
     }
 }
 
+/**
+    This global convenience function allows you to quickly submit a
+    block of code for execution on the main thread. This function call returns
+    immediately.
+ 
+    - parameter block: The block to execute on the main thread
+ */
+public func onMain(_ block: @escaping () -> Void)
+{
+    OperationQueue.main.addOperation(block)
+}
 
 //======================================
 // MARK: Dispatch Queues
