@@ -64,8 +64,3 @@ public extension Int
         (1...self).repeatBlock(block)
     }
 }
-
-
-//=====================================
-//MARK: COVERSIONS
-//=====================================
