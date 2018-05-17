@@ -21,31 +21,7 @@ class DoublesPlusAlchemyTests : XCTestCase
     {
         double = AlchemyGenerator.Doubles.any
     }
-
-    func testAsInt()
-    {
-        let expected = Int(double)
-        let result = double.asInt
-
-        assertEquals(result, expected)
-    }
-
-    func testIntValue()
-    {
-        let expected = Int(double)
-        let result = double.intValue
-
-        assertEquals(result, expected)
-    }
-
-    func testAsString()
-    {
-        let expected = "\(double!)"
-        let result = double.asString
-
-        assertEquals(result, expected)
-    }
-
+    
     func testTimeIntervalFromMilliSeconds()
     {
         100.repeatBlock
@@ -139,7 +115,6 @@ class DoublesPlusAlchemyTests : XCTestCase
             assertEquals(time.toDays(), time.toHours() / 24.0)
         }
     }
-
 
     func testTimeIntervalToWeeks()
     {

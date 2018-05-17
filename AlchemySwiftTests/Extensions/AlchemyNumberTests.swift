@@ -202,5 +202,17 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(double.stringValue, String(double))
         }
     }
+    
+    func testMB()
+    {
+        repeatTest
+        {
+            let megabytes = AlchemyGenerator.integer(from: 1, to: 1_000)
+            let resultBytes = megabytes.mb
+            
+            let expected = megabytes * 1_000_000
+            assertEquals(resultBytes, expected)
+        }
+    }
 
 }
