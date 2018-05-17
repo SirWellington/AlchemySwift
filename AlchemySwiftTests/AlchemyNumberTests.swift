@@ -44,6 +44,22 @@ class AlchemyNumberTests: AlchemyTest
         cgFloat = CGFloat(double)
     }
 
+    func testInt()
+    {
+        runTest
+        {
+            assertEquals(int.intValue, int)
+            assertEquals(int.int32Value, int32)
+            assertEquals(int.int64Value, int64)
+            assertEquals(int.uIntValue, uInt)
+            assertEquals(int.uInt32Value, uInt32)
+            assertEquals(int.uInt64Value, uInt64)
+            assertEquals(int.cgFloatValue, floor(cgFloat))
+            assertEquals(int.floatValue, floor(float))
+            assertEquals(int.doubleValue, floor(double))
+        }
+    }
+
     func testDouble()
     {
         runTest
@@ -59,4 +75,5 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(double.cgFloatValue, cgFloat)
         }
     }
+
 }
