@@ -46,7 +46,7 @@ public extension AlchemyNumber
     var cgFloatValue: CGFloat { return CGFloat(self.asNSNumber) }
     var floatValue: Float { return Float(truncating: self.asNSNumber) }
     var doubleValue: Double { return Double(truncating: self.asNSNumber) }
-    var stringValue: String { return self.asNSNumber.stringValue }
+    var stringValue: String { return "\(self)" }
 
     /**
     Converts Megabytes to bytes.

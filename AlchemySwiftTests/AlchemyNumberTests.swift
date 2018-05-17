@@ -57,6 +57,24 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(int.cgFloatValue, floor(cgFloat))
             assertEquals(int.floatValue, floor(float))
             assertEquals(int.doubleValue, floor(double))
+            assertEquals(int.stringValue, String(int))
+        }
+    }
+
+    func testInt32()
+    {
+        repeatTest
+        {
+            assertEquals(int32.intValue, int)
+            assertEquals(int32.int32Value, int32)
+            assertEquals(int32.int64Value, int64)
+            assertEquals(int32.uIntValue, uInt)
+            assertEquals(int32.uInt32Value, uInt32)
+            assertEquals(int32.uInt64Value, uInt64)
+            assertEquals(int32.cgFloatValue, floor(cgFloat))
+            assertEquals(int32.floatValue, floor(float))
+            assertEquals(int32.doubleValue, floor(double))
+            assertEquals(int32.stringValue, String(int))
         }
     }
 
@@ -73,6 +91,7 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(double.uInt64Value, uInt64)
             assertEquals(double.floatValue, float)
             assertEquals(double.cgFloatValue, cgFloat)
+            assertEquals(double.stringValue, String(double))
         }
     }
 
