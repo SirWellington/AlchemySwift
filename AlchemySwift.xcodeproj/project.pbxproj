@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1361292A20ADEB0E00390906 /* Dictionaries+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEDF5BEE109C09C2ACDCFA /* Dictionaries+Alchemy.swift */; };
 		1361292C20ADEB1400390906 /* Dictionaries+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1361292B20ADEB1400390906 /* Dictionaries+Alchemy.swift */; };
 		853F20C98CBC6C7C2857EFCF /* Doubles+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F2E7BA160BB0EC9DBE272 /* Doubles+AlchemyTests.swift */; };
 		853F221E077E6C9B2B9268C1 /* Booleans+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F209D6DB05C12C0318506 /* Booleans+AlchemyTests.swift */; };
@@ -39,6 +38,7 @@
 		DE9C59D72038012E00147679 /* AlchemyTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9C59D62038012E00147679 /* AlchemyTest.framework */; };
 		DE9C59D82038013800147679 /* AlchemyTest.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = DE9C59D62038012E00147679 /* AlchemyTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EAAED1546D16798901507AF8 /* Dictionaries+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEDA231E93D68736B4A0D6 /* Dictionaries+AlchemyTests.swift */; };
+		EAAEDA5823B5165B1A50D30A /* AlchemyNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEDF8B1C054E00526412D8 /* AlchemyNumberTests.swift */; };
 		EAAEDABDE944FDEA8E49771E /* AlchemyNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAED33047EEAF49F88CA39D /* AlchemyNumber.swift */; };
 /* End PBXBuildFile section */
 
@@ -101,7 +101,7 @@
 		DE9C59D62038012E00147679 /* AlchemyTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlchemyTest.framework; path = Carthage/Build/iOS/AlchemyTest.framework; sourceTree = SOURCE_ROOT; };
 		EAAED33047EEAF49F88CA39D /* AlchemyNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlchemyNumber.swift; sourceTree = "<group>"; };
 		EAAEDA231E93D68736B4A0D6 /* Dictionaries+AlchemyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionaries+AlchemyTests.swift"; sourceTree = "<group>"; };
-		EAAEDF5BEE109C09C2ACDCFA /* Dictionaries+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionaries+Alchemy.swift"; sourceTree = "<group>"; };
+		EAAEDF8B1C054E00526412D8 /* AlchemyNumberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlchemyNumberTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +157,6 @@
 				DE125EEB1FF6999300A3C98B /* AlchemySwiftTests */,
 				DE125EDF1FF6999300A3C98B /* Products */,
 				853F22F6386DA57BB661BB58 /* Frameworks */,
-				EAAEDF5BEE109C09C2ACDCFA /* Dictionaries+Alchemy.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -193,6 +192,7 @@
 				DE993914206189DB000D1D2C /* AnythingTests.swift */,
 				853F2FA2ABEC2EC0A5BAF0F8 /* AttributedStringBuilderTests.swift */,
 				853F243D69C5C2C6533103DA /* OperatorsTest.swift */,
+				EAAEDF8B1C054E00526412D8 /* AlchemyNumberTests.swift */,
 			);
 			path = AlchemySwiftTests;
 			sourceTree = "<group>";
@@ -204,8 +204,8 @@
 				853F2EDB0C161B518E81B22A /* Async+Alchemy.swift */,
 				853F211E66F6399D012D3D4F /* Booleans+Alchemy.swift */,
 				853F20369EBC2431D23E9594 /* Dates+Alchemy.swift */,
-				853F27A221EA30D2FFF63AFF /* Doubles+Alchemy.swift */,
 				1361292B20ADEB1400390906 /* Dictionaries+Alchemy.swift */,
+				853F27A221EA30D2FFF63AFF /* Doubles+Alchemy.swift */,
 				853F249DCC87F53843928A16 /* Integers+Alchemy.swift */,
 				853F22B81C8977BFEDFCADAF /* NSObjects+Alchemy.swift */,
 				853F2BC81C636D82A3D58E66 /* Strings+Alchemy.swift */,
@@ -350,7 +350,6 @@
 				853F2717BAF32BE2789F855C /* Strings+AlchemyTests.swift in Sources */,
 				853F20C98CBC6C7C2857EFCF /* Doubles+AlchemyTests.swift in Sources */,
 				853F221E077E6C9B2B9268C1 /* Booleans+AlchemyTests.swift in Sources */,
-				1361292A20ADEB0E00390906 /* Dictionaries+Alchemy.swift in Sources */,
 				853F2D5490643E4975966B6E /* NSObjects+AlchemyTests.swift in Sources */,
 				853F2DE0A9188E76CB9EBF0D /* DatesPlusAlchemyTests.swift in Sources */,
 				853F2535E304989A170F3C17 /* Async+AlchemyTests.swift in Sources */,
@@ -358,6 +357,7 @@
 				853F2236B78E46D696C8B723 /* OperatorsTest.swift in Sources */,
 				DE993915206189DB000D1D2C /* AnythingTests.swift in Sources */,
 				EAAED1546D16798901507AF8 /* Dictionaries+AlchemyTests.swift in Sources */,
+				EAAEDA5823B5165B1A50D30A /* AlchemyNumberTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

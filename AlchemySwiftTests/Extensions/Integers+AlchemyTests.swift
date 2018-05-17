@@ -174,8 +174,8 @@ extension IntegersPlusAlchemyTests
         iterations.repeatBlock
         {
             integer = AlchemyGenerator.positiveInteger()
+            assertEquals(integer.uInt32Value, UInt32(integer))
             assertEquals(integer.asUInt32, UInt32(integer))
-            assertEquals(integer.uInt32, UInt32(integer))
         }
     }
 
