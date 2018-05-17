@@ -137,6 +137,7 @@
 		853F2B5FE9CA46D18DBD01A9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EAAEDF8B1C054E00526412D8 /* AlchemyNumberTests.swift */,
 				853F267048CB728E2E38ED62 /* Arrays+AlchemyTests.swift */,
 				853F24F6ECF17BE8618F7573 /* Async+AlchemyTests.swift */,
 				853F209D6DB05C12C0318506 /* Booleans+AlchemyTests.swift */,
@@ -178,7 +179,6 @@
 				DE125EE21FF6999300A3C98B /* Info.plist */,
 				DE9C59D42037FA3B00147679 /* AttributedStringBuilder.swift */,
 				853F2382A261030675A63E17 /* Operators.swift */,
-				EAAED33047EEAF49F88CA39D /* AlchemyNumber.swift */,
 			);
 			path = AlchemySwift;
 			sourceTree = "<group>";
@@ -192,7 +192,6 @@
 				DE993914206189DB000D1D2C /* AnythingTests.swift */,
 				853F2FA2ABEC2EC0A5BAF0F8 /* AttributedStringBuilderTests.swift */,
 				853F243D69C5C2C6533103DA /* OperatorsTest.swift */,
-				EAAEDF8B1C054E00526412D8 /* AlchemyNumberTests.swift */,
 			);
 			path = AlchemySwiftTests;
 			sourceTree = "<group>";
@@ -200,6 +199,7 @@
 		DE125EF81FF699C600A3C98B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EAAED33047EEAF49F88CA39D /* AlchemyNumber.swift */,
 				853F2DC607C5CF99C79CA9A0 /* Arrays+Alchemy.swift */,
 				853F2EDB0C161B518E81B22A /* Async+Alchemy.swift */,
 				853F211E66F6399D012D3D4F /* Booleans+Alchemy.swift */,
