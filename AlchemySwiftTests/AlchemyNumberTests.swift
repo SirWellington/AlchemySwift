@@ -46,7 +46,7 @@ class AlchemyNumberTests: AlchemyTest
 
     func testInt()
     {
-        runTest
+        repeatTest
         {
             assertEquals(int.intValue, int)
             assertEquals(int.int32Value, int32)
@@ -62,7 +62,7 @@ class AlchemyNumberTests: AlchemyTest
 
     func testDouble()
     {
-        runTest
+        repeatTest
         {
             assertEquals(double.doubleValue, double)
             assertEquals(double.intValue, int)

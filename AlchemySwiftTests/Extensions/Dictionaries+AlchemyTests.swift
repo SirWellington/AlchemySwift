@@ -45,7 +45,7 @@ class DictionariesPlusAlchemyTests: AlchemyTest
         var empty = [String: Int]()
         assertEquals(empty.size, 0)
 
-        runTest(iterations: 100)
+        repeatTest(iterations: 100)
         {
             assertEquals(dictionary.size, dictionary.count)
         }
@@ -53,7 +53,7 @@ class DictionariesPlusAlchemyTests: AlchemyTest
     
     func testKeysArray()
     {
-        runTest(iterations: 100)
+        repeatTest(iterations: 100)
         {
             let expected = Array(dictionary.keys)
             let result = dictionary.keysArray
@@ -63,7 +63,7 @@ class DictionariesPlusAlchemyTests: AlchemyTest
 
     func testValuesArray()
     {
-        runTest(iterations: 100)
+        repeatTest(iterations: 100)
         {
             let expected = Array(dictionary.values)
             let result = dictionary.valuesArray

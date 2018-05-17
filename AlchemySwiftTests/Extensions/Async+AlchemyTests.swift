@@ -44,7 +44,7 @@ class AsyncPlusAlchemyTests: AlchemyTest
     
     func testSync()
     {
-        runTest(iterations: iterations)
+        repeatTest(iterations: iterations)
         {
             let first = Int.random
             let second = Int.random
@@ -61,7 +61,7 @@ class AsyncPlusAlchemyTests: AlchemyTest
     func testOnMain()
     {
         
-        runTest
+        repeatTest
         {
             var number = 0
             let promise = expectation(description: "main thread")

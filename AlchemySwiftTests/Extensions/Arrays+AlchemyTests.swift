@@ -41,7 +41,7 @@ class ArraysPlusAlchemyTests: AlchemyTest
     
     func testSize()
     {
-        runTest
+        repeatTest
         {
             assertEquals(strings.size, strings.count)
         }
@@ -52,7 +52,7 @@ class ArraysPlusAlchemyTests: AlchemyTest
         let emptyArray = [String]()
         assertNil(emptyArray.anyElement)
 
-        runTest
+        repeatTest
         {
             let result: String! = strings.anyElement
             assertNotNil(result)
@@ -62,7 +62,7 @@ class ArraysPlusAlchemyTests: AlchemyTest
 
     func testShuffle()
     {
-        runTest
+        repeatTest
         {
             let result = strings.shuffled()
 
@@ -91,7 +91,7 @@ class ArraysPlusAlchemyTests: AlchemyTest
 
     func testAnyElementInRange()
     {
-        runTest
+        repeatTest
         {
             let min = 0
             let max = Int.randomFrom(minInclusive: 1, maxExclusive: 1_000)
@@ -105,7 +105,7 @@ class ArraysPlusAlchemyTests: AlchemyTest
 
     func testPrepend()
     {
-        runTest
+        repeatTest
         {
             let newString = self.anyString
 
@@ -128,7 +128,7 @@ class ArraysPlusAlchemyTests: AlchemyTest
 
     func testPrependMultipleTimes()
     {
-        runTest
+        repeatTest
         {
             let elementsToPrepend = AlchemyGenerator.Arrays.ofAlphanumericString
             let expected = elementsToPrepend.reversed() + strings
@@ -144,7 +144,7 @@ class ArraysPlusAlchemyTests: AlchemyTest
     
     func testAdd()
     {
-        runTest
+        repeatTest
         {
             var array = strings
             let newItem = anyString
@@ -159,7 +159,7 @@ class ArraysPlusAlchemyTests: AlchemyTest
     
     func testPopFirst()
     {
-        runTest
+        repeatTest
         {
             let expected = strings
             let newItem = anyString
@@ -184,7 +184,7 @@ class ArraysPlusAlchemyTests: AlchemyTest
     
     func testPopFirstOnEntireArray()
     {
-        runTest
+        repeatTest
         {
             let original = strings
             var array = original
@@ -211,7 +211,7 @@ extension ArraysPlusAlchemyTests
 {
     func testRemoveElementsWithEmpty()
     {
-        runTest
+        repeatTest
         {
             let original = strings
             strings.removeElements([])
@@ -222,7 +222,7 @@ extension ArraysPlusAlchemyTests
     
     func testRemoveElements()
     {
-        runTest
+        repeatTest
         {
             let first = strings.first!
             let last = strings.last!
@@ -234,21 +234,21 @@ extension ArraysPlusAlchemyTests
     
     func testRemoveWhere()
     {
-        runTest
+        repeatTest
         {
             let expected = strings
             strings.removeWhere {_ in false }
             assertEquals(strings, expected)
         }
         
-        runTest
+        repeatTest
         {
             let expected: [String] = []
             strings.removeWhere {_ in true }
             assertEquals(strings, expected)
         }
         
-        runTest
+        repeatTest
         {
             let expected = strings
             let newString = self.anyString
@@ -301,7 +301,7 @@ extension ArraysPlusAlchemyTests
 
     func testCirculateNextSafe()
     {
-        runTest
+        repeatTest
         {
             var empty = [String]()
             assertNil(empty.circulateNextSafe())
@@ -310,7 +310,7 @@ extension ArraysPlusAlchemyTests
 
     func testCirculatePreviousSafe()
     {
-        runTest
+        repeatTest
         {
             var empty = [String]()
             assertNil(empty.circulatePreviousSafe())
@@ -331,7 +331,7 @@ extension ArraysPlusAlchemyTests
 
     func testEqualityWhenShuffled()
     {
-        runTest
+        repeatTest
         {
 
             let original = strings
@@ -343,7 +343,7 @@ extension ArraysPlusAlchemyTests
 
     func testEqualityWhenNewElementAdded()
     {
-        runTest
+        repeatTest
         {
 
             let original = strings
@@ -372,7 +372,7 @@ extension ArraysPlusAlchemyTests
 
     func testEqualityWithDeepCopy()
     {
-        runTest
+        repeatTest
         {
             var copy = [String]()
 
@@ -406,7 +406,7 @@ extension ArraysPlusAlchemyTests
     
     func testCountWhere()
     {
-        runTest
+        repeatTest
         {
             let count = strings.countWhere  { _ in true }
             assertEquals(count, strings.size)
@@ -415,7 +415,7 @@ extension ArraysPlusAlchemyTests
 
     func testCountWhereWhenNone()
     {
-        runTest
+        repeatTest
         {
             let count = strings.countWhere  { _ in false }
             assertTrue(count == 0)
@@ -509,7 +509,7 @@ extension ArraysPlusAlchemyTests
     
     func testUniqueOn()
     {
-        runTest
+        repeatTest
         {
             let array = AlchemyGenerator.Arrays.ofAlphabeticString
             let result = array.unique { $0.firstLetter! }
@@ -525,7 +525,7 @@ extension ArraysPlusAlchemyTests
 
     func testUniqueOnWhenTheSame()
     {
-        runTest
+        repeatTest
         {
             let stringSize = Int.randomFrom(minInclusive: 5, maxExclusive: 20)
             let generator = { return AlchemyGenerator.alphabeticString(ofSize: stringSize) }
@@ -539,7 +539,7 @@ extension ArraysPlusAlchemyTests
 
     func testUniqueOnWhenDifferent()
     {
-        runTest
+        repeatTest
         {
             let array = AlchemyGenerator.Arrays.ofAlphabeticString
             let result = array.unique { $0.hashValue }
@@ -567,7 +567,7 @@ extension ArraysPlusAlchemyTests
 {
     func testArraySliceToArray()
     {
-        runTest
+        repeatTest
         {
             let slice = strings[0..<strings.size]
             let result = slice.toArray()
