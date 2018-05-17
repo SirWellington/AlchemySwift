@@ -12,15 +12,6 @@ import Foundation
 //=====================================
 //MARK: Conversions
 //=====================================
-public extension Double
-{
-    var asInt: Int { return Int(self) }
-    var intValue: Int { return asInt }
-    var asString: String { return String(self) }
-
-}
-
-
 //=====================================
 //MARK: Time Conversions
 //=====================================
