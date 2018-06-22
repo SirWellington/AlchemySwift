@@ -39,12 +39,26 @@ extension DoublesPlusAlchemyTests
         assertEquals(value.rounded(toPlaces: 0), 3.0)
         assertEquals(value.rounded(toPlaces: 1), 3.1)
         assertEquals(value.rounded(toPlaces: 2), 3.14)
-        assertEquals(value.rounded(toPlaces: 3), 3.141)
-        assertEquals(value.rounded(toPlaces: 4), 3.1415)
+        assertEquals(value.rounded(toPlaces: 3), 3.142)
+        assertEquals(value.rounded(toPlaces: 4), 3.1416)
         assertEquals(value.rounded(toPlaces: 5), 3.14159)
-        assertEquals(value.rounded(toPlaces: 6), 3.141592)
-
+        assertEquals(value.rounded(toPlaces: 6), 3.141593)
     }
+
+    func testTruncatedToWithSimpleExamples()
+    {
+        // PI = 3.14159265359
+        let value = 3.14159265359
+
+        assertEquals(value.truncated(toPlaces: 0), 3.0)
+        assertEquals(value.truncated(toPlaces: 1), 3.1)
+        assertEquals(value.truncated(toPlaces: 2), 3.14)
+        assertEquals(value.truncated(toPlaces: 3), 3.141)
+        assertEquals(value.truncated(toPlaces: 4), 3.1415)
+        assertEquals(value.truncated(toPlaces: 5), 3.14159)
+        assertEquals(value.truncated(toPlaces: 6), 3.141592)
+    }
+
 }
 
 
