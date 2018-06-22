@@ -100,7 +100,7 @@ class IntegersPlusAlchemyTests: XCTestCase
 
         let expected = counter + iterations
 
-        iterations.repeatBlock
+        repeatTest
         {
             counter += 1
         }

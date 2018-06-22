@@ -31,7 +31,7 @@ class OperatorsTest: AlchemyTest
 
     func testEitherOr()
     {
-        repeatTest(iterations: 1000)
+        repeatTest(1000)
         {
             let possibilities: [String] = [first, second]
             let result = first ?|? second
@@ -42,13 +42,13 @@ class OperatorsTest: AlchemyTest
 
     func testEitherOrVariance()
     {
-        repeatTest(iterations: 100)
+        repeatTest
         {
             var results = Set<String>()
 
             let iterations = 50
 
-            iterations.repeatBlock
+            repeatTest
             {
                 let result = first ?|? second
                 assertNotNil(result)

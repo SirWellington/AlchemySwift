@@ -19,6 +19,8 @@ import XCTest
 //======================================
 class AsyncPlusAlchemyTests: AlchemyTest
 {
+    override var iterations: Int { return 100 }
+
     private var counter = 0
     private var queue: DispatchQueue!
     private var operationQueue: OperationQueue!
@@ -26,14 +28,13 @@ class AsyncPlusAlchemyTests: AlchemyTest
     override func beforeEachTest()
     {
         counter = 0
-        iterations = 100
         queue = DispatchQueue(label: "test")
         operationQueue = OperationQueue(maxConcurrency: 1)
     }
 
     func testOperationQueueInitializer()
     {
-        iterations.repeatBlock
+        repeatTest
         {
             let concurrency = AlchemyGenerator.integer(from: 1, to: 5)
             let queue = OperationQueue(maxConcurrency: concurrency)
@@ -44,7 +45,7 @@ class AsyncPlusAlchemyTests: AlchemyTest
     
     func testSync()
     {
-        repeatTest(iterations: iterations)
+        repeatTest
         {
             let first = Int.random
             let second = Int.random
@@ -60,7 +61,6 @@ class AsyncPlusAlchemyTests: AlchemyTest
     
     func testOnMain()
     {
-        
         repeatTest
         {
             var number = 0

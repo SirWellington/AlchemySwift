@@ -31,7 +31,7 @@ class AttributedStringBuilderTests: XCTestCase
 
     func testWithNothing()
     {
-        iterations.repeatBlock
+        repeatTest
         {
             let result = builder.build()
             assertEquals(result, "".asAttributed)
@@ -40,7 +40,7 @@ class AttributedStringBuilderTests: XCTestCase
     
     func testAddMultiple()
     {
-        iterations.repeatBlock
+        repeatTest
         {
             let strings = self.anyStrings
             builder.clear()
@@ -60,7 +60,7 @@ class AttributedStringBuilderTests: XCTestCase
     
     func testAddMultipleWithAttributes()
     {
-        iterations.repeatBlock
+        repeatTest
         {
             let strings = self.anyStrings
             let strokeWidth = AlchemyGenerator.doubles(fromInclusive: 0.0, toInclusive: 10.0)
