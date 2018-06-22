@@ -14,8 +14,7 @@ import XCTest
 
 class StringsPlusAlchemyTests: AlchemyTest
 {
-
-    private let _iterations = 100
+    override var iterations: Int { return 100 }
 
     private var newString: String { return AlchemyGenerator.Strings.alphabetic }
 
@@ -25,7 +24,7 @@ class StringsPlusAlchemyTests: AlchemyTest
 
     func testStaticNotEmpty()
     {
-        repeatTest(iterations: _iterations)
+        repeatTest
         {
             assertTrue(String.notEmpty(newString))
             assertFalse(String.notEmpty(""))
@@ -35,7 +34,7 @@ class StringsPlusAlchemyTests: AlchemyTest
 
     func testStaticIsEmpty()
     {
-        repeatTest(iterations: _iterations)
+        repeatTest
         {
             assertFalse(String.isEmpty(newString))
             assertTrue(String.isEmpty(""))
@@ -46,7 +45,7 @@ class StringsPlusAlchemyTests: AlchemyTest
 
     func testNotEmpty()
     {
-        repeatTest(iterations: _iterations)
+        repeatTest
         {
             assertTrue(newString.notEmpty)
         }
@@ -54,7 +53,7 @@ class StringsPlusAlchemyTests: AlchemyTest
 
     func testLength()
     {
-        repeatTest(iterations: _iterations)
+        repeatTest
         {
             let string = self.newString
             assertEquals(string.length, string.count)
@@ -69,7 +68,7 @@ class StringsPlusAlchemyTests: AlchemyTest
 
     func testIntValueWithValidString()
     {
-        repeatTest(iterations: _iterations)
+        repeatTest
         {
             let number = AlchemyGenerator.positiveInteger()
             let string = "\(number)"
@@ -82,7 +81,7 @@ class StringsPlusAlchemyTests: AlchemyTest
 
     func testIntValueWithNegativeNumber()
     {
-        repeatTest(iterations: _iterations)
+        repeatTest
         {
             let number = AlchemyGenerator.negativeInteger()
             let string = "\(number)"
@@ -95,7 +94,7 @@ class StringsPlusAlchemyTests: AlchemyTest
 
     func testIntValueWithNonNumber()
     {
-        repeatTest(iterations: _iterations)
+        repeatTest
         {
             let result = newString.intValue
             assertNil(result)
@@ -106,7 +105,7 @@ class StringsPlusAlchemyTests: AlchemyTest
     {
         let calendar = Calendar.autoupdatingCurrent
 
-        repeatTest(iterations: _iterations)
+        repeatTest
         {
             let date = AlchemyGenerator.Dates.any
             let format = "yyyy/MM/dd"
@@ -122,7 +121,7 @@ class StringsPlusAlchemyTests: AlchemyTest
 
     func testAsDateWhenNotADate()
     {
-        repeatTest(iterations: _iterations)
+        repeatTest
         {
             let string = AlchemyGenerator.alphabeticString()
             let date = string.asDate(dateFormat: "yyyy/MM/dd")
@@ -132,7 +131,7 @@ class StringsPlusAlchemyTests: AlchemyTest
 
     func testFirstLetter()
     {
-        repeatTest(iterations: _iterations)
+        repeatTest
         {
             let string = self.newString
             let expected = string.first!.asString
@@ -145,7 +144,7 @@ class StringsPlusAlchemyTests: AlchemyTest
 
     func testLastLetter()
     {
-        repeatTest(iterations: _iterations)
+        repeatTest
         {
             let string = self.newString
             let expected = string.last!.asString
@@ -158,7 +157,7 @@ class StringsPlusAlchemyTests: AlchemyTest
 
     func testAsAttributed()
     {
-        repeatTest(iterations: _iterations)
+        repeatTest
         {
             let string = self.newString
             let expected = NSAttributedString(string: string)
@@ -184,7 +183,7 @@ extension StringsPlusAlchemyTests
 
     func testWithoutFirstLetter()
     {
-        repeatTest(iterations: _iterations)
+        repeatTest
         {
             let string = self.newString
 
@@ -197,7 +196,7 @@ extension StringsPlusAlchemyTests
 
     func testWithoutLastLetter()
     {
-        repeatTest(iterations: _iterations)
+        repeatTest
         {
             let string = self.newString
 
@@ -211,7 +210,7 @@ extension StringsPlusAlchemyTests
 
     func testRemovingPrefix()
     {
-        repeatTest(iterations: _iterations)
+        repeatTest
         {
             let prefix = self.newString
             let string = self.newString
@@ -223,7 +222,7 @@ extension StringsPlusAlchemyTests
 
     func testTrimmingEmptySpaces()
     {
-        repeatTest(iterations: _iterations)
+        repeatTest
         {
             let simpleString = self.newString
             var trimmed = simpleString.trimmingEmptySpaces()
@@ -238,7 +237,7 @@ extension StringsPlusAlchemyTests
 
     func testTitleCased()
     {
-        repeatTest(iterations: _iterations)
+        repeatTest
         {
             let string = self.newString
             let firstLetter = self.newString.firstLetter!
@@ -253,7 +252,7 @@ extension StringsPlusAlchemyTests
 
     func testSurroundedByQuotationMarks()
     {
-        repeatTest(iterations: _iterations)
+        repeatTest
         {
             let string = self.newString
             let expected = "“\(string)”"
@@ -271,7 +270,7 @@ extension StringsPlusAlchemyTests
 {
     func testStringFromCharacter()
     {
-        repeatTest(iterations: _iterations)
+        repeatTest
         {
             let string = self.newString
             let character = string.first!
@@ -292,14 +291,14 @@ extension StringsPlusAlchemyTests
 {
     func testStringCoalesceOperator()
     {
-        repeatTest(iterations: _iterations)
+        repeatTest
         {
             let optional: Any? = self.newString
             let defaultValue = self.newString
             assertEquals(optional ??? defaultValue, "\(optional!)")
         }
 
-        repeatTest(iterations: _iterations)
+        repeatTest
         {
             let defaultValue = self.newString
             let optional: Any? = nil
