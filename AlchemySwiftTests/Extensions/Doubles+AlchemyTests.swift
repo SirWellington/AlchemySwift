@@ -22,7 +22,39 @@ class DoublesPlusAlchemyTests : AlchemyTest
     {
         double = AlchemyGenerator.Doubles.any
     }
-    
+}
+
+
+//======================================
+// MARK: DECIMAL PRECISION TESTS
+//======================================
+
+extension DoublesPlusAlchemyTests
+{
+    func testRoundedToWithSimpleExamples()
+    {
+        // PI = 3.14159265359
+        let value = 3.14159265359
+
+        assertEquals(value.rounded(toPlaces: 0), 3.0)
+        assertEquals(value.rounded(toPlaces: 1), 3.1)
+        assertEquals(value.rounded(toPlaces: 2), 3.14)
+        assertEquals(value.rounded(toPlaces: 3), 3.141)
+        assertEquals(value.rounded(toPlaces: 4), 3.1415)
+        assertEquals(value.rounded(toPlaces: 5), 3.14159)
+        assertEquals(value.rounded(toPlaces: 6), 3.141592)
+
+    }
+}
+
+
+//======================================
+// MARK: TIME CONVERSION TESTS
+//======================================
+
+extension DoublesPlusAlchemyTests
+{
+
     func testTimeIntervalFromMilliSeconds()
     {
         repeatTest
