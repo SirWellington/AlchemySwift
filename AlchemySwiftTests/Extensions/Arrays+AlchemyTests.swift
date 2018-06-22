@@ -18,6 +18,8 @@ import Foundation
 //======================================
 class ArraysPlusAlchemyTests: AlchemyTest
 {
+    override var iterations: Int { return 100 }
+
     private var anyString: String { return AlchemyGenerator.Strings.alphanumeric }
     private var strings: [String] = []
     private var secondStrings: [String] = []
@@ -25,8 +27,6 @@ class ArraysPlusAlchemyTests: AlchemyTest
 
     override func beforeEachTest()
     {
-        iterations = 100
-
         strings = AlchemyGenerator.array { AlchemyGenerator.Strings.alphabetic }
         secondStrings = AlchemyGenerator.array { AlchemyGenerator.alphanumericString() }
         numbers = AlchemyGenerator.array { AlchemyGenerator.anyInteger() }

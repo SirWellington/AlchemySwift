@@ -19,8 +19,8 @@ import XCTest
 //======================================
 class DatesPlusAlchemyTests: AlchemyTest
 {
+    override var iterations: Int { return 150 }
 
-    private var testIterations =  100
     private let calendar = Calendar.autoupdatingCurrent
     
     private var now: Date { return Date() }
@@ -30,7 +30,7 @@ class DatesPlusAlchemyTests: AlchemyTest
     
     func testIsInThePast()
     {
-        repeatTest(iterations: testIterations)
+        repeatTest
         {
             let pastDate = self.dateInThePast
             let futureDate = self.dateInTheFuture
@@ -42,7 +42,7 @@ class DatesPlusAlchemyTests: AlchemyTest
     
     func testIsInTheFuture()
     {
-        repeatTest(iterations: testIterations)
+        repeatTest
         {
             let pastDate = self.dateInThePast
             let futureDate = self.dateInTheFuture
@@ -54,7 +54,7 @@ class DatesPlusAlchemyTests: AlchemyTest
 
     func testDateBySubtracting()
     {
-        repeatTest(iterations: testIterations)
+        repeatTest
         {
             let date = Date()
 
@@ -71,7 +71,7 @@ class DatesPlusAlchemyTests: AlchemyTest
     
     func testIsBefore()
     {
-        repeatTest(iterations: testIterations)
+        repeatTest
         {
             let pastDate = self.dateInThePast
             let futureDate = self.dateInTheFuture
@@ -85,7 +85,7 @@ class DatesPlusAlchemyTests: AlchemyTest
 
     func testIsAfter()
     {
-        repeatTest(iterations: testIterations)
+        repeatTest
         {
             let now = self.now
             let pastDate = self.dateInThePast
@@ -103,7 +103,7 @@ class DatesPlusAlchemyTests: AlchemyTest
     
     func testDateFormatter()
     {
-        repeatTest(iterations: testIterations)
+        repeatTest
         {
             _testDateFormatterWithFormat("MM/dd/yyyy")
             _testDateFormatterWithFormat("yyyy.MM.dd")
@@ -113,7 +113,7 @@ class DatesPlusAlchemyTests: AlchemyTest
 
     private func _testDateFormatterWithFormat(_ format: String)
     {
-        repeatTest(iterations: testIterations)
+        repeatTest
         {
             let date = Date()
 
@@ -130,7 +130,7 @@ class DatesPlusAlchemyTests: AlchemyTest
 
     func testYearsAgo()
     {
-        repeatTest(iterations: testIterations)
+        repeatTest
         {
             let yearsAgo = AlchemyGenerator.integer(from: 0, to: 100)
             let now = Date()
@@ -143,7 +143,7 @@ class DatesPlusAlchemyTests: AlchemyTest
 
     func testYearsAgoWithFutureDate()
     {
-        repeatTest(iterations: testIterations)
+        repeatTest
         {
             let yearsAhead = AlchemyGenerator.integer(from: 0, to: 100)
             let now = Date()
@@ -158,7 +158,7 @@ class DatesPlusAlchemyTests: AlchemyTest
 
     func testMonthsAgo()
     {
-        repeatTest(iterations: testIterations)
+        repeatTest
         {
             let monthsAgo = AlchemyGenerator.integer(from: 0, to: 200)
             let now = Date()
@@ -171,7 +171,7 @@ class DatesPlusAlchemyTests: AlchemyTest
 
     func testMonthsAgoWithFutureDate()
     {
-        repeatTest(iterations: testIterations)
+        repeatTest
         {
             let monthsAhead = AlchemyGenerator.integer(from: 0, to: 200)
             let now = Date()
