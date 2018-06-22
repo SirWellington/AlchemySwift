@@ -12,8 +12,9 @@ import AlchemyTest
 import Foundation
 import XCTest
 
-class DoublesPlusAlchemyTests : XCTestCase
+class DoublesPlusAlchemyTests : AlchemyTest
 {
+    override var iterations: Int { return 200 }
 
     private var double: Double!
 
@@ -24,7 +25,7 @@ class DoublesPlusAlchemyTests : XCTestCase
     
     func testTimeIntervalFromMilliSeconds()
     {
-        100.repeatBlock
+        repeatTest
         {
             let time: TimeInterval = AlchemyGenerator.Doubles.any
             assertEquals(TimeInterval.from(millis: time), time/1000, withMarginOfError: 0.00001)
@@ -33,7 +34,7 @@ class DoublesPlusAlchemyTests : XCTestCase
 
     func testTimeIntervalFromSeconds()
     {
-        100.repeatBlock
+        repeatTest
         {
             let time: TimeInterval = AlchemyGenerator.Doubles.any
             assertEquals(TimeInterval.from(seconds: time), time)
@@ -82,7 +83,7 @@ class DoublesPlusAlchemyTests : XCTestCase
 
     func testTimeIntervalToSeconds()
     {
-        100.repeatBlock
+        repeatTest
         {
             let time = AlchemyGenerator.doubles(fromInclusive: 0.1, toInclusive: 1000.0)
             assertEquals(time.toSeconds(), time)
@@ -91,7 +92,7 @@ class DoublesPlusAlchemyTests : XCTestCase
 
     func testTimeIntervalToMinutes()
     {
-        100.repeatBlock
+        repeatTest
         {
             let time = AlchemyGenerator.doubles(fromInclusive: 0.1, toInclusive: 1000.0)
             assertEquals(time.toMinutes(), time / 60.0)
@@ -100,7 +101,7 @@ class DoublesPlusAlchemyTests : XCTestCase
 
     func testTimeIntervalToHours()
     {
-        100.repeatBlock
+        repeatTest
         {
             let time = AlchemyGenerator.doubles(fromInclusive: 0.1, toInclusive: 1000.0)
             assertEquals(time.toHours(), time / (60.0 * 60.0), withMarginOfError: 0.0000001)
@@ -109,7 +110,7 @@ class DoublesPlusAlchemyTests : XCTestCase
 
     func testTimeIntervalToDays()
     {
-        100.repeatBlock
+        repeatTest
         {
             let time = AlchemyGenerator.doubles(fromInclusive: 0.1, toInclusive: 1000.0)
             assertEquals(time.toDays(), time.toHours() / 24.0)
@@ -118,7 +119,7 @@ class DoublesPlusAlchemyTests : XCTestCase
 
     func testTimeIntervalToWeeks()
     {
-        100.repeatBlock
+        repeatTest
         {
             let time = AlchemyGenerator.doubles(fromInclusive: 0.1, toInclusive: 1000.0)
             assertEquals(time.toWeeks(), time.toDays() / 7.0)
