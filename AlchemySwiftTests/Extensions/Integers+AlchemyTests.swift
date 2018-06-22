@@ -13,9 +13,9 @@ import Foundation
 import XCTest
 
 
-class IntegersPlusAlchemyTests: XCTestCase
+class IntegersPlusAlchemyTests: AlchemyTest
 {
-    private var iterations = 100
+    override var iterations: Int { return 100 }
 
     private var min = 0
     private var max = 0
@@ -31,93 +31,118 @@ class IntegersPlusAlchemyTests: XCTestCase
 
     func testIsEven()
     {
-        let number = AlchemyGenerator.anyInteger()
+        repeatTest
+        {
+            let number = AlchemyGenerator.anyInteger()
 
-        let expected = number % 2 == 0
-        let result = number.isEven
+            let expected = number % 2 == 0
+            let result = number.isEven
 
-        assertEquals(result, expected)
+            assertEquals(result, expected)
+        }
     }
 
     func testIsOdd()
     {
-        let expected = integer % 2 != 0
-        let result = integer.isOdd
+        repeatTest
+        {
+            let expected = integer % 2 != 0
+            let result = integer.isOdd
 
-        assertEquals(result, expected)
+            assertEquals(result, expected)
+        }
     }
 
     func testRandomInts()
     {
-        let result = Int.randomFrom(minInclusive: min, maxExclusive: max)
+        repeatTest
+        {
+            let result = Int.randomFrom(minInclusive: min, maxExclusive: max)
 
-        assertThat(result >= min)
-        assertThat(result < max)
-
-        assertThat(Int.randomFrom(minInclusive: 0, maxExclusive: 0) == 0)
+            assertThat(result >= min)
+            assertThat(result < max)
+            assertThat(Int.randomFrom(minInclusive: 0, maxExclusive: 0) == 0)
+        }
     }
 
     func testRandomIntsWithNegatives()
     {
-        min = AlchemyGenerator.negativeInteger()
+        repeatTest
+        {
+            min = AlchemyGenerator.negativeInteger()
 
-        let result = Int.randomFrom(minInclusive: min, maxExclusive: max)
-        XCTAssertTrue(result >= min)
-        XCTAssertTrue(result < max)
+            let result = Int.randomFrom(minInclusive: min, maxExclusive: max)
+            assertTrue(result >= min)
+            assertTrue(result < max)
+        }
     }
 
     func testRandomIntsWithInvalidRange()
     {
-        let result = Int.randomFrom(minInclusive: max, maxExclusive: min)
-        XCTAssertTrue(result >= min)
-        XCTAssertTrue(result < max)
+        repeatTest
+        {
+            let result = Int.randomFrom(minInclusive: max, maxExclusive: min)
+            assertTrue(result >= min)
+            assertTrue(result < max)
+        }
     }
 
     func testRandomInt()
     {
-        let result: Int? = Int.random
-
-        assertThat(result != nil)
+        repeatTest
+        {
+            let result: Int? = Int.random
+            assertThat(result != nil)
+        }
     }
 
     func testIsValidIndex()
     {
-        let validIndex = Int.randomFrom(minInclusive: 0, maxExclusive: array.count)
+        repeatTest
+        {
+            let validIndex = Int.randomFrom(minInclusive: 0, maxExclusive: array.count)
 
-        XCTAssertTrue(validIndex.isValidIndex(toArray: array))
+            assertTrue(validIndex.isValidIndex(toArray: array))
 
-        let negativeIndex = AlchemyGenerator.negativeInteger()
-        XCTAssertFalse(negativeIndex.isValidIndex(toArray: array))
+            let negativeIndex = AlchemyGenerator.negativeInteger()
+            assertFalse(negativeIndex.isValidIndex(toArray: array))
 
-        let invalidIndex = AlchemyGenerator.integer(from: array.count, to: UInt32.max.intValue)
-        XCTAssertFalse(invalidIndex.isValidIndex(toArray: array))
+            let invalidIndex = AlchemyGenerator.integer(from: array.count, to: UInt32.max.intValue)
+            assertFalse(invalidIndex.isValidIndex(toArray: array))
+        }
     }
 
     func testRepeatBlock()
     {
-        var counter = AlchemyGenerator.Integers.positive
-        let iterations = AlchemyGenerator.Integers.positive
-
-        let expected = counter + iterations
-
-        repeatTest
+        repeatTest(15)
         {
-            counter += 1
-        }
+            var counter = AlchemyGenerator.Integers.positive
+            let iterations = AlchemyGenerator.Integers.positive
 
-        XCTAssertEqual(counter, expected)
+            let expected = counter + iterations
+
+            repeatTest
+            {
+                counter += 1
+            }
+
+            assertEquals(counter, expected)
+        }
     }
 
     func testRepeatBlockWhenLessThan1()
     {
-        var counter = AlchemyGenerator.integer(from: -1000, to: 0)
-        let original = counter
-
-        0.repeatBlock
+        repeatTest(10)
         {
-            counter += 1
-        }
+            var counter = AlchemyGenerator.integer(from: -1000, to: 0)
+            let original = counter
 
-        XCTAssertEqual(counter, original)
+            0.repeatBlock
+            {
+                counter += 1
+            }
+
+            assertEquals(counter, original)
+        }
     }
 }

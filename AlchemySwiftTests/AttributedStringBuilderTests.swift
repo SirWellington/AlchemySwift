@@ -17,9 +17,10 @@ import XCTest
 // MARK: TEST
 //======================================
 
-class AttributedStringBuilderTests: XCTestCase
+class AttributedStringBuilderTests: AlchemyTest
 {
-    private var iterations = 100
+    override var iterations: Int { return 100 }
+
     private var anyStrings: [String] { return AlchemyGenerator.Arrays.ofString }
 
     private var builder = AttributedStringBuilder()
