@@ -46,9 +46,7 @@ class OperatorsTest: AlchemyTest
         {
             var results = Set<String>()
 
-            let iterations = 50
-
-            repeatTest
+            50.repeatBlock
             {
                 let result = first ?|? second
                 assertNotNil(result)

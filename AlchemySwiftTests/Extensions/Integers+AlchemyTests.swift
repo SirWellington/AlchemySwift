@@ -121,7 +121,7 @@ class IntegersPlusAlchemyTests: AlchemyTest
 
             let expected = counter + iterations
 
-            repeatTest
+            iterations.repeatBlock
             {
                 counter += 1
             }
