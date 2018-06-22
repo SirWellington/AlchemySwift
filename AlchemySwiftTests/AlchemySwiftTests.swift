@@ -9,7 +9,7 @@
 import XCTest
 @testable import AlchemySwift
 
-class AlchemySwiftTests: XCTestCase {
+class AlchemySwiftTests: AlchemyTest {
     
     override func setUp() {
         super.setUp()

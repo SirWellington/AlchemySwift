@@ -13,7 +13,7 @@ import Foundation
 import XCTest
 
 
-class NSObjectsPlusAlchemyTests: XCTestCase
+class NSObjectsPlusAlchemyTests: AlchemyTest
 {
 
     func testClassNameVariable()

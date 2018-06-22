@@ -13,7 +13,7 @@ import AlchemyTest
 import Foundation
 import XCTest
 
-class BooleansPlusAlchemyTests: XCTestCase
+class BooleansPlusAlchemyTests: AlchemyTest
 {
 
     private var bool: Bool! = nil
