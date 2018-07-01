@@ -14,7 +14,7 @@ import XCTest
 
 
 //======================================
-// MARK: INTEGER TESTS
+// MARK: NUMBER TESTS
 //======================================
 class AlchemyNumberTests: AlchemyTest
 {
@@ -27,6 +27,7 @@ class AlchemyNumberTests: AlchemyTest
     private var double: Double = 0.0
     private var float: Float = 0.0
     private var cgFloat: CGFloat = 0.0
+    private var decimal: Decimal = 0.0
 
     private var anyPositiveInt: Int
     {
@@ -48,7 +49,13 @@ class AlchemyNumberTests: AlchemyTest
         uInt64 = UInt64(double)
         float = Float(double)
         cgFloat = CGFloat(double)
+        decimal = Decimal(double)
     }
+
+
+    //======================================
+    // MARK: INTEGER TESTS
+    //======================================
 
     func testInt()
     {
@@ -63,6 +70,7 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(int.cgFloatValue, floor(cgFloat))
             assertEquals(int.floatValue, floor(float))
             assertEquals(int.doubleValue, floor(double))
+            assertEquals(int.decimalValue, Decimal(int))
             assertEquals(int.stringValue, String(int))
         }
     }
@@ -80,6 +88,7 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(int32.cgFloatValue, floor(cgFloat))
             assertEquals(int32.floatValue, floor(float))
             assertEquals(int32.doubleValue, floor(double))
+            assertEquals(int32.decimalValue, Decimal(int))
             assertEquals(int32.stringValue, String(int32))
         }
     }
@@ -97,6 +106,7 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(int64.cgFloatValue, floor(cgFloat))
             assertEquals(int64.floatValue, floor(float))
             assertEquals(int64.doubleValue, floor(double))
+            assertEquals(int64.decimalValue, Decimal(int))
             assertEquals(int64.stringValue, String(int64))
         }
     }
@@ -114,6 +124,7 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(uInt.cgFloatValue, floor(cgFloat))
             assertEquals(uInt.floatValue, floor(float))
             assertEquals(uInt.doubleValue, floor(double))
+            assertEquals(uInt.decimalValue, Decimal(int))
             assertEquals(uInt.stringValue, String(uInt))
         }
     }
@@ -131,6 +142,7 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(uInt32.cgFloatValue, floor(cgFloat))
             assertEquals(uInt32.floatValue, floor(float))
             assertEquals(uInt32.doubleValue, floor(double))
+            assertEquals(uInt32.decimalValue, Decimal(int))
             assertEquals(uInt32.stringValue, String(uInt32))
         }
     }
@@ -148,9 +160,15 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(uInt64.cgFloatValue, floor(cgFloat))
             assertEquals(uInt64.floatValue, floor(float))
             assertEquals(uInt64.doubleValue, floor(double))
+            assertEquals(uInt64.decimalValue, Decimal(int))
             assertEquals(uInt64.stringValue, String(uInt64))
         }
     }
+
+
+    //======================================
+    // MARK: FLOAT TESTS
+    //======================================
 
     func testCGFloat()
     {
@@ -165,6 +183,7 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(cgFloat.uInt64Value, uInt64)
             assertEquals(cgFloat.floatValue, float)
             assertEquals(cgFloat.cgFloatValue, cgFloat)
+            assertEquals(cgFloat.decimalValue, decimal)
             assertEquals(cgFloat.stringValue, cgFloat.description)
         }
     }
@@ -173,7 +192,6 @@ class AlchemyNumberTests: AlchemyTest
     {
         repeatTest
         {
-            assertEquals(float.doubleValue, Double(Float(double)))
             assertEquals(float.intValue, int)
             assertEquals(float.int32Value, int32)
             assertEquals(float.int64Value, int64)
@@ -181,7 +199,12 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(float.uInt32Value, uInt32)
             assertEquals(float.uInt64Value, uInt64)
             assertEquals(float.floatValue, float)
+            assertEquals(float.doubleValue, Double(Float(double)))
             assertEquals(float.cgFloatValue, CGFloat(Float(cgFloat)))
+            assertEquals(float.decimalValue, Decimal(Double(float)))
+            assertEquals(float.doubleValue, double, withMarginOfError: 0.0001)
+            assertEquals(float.cgFloatValue, cgFloat, withMarginOfError: 0.0001)
+            assertEquals(float.decimalValue, decimal, withMarginOfError: 0.0001)
             assertEquals(float.stringValue, String(float))
         }
     }
@@ -198,11 +221,32 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(double.uInt32Value, uInt32)
             assertEquals(double.uInt64Value, uInt64)
             assertEquals(double.floatValue, float)
+            assertEquals(double.decimalValue, Decimal(double))
             assertEquals(double.cgFloatValue, cgFloat)
             assertEquals(double.stringValue, String(double))
         }
     }
-    
+
+    func testDecimal()
+    {
+        repeatTest
+        {
+            assertEquals(decimal.decimalValue, decimal)
+            assertEquals(decimal.intValue, int)
+            assertEquals(decimal.int32Value, int32)
+            assertEquals(decimal.int64Value, int64)
+            assertEquals(decimal.uIntValue, uInt)
+            assertEquals(decimal.uInt32Value, uInt32)
+            assertEquals(decimal.uInt64Value, uInt64)
+            assertEquals(decimal.floatValue, float)
+            assertEquals(decimal.doubleValue, double, withMarginOfError: 0.0000001)
+            assertEquals(decimal.doubleValue, double.decimalValue.doubleValue)
+            assertEquals(decimal.cgFloatValue, cgFloat, withMarginOfError: 0.0000001)
+            assertEquals(decimal.cgFloatValue, cgFloat.decimalValue.cgFloatValue)
+            assertEquals(decimal.stringValue, decimal.asString)
+        }
+    }
+
     func testMB()
     {
         repeatTest
