@@ -9,7 +9,7 @@
 import Foundation
 
 //=====================================
-//MARK: Basics
+//MARK: BASICS
 //=====================================
 public extension Int
 {
@@ -63,4 +63,14 @@ public extension Int
 
         (1...self).repeatBlock(block)
     }
+}
+
+
+
+//======================================
+// MARK: MATH FUNCTIONS
+//======================================
+public extension Int
+{
+    var abs: Int { return Swift.abs(self) }
 }

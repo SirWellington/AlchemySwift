@@ -146,3 +146,25 @@ class IntegersPlusAlchemyTests: AlchemyTest
         }
     }
 }
+
+
+//======================================
+// MARK: MATH FUNCTION TESTS
+//======================================
+extension IntegersPlusAlchemyTests 
+{
+    func testAbsoluteValue()
+    {
+        repeatTest 
+        {
+            let positive = AlchemyGenerator.positiveInteger()
+            assertEquals(positive.abs, positive)
+
+            let negative = AlchemyGenerator.negativeInteger()
+            assertEquals(negative.abs, -negative)
+
+            let zero = 0
+            assertEquals(zero.abs, 0)
+        }
+    }
+}

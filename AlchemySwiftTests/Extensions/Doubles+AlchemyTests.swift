@@ -25,6 +25,30 @@ class DoublesPlusAlchemyTests : AlchemyTest
 }
 
 
+
+//======================================
+// MARK: MATH FUNCTION TESTS
+//======================================
+extension DoublesPlusAlchemyTests
+{
+    func testAbsoluteValue()
+    {
+        repeatTest
+        {
+            let positive = AlchemyGenerator.positiveDouble()
+            assertEquals(positive.abs, positive)
+
+            let negative = AlchemyGenerator.negativeDouble()
+            assertEquals(negative.abs, -negative)
+
+            let zero: Double = 0
+            assertEquals(zero.abs, 0.0)
+        }
+    }
+
+}
+
+
 //======================================
 // MARK: DECIMAL PRECISION TESTS
 //======================================

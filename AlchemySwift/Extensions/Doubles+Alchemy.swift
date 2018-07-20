@@ -9,6 +9,15 @@
 import Foundation
 
 
+//======================================
+// MARK: MATH FUNCTIONS
+//======================================
+public extension Double
+{
+    var abs: Double { return Swift.abs(self) }
+}
+
+
 //=====================================
 //MARK: DECIMAL PRECISION
 //=====================================
