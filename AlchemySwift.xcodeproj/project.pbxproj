@@ -36,6 +36,7 @@
 		DE9C59D52037FA3B00147679 /* AttributedStringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C59D42037FA3B00147679 /* AttributedStringBuilder.swift */; };
 		DE9C59D72038012E00147679 /* AlchemyTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9C59D62038012E00147679 /* AlchemyTest.framework */; };
 		DE9C59D82038013800147679 /* AlchemyTest.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = DE9C59D62038012E00147679 /* AlchemyTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EAAED05A0F38A32DA33D0992 /* Codables+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAED030E491B7CFDEA6A461 /* Codables+.swift */; };
 		EAAED1546D16798901507AF8 /* Dictionaries+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEDA231E93D68736B4A0D6 /* Dictionaries+AlchemyTests.swift */; };
 		EAAEDA5823B5165B1A50D30A /* AlchemyNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEDF8B1C054E00526412D8 /* AlchemyNumberTests.swift */; };
 		EAAEDABDE944FDEA8E49771E /* AlchemyNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAED33047EEAF49F88CA39D /* AlchemyNumber.swift */; };
@@ -97,6 +98,7 @@
 		DE993914206189DB000D1D2C /* AnythingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnythingTests.swift; sourceTree = "<group>"; };
 		DE9C59D42037FA3B00147679 /* AttributedStringBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringBuilder.swift; sourceTree = "<group>"; };
 		DE9C59D62038012E00147679 /* AlchemyTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlchemyTest.framework; path = Carthage/Build/iOS/AlchemyTest.framework; sourceTree = SOURCE_ROOT; };
+		EAAED030E491B7CFDEA6A461 /* Codables+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Codables+.swift"; sourceTree = "<group>"; };
 		EAAED33047EEAF49F88CA39D /* AlchemyNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlchemyNumber.swift; sourceTree = "<group>"; };
 		EAAEDA231E93D68736B4A0D6 /* Dictionaries+AlchemyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionaries+AlchemyTests.swift"; sourceTree = "<group>"; };
 		EAAEDF8B1C054E00526412D8 /* AlchemyNumberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlchemyNumberTests.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				853F249DCC87F53843928A16 /* Integers+Alchemy.swift */,
 				853F22B81C8977BFEDFCADAF /* NSObjects+Alchemy.swift */,
 				853F2BC81C636D82A3D58E66 /* Strings+Alchemy.swift */,
+				EAAED030E491B7CFDEA6A461 /* Codables+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				853F25A6C675FB5CD7DD0510 /* Async+Alchemy.swift in Sources */,
 				853F2D97BC35B924EFF296FC /* Operators.swift in Sources */,
 				EAAEDABDE944FDEA8E49771E /* AlchemyNumber.swift in Sources */,
+				EAAED05A0F38A32DA33D0992 /* Codables+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
