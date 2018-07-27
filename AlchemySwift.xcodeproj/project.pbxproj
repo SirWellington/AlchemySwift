@@ -40,6 +40,7 @@
 		EAAED1546D16798901507AF8 /* Dictionaries+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEDA231E93D68736B4A0D6 /* Dictionaries+AlchemyTests.swift */; };
 		EAAEDA5823B5165B1A50D30A /* AlchemyNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEDF8B1C054E00526412D8 /* AlchemyNumberTests.swift */; };
 		EAAEDABDE944FDEA8E49771E /* AlchemyNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAED33047EEAF49F88CA39D /* AlchemyNumber.swift */; };
+		EAAEDED103909EF8E0356329 /* Codables+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEDD58E7BFFD1793266E74 /* Codables+Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		EAAED030E491B7CFDEA6A461 /* Codables+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Codables+.swift"; sourceTree = "<group>"; };
 		EAAED33047EEAF49F88CA39D /* AlchemyNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlchemyNumber.swift; sourceTree = "<group>"; };
 		EAAEDA231E93D68736B4A0D6 /* Dictionaries+AlchemyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionaries+AlchemyTests.swift"; sourceTree = "<group>"; };
+		EAAEDD58E7BFFD1793266E74 /* Codables+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Codables+Tests.swift"; sourceTree = "<group>"; };
 		EAAEDF8B1C054E00526412D8 /* AlchemyNumberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlchemyNumberTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,6 +149,7 @@
 				853F2D559445E2536370EE8A /* Integers+AlchemyTests.swift */,
 				853F256D5533D0342C5D68F5 /* NSObjects+AlchemyTests.swift */,
 				853F2D7CCE7C9A3D622484CA /* Strings+AlchemyTests.swift */,
+				EAAEDD58E7BFFD1793266E74 /* Codables+Tests.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				DE993915206189DB000D1D2C /* AnythingTests.swift in Sources */,
 				EAAED1546D16798901507AF8 /* Dictionaries+AlchemyTests.swift in Sources */,
 				EAAEDA5823B5165B1A50D30A /* AlchemyNumberTests.swift in Sources */,
+				EAAEDED103909EF8E0356329 /* Codables+Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

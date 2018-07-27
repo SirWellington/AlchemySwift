@@ -484,11 +484,17 @@ extension AnyCodable: Equatable
                 return lhs == rhs
             case let (lhs as Double, rhs as Double):
                 return lhs == rhs
+            case let (lhs as NSNumber, rhs as NSNumber):
+                return lhs == rhs
             case let (lhs as String, rhs as String):
                 return lhs == rhs
             case (let lhs as [String: AnyCodable], let rhs as [String: AnyCodable]):
                 return lhs == rhs
             case (let lhs as [AnyCodable], let rhs as [AnyCodable]):
+                return lhs == rhs
+            case (let lhs as NSArray, let rhs as NSArray):
+                return lhs == rhs
+            case (let lhs as NSDictionary, let rhs as NSDictionary):
                 return lhs == rhs
             default:
                 return false
