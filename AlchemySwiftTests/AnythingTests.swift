@@ -121,5 +121,36 @@ extension AnythingTests
         size = empty?.with { $0.count } ?? 0
         assertEquals(size, 0)
     }
-    
+
+    func testUsingFunction()
+    {
+        repeatTest
+        {
+            var string: String? = nil
+            var count = 0
+
+            using(string)
+            {
+                assertNil($0)
+                count += 1
+            }
+
+            assertEquals(count, 0)
+
+            string = AlchemyGenerator.Strings.alphabetic
+            using(string)
+            {
+                assertEquals($0, string)
+                count += 1
+            }
+
+            assertEquals(count, 1)
+
+            using(string)
+            {
+                assertEquals($0, string)
+            }
+        }
+    }
+
 }

@@ -39,14 +39,28 @@ public extension Anything
     }
 }
 
+
 //======================================
 // MARK: EXTENSIONS
 //======================================
 extension Int: Anything { }
 extension String: Anything { }
 extension Double: Anything { }
+extension Float: Anything { }
 extension Bool: Anything { }
 extension Array: Anything { }
 extension Set: Anything { }
 extension Dictionary: Anything { }
 extension NSObject: Anything { }
+
+
+//============= =========================
+// MARK: GLOBAL FUNCTIONS
+//======================================
+public func using<T: Any>(_ object: T?, _ block: (T) -> Void)
+{
+    if let object = object
+    {
+        block(object)
+    }
+}
