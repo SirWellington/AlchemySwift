@@ -27,3 +27,16 @@ public extension Dictionary
     ///Returns an Array containing all of the dictionary's values
     var valuesArray: [Value] { return Array(self.values) }
 }
+
+public extension NSDictionary
+{
+    /// Alias for `count`
+    var size: Int { return self.count }
+
+    /// Returns `true` if this dictionary has no entries, `false` if it has entries
+    var isEmpty: Bool { return self.size == 0}
+
+    /// Returns `true` if this dictionary has entries, `false` if it is empty
+    var notEmpty: Bool { return self.size > 0 }
+
+}
