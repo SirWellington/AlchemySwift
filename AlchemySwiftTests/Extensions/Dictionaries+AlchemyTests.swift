@@ -18,9 +18,9 @@ import UIKit
 //======================================
 class DictionariesPlusAlchemyTests: AlchemyTest
 {
-    private var dictionary: [String: Int] = [:]
-    private var newString: String { return AlchemyGenerator.Strings.alphanumeric }
-    private var newInt: Int { return AlchemyGenerator.Integers.any }
+    var dictionary: [String: Int] = [:]
+    var newString: String { return AlchemyGenerator.Strings.alphanumeric }
+    var newInt: Int { return AlchemyGenerator.Integers.any }
 
     override func beforeEachTest()
     {
@@ -71,4 +71,45 @@ class DictionariesPlusAlchemyTests: AlchemyTest
             assertEquals(result, expected)
         }
     }
+}
+
+
+
+//======================================
+// MARK: NSDICTIONARY TESTS
+//======================================
+class NDictionaryPlusTests: DictionariesPlusAlchemyTests
+{
+    private var nsDictionary: NSDictionary { return self.dictionary as! NSDictionary }
+
+    override func testSize()
+    {
+        repeatTest
+        {
+            assertEquals(nsDictionary.size, nsDictionary.count)
+        }
+    }
+
+    func testIsEmpty()
+    {
+        let emptyDictionary = NSDictionary()
+
+        repeatTest
+        {
+            assertFalse(nsDictionary.isEmpty)
+            assertTrue(emptyDictionary.isEmpty)
+        }
+    }
+
+    func testNotEmpty()
+    {
+        let emptyDictionary = NSDictionary()
+
+        repeatTest
+        {
+            assertFalse(emptyDictionary.notEmpty)
+            assertTrue(nsDictionary.notEmpty)
+        }
+    }
+
 }
