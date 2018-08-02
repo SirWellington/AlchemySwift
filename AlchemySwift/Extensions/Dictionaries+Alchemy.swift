@@ -26,6 +26,9 @@ public extension Dictionary
     
     ///Returns an Array containing all of the dictionary's values
     var valuesArray: [Value] { return Array(self.values) }
+
+    // Returns `true` if this dictionary has entries, `false` if it is empty.
+    var notEmpty: Bool { return !isEmpty }
 }
 
 public extension NSDictionary

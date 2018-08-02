@@ -71,6 +71,18 @@ class DictionariesPlusAlchemyTests: AlchemyTest
             assertEquals(result, expected)
         }
     }
+
+    func testNotEmpty()
+    {
+        repeatTest
+        {
+            let dictionaryWithData = self.dictionary
+            assertTrue(dictionaryWithData.notEmpty)
+
+            let emptyDict = [String: String]()
+            assertFalse(emptyDict.notEmpty)
+        }
+    }
 }
 
 
@@ -101,7 +113,7 @@ class NDictionaryPlusTests: DictionariesPlusAlchemyTests
         }
     }
 
-    func testNotEmpty()
+    override func testNotEmpty()
     {
         let emptyDictionary = NSDictionary()
 
