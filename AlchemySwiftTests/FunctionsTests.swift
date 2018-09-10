@@ -17,7 +17,7 @@ import AlchemyTest
 class FunctionsTests: AlchemyTest
 {
     
-    func testCalculatePercentage()
+    func testCalculatePercentageDoubles()
     {
         repeatTest
         {
@@ -32,4 +32,21 @@ class FunctionsTests: AlchemyTest
             print("\(result)%")
         }
     }
+
+    func testCalculatePercentageInts()
+    {
+        repeatTest
+        {
+            let part = Int.randomFrom(minInclusive: 1, maxExclusive: 1000)
+            let total = Int.randomFrom(minInclusive: part + 5, maxExclusive: part * 5)
+            let decimalPlaces = Int.randomFrom(minInclusive: 1, maxExclusive: 5)
+            let expected = ((part.doubleValue / total.doubleValue) * 100).rounded(toPlaces: decimalPlaces)
+            let result = calculatePercentage(part: part, total: total, decimalPlaces: decimalPlaces)
+
+            assertEquals(result, expected)
+
+            print("\(result)%")
+        }
+    }
+
 }
