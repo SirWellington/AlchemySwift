@@ -13,9 +13,8 @@ import AlchemyTest
 
 
 //======================================
-// MARK: 
+// MARK: OPERATOR TESTS
 //======================================
-
 class OperatorsTest: AlchemyTest
 {
     private var first: String!
