@@ -31,6 +31,8 @@
 		DE125EE81FF6999300A3C98B /* AlchemySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE125EDE1FF6999300A3C98B /* AlchemySwift.framework */; };
 		DE125EEF1FF6999300A3C98B /* AlchemySwift.h in Headers */ = {isa = PBXBuildFile; fileRef = DE125EE11FF6999300A3C98B /* AlchemySwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE15D162201B97030006FA5D /* AlchemyGenerator.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 853F28AC3FBD1D6699D973F1 /* AlchemyGenerator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DE51BC8F2146247A00C4B917 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE51BC8E2146247A00C4B917 /* Functions.swift */; };
+		DE51BC91214624C300C4B917 /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE51BC90214624C300C4B917 /* FunctionsTests.swift */; };
 		DE99391320618891000D1D2C /* Anything.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99391220618891000D1D2C /* Anything.swift */; };
 		DE993915206189DB000D1D2C /* AnythingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE993914206189DB000D1D2C /* AnythingTests.swift */; };
 		DE9C59D52037FA3B00147679 /* AttributedStringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C59D42037FA3B00147679 /* AttributedStringBuilder.swift */; };
@@ -95,6 +97,8 @@
 		DE125EE21FF6999300A3C98B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE125EE71FF6999300A3C98B /* AlchemySwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlchemySwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE125EEE1FF6999300A3C98B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE51BC8E2146247A00C4B917 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		DE51BC90214624C300C4B917 /* FunctionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsTests.swift; sourceTree = "<group>"; };
 		DE99391220618891000D1D2C /* Anything.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anything.swift; sourceTree = "<group>"; };
 		DE993914206189DB000D1D2C /* AnythingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnythingTests.swift; sourceTree = "<group>"; };
 		DE9C59D42037FA3B00147679 /* AttributedStringBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringBuilder.swift; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 				DE125EE21FF6999300A3C98B /* Info.plist */,
 				DE9C59D42037FA3B00147679 /* AttributedStringBuilder.swift */,
 				853F2382A261030675A63E17 /* Operators.swift */,
+				DE51BC8E2146247A00C4B917 /* Functions.swift */,
 			);
 			path = AlchemySwift;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 				DE993914206189DB000D1D2C /* AnythingTests.swift */,
 				853F2FA2ABEC2EC0A5BAF0F8 /* AttributedStringBuilderTests.swift */,
 				853F243D69C5C2C6533103DA /* OperatorsTest.swift */,
+				DE51BC90214624C300C4B917 /* FunctionsTests.swift */,
 			);
 			path = AlchemySwiftTests;
 			sourceTree = "<group>";
@@ -205,13 +211,13 @@
 				853F2DC607C5CF99C79CA9A0 /* Arrays+Alchemy.swift */,
 				853F2EDB0C161B518E81B22A /* Async+Alchemy.swift */,
 				853F211E66F6399D012D3D4F /* Booleans+Alchemy.swift */,
+				EAAED030E491B7CFDEA6A461 /* Codables+.swift */,
 				853F20369EBC2431D23E9594 /* Dates+Alchemy.swift */,
 				1361292B20ADEB1400390906 /* Dictionaries+Alchemy.swift */,
 				853F27A221EA30D2FFF63AFF /* Doubles+Alchemy.swift */,
 				853F249DCC87F53843928A16 /* Integers+Alchemy.swift */,
 				853F22B81C8977BFEDFCADAF /* NSObjects+Alchemy.swift */,
 				853F2BC81C636D82A3D58E66 /* Strings+Alchemy.swift */,
-				EAAED030E491B7CFDEA6A461 /* Codables+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -335,6 +341,7 @@
 				853F25657B64819E3C7F1234 /* Doubles+Alchemy.swift in Sources */,
 				853F23D483403DF8FAE3D466 /* NSObjects+Alchemy.swift in Sources */,
 				853F2F7626ADADBEF819E13E /* Strings+Alchemy.swift in Sources */,
+				DE51BC8F2146247A00C4B917 /* Functions.swift in Sources */,
 				DE9C59D52037FA3B00147679 /* AttributedStringBuilder.swift in Sources */,
 				853F2761080049F8BBF1F551 /* Dates+Alchemy.swift in Sources */,
 				853F25A6C675FB5CD7DD0510 /* Async+Alchemy.swift in Sources */,
@@ -348,6 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE51BC91214624C300C4B917 /* FunctionsTests.swift in Sources */,
 				853F2E119E9E3C6EFD86B8C8 /* Arrays+AlchemyTests.swift in Sources */,
 				853F22D2785E7D03636D857B /* Integers+AlchemyTests.swift in Sources */,
 				853F2717BAF32BE2789F855C /* Strings+AlchemyTests.swift in Sources */,
