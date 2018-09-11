@@ -23,6 +23,7 @@ public extension Double
 //=====================================
 public extension Double
 {
+
     /**
         Rounds this double to `places` decimal places using the specified `roundingRule`.
     */
