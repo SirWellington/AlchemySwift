@@ -47,7 +47,7 @@ public extension Double
 //MARK: TIME CONVERSIONS
 //=====================================
 
-public extension Double
+public extension TimeInterval
 {
     static func from(millis: Double) -> TimeInterval
     {

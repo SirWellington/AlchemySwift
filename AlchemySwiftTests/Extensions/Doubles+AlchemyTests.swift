@@ -25,7 +25,6 @@ class DoublesPlusAlchemyTests : AlchemyTest
 }
 
 
-
 //======================================
 // MARK: MATH FUNCTION TESTS
 //======================================
