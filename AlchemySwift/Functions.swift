@@ -9,6 +9,16 @@
 import Foundation
 
 
+//======================================
+// MARK: PROTOCOLS
+//======================================
+public typealias AlchemyCallback = () -> Void 
+
+
+//======================================
+// MARK: GLOBAL FUNCTIONS
+//======================================
+
 public func calculatePercentage(part: Int, total: Int, decimalPlaces: Int = 2) -> Double
 {
     return calculatePercentage(part: part.doubleValue, total: total.doubleValue, decimalPlaces: decimalPlaces)
