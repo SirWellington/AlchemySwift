@@ -21,6 +21,13 @@ public protocol Anything
     
 }
 
+
+//======================================
+// MARK: FREE FUNCTIONALITY
+//======================================
+/**
+    Provides free functionality to objects that implement the [Anything] protocol.
+*/
 public extension Anything
 {
     /**
@@ -37,6 +44,17 @@ public extension Anything
     {
         return closure(self)
     }
+
+    /**
+        Returns the current value if the condition supplied by
+        the predicate is met, `nil` if it isn't.
+    */
+    func takeIf(predicate: (Self) -> Bool) -> Self?
+    {
+        let condition = predicate(self)
+        return condition ? self : nil
+    }
+    
 }
 
 

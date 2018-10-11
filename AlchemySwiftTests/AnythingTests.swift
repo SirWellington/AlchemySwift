@@ -40,7 +40,6 @@ class AnythingTests: AlchemyTest
 //======================================
 // MARK: WITH TESTS
 //======================================
-
 extension AnythingTests
 {
     
@@ -153,4 +152,25 @@ extension AnythingTests
         }
     }
 
+}
+
+
+
+//======================================
+// MARK: TAKE IF TESTS
+//======================================
+extension AnythingTests
+{
+
+    func testTakeIfWhenTrue()
+    {
+        let result = string.takeIf { true }
+        assertEquals(result, string)
+    }
+
+    func testTakeIfWhenFalse()
+    {
+        let result = string.takeIf { false }
+        assertNil(result)
+    }
 }
