@@ -17,6 +17,7 @@ import XCTest
 //======================================
 class AnythingTests: AlchemyTest
 {
+
     private var string = ""
     private var int = 0
     private var double = 0.0
@@ -155,7 +156,6 @@ extension AnythingTests
 }
 
 
-
 //======================================
 // MARK: TAKE IF TESTS
 //======================================
@@ -173,4 +173,46 @@ extension AnythingTests
         let result = string.takeIf { _ in false }
         assertNil(result)
     }
+}
+
+
+//======================================
+// MARK: TEST CLASS NAME
+//======================================
+extension AnythingTests
+{
+
+    private struct SomeStruct: Anything
+    {
+        var value: Int = 0
+    }
+
+    private class SomeClass: Anything
+    {
+        var property: String = "name"
+    }
+
+    func testClassName()
+    {
+        assertEquals(string.className, "String")
+
+        let first = SomeStruct()
+        assertEquals(first.className, "SomeStruct")
+
+        let second = SomeClass()
+        assertEquals(second.className, "SomeClass")
+
+        assertEquals(self.className, "AnythingTests")
+    }
+
+
+    func testStaticClassName()
+    {
+        assertEquals(String.className, "String")
+        assertEquals(Int.className, "Int")
+        assertEquals(AnythingTests.className, "AnythingTests")
+        assertEquals(SomeStruct.className, "SomeStruct")
+        assertEquals(SomeClass.className, "SomeClass")
+    }
+
 }

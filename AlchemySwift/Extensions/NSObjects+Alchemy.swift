@@ -10,16 +10,5 @@ import Foundation
 
 public extension NSObjectProtocol
 {
-    var className: String
-    {
-        let names = String(describing: type(of: self)).components(separatedBy: ".")
-        return names.last ?? "\(type(of: self.self))"
-    }
-
-    static var className: String
-    {
-        let names = String(describing: self).components(separatedBy: ".")
-        return names.last ?? "\(type(of: self.self))"
-    }
 
 }

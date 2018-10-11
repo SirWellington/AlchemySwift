@@ -16,28 +16,4 @@ import XCTest
 class NSObjectsPlusAlchemyTests: AlchemyTest
 {
 
-    func testClassNameVariable()
-    {
-        let className = NSObjectsPlusAlchemyTests.className
-
-        testClassName(className)
-    }
-
-    func testClassNameOnInstance()
-    {
-        let instance = self
-        let className = instance.className
-
-        testClassName(className)
-    }
-
-    private func testClassName(_ className: String)
-    {
-        assertThat(className != nil)
-        assertFalse(className.isEmpty)
-
-        let expected = "NSObjectsPlusAlchemyTests"
-        assertEquals(className, expected)
-    }
-
 }
