@@ -164,13 +164,13 @@ extension AnythingTests
 
     func testTakeIfWhenTrue()
     {
-        let result = string.takeIf { true }
+        let result = string.takeIf { _ in true }
         assertEquals(result, string)
     }
 
     func testTakeIfWhenFalse()
     {
-        let result = string.takeIf { false }
+        let result = string.takeIf { _ in false }
         assertNil(result)
     }
 }
