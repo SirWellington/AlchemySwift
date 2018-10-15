@@ -181,12 +181,12 @@
 			isa = PBXGroup;
 			children = (
 				DE125EF81FF699C600A3C98B /* Extensions */,
-				DE99391220618891000D1D2C /* Anything.swift */,
 				DE125EE11FF6999300A3C98B /* AlchemySwift.h */,
 				DE125EE21FF6999300A3C98B /* Info.plist */,
+				DE99391220618891000D1D2C /* Anything.swift */,
 				DE9C59D42037FA3B00147679 /* AttributedStringBuilder.swift */,
-				853F2382A261030675A63E17 /* Operators.swift */,
 				DE51BC8E2146247A00C4B917 /* Functions.swift */,
+				853F2382A261030675A63E17 /* Operators.swift */,
 			);
 			path = AlchemySwift;
 			sourceTree = "<group>";
