@@ -123,6 +123,36 @@ public extension String
 }
 
 
+//======================================
+// MARK: ATTRIBUTED STRINGS
+//======================================
+
+public extension NSAttributedString
+{
+
+    func asMutable() -> NSMutableAttributedString
+    {
+        return .init(attributedString: self)
+    }
+
+    func copyWithAttributes(_ attributes: [NSAttributedStringKey: Any]) -> NSAttributedString
+    {
+        let copy =  self.asMutable()
+        copy.setAttributes(attributes)
+        return copy
+    }
+}
+
+public extension NSMutableAttributedString
+{
+
+    func setAttributes(_ attributes: [NSAttributedStringKey: Any])
+    {
+        let range = NSMakeRange(0, self.length)
+        self.setAttributes(attributes, range: range)
+    }
+}
+
 //=====================================
 //MARK: Character Extensions
 //=====================================

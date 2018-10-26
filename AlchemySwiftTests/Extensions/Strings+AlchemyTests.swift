@@ -263,6 +263,56 @@ extension StringsPlusAlchemyTests
 }
 
 
+//======================================
+// MARK: ATTRIBUTED STRINGS
+//======================================
+extension StringsPlusAlchemyTests
+{
+
+    func testAsMutable()
+    {
+        repeatTest
+        {
+            let string = self.newString.asAttributed
+            let result = string.asMutable()
+            assertThat(result is NSMutableAttributedString)
+            assertEquals(result, string)
+        }
+    }
+
+    func testCopyWithAttributes()
+    {
+        repeatTest
+        {
+            let string = self.newString
+            let attributed = string.asAttributed
+            let font = UIFont.systemFont(ofSize: Int.randomFrom(minInclusive: 10, maxExclusive: 40).cgFloatValue)
+            let result = attributed.copyWithAttributes([.font: font])
+            let expected = NSMutableAttributedString(string: string, attributes: [.font: font])
+            assertEquals(result, expected)
+            assertEquals(result.attribute(.font, at: 0, effectiveRange: nil) as! UIFont, font)
+        }
+    }
+
+    func testSetAttributes()
+    {
+        repeatTest
+        {
+            let string = self.newString
+            let font = UIFont.systemFont(ofSize: Int.randomFrom(minInclusive: 10, maxExclusive: 40).cgFloatValue)
+            let attrs: [NSAttributedStringKey: Any] = [.font: font]
+
+            let expected = NSAttributedString(string: string, attributes: attrs)
+            let attributed = string.asAttributed.asMutable()
+            assertNotEquals(attributed, expected)
+
+            attributed.setAttributes(attrs)
+            assertEquals(attributed, expected)
+        }
+    }
+}
+
+
 //=====================================
 //MARK: Character Extensions
 //=====================================
