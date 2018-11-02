@@ -17,11 +17,6 @@ public extension Bool
         return seed.isEven
     }
 
-    mutating func toggle()
-    {
-        self = !self
-    }
-
     var inverse: Bool { return !self }
     var not: Bool { return inverse }
 
