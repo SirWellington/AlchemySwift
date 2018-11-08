@@ -23,6 +23,7 @@ public protocol AlchemyNumber: Anything
     var int32Value: Int32 { get }
     var int64Value: Int64 { get }
     var uIntValue: UInt { get }
+    var uInt16Value: UInt16 { get }
     var uInt32Value: UInt32 { get }
     var uInt64Value: UInt64 { get }
     var cgFloatValue: CGFloat { get }
@@ -38,10 +39,12 @@ public protocol AlchemyNumber: Anything
 
 public extension AlchemyNumber
 {
+
     var intValue: Int { return self.asNSNumber.intValue }
     var int32Value: Int32 { return self.asNSNumber.int32Value }
     var int64Value: Int64 { return self.asNSNumber.int64Value }
     var uIntValue: UInt { return self.asNSNumber.uintValue }
+    var uInt16Value: UInt16 { return self.asNSNumber.uint16Value }
     var uInt32Value: UInt32 { return self.asNSNumber.uint32Value }
     var uInt64Value: UInt64 { return self.asNSNumber.uint64Value }
     var cgFloatValue: CGFloat { return CGFloat(self.asNSNumber.doubleValue) }
@@ -71,6 +74,7 @@ public extension AlchemyNumber
     var asInt32: Int32 { return self.int32Value }
     var asInt64: Int64 { return self.int64Value }
     var asUInt: UInt { return self.uIntValue }
+    var asUInt16: UInt16 { return self.uInt16Value }
     var asUInt32: UInt32 { return self.uInt32Value }
     var asUInt64: UInt64 { return self.uInt64Value }
     var asCGFloat : CGFloat { return self.cgFloatValue}
@@ -106,6 +110,12 @@ extension UInt: AlchemyNumber
 {
     public var asNSNumber: NSNumber { return self as NSNumber }
     public var uIntValue: UInt { return self }
+}
+
+extension UInt16: AlchemyNumber
+{
+    public var asNSNumber: NSNumber { return self as NSNumber }
+    public var uInt16Value: UInt16 { return self }
 }
 
 extension UInt32: AlchemyNumber

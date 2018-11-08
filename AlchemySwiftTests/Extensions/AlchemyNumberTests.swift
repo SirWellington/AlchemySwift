@@ -18,10 +18,12 @@ import XCTest
 //======================================
 class AlchemyNumberTests: AlchemyTest
 {
+
     private var int: Int = 0
     private var int32: Int32 = 0
     private var int64: Int64 = 0
     private var uInt: UInt = 0
+    private var uInt16: UInt16 = 0
     private var uInt32: UInt32 = 0
     private var uInt64: UInt64 = 0
     private var double: Double = 0.0
@@ -45,6 +47,7 @@ class AlchemyNumberTests: AlchemyTest
         int32 = Int32(double)
         int64 = Int64(double)
         uInt = UInt(double)
+        uInt16 = UInt16(double)
         uInt32 = UInt32(double)
         uInt64 = UInt64(double)
         float = Float(double)
@@ -65,6 +68,7 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(int.int32Value, int32)
             assertEquals(int.int64Value, int64)
             assertEquals(int.uIntValue, uInt)
+            assertEquals(int.uInt16Value, uInt16)
             assertEquals(int.uInt32Value, uInt32)
             assertEquals(int.uInt64Value, uInt64)
             assertEquals(int.cgFloatValue, floor(cgFloat))
@@ -83,6 +87,7 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(int32.int32Value, int32)
             assertEquals(int32.int64Value, int64)
             assertEquals(int32.uIntValue, uInt)
+            assertEquals(int32.uInt16Value, uInt16)
             assertEquals(int32.uInt32Value, uInt32)
             assertEquals(int32.uInt64Value, uInt64)
             assertEquals(int32.cgFloatValue, floor(cgFloat))
@@ -101,6 +106,7 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(int64.int32Value, int32)
             assertEquals(int64.int64Value, int64)
             assertEquals(int64.uIntValue, uInt)
+            assertEquals(int64.uInt16Value, uInt16)
             assertEquals(int64.uInt32Value, uInt32)
             assertEquals(int64.uInt64Value, uInt64)
             assertEquals(int64.cgFloatValue, floor(cgFloat))
@@ -119,6 +125,7 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(uInt.int32Value, int32)
             assertEquals(uInt.int64Value, int64)
             assertEquals(uInt.uIntValue, uInt)
+            assertEquals(int64.uInt16Value, uInt16)
             assertEquals(uInt.uInt32Value, uInt32)
             assertEquals(uInt.uInt64Value, uInt64)
             assertEquals(uInt.cgFloatValue, floor(cgFloat))
@@ -126,6 +133,25 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(uInt.doubleValue, floor(double))
             assertEquals(uInt.decimalValue, Decimal(int))
             assertEquals(uInt.stringValue, String(uInt))
+        }
+    }
+
+    func testUInt16()
+    {
+        repeatTest
+        {
+            assertEquals(uInt16.intValue, int)
+            assertEquals(uInt16.int32Value, int32)
+            assertEquals(uInt16.int64Value, int64)
+            assertEquals(uInt16.uIntValue, uInt)
+            assertEquals(uInt16.uInt16Value, uInt16)
+            assertEquals(uInt16.uInt32Value, uInt32)
+            assertEquals(uInt16.uInt64Value, uInt64)
+            assertEquals(uInt16.cgFloatValue, floor(cgFloat))
+            assertEquals(uInt16.floatValue, floor(float))
+            assertEquals(uInt16.doubleValue, floor(double))
+            assertEquals(uInt16.decimalValue, Decimal(int))
+            assertEquals(uInt16.stringValue, String(uInt32))
         }
     }
 
@@ -137,6 +163,7 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(uInt32.int32Value, int32)
             assertEquals(uInt32.int64Value, int64)
             assertEquals(uInt32.uIntValue, uInt)
+            assertEquals(uInt32.uInt16Value, uInt16)
             assertEquals(uInt32.uInt32Value, uInt32)
             assertEquals(uInt32.uInt64Value, uInt64)
             assertEquals(uInt32.cgFloatValue, floor(cgFloat))
@@ -155,6 +182,7 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(uInt64.int32Value, int32)
             assertEquals(uInt64.int64Value, int64)
             assertEquals(uInt64.uIntValue, uInt)
+            assertEquals(uInt64.uInt16Value, uInt16)
             assertEquals(uInt64.uInt32Value, uInt32)
             assertEquals(uInt64.uInt64Value, uInt64)
             assertEquals(uInt64.cgFloatValue, floor(cgFloat))
@@ -179,6 +207,7 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(cgFloat.int32Value, int32)
             assertEquals(cgFloat.int64Value, int64)
             assertEquals(cgFloat.uIntValue, uInt)
+            assertEquals(cgFloat.uInt16Value, uInt16)
             assertEquals(cgFloat.uInt32Value, uInt32)
             assertEquals(cgFloat.uInt64Value, uInt64)
             assertEquals(cgFloat.floatValue, float)
@@ -196,6 +225,7 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(float.int32Value, int32)
             assertEquals(float.int64Value, int64)
             assertEquals(float.uIntValue, uInt)
+            assertEquals(float.uInt16Value, uInt16)
             assertEquals(float.uInt32Value, uInt32)
             assertEquals(float.uInt64Value, uInt64)
             assertEquals(float.floatValue, float)
@@ -218,6 +248,7 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(double.int32Value, int32)
             assertEquals(double.int64Value, int64)
             assertEquals(double.uIntValue, uInt)
+            assertEquals(double.uInt16Value, uInt16)
             assertEquals(double.uInt32Value, uInt32)
             assertEquals(double.uInt64Value, uInt64)
             assertEquals(double.floatValue, float)
@@ -236,6 +267,7 @@ class AlchemyNumberTests: AlchemyTest
             assertEquals(decimal.int32Value, int32)
             assertEquals(decimal.int64Value, int64)
             assertEquals(decimal.uIntValue, uInt)
+            assertEquals(decimal.uInt16Value, uInt16)
             assertEquals(decimal.uInt32Value, uInt32)
             assertEquals(decimal.uInt64Value, uInt64)
             assertEquals(decimal.floatValue, float)
