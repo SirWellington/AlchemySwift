@@ -177,6 +177,8 @@ extension Decimal: AlchemyNumber
     public var int32Value: Int32 { return Int32(self.asNSNumber.doubleValue) }
     public var int64Value: Int64 { return Int64(self.asNSNumber.doubleValue) }
     public var uIntValue: UInt { return UInt(self.asNSNumber.doubleValue) }
+    public var uInt16Value: UInt16 { return UInt16(self.asNSNumber.doubleValue) }
     public var uInt32Value: UInt32 { return UInt32(self.asNSNumber.doubleValue) }
     public var uInt64Value: UInt64 { return UInt64(self.asNSNumber.doubleValue) }
+
 }
