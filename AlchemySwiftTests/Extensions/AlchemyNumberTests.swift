@@ -291,4 +291,64 @@ class AlchemyNumberTests: AlchemyTest
         }
     }
 
+
+}
+
+
+//======================================
+// MARK: ABSOLUTE VALUE TESTS
+//======================================
+extension AlchemyNumberTests
+{
+    
+    func testAbsoluteValueInt()
+    {
+        repeatTest
+            {
+                let value = Int.randomFrom(minInclusive: -1000, maxExclusive: 1000)
+                if value < 0
+                {
+                    assertEquals(value.abs, -value)
+                }
+                else
+                {
+                    assertEquals(value.abs, value)
+                }
+        }
+    }
+    
+    
+    func testAbsoluteValueDouble()
+    {
+        repeatTest
+            {
+                let value = Double.random(in: -1000.0...1000.0)
+                if value < 0
+                {
+                    assertEquals(value.abs, -value)
+                }
+                else
+                {
+                    assertEquals(value.abs, value)
+                }
+        }
+    }
+    
+    
+    func testAbsoluteValueFloat()
+    {
+        repeatTest
+            {
+                let value = Float.random(in: -1000.0...1000.0)
+                if value < 0
+                {
+                    assertEquals(value.abs, -value)
+                }
+                else
+                {
+                    assertEquals(value.abs, value)
+                }
+        }
+    }
+
 }

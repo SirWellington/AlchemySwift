@@ -182,3 +182,32 @@ extension Decimal: AlchemyNumber
     public var uInt64Value: UInt64 { return UInt64(self.asNSNumber.doubleValue) }
 
 }
+
+
+
+//======================================
+// MARK: ABSOLUTE VALUE
+//======================================
+public extension Int
+{
+    public var abs: Int
+    {
+        return Swift.abs(self)
+    }
+}
+
+public extension Double
+{
+    public var abs: Double
+    {
+        return Swift.abs(self)
+    }
+}
+
+public extension Float
+{
+    public var abs: Float
+    {
+        return Swift.abs(self)
+    }
+}

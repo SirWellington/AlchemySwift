@@ -65,12 +65,3 @@ public extension Int
     }
 }
 
-
-
-//======================================
-// MARK: MATH FUNCTIONS
-//======================================
-public extension Int
-{
-    var abs: Int { return Swift.abs(self) }
-}
