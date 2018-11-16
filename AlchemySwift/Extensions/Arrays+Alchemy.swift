@@ -322,3 +322,23 @@ public extension ArraySlice
         return Array(self)
     }
 }
+
+
+
+//======================================
+// MARK: EQUATABLE EXTENSIONS
+//======================================
+public extension Equatable
+{
+
+    func isIn(_ list: [Self]) -> Bool
+    {
+        return list.contains(self)
+    }
+
+    func isNotIn(_ list: [Self]) -> Bool
+    {
+        return !isIn(list)
+    }
+
+}

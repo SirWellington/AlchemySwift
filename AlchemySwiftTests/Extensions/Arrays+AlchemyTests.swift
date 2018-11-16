@@ -575,3 +575,57 @@ extension ArraysPlusAlchemyTests
         }
     }
 }
+
+
+//======================================
+// MARK: EQUATABLE TESTS
+//======================================
+extension ArraysPlusAlchemyTests
+{
+
+    func testIsInWhenNotIn()
+    {
+        repeatTest
+        {
+            let string = anyString
+
+            assertFalse(string.isIn(self.strings))
+            assertFalse(string.isIn([]))
+        }
+    }
+
+    func testIsInWhenIsIn()
+    {
+        repeatTest
+        {
+            let anyString = strings.anyElement!
+
+            assertTrue(anyString.isIn(strings))
+            assertTrue(anyString.isIn([anyString]))
+        }
+    }
+
+    func testIsNotInWhenNotIn()
+    {
+        repeatTest
+        {
+            let string = anyString
+            assertTrue(string.isNotIn([]))
+
+            let list = strings
+            assertTrue(string.isNotIn(list))
+        }
+    }
+
+    func testIsNotInWhenIsIn()
+    {
+        repeatTest
+        {
+            let string = anyString
+            let list = (strings + [string]).shuffled()
+            assertFalse(string.isNotIn([string]))
+            assertFalse(string.isNotIn(list))
+        }
+    }
+
+}
