@@ -224,6 +224,7 @@ infix operator ???: NilCoalescingPrecedence
 */
 public func ???<T>(optional: T?, defaultValue: @autoclosure () -> String) -> String
 {
+
     if let value = optional
     {
         return String(describing: value)
@@ -232,4 +233,5 @@ public func ???<T>(optional: T?, defaultValue: @autoclosure () -> String) -> Str
     {
         return defaultValue()
     }
+
 }
