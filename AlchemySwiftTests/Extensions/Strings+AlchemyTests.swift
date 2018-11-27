@@ -298,6 +298,18 @@ extension StringsPlusAlchemyTests
         assertEquals(rangesOf123.size, 1)
     }
 
+    func testRangesOfWhenNoMatch()
+    {
+        repeatTest
+        {
+            let string = self.newString
+            let otherString = self.newString
+
+            let ranges = string.ranges(of: otherString)
+            assertEmpty(ranges)
+        }
+    }
+
 }
 
 
