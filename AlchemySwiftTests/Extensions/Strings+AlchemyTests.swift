@@ -368,7 +368,6 @@ extension StringsPlusAlchemyTests
             let string = self.newString
             let nsString = string as NSString
             let range = NSRange(location: 0, length: nsString.length / 2)
-            let substring = nsString.substring(with: range)
             let attributed = string.asAttributed
 
             let fontSize = Int.randomFrom(minInclusive: 8, maxExclusive: 100).asCGFloat
