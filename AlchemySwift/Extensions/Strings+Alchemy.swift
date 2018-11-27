@@ -196,6 +196,7 @@ public extension NSMutableAttributedString
         let range = NSMakeRange(0, self.length)
         self.setAttributes(attributes, range: range)
     }
+
 }
 
 //=====================================
@@ -203,7 +204,9 @@ public extension NSMutableAttributedString
 //=====================================
 public extension Character
 {
+
     var asString: String { return "\(self)" }
+
 }
 
 
