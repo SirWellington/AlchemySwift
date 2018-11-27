@@ -124,6 +124,27 @@ public extension String
 
 
 //======================================
+// MARK: STRING SEARCH
+//======================================
+public extension String
+{
+
+    func ranges(of substring: String, options: CompareOptions = [], locale: Locale? = nil) -> [Range<Index>]
+    {
+        var ranges: [Range<Index>] = []
+
+        while let range = self.range(of: substring, options: options, range: (ranges.last?.upperBound ?? self.startIndex)..<self.endIndex, locale: locale)
+        {
+            ranges.append(range)
+        }
+
+        return ranges
+    }
+
+}
+
+
+//======================================
 // MARK: ATTRIBUTED STRINGS
 //======================================
 public extension NSAttributedString
@@ -140,6 +161,31 @@ public extension NSAttributedString
         copy.setAttributes(attributes)
         return copy
     }
+
+    func replacingAttributes(at range: NSRange, with attributes: [NSAttributedStringKey: Any]) -> NSAttributedString
+    {
+        let mutableSelf = self.asMutable()
+        mutableSelf.setAttributes(attributes, range: range)
+
+        return NSAttributedString(attributedString: mutableSelf)
+    }
+
+    func replacingTextWithAttributes(subtext: String, attributes: [NSAttributedStringKey: Any]) -> NSAttributedString
+    {
+        let ranges = self.string.ranges(of: subtext)
+        guard ranges.notEmpty else { return self }
+
+        let mutableSelf = self.asMutable()
+
+        for range in ranges
+        {
+            let nsRange = NSRange(range, in: self.string)
+            mutableSelf.setAttributes(attributes, range: nsRange)
+        }
+
+        return NSAttributedString(attributedString: mutableSelf)
+    }
+
 }
 
 public extension NSMutableAttributedString

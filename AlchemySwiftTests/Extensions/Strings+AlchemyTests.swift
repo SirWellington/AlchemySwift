@@ -260,6 +260,44 @@ extension StringsPlusAlchemyTests
             assertEquals(result, expected)
         }
     }
+
+}
+
+
+
+//======================================
+// MARK: STRING SEARCH
+//======================================
+extension StringsPlusAlchemyTests
+{
+
+    func testRangesOf()
+    {
+        repeatTest
+        {
+            let string = self.newString
+            let substring = string.substring(from: string.index(after: string.startIndex))
+
+            let expectedRange = string.range(of: substring)
+            assertNotNil(expectedRange)
+
+            let result = string.ranges(of: substring)
+
+            assertNotEmpty(result)
+            assertThat(result.size == 1)
+            assertThat(result.contains(expectedRange!))
+        }
+
+        let string = "abc123abc"
+        let abcRanges = string.ranges(of: "abc")
+        assertNotEmpty(abcRanges)
+        assertEquals(abcRanges.size, 2)
+
+        let rangesOf123 = string.ranges(of: "123")
+        assertNotEmpty(rangesOf123)
+        assertEquals(rangesOf123.size, 1)
+    }
+
 }
 
 
