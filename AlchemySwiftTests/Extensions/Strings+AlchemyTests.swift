@@ -384,11 +384,35 @@ extension StringsPlusAlchemyTests
 
     }
 
+    func testReplacingTextWithAttributes()
+    {
+        repeatTest
+        {
+            let string = self.newString
+            let nsString = string as NSString
+            let range = NSRange(location: 0, length: nsString.length / 2)
+            let substring = (nsString.substring(with: range)) as String
+            let attributed = string.asAttributed
+
+            let fontSize = Int.randomFrom(minInclusive: 8, maxExclusive: 100).asCGFloat
+            let font = UIFont.systemFont(ofSize: fontSize)
+            let attrs: [NSAttributedStringKey: Any] = [.font: font]
+
+            let expected = attributed.asMutable()
+            expected.setAttributes(attrs, range: range)
+
+            let result = attributed.replacingTextWithAttributes(subtext: substring, attributes: attrs)
+
+            assertEquals(result, expected)
+        }
+
+    }
+
 }
 
 
 //=====================================
-//MARK: Character Extensions
+//MARK: CHARACTER EXTENSIONS
 //=====================================
 extension StringsPlusAlchemyTests
 {
