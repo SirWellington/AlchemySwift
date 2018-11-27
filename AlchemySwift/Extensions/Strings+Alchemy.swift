@@ -10,7 +10,7 @@ import Foundation
 
 
 //=====================================
-//MARK: Convenient Access Variables
+//MARK: CONVENIENT ACCESS VARIABLES
 //=====================================
 public extension String
 {
@@ -126,7 +126,6 @@ public extension String
 //======================================
 // MARK: ATTRIBUTED STRINGS
 //======================================
-
 public extension NSAttributedString
 {
 
@@ -154,7 +153,7 @@ public extension NSMutableAttributedString
 }
 
 //=====================================
-//MARK: Character Extensions
+//MARK: CHARACTER EXTENSIONS
 //=====================================
 public extension Character
 {
@@ -163,7 +162,7 @@ public extension Character
 
 
 //=====================================
-//MARK: Custom Operators
+//MARK: CUSTOM OPERATORS
 //=====================================
 
 infix operator ???: NilCoalescingPrecedence
