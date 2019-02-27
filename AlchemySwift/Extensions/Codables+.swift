@@ -4,7 +4,7 @@
 //
 //  Created by Wellington Moreno on 07/26/2018.
 //  Borrowed from [https://github.com/Flight-School/AnyCodable/blob/master/Sources/AnyCodable/AnyCodable.swift]
-//  Copyright © 2018 Wellington Moreno. All rights reserved.
+//  Copyright © 2019 Wellington Moreno. All rights reserved.
 //
 
 import Foundation
