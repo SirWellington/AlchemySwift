@@ -10,5 +10,6 @@ xcode_destination: platform=iOS Simulator,OS=11.4,name=iPhone 7
 
 script:
   - echo "Carthage: `carthage version`"
+  - carthage bootstrap --verbose
   - carthage build --no-skip-current
   - xcodebuild test -project AlchemySwift.xcodeproj -scheme AlchemySwift -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=11.4,name=iPhone 7' | xcpretty --test --color
