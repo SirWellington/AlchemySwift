@@ -65,8 +65,8 @@ class AttributedStringBuilderTests: AlchemyTest
         {
             let strings = self.anyStrings
             let strokeWidth = AlchemyGenerator.doubles(fromInclusive: 0.0, toInclusive: 10.0)
-            let attributes: [NSAttributedStringKey: Any] = [
-                NSAttributedStringKey.strokeWidth : CGFloat(strokeWidth)
+            let attributes: [NSAttributedString.Key: Any] = [
+                .strokeWidth : CGFloat(strokeWidth)
             ]
             
             builder.clear()

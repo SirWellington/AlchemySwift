@@ -155,14 +155,14 @@ public extension NSAttributedString
         return .init(attributedString: self)
     }
 
-    func copyWithAttributes(_ attributes: [NSAttributedStringKey: Any]) -> NSAttributedString
+    func copyWithAttributes(_ attributes: [NSAttributedString.Key: Any]) -> NSAttributedString
     {
         let copy =  self.asMutable()
         copy.setAttributes(attributes)
         return copy
     }
 
-    func replacingAttributes(at range: NSRange, with attributes: [NSAttributedStringKey: Any]) -> NSAttributedString
+    func replacingAttributes(at range: NSRange, with attributes: [NSAttributedString.Key: Any]) -> NSAttributedString
     {
         let mutableSelf = self.asMutable()
         mutableSelf.setAttributes(attributes, range: range)
@@ -170,7 +170,7 @@ public extension NSAttributedString
         return NSAttributedString(attributedString: mutableSelf)
     }
 
-    func replacingTextWithAttributes(subtext: String, attributes: [NSAttributedStringKey: Any]) -> NSAttributedString
+    func replacingTextWithAttributes(subtext: String, attributes: [NSAttributedString.Key: Any]) -> NSAttributedString
     {
         let ranges = self.string.ranges(of: subtext)
         guard ranges.notEmpty else { return self }
@@ -191,7 +191,7 @@ public extension NSAttributedString
 public extension NSMutableAttributedString
 {
 
-    func setAttributes(_ attributes: [NSAttributedStringKey: Any])
+    func setAttributes(_ attributes: [NSAttributedString.Key: Any])
     {
         let range = NSMakeRange(0, self.length)
         self.setAttributes(attributes, range: range)

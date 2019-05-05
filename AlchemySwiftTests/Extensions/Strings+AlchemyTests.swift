@@ -350,7 +350,7 @@ extension StringsPlusAlchemyTests
         {
             let string = self.newString
             let font = UIFont.systemFont(ofSize: Int.randomFrom(minInclusive: 10, maxExclusive: 40).cgFloatValue)
-            let attrs: [NSAttributedStringKey: Any] = [.font: font]
+            let attrs: [NSAttributedString.Key: Any] = [.font: font]
 
             let expected = NSAttributedString(string: string, attributes: attrs)
             let attributed = string.asAttributed.asMutable()
@@ -372,7 +372,7 @@ extension StringsPlusAlchemyTests
 
             let fontSize = Int.randomFrom(minInclusive: 8, maxExclusive: 100).asCGFloat
             let font = UIFont.systemFont(ofSize: fontSize)
-            let attrs: [NSAttributedStringKey: Any] = [.font: font]
+            let attrs: [NSAttributedString.Key: Any] = [.font: font]
 
             let expected = attributed.asMutable()
             expected.setAttributes(attrs, range: range)
@@ -396,7 +396,7 @@ extension StringsPlusAlchemyTests
 
             let fontSize = Int.randomFrom(minInclusive: 8, maxExclusive: 100).asCGFloat
             let font = UIFont.systemFont(ofSize: fontSize)
-            let attrs: [NSAttributedStringKey: Any] = [.font: font]
+            let attrs: [NSAttributedString.Key: Any] = [.font: font]
 
             let expected = attributed.asMutable()
             expected.setAttributes(attrs, range: range)

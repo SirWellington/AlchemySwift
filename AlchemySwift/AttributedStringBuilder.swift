@@ -28,13 +28,13 @@ public class AttributedStringBuilder
     }
     
     @discardableResult
-    public func add(string: String, attribute: NSAttributedStringKey, value: Any) -> Self
+    public func add(string: String, attribute: NSAttributedString.Key, value: Any) -> Self
     {
         return add(string: string, attributes: [attribute: value])
     }
     
     @discardableResult
-    public func add(string: String, attributes: [NSAttributedStringKey: Any]) -> Self
+    public func add(string: String, attributes: [NSAttributedString.Key: Any]) -> Self
     {
         let newString = NSAttributedString(string: string, attributes: attributes)
         strings.add(newString)
