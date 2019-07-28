@@ -137,7 +137,7 @@ class AlchemyWeakBoxTests: AlchemyTest
             let box = person.weakBox()
             assertEquals(box.item, person)
             
-            person = PersonObject()
+            person = PersonObject()
             let string = "Person is now [\(person)]"
             
             assertNil(box.item)
