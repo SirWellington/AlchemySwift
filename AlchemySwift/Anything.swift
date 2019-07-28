@@ -83,7 +83,8 @@ extension Array: Anything { }
 extension Set: Anything { }
 extension Dictionary: Anything { }
 extension NSObject: Anything { }
-
+extension URL: Anything { }
+extension Date: Anything { }
 
 //============= =========================
 // MARK: GLOBAL FUNCTIONS

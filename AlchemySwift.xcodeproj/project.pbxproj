@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1361292C20ADEB1400390906 /* Dictionaries+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1361292B20ADEB1400390906 /* Dictionaries+Alchemy.swift */; };
+		136825FA22EE509300EF23CC /* AlchemyBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136825F922EE509300EF23CC /* AlchemyBox.swift */; };
+		136825FC22EE50F900EF23CC /* AlchemyBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136825FB22EE50F900EF23CC /* AlchemyBoxTests.swift */; };
 		853F20C98CBC6C7C2857EFCF /* Doubles+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F2E7BA160BB0EC9DBE272 /* Doubles+AlchemyTests.swift */; };
 		853F221E077E6C9B2B9268C1 /* Booleans+AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F209D6DB05C12C0318506 /* Booleans+AlchemyTests.swift */; };
 		853F2236B78E46D696C8B723 /* OperatorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853F243D69C5C2C6533103DA /* OperatorsTest.swift */; };
@@ -72,6 +74,8 @@
 
 /* Begin PBXFileReference section */
 		1361292B20ADEB1400390906 /* Dictionaries+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionaries+Alchemy.swift"; sourceTree = "<group>"; };
+		136825F922EE509300EF23CC /* AlchemyBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlchemyBox.swift; sourceTree = "<group>"; };
+		136825FB22EE50F900EF23CC /* AlchemyBoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlchemyBoxTests.swift; sourceTree = "<group>"; };
 		853F20369EBC2431D23E9594 /* Dates+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dates+Alchemy.swift"; sourceTree = "<group>"; };
 		853F209D6DB05C12C0318506 /* Booleans+AlchemyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Booleans+AlchemyTests.swift"; sourceTree = "<group>"; };
 		853F211E66F6399D012D3D4F /* Booleans+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Booleans+Alchemy.swift"; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 				DE125EF81FF699C600A3C98B /* Extensions */,
 				DE125EE11FF6999300A3C98B /* AlchemySwift.h */,
 				DE125EE21FF6999300A3C98B /* Info.plist */,
+				136825F922EE509300EF23CC /* AlchemyBox.swift */,
 				DE99391220618891000D1D2C /* Anything.swift */,
 				DE9C59D42037FA3B00147679 /* AttributedStringBuilder.swift */,
 				DE51BC8E2146247A00C4B917 /* Functions.swift */,
@@ -196,6 +201,7 @@
 			children = (
 				853F2B5FE9CA46D18DBD01A9 /* Extensions */,
 				DE125EEE1FF6999300A3C98B /* Info.plist */,
+				136825FB22EE50F900EF23CC /* AlchemyBoxTests.swift */,
 				DE993914206189DB000D1D2C /* AnythingTests.swift */,
 				853F2FA2ABEC2EC0A5BAF0F8 /* AttributedStringBuilderTests.swift */,
 				853F243D69C5C2C6533103DA /* OperatorsTest.swift */,
@@ -340,6 +346,7 @@
 				853F2521A6698DEBEF7B4C2E /* Booleans+Alchemy.swift in Sources */,
 				853F25657B64819E3C7F1234 /* Doubles+Alchemy.swift in Sources */,
 				853F23D483403DF8FAE3D466 /* NSObjects+Alchemy.swift in Sources */,
+				136825FA22EE509300EF23CC /* AlchemyBox.swift in Sources */,
 				853F2F7626ADADBEF819E13E /* Strings+Alchemy.swift in Sources */,
 				DE51BC8F2146247A00C4B917 /* Functions.swift in Sources */,
 				DE9C59D52037FA3B00147679 /* AttributedStringBuilder.swift in Sources */,
@@ -370,6 +377,7 @@
 				EAAED1546D16798901507AF8 /* Dictionaries+AlchemyTests.swift in Sources */,
 				EAAEDA5823B5165B1A50D30A /* AlchemyNumberTests.swift in Sources */,
 				EAAEDED103909EF8E0356329 /* Codables+Tests.swift in Sources */,
+				136825FC22EE50F900EF23CC /* AlchemyBoxTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
