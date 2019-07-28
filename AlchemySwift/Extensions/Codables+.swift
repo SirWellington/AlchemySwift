@@ -532,6 +532,22 @@ extension AnyCodable: Equatable
     }
 }
 
+extension AnyCodable: Hashable
+{
+    
+    public func hash(into hasher: inout Hasher)
+    {
+        if let value = value as? AnyHashable
+        {
+            hasher.combine(value)
+        }
+        else
+        {
+            hasher.combine(0)
+        }
+    }
+}
+
 extension AnyCodable: CustomStringConvertible
 {
     public var description: String
