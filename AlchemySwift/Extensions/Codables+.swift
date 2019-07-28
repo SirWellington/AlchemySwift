@@ -161,6 +161,21 @@ extension AnyEncodable: Equatable
     }
 }
 
+extension AnyEncodable: Hashable
+{
+    public func hash(into hasher: inout Hasher)
+    {
+        if let value = value as? AnyHashable
+        {
+            hasher.combine(value)
+        }
+        else
+        {
+            hasher.combine(0)
+        }
+    }
+}
+
 extension AnyEncodable: CustomStringConvertible
 {
     public var description: String
@@ -383,6 +398,21 @@ extension AnyDecodable: Equatable
                 return lhs == rhs
             default:
                 return false
+        }
+    }
+}
+
+extension AnyDecodable: Hashable
+{
+    public func hash(into hasher: inout Hasher)
+    {
+        if let value = value as? AnyHashable
+        {
+            hasher.combine(value)
+        }
+        else
+        {
+            hasher.combine(0)
         }
     }
 }

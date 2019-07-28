@@ -147,13 +147,13 @@
 				853F267048CB728E2E38ED62 /* Arrays+AlchemyTests.swift */,
 				853F24F6ECF17BE8618F7573 /* Async+AlchemyTests.swift */,
 				853F209D6DB05C12C0318506 /* Booleans+AlchemyTests.swift */,
+				EAAEDD58E7BFFD1793266E74 /* Codables+Tests.swift */,
 				853F2761B6C5938DDDE200F9 /* DatesPlusAlchemyTests.swift */,
 				EAAEDA231E93D68736B4A0D6 /* Dictionaries+AlchemyTests.swift */,
 				853F2E7BA160BB0EC9DBE272 /* Doubles+AlchemyTests.swift */,
 				853F2D559445E2536370EE8A /* Integers+AlchemyTests.swift */,
 				853F256D5533D0342C5D68F5 /* NSObjects+AlchemyTests.swift */,
 				853F2D7CCE7C9A3D622484CA /* Strings+AlchemyTests.swift */,
-				EAAEDD58E7BFFD1793266E74 /* Codables+Tests.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
