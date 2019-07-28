@@ -58,7 +58,7 @@ extension AlchemyStrongBox: Hashable where T: Hashable
 /**
  Use as a container to hold a weak reference to another object.
  */
-public class AlchemyWeakBox<T: class>
+public class AlchemyWeakBox<T: AnyObject>
 {
     public weak var item: T?
     
