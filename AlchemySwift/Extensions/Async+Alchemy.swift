@@ -79,3 +79,40 @@ public extension DispatchQueue
         asyncAfter(deadline: delay, execute: block)
     }
 }
+
+
+//======================================
+// MARK: Anything Extensions
+//======================================
+public extension Anything where Self: AnyObject
+{
+    
+    /**
+     Add an operation to be executed on the specified Dispatch Queue.
+     
+     - parameter delay: How long of a delay before running the operation. By default, there is no delay.
+     - parameter queue: The Dispatch Queue where the block will be posted to. Defaults to `main`.
+     - parameter block: The operation to run on the main thread.
+     */
+    func post(delay: TimeInterval = 0, queue: DispatchQueue = .main, _ block: @escaping (Self) -> ())
+    {
+        let blockWrapper =
+        { [weak self] in
+            if let self = self
+            {
+                block(self)
+            }
+        }
+        
+        if delay > 0
+        {
+            queue.asyncAfter(delay: delay, block: blockWrapper)
+        }
+        else
+        {
+            queue.async(execute: blockWrapper)
+        }
+    }
+    
+}
+

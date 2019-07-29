@@ -114,3 +114,49 @@ extension AsyncPlusAlchemyTests
         }
     }
 }
+
+
+//=========================================
+//MARK: Anything Tests
+//=========================================
+extension AsyncPlusAlchemyTests
+{
+    
+    func testAnythingPostNoDelay()
+    {
+        let secondsToWait: TimeInterval = 0.25
+        var counter: Int = Int.random
+        let expected = counter + 1
+        
+        let predicate = NSPredicate() { _, _ in
+            counter == expected
+        }
+        
+        let anything = AlchemyGenerator.alphabeticString().box()
+        anything.post(queue: queue)
+        { param in
+            counter += 1
+            assertEquals(param, anything)
+        }
+    }
+    
+    func testAnythingPostWithDelay()
+    {
+        let delay: TimeInterval = 1
+        let secondsToWait: TimeInterval = 2
+        var counter: Int = Int.random
+        let expected = counter + 1
+        
+        let predicate = NSPredicate() { _, _ in
+            counter == expected
+        }
+        
+        let anything = AlchemyGenerator.alphabeticString().box()
+        anything.post(delay: delay, queue: queue)
+        { param in
+            counter += 1
+            assertEquals(param, anything)
+        }
+    }
+    
+}

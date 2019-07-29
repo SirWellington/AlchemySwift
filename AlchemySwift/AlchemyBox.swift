@@ -50,6 +50,8 @@ extension AlchemyStrongBox: Hashable where T: Hashable
     }
 }
 
+extension AlchemyStrongBox: Anything { }
+
 
 //=========================================
 //MARK: WEAK BOX
@@ -98,3 +100,5 @@ extension AlchemyWeakBox: Hashable where T: Hashable
         }
     }
 }
+
+extension AlchemyWeakBox: Anything {}

@@ -67,9 +67,8 @@ public extension Anything
         let names = String(describing: self).components(separatedBy: ".")
         return names.last ?? "\(type(of: self.self))"
     }
-    
-}
 
+}
 
 //======================================
 // MARK: EXTENSIONS
