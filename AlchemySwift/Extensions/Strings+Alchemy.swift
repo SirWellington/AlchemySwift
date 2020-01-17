@@ -32,7 +32,7 @@ public extension String
         return !isEmpty
     }
     
-    var length: Int { return count }
+    var length: Int { count }
 
     var intValue: Int?
     {

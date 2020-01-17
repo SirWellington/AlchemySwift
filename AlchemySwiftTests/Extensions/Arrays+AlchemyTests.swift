@@ -333,7 +333,6 @@ extension ArraysPlusAlchemyTests
     {
         repeatTest
         {
-
             let original = strings
             let shuffled = strings.shuffled()
 
@@ -345,7 +344,6 @@ extension ArraysPlusAlchemyTests
     {
         repeatTest
         {
-
             let original = strings
             let newString = AlchemyGenerator.alphanumericString()
             let new = strings + [newString]
