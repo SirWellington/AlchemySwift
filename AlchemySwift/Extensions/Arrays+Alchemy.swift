@@ -91,7 +91,7 @@ public extension Array where Element: Equatable
 {
     mutating func removeElements(_ elements: [Element])
     {
-        elements.compactMap { self.index(of: $0) }
+        elements.compactMap { self.firstIndex(of: $0) }
                 .reversed()
                 .forEach { self.remove(at: $0) }
     }
@@ -140,21 +140,22 @@ public extension Array
 //======================================
 public extension Array
 {
-    public mutating func circulateNext() -> Element
+
+    mutating func circulateNext() -> Element
     {
         let head = removeFirst()
         append(head)
         return head
     }
 
-    public mutating func circulatePrevious() -> Element
+    mutating func circulatePrevious() -> Element
     {
         let tail = removeLast()
         prepend(tail)
         return tail
     }
 
-    public mutating func circulateNextSafe() -> Element?
+    mutating func circulateNextSafe() -> Element?
     {
         guard !isEmpty
         else
@@ -165,7 +166,7 @@ public extension Array
         return circulateNext()
     }
 
-    public mutating func circulatePreviousSafe() -> Element?
+    mutating func circulatePreviousSafe() -> Element?
     {
         guard !isEmpty
         else
@@ -175,6 +176,7 @@ public extension Array
 
         return circulatePrevious()
     }
+
 }
 
 

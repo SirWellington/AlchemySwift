@@ -190,7 +190,7 @@ extension Decimal: AlchemyNumber
 //======================================
 public extension Int
 {
-    public var abs: Int
+    var abs: Int
     {
         return Swift.abs(self)
     }
@@ -198,7 +198,7 @@ public extension Int
 
 public extension Double
 {
-    public var abs: Double
+    var abs: Double
     {
         return Swift.abs(self)
     }
@@ -206,7 +206,7 @@ public extension Double
 
 public extension Float
 {
-    public var abs: Float
+    var abs: Float
     {
         return Swift.abs(self)
     }
