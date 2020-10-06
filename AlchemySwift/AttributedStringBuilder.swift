@@ -9,10 +9,8 @@
 import Foundation
 
 
-/**
-    This class allows you to conveniently build an Attributed String,
-    one part at a time by using the Builder Pattern.
- */
+/// This class allows you to conveniently build an Attributed String,
+/// one part at a time by using the Builder Pattern.
 public class AttributedStringBuilder
 {
     private var strings: [NSAttributedString] = []
