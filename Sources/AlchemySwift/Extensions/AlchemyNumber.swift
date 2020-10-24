@@ -6,6 +6,7 @@
 //  Copyright © 2019 Wellington Moreno. All rights reserved.
 //
 
+import CoreGraphics
 import Foundation
 
 
