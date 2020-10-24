@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "AlchemyGenerator",
+        "repositoryURL": "https://github.com/SirWellington/AlchemyGenerator",
+        "state": {
+          "branch": "develop",
+          "revision": "5529db3dc59a0a58a06980a8b8f47222b86ebf34",
+          "version": null
+        }
+      },
+      {
+        "package": "AlchemyTest",
+        "repositoryURL": "https://github.com/SirWellington/AlchemyTest",
+        "state": {
+          "branch": "develop",
+          "revision": "73a19dfa25709320e4a5c1a97d2fe5ab83e52f53",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

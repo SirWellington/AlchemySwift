@@ -9,7 +9,7 @@
 import AlchemyGenerator
 @testable
 import AlchemySwift
-import AlchemyTests
+import AlchemyTest
 
 //======================================
 // MARK: OPERATOR TESTS
