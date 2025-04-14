@@ -21,3 +21,4 @@
 --lineaftermarks false
 --hexliteralcase uppercase
 --patternlet hoist
+--enable redundantReturn
