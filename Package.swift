@@ -12,16 +12,16 @@ let package = Package(
         .library(
             name: "AlchemySwift",
             targets: ["AlchemySwift"]
-        ),
+        )
     ],
     dependencies: [
         .package(
             url: "https://github.com/SirWellington/alchemytest",
-            branch :"develop"
+            branch: "develop"
         ),
         .package(
             url: "https://github.com/SirWellington/alchemygenerator",
-            branch :"develop"
+            branch: "develop"
         )
     ],
     targets: [
@@ -42,6 +42,6 @@ let package = Package(
                     package: "alchemytest"
                 )
             ]
-        ),
+        )
     ]
 )
