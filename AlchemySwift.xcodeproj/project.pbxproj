@@ -15,7 +15,6 @@
 		1329B9A92544BA8000DDD7BE /* Integers+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B9962544BA8000DDD7BE /* Integers+Alchemy.swift */; };
 		1329B9AA2544BA8000DDD7BE /* Strings+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B9972544BA8000DDD7BE /* Strings+Alchemy.swift */; };
 		1329B9AB2544BA8000DDD7BE /* AlchemyNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B9982544BA8000DDD7BE /* AlchemyNumber.swift */; };
-		1329B9AC2544BA8000DDD7BE /* NSObjects+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B9992544BA8000DDD7BE /* NSObjects+Alchemy.swift */; };
 		1329B9AD2544BA8000DDD7BE /* Async+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B99A2544BA8000DDD7BE /* Async+Alchemy.swift */; };
 		1329B9AE2544BA8000DDD7BE /* Codables+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B99B2544BA8000DDD7BE /* Codables+.swift */; };
 		1329B9B02544BA8000DDD7BE /* Dictionaries+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B99D2544BA8000DDD7BE /* Dictionaries+Alchemy.swift */; };
@@ -78,7 +77,6 @@
 		1329B9962544BA8000DDD7BE /* Integers+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Integers+Alchemy.swift"; sourceTree = "<group>"; };
 		1329B9972544BA8000DDD7BE /* Strings+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Alchemy.swift"; sourceTree = "<group>"; };
 		1329B9982544BA8000DDD7BE /* AlchemyNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlchemyNumber.swift; sourceTree = "<group>"; };
-		1329B9992544BA8000DDD7BE /* NSObjects+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObjects+Alchemy.swift"; sourceTree = "<group>"; };
 		1329B99A2544BA8000DDD7BE /* Async+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Async+Alchemy.swift"; sourceTree = "<group>"; };
 		1329B99B2544BA8000DDD7BE /* Codables+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Codables+.swift"; sourceTree = "<group>"; };
 		1329B99D2544BA8000DDD7BE /* Dictionaries+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionaries+Alchemy.swift"; sourceTree = "<group>"; };
@@ -167,7 +165,6 @@
 				1329B99D2544BA8000DDD7BE /* Dictionaries+Alchemy.swift */,
 				1329B9942544BA8000DDD7BE /* Doubles+Alchemy.swift */,
 				1329B9962544BA8000DDD7BE /* Integers+Alchemy.swift */,
-				1329B9992544BA8000DDD7BE /* NSObjects+Alchemy.swift */,
 				1329B9972544BA8000DDD7BE /* Strings+Alchemy.swift */,
 			);
 			path = Extensions;
@@ -369,7 +366,6 @@
 				1329B9A82544BA8000DDD7BE /* Dates+Alchemy.swift in Sources */,
 				1329B9B22544BA8000DDD7BE /* Arrays+Alchemy.swift in Sources */,
 				1329B9B52544BA8000DDD7BE /* Anything.swift in Sources */,
-				1329B9AC2544BA8000DDD7BE /* NSObjects+Alchemy.swift in Sources */,
 				1329B9AE2544BA8000DDD7BE /* Codables+.swift in Sources */,
 				1329B9AB2544BA8000DDD7BE /* AlchemyNumber.swift in Sources */,
 				1329B9B12544BA8000DDD7BE /* Booleans+Alchemy.swift in Sources */,

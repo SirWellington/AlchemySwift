@@ -26,7 +26,7 @@ public extension Int {
 
         guard maxExclusive > minInclusive
         else {
-            return maxExclusive
+            return maxExclusive - 1
         }
 
         let distance = maxExclusive - minInclusive
@@ -46,7 +46,10 @@ public extension Int {
     }
 
     static var random: Int {
-        return randomFrom(minInclusive: 0, maxExclusive: 10_000)
+        return randomFrom(
+            minInclusive: 0,
+            maxExclusive: 10_000
+        )
     }
 
     func repeatBlock(_ block: () -> ()) {

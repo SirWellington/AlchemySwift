@@ -90,7 +90,11 @@ public extension Anything where Self: AnyObject {
      - parameter queue: The Dispatch Queue where the block will be posted to. Defaults to `main`.
      - parameter block: The operation to run on the main thread.
      */
-    func post(delay: TimeInterval = 0, queue: DispatchQueue = .main, _ block: @escaping (Self) -> ()) {
+    func post(
+        delay: TimeInterval = 0,
+        queue: DispatchQueue = .main,
+        _ block: @escaping (Self) -> ()
+    ) {
         let blockWrapper =
         { [weak self] in
             if let self = self {

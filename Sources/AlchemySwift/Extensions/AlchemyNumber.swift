@@ -13,10 +13,8 @@ import Foundation
 //======================================
 // MARK: PROTOCOL DEFINITION
 //======================================
-/**
-    This protocol defines the common attributes of all Swift Number types.
-    It adds functionality supporting conversion to and from different number types.
-*/
+/// This protocol defines the common attributes of all Swift Number types.
+/// It adds functionality supporting conversion to and from different number types.
 public protocol AlchemyNumber: Anything {
     var asNSNumber: NSNumber { get }
     var intValue: Int { get }
@@ -36,7 +34,6 @@ public protocol AlchemyNumber: Anything {
 //======================================
 // MARK: PROTOCOL EXTENSIONS
 //======================================
-
 public extension AlchemyNumber {
 
     var intValue: Int { return self.asNSNumber.intValue }
@@ -52,20 +49,17 @@ public extension AlchemyNumber {
     var decimalValue: Decimal { return self.asNSNumber.decimalValue }
     var stringValue: String { return "\(self)" }
 
-    /**
-    Converts Megabytes to bytes.
-    For example, `4.mb == 4_000_000 bytes`
-
-    - Returns truncating: the number of bytes represented by `self.mb`.
- */
+    /// Converts Megabytes to bytes.
+    /// For example, `4.mb == 4_000_000 bytes`
+    ///
+    /// - Returns truncating: the number of bytes represented by `self.mb`.
+    ///
     var mb: Int {
         return round(self.asDouble * pow(10.0, 6)).intValue
     }
 }
 
-/**
-    Adds alternate names
-*/
+/// Adds alternate names
 public extension AlchemyNumber {
     var asInt: Int { return self.intValue }
     var asInt32: Int32 { return self.int32Value }
@@ -143,14 +137,12 @@ extension CGFloat: AlchemyNumber {
     public var decimalValue: Decimal { return Decimal(Double(self)) }
 }
 
-/*
-    Decimal is a weird case for sure.
-    It seems like internally, conversion to Integer types are flawed, and sometimes yield
-    wildly inconsistent results.
-
-    Because of this, the integer conversions have to be overridden here.
-    We first convert the Decimal to a Double and then to the appropriate Int type.
-*/
+/// Decimal is a weird case for sure.
+/// It seems like internally, conversion to Integer types are flawed, and sometimes yield
+/// wildly inconsistent results.
+///
+/// Because of this, the integer conversions have to be overridden here.
+/// We first convert the Decimal to a Double and then to the appropriate Int type.
 extension Decimal: AlchemyNumber {
     public var asNSNumber: NSNumber { return self as NSDecimalNumber }
     public var decimalValue: Decimal { return self }
@@ -168,8 +160,6 @@ extension Decimal: AlchemyNumber {
     public var uInt64Value: UInt64 { return UInt64(self.asNSNumber.doubleValue) }
 
 }
-
-
 
 //======================================
 // MARK: ABSOLUTE VALUE

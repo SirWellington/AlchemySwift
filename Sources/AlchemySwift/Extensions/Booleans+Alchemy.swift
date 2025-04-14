@@ -8,10 +8,12 @@
 
 import Foundation
 
-
 public extension Bool {
     static var random: Bool {
-        let seed = Int.randomFrom(minInclusive: 0, maxExclusive: 101)
+        let seed = Int.randomFrom(
+            minInclusive: 0,
+            maxExclusive: 101
+        )
         return seed.isEven
     }
 
