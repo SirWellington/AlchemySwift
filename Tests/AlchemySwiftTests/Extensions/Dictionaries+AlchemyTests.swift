@@ -10,7 +10,6 @@ import AlchemyGenerator
 @testable import AlchemySwift
 import AlchemyTest
 import Foundation
-import UIKit
 
 //======================================
 // MARK: DICTIONARY TESTS
@@ -35,7 +34,7 @@ class DictionariesPlusAlchemyTests: AlchemyTest {
     }
 
     func testSize() {
-        var empty = [String: Int]()
+        let empty = [String: Int]()
         assertEquals(empty.size, 0)
 
         repeatTest {
@@ -75,7 +74,7 @@ class DictionariesPlusAlchemyTests: AlchemyTest {
 // MARK: NSDICTIONARY TESTS
 //======================================
 class NDictionaryPlusTests: DictionariesPlusAlchemyTests {
-    private var nsDictionary: NSDictionary { return dictionary as! NSDictionary }
+    private var nsDictionary: NSDictionary { return dictionary as NSDictionary }
 
     override func testSize() {
         repeatTest {

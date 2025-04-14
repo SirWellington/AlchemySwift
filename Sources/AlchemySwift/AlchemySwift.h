@@ -6,7 +6,6 @@
 //  Copyright © 2017 Wellington Moreno. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 
 //! Project version number for AlchemySwift.
 FOUNDATION_EXPORT double AlchemySwiftVersionNumber;
