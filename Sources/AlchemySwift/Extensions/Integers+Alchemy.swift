@@ -26,7 +26,7 @@ public extension Int {
 
         guard maxExclusive > minInclusive
         else {
-            return maxExclusive - 1
+            return Swift.min(minInclusive, maxExclusive)
         }
 
         let distance = maxExclusive - minInclusive

@@ -15,10 +15,6 @@ import AlchemyTest
 //=========================================
 class AlchemyStrongBoxTests: AlchemyTest {
 
-    override var iterations: Int {
-        return 100
-    }
-
     func testWithString() {
         repeatTest {
             let string = AlchemyGenerator.alphabeticString()

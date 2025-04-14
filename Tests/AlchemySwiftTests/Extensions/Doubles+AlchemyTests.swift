@@ -17,7 +17,7 @@ class DoublesPlusAlchemyTests: AlchemyTest {
 
     private var double: Double!
 
-    override func setUp() {
+    override func beforeEachTest() {
         double = AlchemyGenerator.Doubles.any
     }
 }

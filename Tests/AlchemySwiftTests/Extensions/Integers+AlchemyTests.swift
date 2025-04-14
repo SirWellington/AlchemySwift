@@ -12,15 +12,14 @@ import AlchemyTest
 import Foundation
 import XCTest
 
-class IntegersPlusAlchemyTests: AlchemyTest {
-    override var iterations: Int { return 100 }
+final class IntegersPlusAlchemyTests: AlchemyTest {
 
     private var min = 0
     private var max = 0
     private var array: [String] = []
     private var integer = 0
 
-    override func setUp() {
+    override func beforeEachTest() {
         max = AlchemyGenerator.positiveInteger()
         array = AlchemyGenerator.Arrays.ofAlphabeticString
         integer = AlchemyGenerator.Integers.any
