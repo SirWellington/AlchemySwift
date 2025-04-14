@@ -288,6 +288,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				1331DEDD2DAD79BB00D85276 /* PBXTargetDependency */,
+				1331DEDF2DAD79BB00D85276 /* PBXTargetDependency */,
 				DE125EEA1FF6999300A3C98B /* PBXTargetDependency */,
 			);
 			name = AlchemySwiftTests;
@@ -408,6 +410,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1331DEDD2DAD79BB00D85276 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 1331DEDC2DAD79BB00D85276 /* AlchemyGenerator */;
+		};
+		1331DEDF2DAD79BB00D85276 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 1331DEDE2DAD79BB00D85276 /* AlchemyTest */;
+		};
 		DE125EEA1FF6999300A3C98B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DE125EDD1FF6999300A3C98B /* AlchemySwift */;
@@ -550,7 +560,7 @@
 				);
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -581,7 +591,7 @@
 				);
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -607,6 +617,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -630,6 +641,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -700,6 +712,16 @@
 			productName = AlchemyGenerator;
 		};
 		1329B9F72544CD2400DDD7BE /* AlchemyTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1329B9F62544CD2400DDD7BE /* XCRemoteSwiftPackageReference "AlchemyTest" */;
+			productName = AlchemyTest;
+		};
+		1331DEDC2DAD79BB00D85276 /* AlchemyGenerator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1329B9E72544BB8C00DDD7BE /* XCRemoteSwiftPackageReference "AlchemyGenerator" */;
+			productName = AlchemyGenerator;
+		};
+		1331DEDE2DAD79BB00D85276 /* AlchemyTest */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1329B9F62544CD2400DDD7BE /* XCRemoteSwiftPackageReference "AlchemyTest" */;
 			productName = AlchemyTest;
