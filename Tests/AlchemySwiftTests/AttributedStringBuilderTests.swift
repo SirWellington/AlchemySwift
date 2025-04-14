@@ -3,7 +3,7 @@
 //  AlchemySwift
 //
 //  Created by Wellington Moreno on 02/17/2018.
-//  Copyright © 2025 Wellington Moreno. All rights reserved.
+//  Copyright © 2019 Wellington Moreno. All rights reserved.
 //
 
 import AlchemyGenerator
@@ -17,19 +17,11 @@ import XCTest
 //======================================
 class AttributedStringBuilderTests: AlchemyTest {
 
-    override var iterations: Int {
-        return 100
-    }
-
     private var anyStrings: [String] {
         return AlchemyGenerator.Arrays.ofString
     }
 
     private var builder = AttributedStringBuilder()
-
-    override func setUp() {
-        super.setUp()
-    }
 
     func testWithNothing() {
         repeatTest {
@@ -44,12 +36,16 @@ class AttributedStringBuilderTests: AlchemyTest {
             builder.clear()
 
             strings.forEach {
-                builder.add(string: $0, attributes: [:])
+                builder.add(
+                    string: $0,
+                    attributes: [:]
+                )
             }
 
             let result = builder.build()
 
-            let expected = strings.reduce(NSMutableAttributedString()) { acc, string in
+            let expected = strings.reduce(NSMutableAttributedString()) {
+                acc, string in
                 acc.append(string.asAttributed)
                 return acc
             }
@@ -61,7 +57,11 @@ class AttributedStringBuilderTests: AlchemyTest {
     func testAddMultipleWithAttributes() {
         repeatTest {
             let strings = self.anyStrings
-            let strokeWidth = AlchemyGenerator.doubles(fromInclusive: 0.0, toInclusive: 10.0)
+            let strokeWidth = AlchemyGenerator.doubles(
+                fromInclusive: 0.0,
+                toInclusive: 10.0
+            )
+
             let attributes: [NSAttributedString.Key: Any] = [
                 .strokeWidth: CGFloat(strokeWidth)
             ]
@@ -69,11 +69,17 @@ class AttributedStringBuilderTests: AlchemyTest {
             builder.clear()
 
             strings.forEach {
-                builder.add(string: $0, attributes: attributes)
+                builder.add(
+                    string: $0,
+                    attributes: attributes
+                )
             }
 
             let expected = strings.reduce(NSMutableAttributedString()) { acc, string in
-                let toAdd = NSAttributedString(string: string, attributes: attributes)
+                let toAdd = NSAttributedString(
+                    string: string,
+                    attributes: attributes
+                )
                 acc.append(toAdd)
                 return acc
             }

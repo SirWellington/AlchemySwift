@@ -31,7 +31,9 @@ class AnythingTests: AlchemyTest {
         int = AlchemyGenerator.positiveInteger()
         double = AlchemyGenerator.positiveDouble()
         array = AlchemyGenerator.Arrays.ofAlphanumericString
-        dictionary = AlchemyGenerator.Arrays.ofAlphabeticString.reduce(into: [String: String]()) { $0[$1] = $1 }
+        dictionary = AlchemyGenerator.Arrays.ofAlphabeticString.reduce(
+            into: [String: String]()
+        ) { $0[$1] = $1 }
     }
 }
 
