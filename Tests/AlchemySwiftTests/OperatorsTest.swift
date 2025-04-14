@@ -26,7 +26,7 @@ class OperatorsTest: AlchemyTest {
     }
 
     func testEitherOr() {
-        repeatTest(1000) {
+        repeatTest(1_000) {
             let possibilities: [String] = [first, second]
             let result = first ?|? second
             assertNotNil(result)

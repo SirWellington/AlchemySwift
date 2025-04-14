@@ -35,7 +35,7 @@ public extension Double {
 
 public extension TimeInterval {
     static func from(millis: Double) -> TimeInterval {
-        return millis / 1000.0
+        return millis / 1_000.0
     }
 
     static func from(seconds: Double) -> TimeInterval {
@@ -64,7 +64,7 @@ public extension TimeInterval {
 
 public extension TimeInterval {
     func toMillis() -> Double {
-        return self * 1000.0
+        return self * 1_000.0
     }
 
     func toSeconds() -> Double {

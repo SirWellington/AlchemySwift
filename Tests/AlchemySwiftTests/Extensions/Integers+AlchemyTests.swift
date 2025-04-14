@@ -115,7 +115,7 @@ class IntegersPlusAlchemyTests: AlchemyTest {
 
     func testRepeatBlockWhenLessThan1() {
         repeatTest(10) {
-            var counter = AlchemyGenerator.integer(from: -1000, to: 0)
+            var counter = AlchemyGenerator.integer(from: -1_000, to: 0)
             let original = counter
 
             0.repeatBlock {

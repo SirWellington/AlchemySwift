@@ -48,7 +48,7 @@ public extension Int {
     static var random: Int {
         return randomFrom(
             minInclusive: 0,
-            maxExclusive: 10000
+            maxExclusive: 10_000
         )
     }
 

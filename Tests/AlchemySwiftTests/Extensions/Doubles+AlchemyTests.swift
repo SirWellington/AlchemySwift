@@ -83,7 +83,7 @@ extension DoublesPlusAlchemyTests {
             let time: TimeInterval = AlchemyGenerator.Doubles.any
             assertEquals(
                 TimeInterval.from(millis: time),
-                time / 1000,
+                time / 1_000,
                 withMarginOfError: 0.00001
             )
         }
@@ -126,42 +126,42 @@ extension DoublesPlusAlchemyTests {
 
     func testTimeIntervalToMillis() {
         assertEquals(0.0.toMillis(), 0.0)
-        assertEquals(1.0.toMillis(), 1000.0)
-        assertEquals(10.0.toMillis(), 10000.0)
+        assertEquals(1.0.toMillis(), 1_000.0)
+        assertEquals(10.0.toMillis(), 10_000.0)
         assertEquals(0.1.toMillis(), 100.0)
     }
 
     func testTimeIntervalToSeconds() {
         repeatTest {
-            let time = AlchemyGenerator.doubles(fromInclusive: 0.1, toInclusive: 1000.0)
+            let time = AlchemyGenerator.doubles(fromInclusive: 0.1, toInclusive: 1_000.0)
             assertEquals(time.toSeconds(), time)
         }
     }
 
     func testTimeIntervalToMinutes() {
         repeatTest {
-            let time = AlchemyGenerator.doubles(fromInclusive: 0.1, toInclusive: 1000.0)
+            let time = AlchemyGenerator.doubles(fromInclusive: 0.1, toInclusive: 1_000.0)
             assertEquals(time.toMinutes(), time / 60.0)
         }
     }
 
     func testTimeIntervalToHours() {
         repeatTest {
-            let time = AlchemyGenerator.doubles(fromInclusive: 0.1, toInclusive: 1000.0)
+            let time = AlchemyGenerator.doubles(fromInclusive: 0.1, toInclusive: 1_000.0)
             assertEquals(time.toHours(), time / (60.0 * 60.0), withMarginOfError: 0.0000001)
         }
     }
 
     func testTimeIntervalToDays() {
         repeatTest {
-            let time = AlchemyGenerator.doubles(fromInclusive: 0.1, toInclusive: 1000.0)
+            let time = AlchemyGenerator.doubles(fromInclusive: 0.1, toInclusive: 1_000.0)
             assertEquals(time.toDays(), time.toHours() / 24.0)
         }
     }
 
     func testTimeIntervalToWeeks() {
         repeatTest {
-            let time = AlchemyGenerator.doubles(fromInclusive: 0.1, toInclusive: 1000.0)
+            let time = AlchemyGenerator.doubles(fromInclusive: 0.1, toInclusive: 1_000.0)
             assertEquals(time.toWeeks(), time.toDays() / 7.0)
         }
     }

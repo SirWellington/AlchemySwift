@@ -253,7 +253,7 @@ class AlchemyNumberTests: AlchemyTest {
 
     func testMB() {
         repeatTest {
-            let megabytes = AlchemyGenerator.integer(from: 1, to: 1000)
+            let megabytes = AlchemyGenerator.integer(from: 1, to: 1_000)
             let resultBytes = megabytes.mb
 
             let expected = megabytes * 1_000_000
@@ -269,7 +269,7 @@ extension AlchemyNumberTests {
 
     func testAbsoluteValueInt() {
         repeatTest {
-            let value = Int.randomFrom(minInclusive: -1000, maxExclusive: 1000)
+            let value = Int.randomFrom(minInclusive: -1_000, maxExclusive: 1_000)
             if value < 0 {
                 assertEquals(value.abs, -value)
             } else {
@@ -280,7 +280,7 @@ extension AlchemyNumberTests {
 
     func testAbsoluteValueDouble() {
         repeatTest {
-            let value = Double.random(in: -1000.0 ... 1000.0)
+            let value = Double.random(in: -1_000.0 ... 1_000.0)
             if value < 0 {
                 assertEquals(value.abs, -value)
             } else {
@@ -291,7 +291,7 @@ extension AlchemyNumberTests {
 
     func testAbsoluteValueFloat() {
         repeatTest {
-            let value = Float.random(in: -1000.0 ... 1000.0)
+            let value = Float.random(in: -1_000.0 ... 1_000.0)
             if value < 0 {
                 assertEquals(value.abs, -value)
             } else {

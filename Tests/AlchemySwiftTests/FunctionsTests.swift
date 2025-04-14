@@ -19,7 +19,7 @@ class FunctionsTests: AlchemyTest {
         repeatTest {
             let part = AlchemyGenerator.doubles(
                 fromInclusive: 0.0,
-                toInclusive: 1000.0
+                toInclusive: 1_000.0
             )
 
             let total = AlchemyGenerator.doubles(
@@ -48,7 +48,7 @@ class FunctionsTests: AlchemyTest {
         repeatTest {
             let part = Int.randomFrom(
                 minInclusive: 1,
-                maxExclusive: 1000
+                maxExclusive: 1_000
             )
 
             let total = Int.randomFrom(

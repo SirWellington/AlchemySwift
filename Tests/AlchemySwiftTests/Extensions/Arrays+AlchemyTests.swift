@@ -80,7 +80,7 @@ class ArraysPlusAlchemyTests: AlchemyTest {
     func testAnyElementInRange() {
         repeatTest {
             let min = 0
-            let max = Int.randomFrom(minInclusive: 1, maxExclusive: 1000)
+            let max = Int.randomFrom(minInclusive: 1, maxExclusive: 1_000)
             let range = min ..< max
 
             let result = range.anyElement!
