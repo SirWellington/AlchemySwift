@@ -24,4 +24,5 @@
 --patternlet hoist
 --enable redundantReturn
 --enable sortImports
---disable blankLinesBetweenScopes 
+--disable blankLinesBetweenScopes
+--disable blankLinesAtStartOfScope
