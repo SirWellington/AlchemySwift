@@ -17,8 +17,7 @@ import Foundation
     This protocol defines the common attributes of all Swift Number types.
     It adds functionality supporting conversion to and from different number types.
 */
-public protocol AlchemyNumber: Anything
-{
+public protocol AlchemyNumber: Anything {
     var asNSNumber: NSNumber { get }
     var intValue: Int { get }
     var int32Value: Int32 { get }
@@ -38,8 +37,7 @@ public protocol AlchemyNumber: Anything
 // MARK: PROTOCOL EXTENSIONS
 //======================================
 
-public extension AlchemyNumber
-{
+public extension AlchemyNumber {
 
     var intValue: Int { return self.asNSNumber.intValue }
     var int32Value: Int32 { return self.asNSNumber.int32Value }
@@ -60,8 +58,7 @@ public extension AlchemyNumber
 
     - Returns truncating: the number of bytes represented by `self.mb`.
  */
-    var mb: Int
-    {
+    var mb: Int {
         return round(self.asDouble * pow(10.0, 6)).intValue
     }
 }
@@ -69,8 +66,7 @@ public extension AlchemyNumber
 /**
     Adds alternate names
 */
-public extension AlchemyNumber
-{
+public extension AlchemyNumber {
     var asInt: Int { return self.intValue }
     var asInt32: Int32 { return self.int32Value }
     var asInt64: Int64 { return self.int64Value }
@@ -89,44 +85,37 @@ public extension AlchemyNumber
 // MARK: INTEGERS
 //======================================
 
-extension Int: AlchemyNumber
-{
+extension Int: AlchemyNumber {
     public var asNSNumber: NSNumber { return self as NSNumber }
     public var intValue: Int { return self }
 }
 
-extension Int32: AlchemyNumber
-{
+extension Int32: AlchemyNumber {
     public var asNSNumber: NSNumber { return self as NSNumber }
     public var int32Value: Int32 { return self}
 }
 
-extension Int64: AlchemyNumber
-{
+extension Int64: AlchemyNumber {
     public var asNSNumber: NSNumber { return self as NSNumber }
     public var int64Value: Int64 { return self}
 }
 
-extension UInt: AlchemyNumber
-{
+extension UInt: AlchemyNumber {
     public var asNSNumber: NSNumber { return self as NSNumber }
     public var uIntValue: UInt { return self }
 }
 
-extension UInt16: AlchemyNumber
-{
+extension UInt16: AlchemyNumber {
     public var asNSNumber: NSNumber { return self as NSNumber }
     public var uInt16Value: UInt16 { return self }
 }
 
-extension UInt32: AlchemyNumber
-{
+extension UInt32: AlchemyNumber {
     public var asNSNumber: NSNumber { return self as NSNumber }
     public var uInt32Value: UInt32 { return self }
 }
 
-extension UInt64: AlchemyNumber
-{
+extension UInt64: AlchemyNumber {
     public var asNSNumber: NSNumber { return self as NSNumber }
     public var uInt64Value: UInt64 { return self }
 }
@@ -136,22 +125,19 @@ extension UInt64: AlchemyNumber
 // MARK: FLOATS
 //======================================
 
-extension Double: AlchemyNumber
-{
+extension Double: AlchemyNumber {
     public var asNSNumber: NSNumber { return self as NSNumber }
     public var decimalValue: Decimal { return Decimal(self) }
     public var doubleValue: Double { return self }
 }
 
-extension Float: AlchemyNumber
-{
+extension Float: AlchemyNumber {
     public var asNSNumber: NSNumber { return self as NSNumber }
     public var decimalValue: Decimal { return Decimal(Double(self)) }
     public var floatValue: Float { return self }
 }
 
-extension CGFloat: AlchemyNumber
-{
+extension CGFloat: AlchemyNumber {
     public var asNSNumber: NSNumber { return self as NSNumber }
     public var cgFloatValue: CGFloat { return self }
     public var decimalValue: Decimal { return Decimal(Double(self)) }
@@ -165,8 +151,7 @@ extension CGFloat: AlchemyNumber
     Because of this, the integer conversions have to be overridden here.
     We first convert the Decimal to a Double and then to the appropriate Int type.
 */
-extension Decimal: AlchemyNumber
-{
+extension Decimal: AlchemyNumber {
     public var asNSNumber: NSNumber { return self as NSDecimalNumber }
     public var decimalValue: Decimal { return self }
     public var stringValue: String { return (self as NSDecimalNumber).stringValue }
@@ -189,26 +174,20 @@ extension Decimal: AlchemyNumber
 //======================================
 // MARK: ABSOLUTE VALUE
 //======================================
-public extension Int
-{
-    var abs: Int
-    {
+public extension Int {
+    var abs: Int {
         return Swift.abs(self)
     }
 }
 
-public extension Double
-{
-    var abs: Double
-    {
+public extension Double {
+    var abs: Double {
         return Swift.abs(self)
     }
 }
 
-public extension Float
-{
-    var abs: Float
-    {
+public extension Float {
+    var abs: Float {
         return Swift.abs(self)
     }
 }

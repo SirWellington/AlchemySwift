@@ -39,37 +39,30 @@ import Foundation
      let encoder = JSONEncoder()
      let json = try! encoder.encode(dictionary)
  */
-public struct AnyEncodable: Encodable
-{
+public struct AnyEncodable: Encodable {
     public let value: Any
 
-    public init<T>(_ value: T?)
-    {
+    public init<T>(_ value: T?) {
         self.value = value ?? ()
     }
 }
 
-protocol _AnyEncodable
-{
+protocol _AnyEncodable {
     var value: Any { get }
 
     init<T>(_ value: T?)
 }
 
 
-extension AnyEncodable: _AnyEncodable
-{
+extension AnyEncodable: _AnyEncodable {
 }
 
 // MARK: - Encodable
-extension _AnyEncodable
-{
-    public func encode(to encoder: Encoder) throws
-    {
+extension _AnyEncodable {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
 
-        switch self.value
-        {
+        switch self.value {
             case is Void:
                 try container.encodeNil()
             case let bool as Bool:
@@ -115,12 +108,9 @@ extension _AnyEncodable
     }
 }
 
-extension AnyEncodable: Equatable
-{
-    public static func ==(lhs: AnyEncodable, rhs: AnyEncodable) -> Bool
-    {
-        switch (lhs.value, rhs.value)
-        {
+extension AnyEncodable: Equatable {
+    public static func ==(lhs: AnyEncodable, rhs: AnyEncodable) -> Bool {
+        switch (lhs.value, rhs.value) {
             case is (Void, Void):
                 return true
             case let (lhs as Bool, rhs as Bool):
@@ -161,27 +151,22 @@ extension AnyEncodable: Equatable
     }
 }
 
-extension AnyEncodable: Hashable
-{
-    public func hash(into hasher: inout Hasher)
-    {
-        if let value = value as? AnyHashable
-        {
+extension AnyEncodable: Hashable {
+    public func hash(
+    into hasher: inout Hasher
+) {
+        if let value = value as? AnyHashable {
             hasher.combine(value)
         }
-        else
-        {
+        else {
             hasher.combine(0)
         }
     }
 }
 
-extension AnyEncodable: CustomStringConvertible
-{
-    public var description: String
-    {
-        switch value
-        {
+extension AnyEncodable: CustomStringConvertible {
+    public var description: String {
+        switch value {
             case is Void:
                 return String(describing: nil as Any?)
             case let value as CustomStringConvertible:
@@ -192,12 +177,9 @@ extension AnyEncodable: CustomStringConvertible
     }
 }
 
-extension AnyEncodable: CustomDebugStringConvertible
-{
-    public var debugDescription: String
-    {
-        switch value
-        {
+extension AnyEncodable: CustomDebugStringConvertible {
+    public var debugDescription: String {
+        switch value {
             case let value as CustomDebugStringConvertible:
                 return "AnyEncodable(\(value.debugDescription))"
             default:
@@ -206,49 +188,39 @@ extension AnyEncodable: CustomDebugStringConvertible
     }
 }
 
-extension AnyEncodable: ExpressibleByNilLiteral, ExpressibleByBooleanLiteral, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral, ExpressibleByStringLiteral, ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral
-{
+extension AnyEncodable: ExpressibleByNilLiteral, ExpressibleByBooleanLiteral, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral, ExpressibleByStringLiteral, ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
 }
 
-extension _AnyEncodable
-{
-    public init(nilLiteral: ())
-    {
+extension _AnyEncodable {
+    public init(nilLiteral: ()) {
         self.init(nil as Any?)
     }
 
-    public init(booleanLiteral value: Bool)
-    {
+    public init(booleanLiteral value: Bool) {
         self.init(value)
     }
 
-    public init(integerLiteral value: Int)
-    {
+    public init(integerLiteral value: Int) {
         self.init(value)
     }
 
-    public init(floatLiteral value: Double)
-    {
+    public init(floatLiteral value: Double) {
         self.init(value)
     }
 
-    public init(extendedGraphemeClusterLiteral value: String)
-    {
+    public init(extendedGraphemeClusterLiteral value: String) {
         self.init(value)
     }
 
-    public init(stringLiteral value: String)
-    {
+    public init(stringLiteral value: String) {
         self.init(value)
     }
 
-    public init(arrayLiteral elements: Any...)
-    {
+    public init(arrayLiteral elements: Any...) {
         self.init(elements)
     }
 
-    public init(dictionaryLiteral elements: (AnyHashable, Any)...)
-    {
+    public init(dictionaryLiteral elements: (AnyHashable, Any)...) {
         self.init(Dictionary<AnyHashable, Any>(elements, uniquingKeysWith: { (first, _) in first }))
     }
 }
@@ -268,8 +240,7 @@ extension _AnyEncodable
  and other collections that require `Decodable` conformance
  by declaring their contained type to be `AnyDecodable`:
 
-     let json = """
-     {
+     let json = """ {
          "boolean": true,
          "integer": 1,
          "double": 3.14159265358979323846,
@@ -286,82 +257,63 @@ extension _AnyEncodable
      let decoder = JSONDecoder()
      let dictionary = try! decoder.decode([String: AnyCodable].self, from: json)
  */
-public struct AnyDecodable: Decodable
-{
+public struct AnyDecodable: Decodable {
     public let value: Any
 
-    public init<T>(_ value: T?)
-    {
+    public init<T>(_ value: T?) {
         self.value = value ?? ()
     }
 }
 
-protocol _AnyDecodable
-{
-    var value: Any
-    {
+protocol _AnyDecodable {
+    var value: Any {
         get
     }
 
     init<T>(_ value: T?)
 }
 
-extension AnyDecodable: _AnyDecodable
-{
+extension AnyDecodable: _AnyDecodable {
 
 }
 
-extension _AnyDecodable
-{
-    public init(from decoder: Decoder) throws
-    {
+extension _AnyDecodable {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
 
-        if container.decodeNil()
-        {
+        if container.decodeNil() {
             self.init(())
         }
-        else if let bool = try? container.decode(Bool.self)
-        {
+        else if let bool = try? container.decode(Bool.self) {
             self.init(bool)
         }
-        else if let int = try? container.decode(Int.self)
-        {
+        else if let int = try? container.decode(Int.self) {
             self.init(int)
         }
-        else if let uint = try? container.decode(UInt.self)
-        {
+        else if let uint = try? container.decode(UInt.self) {
             self.init(uint)
         }
-        else if let double = try? container.decode(Double.self)
-        {
+        else if let double = try? container.decode(Double.self) {
             self.init(double)
         }
-        else if let string = try? container.decode(String.self)
-        {
+        else if let string = try? container.decode(String.self) {
             self.init(string)
         }
-        else if let array = try? container.decode([AnyCodable].self)
-        {
+        else if let array = try? container.decode([AnyCodable].self) {
             self.init(array.map { $0.value })
         }
-        else if let dictionary = try? container.decode([String: AnyCodable].self)
-        {
+        else if let dictionary = try? container.decode([String: AnyCodable].self) {
             self.init(dictionary.mapValues { $0.value })
         }
-        else
-        {
+        else {
             throw DecodingError.dataCorruptedError(in: container, debugDescription: "AnyCodable value cannot be decoded")
         }
     }
 }
 
-extension AnyDecodable: Equatable
-{
-    public static func ==(lhs: AnyDecodable, rhs: AnyDecodable) -> Bool
-    {
-        switch (lhs.value, rhs.value)
-        {
+extension AnyDecodable: Equatable {
+    public static func ==(lhs: AnyDecodable, rhs: AnyDecodable) -> Bool {
+        switch (lhs.value, rhs.value) {
             case is (Void, Void):
                 return true
             case let (lhs as Bool, rhs as Bool):
@@ -402,27 +354,22 @@ extension AnyDecodable: Equatable
     }
 }
 
-extension AnyDecodable: Hashable
-{
-    public func hash(into hasher: inout Hasher)
-    {
-        if let value = value as? AnyHashable
-        {
+extension AnyDecodable: Hashable {
+    public func hash(
+    into hasher: inout Hasher
+) {
+        if let value = value as? AnyHashable {
             hasher.combine(value)
         }
-        else
-        {
+        else {
             hasher.combine(0)
         }
     }
 }
 
-extension AnyDecodable: CustomStringConvertible
-{
-    public var description: String
-    {
-        switch value
-        {
+extension AnyDecodable: CustomStringConvertible {
+    public var description: String {
+        switch value {
             case is Void:
                 return String(describing: nil as Any?)
             case let value as CustomStringConvertible:
@@ -433,12 +380,9 @@ extension AnyDecodable: CustomStringConvertible
     }
 }
 
-extension AnyDecodable: CustomDebugStringConvertible
-{
-    public var debugDescription: String
-    {
-        switch value
-        {
+extension AnyDecodable: CustomDebugStringConvertible {
+    public var debugDescription: String {
+        switch value {
             case let value as CustomDebugStringConvertible:
                 return "AnyDecodable(\(value.debugDescription))"
             default:
@@ -466,26 +410,20 @@ extension AnyDecodable: CustomDebugStringConvertible
  - SeeAlso: `AnyEncodable`
  - SeeAlso: `AnyDecodable`
  */
-public struct AnyCodable: Codable
-{
+public struct AnyCodable: Codable {
     public let value: Any
 
-    public init<T>(_ value: T?)
-    {
+    public init<T>(_ value: T?) {
         self.value = value ?? ()
     }
 }
 
-extension AnyCodable: _AnyEncodable, _AnyDecodable
-{
+extension AnyCodable: _AnyEncodable, _AnyDecodable {
 }
 
-extension AnyCodable: Equatable
-{
-    public static func ==(lhs: AnyCodable, rhs: AnyCodable) -> Bool
-    {
-        switch (lhs.value, rhs.value)
-        {
+extension AnyCodable: Equatable {
+    public static func ==(lhs: AnyCodable, rhs: AnyCodable) -> Bool {
+        switch (lhs.value, rhs.value) {
             case is (Void, Void):
                 return true
             case let (lhs as Bool, rhs as Bool):
@@ -532,28 +470,23 @@ extension AnyCodable: Equatable
     }
 }
 
-extension AnyCodable: Hashable
-{
+extension AnyCodable: Hashable {
     
-    public func hash(into hasher: inout Hasher)
-    {
-        if let value = value as? AnyHashable
-        {
+    public func hash(
+    into hasher: inout Hasher
+) {
+        if let value = value as? AnyHashable {
             hasher.combine(value)
         }
-        else
-        {
+        else {
             hasher.combine(0)
         }
     }
 }
 
-extension AnyCodable: CustomStringConvertible
-{
-    public var description: String
-    {
-        switch value
-        {
+extension AnyCodable: CustomStringConvertible {
+    public var description: String {
+        switch value {
             case is Void:
                 return String(describing: nil as Any?)
             case let value as CustomStringConvertible:
@@ -564,12 +497,9 @@ extension AnyCodable: CustomStringConvertible
     }
 }
 
-extension AnyCodable: CustomDebugStringConvertible
-{
-    public var debugDescription: String
-    {
-        switch value
-        {
+extension AnyCodable: CustomDebugStringConvertible {
+    public var debugDescription: String {
+        switch value {
             case let value as CustomDebugStringConvertible:
                 return "AnyCodable(\(value.debugDescription))"
             default:
@@ -578,6 +508,5 @@ extension AnyCodable: CustomDebugStringConvertible
     }
 }
 
-extension AnyCodable: ExpressibleByNilLiteral, ExpressibleByBooleanLiteral, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral, ExpressibleByStringLiteral, ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral
-{
+extension AnyCodable: ExpressibleByNilLiteral, ExpressibleByBooleanLiteral, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral, ExpressibleByStringLiteral, ExpressibleByArrayLiteral, ExpressibleByDictionaryLiteral {
 }

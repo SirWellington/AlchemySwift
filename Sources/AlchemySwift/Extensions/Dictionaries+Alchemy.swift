@@ -16,8 +16,7 @@ import UIKit
 //======================================
 // MARK: DICTIONARY EXTENSIONS - COMPUTED VARIABLES
 //======================================
-public extension Dictionary
-{
+public extension Dictionary {
     ///Alias for `count`
     var size: Int { return self.count }
 
@@ -31,8 +30,7 @@ public extension Dictionary
     var notEmpty: Bool { return !isEmpty }
 }
 
-public extension NSDictionary
-{
+public extension NSDictionary {
     /// Alias for `count`
     var size: Int { return self.count }
 

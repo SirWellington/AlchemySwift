@@ -12,10 +12,8 @@ import Foundation
 //======================================
 // MARK: Operation Queues
 //======================================
-public extension OperationQueue
-{
-    convenience init(maxConcurrency: Int)
-    {
+public extension OperationQueue {
+    convenience init(maxConcurrency: Int) {
         self.init()
         maxConcurrentOperationCount = maxConcurrency
     }
@@ -28,8 +26,7 @@ public extension OperationQueue
         operation will permanently block.
      */
     @discardableResult
-    func sync<T>(_ block: @escaping (@escaping (T?) -> Void) -> Void) -> T?
-    {
+    func sync<T>(_ block: @escaping (@escaping (T?) -> Void) -> Void) -> T? {
         var result: T? = nil
         let group = DispatchGroup()
         group.enter()
@@ -56,8 +53,7 @@ public extension OperationQueue
  
     - parameter block: The block to execute on the main thread
  */
-public func onMain(_ block: @escaping () -> Void)
-{
+public func onMain(_ block: @escaping () -> Void) {
     OperationQueue.main.addOperation(block)
 }
 
@@ -65,15 +61,16 @@ public func onMain(_ block: @escaping () -> Void)
 // MARK: Dispatch Queues
 //======================================
 
-public extension DispatchQueue
-{
+public extension DispatchQueue {
     typealias Block = () -> ()
 
     /**
          - parameter seconds: The number of seconds to wait until executing the given block.
      */
-    func asyncAfter(delay: TimeInterval, block: @escaping Block)
-    {
+    func asyncAfter(
+    delay: TimeInterval,
+    block: @escaping Block
+) {
         let millis = delay.toMillis()
         let delay: DispatchTime = DispatchTime.now() + DispatchTimeInterval.milliseconds(millis.intValue)
         asyncAfter(deadline: delay, execute: block)
@@ -84,8 +81,7 @@ public extension DispatchQueue
 //======================================
 // MARK: Anything Extensions
 //======================================
-public extension Anything where Self: AnyObject
-{
+public extension Anything where Self: AnyObject {
     
     /**
      Add an operation to be executed on the specified Dispatch Queue.
@@ -94,25 +90,20 @@ public extension Anything where Self: AnyObject
      - parameter queue: The Dispatch Queue where the block will be posted to. Defaults to `main`.
      - parameter block: The operation to run on the main thread.
      */
-    func post(delay: TimeInterval = 0, queue: DispatchQueue = .main, _ block: @escaping (Self) -> ())
-    {
+    func post(delay: TimeInterval = 0, queue: DispatchQueue = .main, _ block: @escaping (Self) -> ()) {
         let blockWrapper =
         { [weak self] in
-            if let self = self
-            {
+            if let self = self {
                 block(self)
             }
         }
         
-        if delay > 0
-        {
+        if delay > 0 {
             queue.asyncAfter(delay: delay, block: blockWrapper)
         }
-        else
-        {
+        else {
             queue.async(execute: blockWrapper)
         }
     }
     
 }
-

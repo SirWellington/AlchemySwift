@@ -12,17 +12,14 @@ import Foundation
 //======================================
 // MARK: Convenience Functions
 //======================================
-public extension Date
-{
+public extension Date {
 
-    var isInThePast: Bool
-    {
+    var isInThePast: Bool {
         let now = Date()
         return self.timeIntervalSince1970 < now.timeIntervalSince1970
     }
     
-    var isInTheFuture: Bool
-    {
+    var isInTheFuture: Bool {
         let now = Date()
         return self.timeIntervalSince1970 > now.timeIntervalSince1970
     }
@@ -30,8 +27,7 @@ public extension Date
     /**
         Returns a new date that is `timeInterval` seconds before this date.
     */
-    func subtractingTimeInterval(_ timeInterval: TimeInterval) -> Date
-    {
+    func subtractingTimeInterval(_ timeInterval: TimeInterval) -> Date {
         return self.addingTimeInterval(-timeInterval)
     }
 }
@@ -40,16 +36,13 @@ public extension Date
 //======================================
 // MARK: Comparisons
 //======================================
-public extension Date
-{
+public extension Date {
     
-    func isBefore(date: Date) -> Bool
-    {
+    func isBefore(date: Date) -> Bool {
         return self.timeIntervalSince1970 < date.timeIntervalSince1970
     }
     
-    func isAfter(date: Date) -> Bool
-    {
+    func isAfter(date: Date) -> Bool {
         return self.timeIntervalSince1970 > date.timeIntervalSince1970
     }
 }
@@ -57,8 +50,7 @@ public extension Date
 //======================================
 // MARK: Formatting Dates
 //======================================
-public extension Date
-{
+public extension Date {
 
     /**
         Formats this Date into the given test format.
@@ -67,8 +59,7 @@ public extension Date
 
         - returns: This date formatted in `dateFormat`.
     */
-    func formatTo(dateFormat: String, timeZone: TimeZone = .autoupdatingCurrent) -> String
-    {
+    func formatTo(dateFormat: String, timeZone: TimeZone = .autoupdatingCurrent) -> String {
         let formatter = DateFormatter()
         formatter.timeZone = timeZone
         formatter.dateFormat = dateFormat
@@ -82,18 +73,15 @@ public extension Date
 //======================================
 // MARK: DATE INFORMATION
 //======================================
-public extension Date
-{
-    var yearsAgo: Int
-    {
+public extension Date {
+    var yearsAgo: Int {
         let calendar = Calendar.autoupdatingCurrent
         let now = Date()
         let components = calendar.dateComponents([.year], from: self, to: now)
         return components.year!
     }
 
-    var monthsAgo: Int
-    {
+    var monthsAgo: Int {
         let calendar = Calendar.autoupdatingCurrent
         let now = Date()
         let components = calendar.dateComponents([.month], from: self, to: now)
