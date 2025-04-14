@@ -10,9 +10,10 @@
 # Use 4-space indentation
 --indent 4
 --trimwhitespace always
---blankLinesBetweenScopes
---consecutiveBlankLines
---consecutiveSpaces
+--enable blankLinesBetweenScopes
+--enable consecutiveBlankLines
+--enable consecutiveSpaces
+--enable blockComments
 
 # Additional formatting preferences
 --stripunusedargs always
