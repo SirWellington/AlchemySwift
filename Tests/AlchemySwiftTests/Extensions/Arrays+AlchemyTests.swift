@@ -73,7 +73,10 @@ class ArraysPlusAlchemyTests: AlchemyTest {
         let negativeIndex = AlchemyGenerator.negativeInteger()
         assertFalse(strings.isValidIndex(negativeIndex))
 
-        let invalidIndex = AlchemyGenerator.integer(fromInclusive: strings.count, toInclusive: UInt32.max.intValue)
+        let invalidIndex = AlchemyGenerator.integer(
+            fromInclusive: strings.count,
+            toInclusive: UInt32.max.intValue
+        )
         assertFalse(strings.isValidIndex(invalidIndex))
     }
 
