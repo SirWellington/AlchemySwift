@@ -10,8 +10,9 @@ import AlchemyGenerator
 @testable import AlchemySwift
 import AlchemyTest
 import Foundation
-import XCTest
 import UIKit
+import XCTest
+
 //
 //  Strings+AlchemyTests.swift
 //  AlchemySwift
@@ -24,8 +25,8 @@ import AlchemyGenerator
 @testable import AlchemySwift
 import AlchemyTest
 import Foundation
-import XCTest
 import UIKit
+import XCTest
 
 class StringsPlusAlchemyTests: AlchemyTest {
 
@@ -106,7 +107,7 @@ class StringsPlusAlchemyTests: AlchemyTest {
 
             let result = string.asDate(dateFormat: format)
             let expectedComponents = calendar.dateComponents(
-                [ .year, .month, .day ],
+                [.year, .month, .day],
                 from: date
             )
             let expectedDate = calendar.date(from: expectedComponents)
@@ -159,6 +160,7 @@ class StringsPlusAlchemyTests: AlchemyTest {
         assertEquals(String.empty, "")
     }
 }
+
 //=====================================
 // MARK: TRANSFORMATIONS
 //=====================================
