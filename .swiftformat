@@ -6,6 +6,8 @@
 # Wrap function arguments before the first argument when wrapping is necessary
 --wraparguments before-first
 --wrapparameters before-first
+--wrapcollections before-first
+--wrapenumcases always
 
 # Use 4-space indentation
 --indent 4
