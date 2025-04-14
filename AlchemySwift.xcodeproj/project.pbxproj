@@ -105,6 +105,7 @@
 		1329B9CB2544BA8900DDD7BE /* FunctionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionsTests.swift; sourceTree = "<group>"; };
 		1329B9CC2544BA8900DDD7BE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1331DEDB2DAD77C800D85276 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		1331DEE02DAD997300D85276 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		DE125EDE1FF6999300A3C98B /* AlchemySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlchemySwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE125EE71FF6999300A3C98B /* AlchemySwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlchemySwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -221,6 +222,7 @@
 		DE125ED41FF6999300A3C98B = {
 			isa = PBXGroup;
 			children = (
+				1331DEE02DAD997300D85276 /* .swiftformat */,
 				1331DEDB2DAD77C800D85276 /* Package.swift */,
 				1329B98E2544BA8000DDD7BE /* Sources */,
 				1329B9B82544BA8900DDD7BE /* Tests */,

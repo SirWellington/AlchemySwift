@@ -1,0 +1,19 @@
+//
+//  .swiftformat
+//  AlchemySwift
+//
+//  Created by Wellington Moreno on 4/14/25.
+//  Copyright © 2025 Wellington Moreno. All rights reserved.
+//
+
+linebreaks = same-line
+indent = 4
+wrapparameters = before-first
+wraparguments = preserve
+stripunusedargs = enabled
+hexliteralcase = uppercase
+patternlet = hoist
+
+# Custom rule: split parameters if > 1 OR long line
+--wrapparameters=before-first
+--maxwidth=100
