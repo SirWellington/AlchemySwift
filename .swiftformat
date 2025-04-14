@@ -22,3 +22,4 @@
 --hexliteralcase uppercase
 --patternlet hoist
 --enable redundantReturn
+--enable sortImports
