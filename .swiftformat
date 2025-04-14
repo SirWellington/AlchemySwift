@@ -19,7 +19,7 @@
 --stripunusedargs always
 --commas inline
 --lineaftermarks false
---disable lineaftermarks
+--disable blankLinesAroundMark
 --hexliteralcase uppercase
 --patternlet hoist
 --enable redundantReturn
