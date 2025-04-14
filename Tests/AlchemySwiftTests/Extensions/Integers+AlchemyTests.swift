@@ -90,8 +90,8 @@ final class IntegersPlusAlchemyTests: AlchemyTest {
             assertFalse(negativeIndex.isValidIndex(toArray: array))
 
             let invalidIndex = AlchemyGenerator.integer(
-                from: array.count,
-                to: UInt32.max.intValue
+                fromInclusive: array.count,
+                toInclusive: UInt32.max.intValue
             )
             assertFalse(invalidIndex.isValidIndex(toArray: array))
         }
@@ -114,7 +114,10 @@ final class IntegersPlusAlchemyTests: AlchemyTest {
 
     func testRepeatBlockWhenLessThan1() {
         repeatTest(10) {
-            var counter = AlchemyGenerator.integer(from: -1_000, to: 0)
+            var counter = AlchemyGenerator.integer(
+                fromInclusive: -1_000,
+                toInclusive: 0
+            )
             let original = counter
 
             0.repeatBlock {

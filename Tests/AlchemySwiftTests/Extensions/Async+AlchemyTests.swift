@@ -30,7 +30,10 @@ class AsyncPlusAlchemyTests: AlchemyTest {
 
     func testOperationQueueInitializer() {
         repeatTest {
-            let concurrency = AlchemyGenerator.integer(from: 1, to: 5)
+            let concurrency = AlchemyGenerator.integer(
+                fromInclusive: 1,
+                toInclusive: 5
+            )
             let queue = OperationQueue(maxConcurrency: concurrency)
 
             assertEquals(queue.maxConcurrentOperationCount, concurrency)
@@ -120,13 +123,8 @@ extension AsyncPlusAlchemyTests {
 
     func testAnythingPostWithDelay() {
         let delay: TimeInterval = 1
-        let secondsToWait: TimeInterval = 2
         var counter = Int.random
         let expected = counter + 1
-
-        let predicate = NSPredicate { _, _ in
-            counter == expected
-        }
 
         let anything = AlchemyGenerator.alphabeticString().box()
         anything.post(delay: delay, queue: queue) { param in

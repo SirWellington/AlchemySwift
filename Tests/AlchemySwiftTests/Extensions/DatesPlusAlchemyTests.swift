@@ -23,7 +23,8 @@ class DatesPlusAlchemyTests: AlchemyTest {
     private var now: Date { return Date() }
     private var seconds: TimeInterval { return AlchemyGenerator.doubles(
         fromInclusive: 1.0,
-        toInclusive: TimeInterval.from(days: 10.0)
+        toInclusive: TimeInterval
+            .from(days: 10.0)
     ) }
     private var dateInThePast: Date { return now.subtractingTimeInterval(seconds) }
     private var dateInTheFuture: Date { return now.addingTimeInterval(seconds) }
@@ -61,7 +62,7 @@ class DatesPlusAlchemyTests: AlchemyTest {
 
             let result = date.subtractingTimeInterval(timeToSubtract)
 
-            assertEquals(result, expectedDate, withMarginOfError: 0.00001)
+            assertEquals(result, expectedDate, marginOfError: 0.00001)
         }
     }
 

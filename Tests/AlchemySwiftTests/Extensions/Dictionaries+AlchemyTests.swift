@@ -20,7 +20,10 @@ class DictionariesPlusAlchemyTests: AlchemyTest {
     var newInt: Int { return AlchemyGenerator.Integers.any }
 
     override func beforeEachTest() {
-        let size = AlchemyGenerator.integer(from: 10, to: 50)
+        let size = AlchemyGenerator.integer(
+            fromInclusive: 10,
+            toInclusive: 50
+        )
 
         for _ in 0 ..< size {
             let key = newString
