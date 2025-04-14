@@ -3,7 +3,7 @@
 //  AlchemySwift
 //
 //  Created by Wellington Moreno on 9/9/18.
-//  Copyright © 2019 Wellington Moreno. All rights reserved.
+//  Copyright © 2025 Wellington Moreno. All rights reserved.
 //
 
 import Foundation
