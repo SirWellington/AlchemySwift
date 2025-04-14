@@ -84,7 +84,7 @@ extension DoublesPlusAlchemyTests {
             assertEquals(
                 TimeInterval.from(millis: time),
                 time / 1_000,
-                withMarginOfError: 0.00001
+                marginOfError: 0.00001
             )
         }
     }
@@ -148,7 +148,7 @@ extension DoublesPlusAlchemyTests {
     func testTimeIntervalToHours() {
         repeatTest {
             let time = AlchemyGenerator.doubles(fromInclusive: 0.1, toInclusive: 1_000.0)
-            assertEquals(time.toHours(), time / (60.0 * 60.0), withMarginOfError: 0.0000001)
+            assertEquals(time.toHours(), time / (60.0 * 60.0), marginOfError: 0.0000001)
         }
     }
 

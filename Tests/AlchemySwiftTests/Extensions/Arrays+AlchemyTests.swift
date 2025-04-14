@@ -66,14 +66,14 @@ class ArraysPlusAlchemyTests: AlchemyTest {
     }
 
     func testIsValidIndex() {
-        let validIndex = AlchemyGenerator.integer(from: 0, to: strings.size)
+        let validIndex = AlchemyGenerator.integer(fromInclusive: 0, toInclusive: strings.size)
 
         assertTrue(strings.isValidIndex(validIndex))
 
         let negativeIndex = AlchemyGenerator.negativeInteger()
         assertFalse(strings.isValidIndex(negativeIndex))
 
-        let invalidIndex = AlchemyGenerator.integer(from: strings.count, to: UInt32.max.intValue)
+        let invalidIndex = AlchemyGenerator.integer(fromInclusive: strings.count, toInclusive: UInt32.max.intValue)
         assertFalse(strings.isValidIndex(invalidIndex))
     }
 
@@ -243,7 +243,7 @@ extension ArraysPlusAlchemyTests {
         var numbers = Array(range)
         let size = numbers.size
 
-        for i in range {
+        for _ in range {
             let expected = numbers.last!
             let result = numbers.circulatePrevious()
             assertEquals(result, expected)
@@ -361,7 +361,7 @@ extension ArraysPlusAlchemyTests {
 
     func testOnEach() {
         var counter = 0
-        let size = AlchemyGenerator.integer(from: 10, to: 100)
+        let size = AlchemyGenerator.integer(fromInclusive: 10, toInclusive: 100)
         let array = Array(repeating: 2, count: size)
 
         let result = array.onEach { counter += $0 }
@@ -438,7 +438,7 @@ extension ArraysPlusAlchemyTests {
     func testUniqueOnWhenTheSame() {
         repeatTest {
             let stringSize = Int.randomFrom(minInclusive: 5, maxExclusive: 20)
-            let generator = { AlchemyGenerator.alphabeticString(ofSize: stringSize) }
+            let generator = { AlchemyGenerator.alphabeticString(size: stringSize) }
             let array = AlchemyGenerator.Arrays.of(size: 10, generator)
 
             let result = array.unique { $0.length }

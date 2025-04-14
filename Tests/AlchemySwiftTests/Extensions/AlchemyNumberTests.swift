@@ -208,9 +208,9 @@ class AlchemyNumberTests: AlchemyTest {
             assertEquals(float.doubleValue, Double(Float(double)))
             assertEquals(float.cgFloatValue, CGFloat(Float(cgFloat)))
             assertEquals(float.decimalValue, Decimal(Double(float)))
-            assertEquals(float.doubleValue, double, withMarginOfError: 0.0001)
-            assertEquals(float.cgFloatValue, cgFloat, withMarginOfError: 0.0001)
-            assertEquals(float.decimalValue, decimal, withMarginOfError: 0.0001)
+            assertEquals(float.doubleValue, double, marginOfError: 0.0001)
+            assertEquals(float.cgFloatValue, cgFloat, marginOfError: 0.0001)
+            assertEquals(float.decimalValue, decimal, marginOfError: 0.0001)
             assertEquals(float.stringValue, String(float))
         }
     }
@@ -243,9 +243,9 @@ class AlchemyNumberTests: AlchemyTest {
             assertEquals(decimal.uInt32Value, uInt32)
             assertEquals(decimal.uInt64Value, uInt64)
             assertEquals(decimal.floatValue, float)
-            assertEquals(decimal.doubleValue, double, withMarginOfError: 0.0000001)
+            assertEquals(decimal.doubleValue, double, marginOfError: 0.0000001)
             assertEquals(decimal.doubleValue, double.decimalValue.doubleValue)
-            assertEquals(decimal.cgFloatValue, cgFloat, withMarginOfError: 0.0000001)
+            assertEquals(decimal.cgFloatValue, cgFloat, marginOfError: 0.0000001)
             assertEquals(decimal.cgFloatValue, cgFloat.decimalValue.cgFloatValue)
             assertEquals(decimal.stringValue, decimal.asString)
         }
@@ -253,7 +253,7 @@ class AlchemyNumberTests: AlchemyTest {
 
     func testMB() {
         repeatTest {
-            let megabytes = AlchemyGenerator.integer(from: 1, to: 1_000)
+            let megabytes = AlchemyGenerator.integer(fromInclusive: 1, toInclusive: 1_000)
             let resultBytes = megabytes.mb
 
             let expected = megabytes * 1_000_000

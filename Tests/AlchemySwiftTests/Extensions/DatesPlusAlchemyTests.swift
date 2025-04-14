@@ -119,7 +119,7 @@ class DatesPlusAlchemyTests: AlchemyTest {
 
     func testYearsAgo() {
         repeatTest {
-            let yearsAgo = AlchemyGenerator.integer(from: 0, to: 100)
+            let yearsAgo = AlchemyGenerator.integer(fromInclusive: 0, toInclusive: 100)
             let now = Date()
             let date = calendar.date(byAdding: .year, value: -yearsAgo, to: now)!
 
@@ -130,7 +130,7 @@ class DatesPlusAlchemyTests: AlchemyTest {
 
     func testYearsAgoWithFutureDate() {
         repeatTest {
-            let yearsAhead = AlchemyGenerator.integer(from: 0, to: 100)
+            let yearsAhead = AlchemyGenerator.integer(fromInclusive: 0, toInclusive: 100)
             let now = Date()
             var date = calendar.date(byAdding: .year, value: yearsAhead, to: now)!
             // Adjust for a couple of millis of computation time
@@ -143,7 +143,7 @@ class DatesPlusAlchemyTests: AlchemyTest {
 
     func testMonthsAgo() {
         repeatTest {
-            let monthsAgo = AlchemyGenerator.integer(from: 0, to: 200)
+            let monthsAgo = AlchemyGenerator.integer(fromInclusive: 0, toInclusive: 200)
             let now = Date()
             let date = calendar.date(byAdding: .month, value: -monthsAgo, to: now)!
 
@@ -154,7 +154,7 @@ class DatesPlusAlchemyTests: AlchemyTest {
 
     func testMonthsAgoWithFutureDate() {
         repeatTest {
-            let monthsAhead = AlchemyGenerator.integer(from: 0, to: 200)
+            let monthsAhead = AlchemyGenerator.integer(fromInclusive: 0, toInclusive: 200)
             let now = Date()
             var date = calendar.date(byAdding: .month, value: monthsAhead, to: now)!
             // Adjust for computation time
