@@ -16,7 +16,6 @@ import Foundation
 /// and adds some conveniences to objects of all types.
 public protocol Anything {}
 
-
 //======================================
 // MARK: FREE FUNCTIONALITY
 //======================================
@@ -56,7 +55,6 @@ public extension Anything {
         return names.last ?? "\(type(of: self.self))"
     }
 }
-
 
 //======================================
 // MARK: EXTENSIONS

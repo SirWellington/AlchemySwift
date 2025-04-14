@@ -9,7 +9,6 @@
 import CoreGraphics
 import Foundation
 
-
 //======================================
 // MARK: PROTOCOL DEFINITION
 //======================================
@@ -36,17 +35,17 @@ public protocol AlchemyNumber: Anything {
 //======================================
 public extension AlchemyNumber {
 
-    var intValue: Int { return self.asNSNumber.intValue }
-    var int32Value: Int32 { return self.asNSNumber.int32Value }
-    var int64Value: Int64 { return self.asNSNumber.int64Value }
-    var uIntValue: UInt { return self.asNSNumber.uintValue }
-    var uInt16Value: UInt16 { return self.asNSNumber.uint16Value }
-    var uInt32Value: UInt32 { return self.asNSNumber.uint32Value }
-    var uInt64Value: UInt64 { return self.asNSNumber.uint64Value }
-    var cgFloatValue: CGFloat { return CGFloat(self.asNSNumber.doubleValue) }
-    var floatValue: Float { return self.asNSNumber.floatValue }
-    var doubleValue: Double { return self.asNSNumber.doubleValue }
-    var decimalValue: Decimal { return self.asNSNumber.decimalValue }
+    var intValue: Int { return asNSNumber.intValue }
+    var int32Value: Int32 { return asNSNumber.int32Value }
+    var int64Value: Int64 { return asNSNumber.int64Value }
+    var uIntValue: UInt { return asNSNumber.uintValue }
+    var uInt16Value: UInt16 { return asNSNumber.uint16Value }
+    var uInt32Value: UInt32 { return asNSNumber.uint32Value }
+    var uInt64Value: UInt64 { return asNSNumber.uint64Value }
+    var cgFloatValue: CGFloat { return CGFloat(asNSNumber.doubleValue) }
+    var floatValue: Float { return asNSNumber.floatValue }
+    var doubleValue: Double { return asNSNumber.doubleValue }
+    var decimalValue: Decimal { return asNSNumber.decimalValue }
     var stringValue: String { return "\(self)" }
 
     /// Converts Megabytes to bytes.
@@ -55,24 +54,24 @@ public extension AlchemyNumber {
     /// - Returns truncating: the number of bytes represented by `self.mb`.
     ///
     var mb: Int {
-        return round(self.asDouble * pow(10.0, 6)).intValue
+        return round(asDouble * pow(10.0, 6)).intValue
     }
 }
 
 /// Adds alternate names
 public extension AlchemyNumber {
-    var asInt: Int { return self.intValue }
-    var asInt32: Int32 { return self.int32Value }
-    var asInt64: Int64 { return self.int64Value }
-    var asUInt: UInt { return self.uIntValue }
-    var asUInt16: UInt16 { return self.uInt16Value }
-    var asUInt32: UInt32 { return self.uInt32Value }
-    var asUInt64: UInt64 { return self.uInt64Value }
-    var asCGFloat : CGFloat { return self.cgFloatValue}
-    var asFloat: Float { return self.floatValue }
-    var asDouble: Double { return self.doubleValue }
-    var asDecimal: Decimal { return self.decimalValue }
-    var asString: String { return self.stringValue }
+    var asInt: Int { return intValue }
+    var asInt32: Int32 { return int32Value }
+    var asInt64: Int64 { return int64Value }
+    var asUInt: UInt { return uIntValue }
+    var asUInt16: UInt16 { return uInt16Value }
+    var asUInt32: UInt32 { return uInt32Value }
+    var asUInt64: UInt64 { return uInt64Value }
+    var asCGFloat: CGFloat { return cgFloatValue }
+    var asFloat: Float { return floatValue }
+    var asDouble: Double { return doubleValue }
+    var asDecimal: Decimal { return decimalValue }
+    var asString: String { return stringValue }
 }
 
 //======================================
@@ -86,12 +85,12 @@ extension Int: AlchemyNumber {
 
 extension Int32: AlchemyNumber {
     public var asNSNumber: NSNumber { return self as NSNumber }
-    public var int32Value: Int32 { return self}
+    public var int32Value: Int32 { return self }
 }
 
 extension Int64: AlchemyNumber {
     public var asNSNumber: NSNumber { return self as NSNumber }
-    public var int64Value: Int64 { return self}
+    public var int64Value: Int64 { return self }
 }
 
 extension UInt: AlchemyNumber {
@@ -113,7 +112,6 @@ extension UInt64: AlchemyNumber {
     public var asNSNumber: NSNumber { return self as NSNumber }
     public var uInt64Value: UInt64 { return self }
 }
-
 
 //======================================
 // MARK: FLOATS
@@ -148,17 +146,16 @@ extension Decimal: AlchemyNumber {
     public var decimalValue: Decimal { return self }
     public var stringValue: String { return (self as NSDecimalNumber).stringValue }
 
-    public var doubleValue: Double { return Double(truncating: self.asNSNumber) }
-    public var cgFloatValue: CGFloat { return CGFloat(truncating: self.asNSNumber) }
+    public var doubleValue: Double { return Double(truncating: asNSNumber) }
+    public var cgFloatValue: CGFloat { return CGFloat(truncating: asNSNumber) }
 
-    public var intValue: Int { return Int(self.asNSNumber.doubleValue) }
-    public var int32Value: Int32 { return Int32(self.asNSNumber.doubleValue) }
-    public var int64Value: Int64 { return Int64(self.asNSNumber.doubleValue) }
-    public var uIntValue: UInt { return UInt(self.asNSNumber.doubleValue) }
-    public var uInt16Value: UInt16 { return UInt16(self.asNSNumber.doubleValue) }
-    public var uInt32Value: UInt32 { return UInt32(self.asNSNumber.doubleValue) }
-    public var uInt64Value: UInt64 { return UInt64(self.asNSNumber.doubleValue) }
-
+    public var intValue: Int { return Int(asNSNumber.doubleValue) }
+    public var int32Value: Int32 { return Int32(asNSNumber.doubleValue) }
+    public var int64Value: Int64 { return Int64(asNSNumber.doubleValue) }
+    public var uIntValue: UInt { return UInt(asNSNumber.doubleValue) }
+    public var uInt16Value: UInt16 { return UInt16(asNSNumber.doubleValue) }
+    public var uInt32Value: UInt32 { return UInt32(asNSNumber.doubleValue) }
+    public var uInt64Value: UInt64 { return UInt64(asNSNumber.doubleValue) }
 }
 
 //======================================

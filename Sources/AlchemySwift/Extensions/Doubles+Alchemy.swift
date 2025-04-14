@@ -8,32 +8,29 @@
 
 import Foundation
 
-
 //=====================================
-//MARK: DECIMAL PRECISION
+// MARK: DECIMAL PRECISION
 //=====================================
 public extension Double {
 
-    /**
-        Rounds this double to `places` decimal places using the specified `roundingRule`.
-    */
-    func rounded(toPlaces places: Int, roundingRule: FloatingPointRoundingRule = .toNearestOrAwayFromZero) -> Double {
+    ///    Rounds this double to `places` decimal places using the specified `roundingRule`.
+    func rounded(
+        toPlaces places: Int,
+        roundingRule: FloatingPointRoundingRule = .toNearestOrAwayFromZero
+    ) -> Double {
         let divisor = pow(10.0, Double(places))
         return (self * divisor).rounded(roundingRule) / divisor
     }
 
-    /**
-        Truncates the decimal places of this Double to `places` decimal places.
-        This operation merely removes any digits after `places`.
-    */
+    ///    Truncates the decimal places of this Double to `places` decimal places.
+    ///    This operation merely removes any digits after `places`.
     func truncated(toPlaces places: Int) -> Double {
-        return self.rounded(toPlaces: places, roundingRule: .towardZero)
+        return rounded(toPlaces: places, roundingRule: .towardZero)
     }
-
 }
 
 //=====================================
-//MARK: TIME CONVERSIONS
+// MARK: TIME CONVERSIONS
 //=====================================
 
 public extension TimeInterval {
@@ -79,18 +76,17 @@ public extension TimeInterval {
     }
 
     func toHours() -> Double {
-        let minutes = self.toMinutes()
+        let minutes = toMinutes()
         return minutes / 60.0
     }
 
     func toDays() -> Double {
-        let hours = self.toHours()
+        let hours = toHours()
         return hours / 24.0
     }
 
     func toWeeks() -> Double {
-        let days = self.toDays()
+        let days = toDays()
         return days / 7.0
     }
-
 }

@@ -35,9 +35,9 @@ class AttributedStringBuilderTests: AlchemyTest {
             let strings = self.anyStrings
             builder.clear()
 
-            strings.forEach {
+            for item in strings {
                 builder.add(
-                    string: $0,
+                    string: item,
                     attributes: [:]
                 )
             }
@@ -68,9 +68,9 @@ class AttributedStringBuilderTests: AlchemyTest {
 
             builder.clear()
 
-            strings.forEach {
+            for item in strings {
                 builder.add(
-                    string: $0,
+                    string: item,
                     attributes: attributes
                 )
             }

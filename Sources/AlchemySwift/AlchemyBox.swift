@@ -42,12 +42,11 @@ extension AlchemyStrongBox: Equatable where T: Equatable {
 extension AlchemyStrongBox: Hashable where T: Hashable {
 
     public func hash(into hasher: inout Hasher) {
-        hasher.combine(self.item)
+        hasher.combine(item)
     }
 }
 
 extension AlchemyStrongBox: Anything {}
-
 
 //=========================================
 // MARK: WEAK BOX
@@ -83,7 +82,7 @@ extension AlchemyWeakBox: Equatable where T: Equatable {
 extension AlchemyWeakBox: Hashable where T: Hashable {
 
     public func hash(into hasher: inout Hasher) {
-        if let item = self.item {
+        if let item = item {
             hasher.combine(item)
         } else {
             hasher.combine(0)

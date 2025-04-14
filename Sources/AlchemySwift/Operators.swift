@@ -21,7 +21,7 @@ infix operator ?|?: AdditionPrecedence
 /// Use this function when you don't care which one of the two gets selected.
 ///
 /// - Returns: Either the value on the left, or the value on the right, chosen at random.
-public func ?|?<T: Any>(lhs: T, rhs: T) -> T {
+public func ?|? <T: Any>(lhs: T, rhs: T) -> T {
     let seed = Int.random
     return seed.isEven ? lhs : rhs
 }

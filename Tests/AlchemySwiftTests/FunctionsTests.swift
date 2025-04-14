@@ -61,7 +61,8 @@ class FunctionsTests: AlchemyTest {
                 maxExclusive: 5
             )
 
-            let expected = ((part.doubleValue / total.doubleValue) * 100).rounded(toPlaces: decimalPlaces)
+            let expected = ((part.doubleValue / total.doubleValue) * 100)
+                .rounded(toPlaces: decimalPlaces)
             let result = calculatePercentage(
                 part: part,
                 total: total,

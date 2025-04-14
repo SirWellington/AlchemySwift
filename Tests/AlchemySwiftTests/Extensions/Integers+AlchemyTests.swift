@@ -12,9 +12,7 @@ import AlchemyTest
 import Foundation
 import XCTest
 
-
-class IntegersPlusAlchemyTests: AlchemyTest
-{
+class IntegersPlusAlchemyTests: AlchemyTest {
     override var iterations: Int { return 100 }
 
     private var min = 0
@@ -22,17 +20,14 @@ class IntegersPlusAlchemyTests: AlchemyTest
     private var array: [String] = []
     private var integer = 0
 
-    override func setUp()
-    {
+    override func setUp() {
         max = AlchemyGenerator.positiveInteger()
         array = AlchemyGenerator.Arrays.ofAlphabeticString
         integer = AlchemyGenerator.Integers.any
     }
 
-    func testIsEven()
-    {
-        repeatTest
-        {
+    func testIsEven() {
+        repeatTest {
             let number = AlchemyGenerator.anyInteger()
 
             let expected = number % 2 == 0
@@ -42,10 +37,8 @@ class IntegersPlusAlchemyTests: AlchemyTest
         }
     }
 
-    func testIsOdd()
-    {
-        repeatTest
-        {
+    func testIsOdd() {
+        repeatTest {
             let expected = integer % 2 != 0
             let result = integer.isOdd
 
@@ -53,10 +46,8 @@ class IntegersPlusAlchemyTests: AlchemyTest
         }
     }
 
-    func testRandomInts()
-    {
-        repeatTest
-        {
+    func testRandomInts() {
+        repeatTest {
             let result = Int.randomFrom(minInclusive: min, maxExclusive: max)
 
             assertThat(result >= min)
@@ -65,10 +56,8 @@ class IntegersPlusAlchemyTests: AlchemyTest
         }
     }
 
-    func testRandomIntsWithNegatives()
-    {
-        repeatTest
-        {
+    func testRandomIntsWithNegatives() {
+        repeatTest {
             min = AlchemyGenerator.negativeInteger()
 
             let result = Int.randomFrom(minInclusive: min, maxExclusive: max)
@@ -77,29 +66,23 @@ class IntegersPlusAlchemyTests: AlchemyTest
         }
     }
 
-    func testRandomIntsWithInvalidRange()
-    {
-        repeatTest
-        {
+    func testRandomIntsWithInvalidRange() {
+        repeatTest {
             let result = Int.randomFrom(minInclusive: max, maxExclusive: min)
             assertTrue(result >= min)
             assertTrue(result < max)
         }
     }
 
-    func testRandomInt()
-    {
-        repeatTest
-        {
+    func testRandomInt() {
+        repeatTest {
             let result: Int? = Int.random
             assertThat(result != nil)
         }
     }
 
-    func testIsValidIndex()
-    {
-        repeatTest
-        {
+    func testIsValidIndex() {
+        repeatTest {
             let validIndex = Int.randomFrom(minInclusive: 0, maxExclusive: array.count)
 
             assertTrue(validIndex.isValidIndex(toArray: array))
@@ -107,22 +90,22 @@ class IntegersPlusAlchemyTests: AlchemyTest
             let negativeIndex = AlchemyGenerator.negativeInteger()
             assertFalse(negativeIndex.isValidIndex(toArray: array))
 
-            let invalidIndex = AlchemyGenerator.integer(from: array.count, to: UInt32.max.intValue)
+            let invalidIndex = AlchemyGenerator.integer(
+                from: array.count,
+                to: UInt32.max.intValue
+            )
             assertFalse(invalidIndex.isValidIndex(toArray: array))
         }
     }
 
-    func testRepeatBlock()
-    {
-        repeatTest(15)
-        {
+    func testRepeatBlock() {
+        repeatTest(15) {
             var counter = AlchemyGenerator.Integers.positive
             let iterations = AlchemyGenerator.Integers.positive
 
             let expected = counter + iterations
 
-            iterations.repeatBlock
-            {
+            iterations.repeatBlock {
                 counter += 1
             }
 
@@ -130,15 +113,12 @@ class IntegersPlusAlchemyTests: AlchemyTest
         }
     }
 
-    func testRepeatBlockWhenLessThan1()
-    {
-        repeatTest(10)
-        {
+    func testRepeatBlockWhenLessThan1() {
+        repeatTest(10) {
             var counter = AlchemyGenerator.integer(from: -1000, to: 0)
             let original = counter
 
-            0.repeatBlock
-            {
+            0.repeatBlock {
                 counter += 1
             }
 
@@ -147,16 +127,12 @@ class IntegersPlusAlchemyTests: AlchemyTest
     }
 }
 
-
 //======================================
 // MARK: MATH FUNCTION TESTS
 //======================================
-extension IntegersPlusAlchemyTests 
-{
-    func testAbsoluteValue()
-    {
-        repeatTest 
-        {
+extension IntegersPlusAlchemyTests {
+    func testAbsoluteValue() {
+        repeatTest {
             let positive = AlchemyGenerator.positiveInteger()
             assertEquals(positive.abs, positive)
 

@@ -49,7 +49,7 @@ extension AnythingTests {
         var length = string.with { $0.length }
         assertEquals(length, string.length)
 
-        var empty: String? = nil
+        var empty: String?
         result = empty?.with { _ in returnValue }
         assertNil(result)
 
@@ -64,7 +64,7 @@ extension AnythingTests {
         var doubled: Int? = int.with { $0 * 2 }
         assertEquals(doubled, int * 2)
 
-        var empty: Int? = nil
+        var empty: Int?
         doubled = empty?.with { $0 * 2 }
         assertNil(doubled)
         doubled = empty?.with { $0 * 2 } ?? 0
@@ -78,7 +78,7 @@ extension AnythingTests {
         var tripled: Double? = double.with { $0 * 3 }
         assertEquals(tripled, double * 3)
 
-        var empty: Double? = nil
+        var empty: Double?
         tripled = empty?.with { $0 * 3 }
         assertNil(tripled)
         result = empty?.with { _ in returnValue } ?? returnValue
@@ -92,7 +92,7 @@ extension AnythingTests {
         var joined: String? = array.with { $0.joined() }
         assertEquals(joined, array.joined())
 
-        var empty: [String]? = nil
+        var empty: [String]?
         result = empty?.with { _ in returnValue }
         assertNil(result)
         joined = empty?.with { $0.joined() } ?? ""
@@ -116,7 +116,7 @@ extension AnythingTests {
 
     func testUsingFunction() {
         repeatTest {
-            var string: String? = nil
+            var string: String?
             var count = 0
 
             using(string) {
@@ -179,7 +179,7 @@ extension AnythingTests {
         let second = SomeClass()
         assertEquals(second.className, "SomeClass")
 
-        assertEquals(self.className, "AnythingTests")
+        assertEquals(className, "AnythingTests")
     }
 
     func testStaticClassName() {

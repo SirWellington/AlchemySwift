@@ -6,59 +6,56 @@
 //  Copyright © 2019 Wellington Moreno. All rights reserved.
 //
 
-
 import AlchemyGenerator
 @testable import AlchemySwift
 import AlchemyTest
 import Foundation
 import XCTest
 
-
 //======================================
 // MARK: Tests
 //======================================
-class DatesPlusAlchemyTests: AlchemyTest
-{
+class DatesPlusAlchemyTests: AlchemyTest {
     override var iterations: Int { return 150 }
 
     private let calendar = Calendar.autoupdatingCurrent
-    
+
     private var now: Date { return Date() }
-    private var seconds: TimeInterval { return AlchemyGenerator.doubles(fromInclusive: 1.0, toInclusive: TimeInterval.from(days: 10.0)) }
+    private var seconds: TimeInterval { return AlchemyGenerator.doubles(
+        fromInclusive: 1.0,
+        toInclusive: TimeInterval.from(days: 10.0)
+    ) }
     private var dateInThePast: Date { return now.subtractingTimeInterval(seconds) }
     private var dateInTheFuture: Date { return now.addingTimeInterval(seconds) }
-    
-    func testIsInThePast()
-    {
-        repeatTest
-        {
+
+    func testIsInThePast() {
+        repeatTest {
             let pastDate = self.dateInThePast
             let futureDate = self.dateInTheFuture
-            
+
             assertTrue(pastDate.isInThePast)
             assertFalse(futureDate.isInThePast)
         }
     }
-    
-    func testIsInTheFuture()
-    {
-        repeatTest
-        {
+
+    func testIsInTheFuture() {
+        repeatTest {
             let pastDate = self.dateInThePast
             let futureDate = self.dateInTheFuture
-            
+
             assertTrue(futureDate.isInTheFuture)
-            assertFalse(pastDate.isInTheFuture	)
+            assertFalse(pastDate.isInTheFuture)
         }
     }
 
-    func testDateBySubtracting()
-    {
-        repeatTest
-        {
+    func testDateBySubtracting() {
+        repeatTest {
             let date = Date()
 
-            let timeToSubtract = AlchemyGenerator.doubles(fromInclusive: 100, toInclusive: 100_000)
+            let timeToSubtract = AlchemyGenerator.doubles(
+                fromInclusive: 100,
+                toInclusive: 100_000
+            )
             let expectedEpochTime = date.timeIntervalSince1970 - timeToSubtract
             let expectedDate = Date(timeIntervalSince1970: expectedEpochTime)
 
@@ -68,14 +65,11 @@ class DatesPlusAlchemyTests: AlchemyTest
         }
     }
 
-    
-    func testIsBefore()
-    {
-        repeatTest
-        {
+    func testIsBefore() {
+        repeatTest {
             let pastDate = self.dateInThePast
             let futureDate = self.dateInTheFuture
-            
+
             assertTrue(pastDate.isBefore(date: now))
             assertFalse(futureDate.isBefore(date: now))
             assertTrue(pastDate.isBefore(date: futureDate))
@@ -83,38 +77,32 @@ class DatesPlusAlchemyTests: AlchemyTest
         }
     }
 
-    func testIsAfter()
-    {
-        repeatTest
-        {
+    func testIsAfter() {
+        repeatTest {
             let now = self.now
             let pastDate = self.dateInThePast
             let futureDate = self.dateInTheFuture
-            
+
             assertTrue(now.isAfter(date: pastDate))
             assertTrue(futureDate.isAfter(date: now))
             assertTrue(futureDate.isAfter(date: pastDate))
-            
+
             assertFalse(pastDate.isAfter(date: futureDate))
             assertFalse(pastDate.isAfter(date: now))
             assertFalse(now.isAfter(date: futureDate))
         }
     }
-    
-    func testDateFormatter()
-    {
-        repeatTest
-        {
+
+    func testDateFormatter() {
+        repeatTest {
             _testDateFormatterWithFormat("MM/dd/yyyy")
             _testDateFormatterWithFormat("yyyy.MM.dd")
             _testDateFormatterWithFormat("E, MMM d yyyy")
         }
     }
 
-    private func _testDateFormatterWithFormat(_ format: String)
-    {
-        repeatTest
-        {
+    private func _testDateFormatterWithFormat(_ format: String) {
+        repeatTest {
             let date = Date()
 
             let formatter = DateFormatter()
@@ -128,10 +116,8 @@ class DatesPlusAlchemyTests: AlchemyTest
         }
     }
 
-    func testYearsAgo()
-    {
-        repeatTest
-        {
+    func testYearsAgo() {
+        repeatTest {
             let yearsAgo = AlchemyGenerator.integer(from: 0, to: 100)
             let now = Date()
             let date = calendar.date(byAdding: .year, value: -yearsAgo, to: now)!
@@ -141,14 +127,12 @@ class DatesPlusAlchemyTests: AlchemyTest
         }
     }
 
-    func testYearsAgoWithFutureDate()
-    {
-        repeatTest
-        {
+    func testYearsAgoWithFutureDate() {
+        repeatTest {
             let yearsAhead = AlchemyGenerator.integer(from: 0, to: 100)
             let now = Date()
             var date = calendar.date(byAdding: .year, value: yearsAhead, to: now)!
-            //Adjust for a couple of millis of computation time
+            // Adjust for a couple of millis of computation time
             date = date.addingTimeInterval(1.0)
 
             let result = date.yearsAgo
@@ -156,10 +140,8 @@ class DatesPlusAlchemyTests: AlchemyTest
         }
     }
 
-    func testMonthsAgo()
-    {
-        repeatTest
-        {
+    func testMonthsAgo() {
+        repeatTest {
             let monthsAgo = AlchemyGenerator.integer(from: 0, to: 200)
             let now = Date()
             let date = calendar.date(byAdding: .month, value: -monthsAgo, to: now)!
@@ -169,14 +151,12 @@ class DatesPlusAlchemyTests: AlchemyTest
         }
     }
 
-    func testMonthsAgoWithFutureDate()
-    {
-        repeatTest
-        {
+    func testMonthsAgoWithFutureDate() {
+        repeatTest {
             let monthsAhead = AlchemyGenerator.integer(from: 0, to: 200)
             let now = Date()
             var date = calendar.date(byAdding: .month, value: monthsAhead, to: now)!
-            //Adjust for computation time
+            // Adjust for computation time
             date = date.addingTimeInterval(1.0)
 
             let result = date.monthsAgo

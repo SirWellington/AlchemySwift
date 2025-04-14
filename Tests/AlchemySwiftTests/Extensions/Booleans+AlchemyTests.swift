@@ -6,27 +6,23 @@
 //  Copyright © 2019 Wellington Moreno. All rights reserved.
 //
 
-
 import AlchemyGenerator
 @testable import AlchemySwift
 import AlchemyTest
 import Foundation
 import XCTest
 
-class BooleansPlusAlchemyTests: AlchemyTest
-{
+class BooleansPlusAlchemyTests: AlchemyTest {
 
     private var bool: Bool! = nil
 
-    override func setUp()
-    {
+    override func setUp() {
         super.setUp()
 
         bool = AlchemyGenerator.positiveInteger().isEven
     }
 
-    func testToggle()
-    {
+    func testToggle() {
         let initial = bool
         bool.toggle()
         let after = bool
@@ -34,47 +30,41 @@ class BooleansPlusAlchemyTests: AlchemyTest
         assertNotEquals(initial, after)
     }
 
-    func testRandomBool()
-    {
+    func testRandomBool() {
         var set = Set<Bool>()
 
-        for _ in 0...100 {
+        for _ in 0 ... 100 {
             set.insert(Bool.random)
         }
 
         assertThat(set.count == 2)
     }
 
-    func testNot()
-    {
+    func testNot() {
         let original = bool ?? false
         let result = original.not
 
         assertEquals(result, !original)
     }
 
-    func testInverse()
-    {
+    func testInverse() {
         let original = bool ?? true
         let result = original.inverse
 
         assertEquals(result, !original)
     }
 
-    func testInversed()
-    {
+    func testInversed() {
         let original = bool ?? true
         let result = original.inversed()
 
         assertEquals(result, !original)
     }
 
-    func testAsString()
-    {
+    func testAsString() {
         let expected = "\(bool!)"
         let result = bool!.asString
 
         assertEquals(result, expected)
     }
-
 }

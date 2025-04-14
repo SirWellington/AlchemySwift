@@ -37,12 +37,12 @@ public extension String {
 
     var firstLetter: String? {
         guard notEmpty else { return nil }
-        return self.first?.asString
+        return first?.asString
     }
 
     var lastLetter: String? {
         guard notEmpty else { return nil }
-        return self.last?.asString
+        return last?.asString
     }
 
     var asAttributed: NSAttributedString {
@@ -71,19 +71,19 @@ public extension String {
 
     func withoutFirstLetter() -> String? {
         guard notEmpty else { return nil }
-        let substring = self.dropFirst()
+        let substring = dropFirst()
         return String(substring)
     }
 
     func withoutLastLetter() -> String? {
         guard notEmpty else { return nil }
-        let substring = self.dropLast()
+        let substring = dropLast()
         return String(substring)
     }
 
     func removingPrefix(prefix: String) -> String {
-        guard let substring = self.range(of: prefix) else { return self }
-        let newString = self.replacingCharacters(in: substring, with: "")
+        guard let substring = range(of: prefix) else { return self }
+        let newString = replacingCharacters(in: substring, with: "")
         return newString
     }
 
@@ -114,10 +114,10 @@ public extension String {
         locale: Locale? = nil
     ) -> [Range<Index>] {
         var ranges: [Range<Index>] = []
-        while let range = self.range(
+        while let range = range(
             of: substring,
             options: options,
-            range: (ranges.last?.upperBound ?? self.startIndex)..<self.endIndex,
+            range: (ranges.last?.upperBound ?? startIndex) ..< endIndex,
             locale: locale
         ) {
             ranges.append(range)
@@ -138,7 +138,7 @@ public extension NSAttributedString {
     func copyWithAttributes(
         _ attributes: [NSAttributedString.Key: Any]
     ) -> NSAttributedString {
-        let copy = self.asMutable()
+        let copy = asMutable()
         copy.setAttributes(attributes)
         return copy
     }
@@ -147,7 +147,7 @@ public extension NSAttributedString {
         at range: NSRange,
         with attributes: [NSAttributedString.Key: Any]
     ) -> NSAttributedString {
-        let mutableSelf = self.asMutable()
+        let mutableSelf = asMutable()
         mutableSelf.setAttributes(attributes, range: range)
         return NSAttributedString(attributedString: mutableSelf)
     }
@@ -156,12 +156,12 @@ public extension NSAttributedString {
         subtext: String,
         attributes: [NSAttributedString.Key: Any]
     ) -> NSAttributedString {
-        let ranges = self.string.ranges(of: subtext)
+        let ranges = string.ranges(of: subtext)
         guard ranges.notEmpty else { return self }
 
-        let mutableSelf = self.asMutable()
+        let mutableSelf = asMutable()
         for range in ranges {
-            let nsRange = NSRange(range, in: self.string)
+            let nsRange = NSRange(range, in: string)
             mutableSelf.setAttributes(attributes, range: nsRange)
         }
 
@@ -174,8 +174,8 @@ public extension NSMutableAttributedString {
     func setAttributes(
         _ attributes: [NSAttributedString.Key: Any]
     ) {
-        let range = NSMakeRange(0, self.length)
-        self.setAttributes(attributes, range: range)
+        let range = NSMakeRange(0, length)
+        setAttributes(attributes, range: range)
     }
 }
 
@@ -197,7 +197,7 @@ infix operator ???: NilCoalescingPrecedence
 /// This nifty little function allows you to coalesce an optional value into a String.
 /// If the optional value exists, the usual String representation will be returned.
 /// If it does not exist, `defaultValue` will be used instead.
-public func ???<T>(
+public func ??? <T>(
     optional: T?,
     defaultValue: @autoclosure () -> String
 ) -> String {

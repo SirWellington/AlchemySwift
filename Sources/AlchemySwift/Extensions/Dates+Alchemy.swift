@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 //======================================
 // MARK: Convenience Functions
 //======================================
@@ -16,34 +15,31 @@ public extension Date {
 
     var isInThePast: Bool {
         let now = Date()
-        return self.timeIntervalSince1970 < now.timeIntervalSince1970
+        return timeIntervalSince1970 < now.timeIntervalSince1970
     }
-    
+
     var isInTheFuture: Bool {
         let now = Date()
-        return self.timeIntervalSince1970 > now.timeIntervalSince1970
+        return timeIntervalSince1970 > now.timeIntervalSince1970
     }
-    
-    /**
-        Returns a new date that is `timeInterval` seconds before this date.
-    */
+
+    ///    Returns a new date that is `timeInterval` seconds before this date.
     func subtractingTimeInterval(_ timeInterval: TimeInterval) -> Date {
-        return self.addingTimeInterval(-timeInterval)
+        return addingTimeInterval(-timeInterval)
     }
 }
-
 
 //======================================
 // MARK: Comparisons
 //======================================
 public extension Date {
-    
+
     func isBefore(date: Date) -> Bool {
-        return self.timeIntervalSince1970 < date.timeIntervalSince1970
+        return timeIntervalSince1970 < date.timeIntervalSince1970
     }
-    
+
     func isAfter(date: Date) -> Bool {
-        return self.timeIntervalSince1970 > date.timeIntervalSince1970
+        return timeIntervalSince1970 > date.timeIntervalSince1970
     }
 }
 
@@ -52,13 +48,11 @@ public extension Date {
 //======================================
 public extension Date {
 
-    /**
-        Formats this Date into the given test format.
-
-        For rules on formatting Dates, I highly recommend [this](http://nsdateformatter.com).
-
-        - returns: This date formatted in `dateFormat`.
-    */
+    ///    Formats this Date into the given test format.
+    ///
+    ///    For rules on formatting Dates, I highly recommend [this](http://nsdateformatter.com).
+    ///
+    ///    - returns: This date formatted in `dateFormat`.
     func formatTo(dateFormat: String, timeZone: TimeZone = .autoupdatingCurrent) -> String {
         let formatter = DateFormatter()
         formatter.timeZone = timeZone
@@ -67,8 +61,6 @@ public extension Date {
         return formatter.string(from: self)
     }
 }
-
-
 
 //======================================
 // MARK: DATE INFORMATION

@@ -12,12 +12,10 @@ import AlchemyTest
 import Foundation
 import XCTest
 
-
 //======================================
 // MARK: NUMBER TESTS
 //======================================
-class AlchemyNumberTests: AlchemyTest
-{
+class AlchemyNumberTests: AlchemyTest {
 
     private var int: Int = 0
     private var int32: Int32 = 0
@@ -31,17 +29,15 @@ class AlchemyNumberTests: AlchemyTest
     private var cgFloat: CGFloat = 0.0
     private var decimal: Decimal = 0.0
 
-    private var anyPositiveInt: Int
-    {
+    private var anyPositiveInt: Int {
         return AlchemyGenerator.Integers.positive
     }
-    private var anyPositiveDouble: Double
-    {
+
+    private var anyPositiveDouble: Double {
         return AlchemyGenerator.Doubles.positive
     }
 
-    override func beforeEachTest()
-    {
+    override func beforeEachTest() {
         double = anyPositiveDouble
         int = Int(double)
         int32 = Int32(double)
@@ -55,15 +51,12 @@ class AlchemyNumberTests: AlchemyTest
         decimal = Decimal(double)
     }
 
-
     //======================================
     // MARK: INTEGER TESTS
     //======================================
 
-    func testInt()
-    {
-        repeatTest
-        {
+    func testInt() {
+        repeatTest {
             assertEquals(int.intValue, int)
             assertEquals(int.int32Value, int32)
             assertEquals(int.int64Value, int64)
@@ -79,10 +72,8 @@ class AlchemyNumberTests: AlchemyTest
         }
     }
 
-    func testInt32()
-    {
-        repeatTest
-        {
+    func testInt32() {
+        repeatTest {
             assertEquals(int32.intValue, int)
             assertEquals(int32.int32Value, int32)
             assertEquals(int32.int64Value, int64)
@@ -98,10 +89,8 @@ class AlchemyNumberTests: AlchemyTest
         }
     }
 
-    func testInt64()
-    {
-        repeatTest
-        {
+    func testInt64() {
+        repeatTest {
             assertEquals(int64.intValue, int)
             assertEquals(int64.int32Value, int32)
             assertEquals(int64.int64Value, int64)
@@ -117,10 +106,8 @@ class AlchemyNumberTests: AlchemyTest
         }
     }
 
-    func testUInt()
-    {
-        repeatTest
-        {
+    func testUInt() {
+        repeatTest {
             assertEquals(uInt.intValue, int)
             assertEquals(uInt.int32Value, int32)
             assertEquals(uInt.int64Value, int64)
@@ -136,10 +123,8 @@ class AlchemyNumberTests: AlchemyTest
         }
     }
 
-    func testUInt16()
-    {
-        repeatTest
-        {
+    func testUInt16() {
+        repeatTest {
             assertEquals(uInt16.intValue, int)
             assertEquals(uInt16.int32Value, int32)
             assertEquals(uInt16.int64Value, int64)
@@ -155,10 +140,8 @@ class AlchemyNumberTests: AlchemyTest
         }
     }
 
-    func testUInt32()
-    {
-        repeatTest
-        {
+    func testUInt32() {
+        repeatTest {
             assertEquals(uInt32.intValue, int)
             assertEquals(uInt32.int32Value, int32)
             assertEquals(uInt32.int64Value, int64)
@@ -174,10 +157,8 @@ class AlchemyNumberTests: AlchemyTest
         }
     }
 
-    func testUInt64()
-    {
-        repeatTest
-        {
+    func testUInt64() {
+        repeatTest {
             assertEquals(uInt64.intValue, int)
             assertEquals(uInt64.int32Value, int32)
             assertEquals(uInt64.int64Value, int64)
@@ -193,15 +174,12 @@ class AlchemyNumberTests: AlchemyTest
         }
     }
 
-
     //======================================
     // MARK: FLOAT TESTS
     //======================================
 
-    func testCGFloat()
-    {
-        repeatTest
-        {
+    func testCGFloat() {
+        repeatTest {
             assertEquals(cgFloat.doubleValue, double)
             assertEquals(cgFloat.intValue, int)
             assertEquals(cgFloat.int32Value, int32)
@@ -217,10 +195,8 @@ class AlchemyNumberTests: AlchemyTest
         }
     }
 
-    func testFloat()
-    {
-        repeatTest
-        {
+    func testFloat() {
+        repeatTest {
             assertEquals(float.intValue, int)
             assertEquals(float.int32Value, int32)
             assertEquals(float.int64Value, int64)
@@ -239,10 +215,8 @@ class AlchemyNumberTests: AlchemyTest
         }
     }
 
-    func testDouble()
-    {
-        repeatTest
-        {
+    func testDouble() {
+        repeatTest {
             assertEquals(double.doubleValue, double)
             assertEquals(double.intValue, int)
             assertEquals(double.int32Value, int32)
@@ -258,10 +232,8 @@ class AlchemyNumberTests: AlchemyTest
         }
     }
 
-    func testDecimal()
-    {
-        repeatTest
-        {
+    func testDecimal() {
+        repeatTest {
             assertEquals(decimal.decimalValue, decimal)
             assertEquals(decimal.intValue, int)
             assertEquals(decimal.int32Value, int32)
@@ -279,76 +251,52 @@ class AlchemyNumberTests: AlchemyTest
         }
     }
 
-    func testMB()
-    {
-        repeatTest
-        {
-            let megabytes = AlchemyGenerator.integer(from: 1, to: 1_000)
+    func testMB() {
+        repeatTest {
+            let megabytes = AlchemyGenerator.integer(from: 1, to: 1000)
             let resultBytes = megabytes.mb
-            
+
             let expected = megabytes * 1_000_000
             assertEquals(resultBytes, expected)
         }
     }
-
-
 }
-
 
 //======================================
 // MARK: ABSOLUTE VALUE TESTS
 //======================================
-extension AlchemyNumberTests
-{
-    
-    func testAbsoluteValueInt()
-    {
-        repeatTest
-            {
-                let value = Int.randomFrom(minInclusive: -1000, maxExclusive: 1000)
-                if value < 0
-                {
-                    assertEquals(value.abs, -value)
-                }
-                else
-                {
-                    assertEquals(value.abs, value)
-                }
-        }
-    }
-    
-    
-    func testAbsoluteValueDouble()
-    {
-        repeatTest
-            {
-                let value = Double.random(in: -1000.0...1000.0)
-                if value < 0
-                {
-                    assertEquals(value.abs, -value)
-                }
-                else
-                {
-                    assertEquals(value.abs, value)
-                }
-        }
-    }
-    
-    
-    func testAbsoluteValueFloat()
-    {
-        repeatTest
-            {
-                let value = Float.random(in: -1000.0...1000.0)
-                if value < 0
-                {
-                    assertEquals(value.abs, -value)
-                }
-                else
-                {
-                    assertEquals(value.abs, value)
-                }
+extension AlchemyNumberTests {
+
+    func testAbsoluteValueInt() {
+        repeatTest {
+            let value = Int.randomFrom(minInclusive: -1000, maxExclusive: 1000)
+            if value < 0 {
+                assertEquals(value.abs, -value)
+            } else {
+                assertEquals(value.abs, value)
+            }
         }
     }
 
+    func testAbsoluteValueDouble() {
+        repeatTest {
+            let value = Double.random(in: -1000.0 ... 1000.0)
+            if value < 0 {
+                assertEquals(value.abs, -value)
+            } else {
+                assertEquals(value.abs, value)
+            }
+        }
+    }
+
+    func testAbsoluteValueFloat() {
+        repeatTest {
+            let value = Float.random(in: -1000.0 ... 1000.0)
+            if value < 0 {
+                assertEquals(value.abs, -value)
+            } else {
+                assertEquals(value.abs, value)
+            }
+        }
+    }
 }

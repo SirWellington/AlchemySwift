@@ -11,16 +11,14 @@ import AlchemyGenerator
 import AlchemyTest
 import Foundation
 
-
 //======================================
 // MARK: CODABLE EXTENSION TESTS
 //======================================
 
-fileprivate let serializer = JSONEncoder()
-fileprivate let deserializer = JSONDecoder()
+private let serializer = JSONEncoder()
+private let deserializer = JSONDecoder()
 
-class BaseCodableTest: AlchemyTest
-{
+class BaseCodableTest: AlchemyTest {
     var boolean: Bool = false
     var int: Int = 0
     var double: Double = 0
@@ -28,8 +26,7 @@ class BaseCodableTest: AlchemyTest
     var array: [String] = []
     var dictionary: [String: String] = [:]
 
-    override func beforeEachTest()
-    {
+    override func beforeEachTest() {
         boolean = AlchemyGenerator.Booleans.any
         int = AlchemyGenerator.Integers.any
         double = AlchemyGenerator.Doubles.any
@@ -38,12 +35,10 @@ class BaseCodableTest: AlchemyTest
         dictionary = createDictionary()
     }
 
-    private func createDictionary(size: Int = 10) -> [String: String]
-    {
+    private func createDictionary(size: Int = 10) -> [String: String] {
         var dictionary = [String: String]()
 
-        size.repeatBlock
-        {
+        size.repeatBlock {
             let key = AlchemyGenerator.Strings.hex
             let value = AlchemyGenerator.Strings.alphanumeric
             dictionary[key] = value
@@ -53,137 +48,104 @@ class BaseCodableTest: AlchemyTest
     }
 }
 
-
 //======================================
 // MARK: ENCODABLE TESTS
 //======================================
 
-class AnyEncodableTests: BaseCodableTest
-{
+class AnyEncodableTests: BaseCodableTest {
 
-    func testWithBoolean()
-    {
-        repeatTest
-        {
+    func testWithBoolean() {
+        repeatTest {
             testEncodable(encodable: boolean)
         }
     }
 
-    func testWithDouble()
-    {
-        repeatTest
-        {
+    func testWithDouble() {
+        repeatTest {
             testEncodable(encodable: double)
         }
     }
 
-    func testWithInt()
-    {
-        repeatTest
-        {
+    func testWithInt() {
+        repeatTest {
             testEncodable(encodable: int)
         }
     }
 
-    func testWithString()
-    {
-        repeatTest
-        {
+    func testWithString() {
+        repeatTest {
             testEncodable(encodable: string)
         }
     }
 
-    func testWithArray()
-    {
-        repeatTest
-        {
+    func testWithArray() {
+        repeatTest {
             testEncodable(encodable: array)
         }
     }
 
-    func testWithDictionary()
-    {
-        repeatTest
-        {
+    func testWithDictionary() {
+        repeatTest {
             testEncodable(encodable: dictionary)
         }
     }
 
-    private func testEncodable<T: Encodable>(encodable: T)
-    {
+    private func testEncodable<T: Encodable>(encodable: T) {
         let object = EncodableObject(AnyEncodable(encodable))
         let serialized = try? serializer.encode(object)
         assertNotNil(serialized)
     }
 
-    class EncodableObject: Encodable
-    {
+    class EncodableObject: Encodable {
         var encodable: AnyEncodable
 
-        init(_ encodable: AnyEncodable)
-        {
+        init(_ encodable: AnyEncodable) {
             self.encodable = encodable
         }
     }
-
 }
-
 
 //======================================
 // MARK: CODABLE TESTS
 //======================================
-class AnyCodableTests: BaseCodableTest
-{
-    func testWithBoolean()
-    {
-        repeatTest
-        {
+class AnyCodableTests: BaseCodableTest {
+    func testWithBoolean() {
+        repeatTest {
             testCodable(codable: boolean)
         }
     }
 
-    func testWithDouble()
-    {
-        repeatTest
-        {
+    func testWithDouble() {
+        repeatTest {
             testCodable(codable: double)
         }
     }
 
-    func testWithInt()
-    {
-        repeatTest
-        {
+    func testWithInt() {
+        repeatTest {
             testCodable(codable: int)
         }
     }
 
-    func testWithString()
-    {
-        repeatTest
-        {
+    func testWithString() {
+        repeatTest {
             testCodable(codable: string)
         }
     }
 
-    func testWithArray()
-    {
-        repeatTest
-        {
+    func testWithArray() {
+        repeatTest {
             testCodable(codable: array)
         }
     }
 
-    func testWithDictionary()
-    {
-        repeatTest
-        {
+    func testWithDictionary() {
+        repeatTest {
             testCodable(codable: dictionary)
         }
     }
 
-    private func testCodable<T: Codable>(codable: T)
-    {
+    private func testCodable<T: Codable>(codable: T) {
         let object = CodableObject(AnyCodable(codable))
 
         let serialized = try? serializer.encode(object)
@@ -195,19 +157,13 @@ class AnyCodableTests: BaseCodableTest
         guard let result = deserialized?.codable else { return }
 
         assertEquals(result, AnyCodable(codable))
-
     }
 
-    class CodableObject: Codable
-    {
+    class CodableObject: Codable {
         var codable: AnyCodable
 
-        init(_ codable: AnyCodable)
-        {
+        init(_ codable: AnyCodable) {
             self.codable = codable
         }
-
-
     }
-
 }

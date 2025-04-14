@@ -12,8 +12,4 @@ import AlchemyTest
 import Foundation
 import XCTest
 
-
-class NSObjectsPlusAlchemyTests: AlchemyTest
-{
-
-}
+class NSObjectsPlusAlchemyTests: AlchemyTest {}

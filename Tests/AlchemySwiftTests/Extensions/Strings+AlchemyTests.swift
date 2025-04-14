@@ -12,64 +12,49 @@ import AlchemyTest
 import Foundation
 import XCTest
 
-class StringsPlusAlchemyTests: AlchemyTest
-{
+class StringsPlusAlchemyTests: AlchemyTest {
     override var iterations: Int { return 100 }
 
     private var newString: String { return AlchemyGenerator.Strings.alphabetic }
 
-    override func setUp()
-    {
-    }
+    override func setUp() {}
 
-    func testStaticNotEmpty()
-    {
-        repeatTest
-        {
+    func testStaticNotEmpty() {
+        repeatTest {
             assertTrue(String.notEmpty(newString))
             assertFalse(String.notEmpty(""))
             assertFalse(String.notEmpty(nil))
         }
     }
 
-    func testStaticIsEmpty()
-    {
-        repeatTest
-        {
+    func testStaticIsEmpty() {
+        repeatTest {
             assertFalse(String.isEmpty(newString))
             assertTrue(String.isEmpty(""))
             assertTrue(String.isEmpty(nil))
         }
     }
 
-
-    func testNotEmpty()
-    {
-        repeatTest
-        {
+    func testNotEmpty() {
+        repeatTest {
             assertTrue(newString.notEmpty)
         }
     }
 
-    func testLength()
-    {
-        repeatTest
-        {
+    func testLength() {
+        repeatTest {
             let string = self.newString
             assertEquals(string.length, string.count)
         }
     }
 
-    func testNotEmptyWithEmptyString()
-    {
+    func testNotEmptyWithEmptyString() {
         let emptyString = ""
         assertFalse(emptyString.notEmpty)
     }
 
-    func testIntValueWithValidString()
-    {
-        repeatTest
-        {
+    func testIntValueWithValidString() {
+        repeatTest {
             let number = AlchemyGenerator.positiveInteger()
             let string = "\(number)"
 
@@ -79,10 +64,8 @@ class StringsPlusAlchemyTests: AlchemyTest
         }
     }
 
-    func testIntValueWithNegativeNumber()
-    {
-        repeatTest
-        {
+    func testIntValueWithNegativeNumber() {
+        repeatTest {
             let number = AlchemyGenerator.negativeInteger()
             let string = "\(number)"
 
@@ -92,21 +75,17 @@ class StringsPlusAlchemyTests: AlchemyTest
         }
     }
 
-    func testIntValueWithNonNumber()
-    {
-        repeatTest
-        {
+    func testIntValueWithNonNumber() {
+        repeatTest {
             let result = newString.intValue
             assertNil(result)
         }
     }
 
-    func testAsDate()
-    {
+    func testAsDate() {
         let calendar = Calendar.autoupdatingCurrent
 
-        repeatTest
-        {
+        repeatTest {
             let date = AlchemyGenerator.Dates.any
             let format = "yyyy/MM/dd"
             let string = date.formatTo(dateFormat: format)
@@ -119,20 +98,16 @@ class StringsPlusAlchemyTests: AlchemyTest
         }
     }
 
-    func testAsDateWhenNotADate()
-    {
-        repeatTest
-        {
+    func testAsDateWhenNotADate() {
+        repeatTest {
             let string = AlchemyGenerator.alphabeticString()
             let date = string.asDate(dateFormat: "yyyy/MM/dd")
             assertNil(date)
         }
     }
 
-    func testFirstLetter()
-    {
-        repeatTest
-        {
+    func testFirstLetter() {
+        repeatTest {
             let string = self.newString
             let expected = string.first!.asString
             let result = string.firstLetter
@@ -142,10 +117,8 @@ class StringsPlusAlchemyTests: AlchemyTest
         }
     }
 
-    func testLastLetter()
-    {
-        repeatTest
-        {
+    func testLastLetter() {
+        repeatTest {
             let string = self.newString
             let expected = string.last!.asString
             let result = string.lastLetter
@@ -155,36 +128,28 @@ class StringsPlusAlchemyTests: AlchemyTest
         }
     }
 
-    func testAsAttributed()
-    {
-        repeatTest
-        {
+    func testAsAttributed() {
+        repeatTest {
             let string = self.newString
             let expected = NSAttributedString(string: string)
             let result = string.asAttributed
-            
+
             assertEquals(result, expected)
         }
     }
 
-    func testStringDotEmpty()
-    {
+    func testStringDotEmpty() {
         assertEquals(String.empty, "")
     }
-
 }
 
-
 //=====================================
-//MARK: TRANSFORMATIONS
+// MARK: TRANSFORMATIONS
 //=====================================
-extension StringsPlusAlchemyTests
-{
+extension StringsPlusAlchemyTests {
 
-    func testWithoutFirstLetter()
-    {
-        repeatTest
-        {
+    func testWithoutFirstLetter() {
+        repeatTest {
             let string = self.newString
 
             let beginIndex = string.index(after: string.startIndex)
@@ -194,10 +159,8 @@ extension StringsPlusAlchemyTests
         }
     }
 
-    func testWithoutLastLetter()
-    {
-        repeatTest
-        {
+    func testWithoutLastLetter() {
+        repeatTest {
             let string = self.newString
 
             let endIndex = string.index(before: string.endIndex)
@@ -208,10 +171,8 @@ extension StringsPlusAlchemyTests
         }
     }
 
-    func testRemovingPrefix()
-    {
-        repeatTest
-        {
+    func testRemovingPrefix() {
+        repeatTest {
             let prefix = self.newString
             let string = self.newString
             let combined = prefix + string
@@ -220,10 +181,8 @@ extension StringsPlusAlchemyTests
         }
     }
 
-    func testTrimmingEmptySpaces()
-    {
-        repeatTest
-        {
+    func testTrimmingEmptySpaces() {
+        repeatTest {
             let simpleString = self.newString
             var trimmed = simpleString.trimmingEmptySpaces()
             assertEquals(trimmed, simpleString)
@@ -235,10 +194,8 @@ extension StringsPlusAlchemyTests
         }
     }
 
-    func testTitleCased()
-    {
-        repeatTest
-        {
+    func testTitleCased() {
+        repeatTest {
             let string = self.newString
             let firstLetter = self.newString.firstLetter!
             let combined = firstLetter + string
@@ -250,31 +207,23 @@ extension StringsPlusAlchemyTests
         }
     }
 
-    func testSurroundedByQuotationMarks()
-    {
-        repeatTest
-        {
+    func testSurroundedByQuotationMarks() {
+        repeatTest {
             let string = self.newString
             let expected = "“\(string)”"
             let result = string.surroundedByQuotationMarks()
             assertEquals(result, expected)
         }
     }
-
 }
-
-
 
 //======================================
 // MARK: STRING SEARCH
 //======================================
-extension StringsPlusAlchemyTests
-{
+extension StringsPlusAlchemyTests {
 
-    func testRangesOf()
-    {
-        repeatTest
-        {
+    func testRangesOf() {
+        repeatTest {
             let string = self.newString
             let substring = string.substring(from: string.index(after: string.startIndex))
 
@@ -298,10 +247,8 @@ extension StringsPlusAlchemyTests
         assertEquals(rangesOf123.size, 1)
     }
 
-    func testRangesOfWhenNoMatch()
-    {
-        repeatTest
-        {
+    func testRangesOfWhenNoMatch() {
+        repeatTest {
             let string = self.newString
             let otherString = self.newString
 
@@ -309,20 +256,15 @@ extension StringsPlusAlchemyTests
             assertEmpty(ranges)
         }
     }
-
 }
-
 
 //======================================
 // MARK: ATTRIBUTED STRINGS
 //======================================
-extension StringsPlusAlchemyTests
-{
+extension StringsPlusAlchemyTests {
 
-    func testAsMutable()
-    {
-        repeatTest
-        {
+    func testAsMutable() {
+        repeatTest {
             let string = self.newString.asAttributed
             let result = string.asMutable()
             assertThat(result is NSMutableAttributedString)
@@ -330,13 +272,14 @@ extension StringsPlusAlchemyTests
         }
     }
 
-    func testCopyWithAttributes()
-    {
-        repeatTest
-        {
+    func testCopyWithAttributes() {
+        repeatTest {
             let string = self.newString
             let attributed = string.asAttributed
-            let font = UIFont.systemFont(ofSize: Int.randomFrom(minInclusive: 10, maxExclusive: 40).cgFloatValue)
+            let font = UIFont.systemFont(ofSize: Int.randomFrom(
+                minInclusive: 10,
+                maxExclusive: 40
+            ).cgFloatValue)
             let result = attributed.copyWithAttributes([.font: font])
             let expected = NSMutableAttributedString(string: string, attributes: [.font: font])
             assertEquals(result, expected)
@@ -344,12 +287,13 @@ extension StringsPlusAlchemyTests
         }
     }
 
-    func testSetAttributes()
-    {
-        repeatTest
-        {
+    func testSetAttributes() {
+        repeatTest {
             let string = self.newString
-            let font = UIFont.systemFont(ofSize: Int.randomFrom(minInclusive: 10, maxExclusive: 40).cgFloatValue)
+            let font = UIFont.systemFont(ofSize: Int.randomFrom(
+                minInclusive: 10,
+                maxExclusive: 40
+            ).cgFloatValue)
             let attrs: [NSAttributedString.Key: Any] = [.font: font]
 
             let expected = NSAttributedString(string: string, attributes: attrs)
@@ -361,10 +305,8 @@ extension StringsPlusAlchemyTests
         }
     }
 
-    func testReplacingAttributes()
-    {
-        repeatTest
-        {
+    func testReplacingAttributes() {
+        repeatTest {
             let string = self.newString
             let nsString = string as NSString
             let range = NSRange(location: 0, length: nsString.length / 2)
@@ -381,13 +323,10 @@ extension StringsPlusAlchemyTests
 
             assertEquals(result, expected)
         }
-
     }
 
-    func testReplacingTextWithAttributes()
-    {
-        repeatTest
-        {
+    func testReplacingTextWithAttributes() {
+        repeatTest {
             let string = self.newString
             let nsString = string as NSString
             let range = NSRange(location: 0, length: nsString.length / 2)
@@ -401,25 +340,22 @@ extension StringsPlusAlchemyTests
             let expected = attributed.asMutable()
             expected.setAttributes(attrs, range: range)
 
-            let result = attributed.replacingTextWithAttributes(subtext: substring, attributes: attrs)
+            let result = attributed.replacingTextWithAttributes(
+                subtext: substring,
+                attributes: attrs
+            )
 
             assertEquals(result, expected)
         }
-
     }
-
 }
 
-
 //=====================================
-//MARK: CHARACTER EXTENSIONS
+// MARK: CHARACTER EXTENSIONS
 //=====================================
-extension StringsPlusAlchemyTests
-{
-    func testStringFromCharacter()
-    {
-        repeatTest
-        {
+extension StringsPlusAlchemyTests {
+    func testStringFromCharacter() {
+        repeatTest {
             let string = self.newString
             let character = string.first!
 
@@ -431,23 +367,18 @@ extension StringsPlusAlchemyTests
     }
 }
 
-
 //=====================================
-//MARK: Custom Operators
+// MARK: Custom Operators
 //=====================================
-extension StringsPlusAlchemyTests
-{
-    func testStringCoalesceOperator()
-    {
-        repeatTest
-        {
+extension StringsPlusAlchemyTests {
+    func testStringCoalesceOperator() {
+        repeatTest {
             let optional: Any? = self.newString
             let defaultValue = self.newString
             assertEquals(optional ??? defaultValue, "\(optional!)")
         }
 
-        repeatTest
-        {
+        repeatTest {
             let defaultValue = self.newString
             let optional: Any? = nil
             assertEquals(optional ??? defaultValue, defaultValue)

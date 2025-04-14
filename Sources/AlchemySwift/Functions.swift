@@ -14,7 +14,6 @@ import Foundation
 
 public typealias AlchemyCallback = () -> Void
 
-
 //======================================
 // MARK: GLOBAL FUNCTIONS
 //======================================

@@ -122,7 +122,7 @@ class AlchemyWeakBoxTests: AlchemyTest {
 //=========================================
 // MARK: CUSTOM OBJECT
 //=========================================
-fileprivate class PersonObject: Equatable, Anything {
+private class PersonObject: Equatable, Anything {
 
     public let id = AlchemyGenerator.uuidString()
     public let name = AlchemyGenerator.name()
@@ -133,7 +133,7 @@ fileprivate class PersonObject: Equatable, Anything {
         rhs: PersonObject
     ) -> Bool {
         return lhs.name == rhs.name &&
-               lhs.id == rhs.id &&
-               lhs.age == rhs.age
+            lhs.id == rhs.id &&
+            lhs.age == rhs.age
     }
 }

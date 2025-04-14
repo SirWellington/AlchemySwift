@@ -9,11 +9,11 @@
 import Foundation
 
 //=====================================
-//MARK: BASICS
+// MARK: BASICS
 //=====================================
 public extension Int {
 
-    func isValidIndex<T>(toArray array: Array<T>) -> Bool {
+    func isValidIndex<T>(toArray array: [T]) -> Bool {
 
         if self < 0 {
             return false
@@ -48,13 +48,13 @@ public extension Int {
     static var random: Int {
         return randomFrom(
             minInclusive: 0,
-            maxExclusive: 10_000
+            maxExclusive: 10000
         )
     }
 
-    func repeatBlock(_ block: () -> ()) {
+    func repeatBlock(_ block: () -> Void) {
         guard self > 0 else { return }
 
-        (1...self).repeatBlock(block)
+        (1 ... self).repeatBlock(block)
     }
 }

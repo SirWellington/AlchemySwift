@@ -1,7 +1,7 @@
 import XCTest
 
-//import AlchemySwiftTests
+// import AlchemySwiftTests
 //
-//var tests = [XCTestCaseEntry]()
-//tests += AlchemySwiftTests.allTests()
-//XCTMain(tests)
+// var tests = [XCTestCaseEntry]()
+// tests += AlchemySwiftTests.allTests()
+// XCTMain(tests)
