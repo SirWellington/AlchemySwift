@@ -1,19 +1,17 @@
-//
-//  .swiftformat
-//  AlchemySwift
-//
-//  Created by Wellington Moreno on 4/14/25.
-//  Copyright © 2025 Wellington Moreno. All rights reserved.
-//
+# SwiftFormat Configuration
 
-linebreaks = same-line
-indent = 4
-wrapparameters = before-first
-wraparguments = preserve
-stripunusedargs = enabled
-hexliteralcase = uppercase
-patternlet = hoist
+# Set maximum line length before wrapping
+--maxwidth 100
 
-# Custom rule: split parameters if > 1 OR long line
---wrapparameters=before-first
---maxwidth=100
+# Wrap function arguments before the first argument when wrapping is necessary
+--wraparguments before-first
+--wrapparameters before-first
+
+# Use 4-space indentation
+--indent 4
+
+# Additional formatting preferences
+--stripunusedargs enabled
+--commas always
+--hexliteralcase uppercase
+--patternlet hoist
