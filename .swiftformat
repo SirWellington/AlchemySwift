@@ -14,5 +14,6 @@
 # Additional formatting preferences
 --stripunusedargs always
 --commas inline
+--blankLinesAroundMark false
 --hexliteralcase uppercase
 --patternlet hoist
