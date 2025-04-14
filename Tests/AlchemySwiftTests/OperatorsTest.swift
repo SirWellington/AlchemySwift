@@ -3,34 +3,30 @@
 //  AlchemySwift
 //
 //  Created by Wellington Moreno on 03/03/2018.
-//  Copyright © 2019 Wellington Moreno. All rights reserved.
+//  Copyright © 2025 Wellington Moreno. All rights reserved.
 //
 
 import AlchemyGenerator
-@testable
-import AlchemySwift
+@testable import AlchemySwift
 import AlchemyTest
 
 //======================================
 // MARK: OPERATOR TESTS
 //======================================
-class OperatorsTest: AlchemyTest
-{
+class OperatorsTest: AlchemyTest {
+
     private var first: String!
     private var second: String!
     private var list: [String]!
 
-    override func beforeEachTest()
-    {
+    override func beforeEachTest() {
         first = AlchemyGenerator.Strings.alphabetic
         second = AlchemyGenerator.Strings.hex
         list = AlchemyGenerator.Arrays.ofAlphabeticString
     }
 
-    func testEitherOr()
-    {
-        repeatTest(1000)
-        {
+    func testEitherOr() {
+        repeatTest(1000) {
             let possibilities: [String] = [first, second]
             let result = first ?|? second
             assertNotNil(result)
@@ -38,14 +34,11 @@ class OperatorsTest: AlchemyTest
         }
     }
 
-    func testEitherOrVariance()
-    {
-        repeatTest
-        {
+    func testEitherOrVariance() {
+        repeatTest {
             var results = Set<String>()
 
-            50.repeatBlock
-            {
+            50.repeatBlock {
                 let result = first ?|? second
                 assertNotNil(result)
                 results.insert(result!)
@@ -57,5 +50,4 @@ class OperatorsTest: AlchemyTest
             assertThat(results.contains(second))
         }
     }
-
 }
