@@ -9,9 +9,10 @@
 
 # Use 4-space indentation
 --indent 4
+--trimwhitespace always
 
 # Additional formatting preferences
 --stripunusedargs always
---commas always
+--commas inline
 --hexliteralcase uppercase
 --patternlet hoist
