@@ -35,7 +35,7 @@ final class AnythingTests: AlchemyTest {
             into: [String: String]()
         ) { $0[$1] = $1 }
     }
-    
+
     func testClassName() {
         assertEquals(string.className, "String")
 
@@ -46,7 +46,7 @@ final class AnythingTests: AlchemyTest {
         assertEquals(second.className, "SomeClass")
 
         let expected = "AnythingTests"
-        print("className=", self.className, " expected=", expected)
+        print("className=", className, " expected=", expected)
         XCTAssertEqual(className, expected)
         assertEquals(className, expected)
     }
