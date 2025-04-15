@@ -48,14 +48,12 @@ public extension Anything {
     var className: String {
         let full = String(describing: type(of: self))
         let names = full.components(separatedBy: ".")
-        print("full=\(full), names=\(names)")
         return names.last ?? full
     }
 
     static var className: String {
         let full = String(describing: self)
         let names = full.components(separatedBy: ".")
-        print("static full=\(full), names=\(names)")
         return names.last ?? ""
     }
 }

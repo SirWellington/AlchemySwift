@@ -16,7 +16,7 @@ import Foundation
 // MARK: CONVENIENCE METHOD TESTS
 //======================================
 final class ArraysPlusAlchemyTests: AlchemyTest {
-    private var anyString: String { return AlchemyGenerator.Strings.alphanumeric }
+    private var anyString: String { AlchemyGenerator.Strings.alphanumeric }
     private var strings: [String] = []
     private var secondStrings: [String] = []
     private var numbers: [Int] = []

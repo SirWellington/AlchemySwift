@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "alchemygenerator",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SirWellington/alchemygenerator",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "ca14f1b6945d22204f58424b14b42b32025898bf"
+      }
+    },
+    {
+      "identity" : "alchemytest",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SirWellington/alchemytest",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "275db00b631cb0616fa4a4aab061cb2496c124e4"
+      }
+    }
+  ],
+  "version" : 2
+}

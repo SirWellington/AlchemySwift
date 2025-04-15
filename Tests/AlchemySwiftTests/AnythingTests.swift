@@ -36,20 +36,6 @@ final class AnythingTests: AlchemyTest {
         ) { $0[$1] = $1 }
     }
 
-    func testClassName() {
-        assertEquals(string.className, "String")
-
-        let first = SomeStruct()
-        assertEquals(first.className, "SomeStruct")
-
-        let second = SomeClass()
-        assertEquals(second.className, "SomeClass")
-
-        let expected = "AnythingTests"
-        print("className=", className, " expected=", expected)
-        XCTAssertEqual(className, expected)
-        assertEquals(className, expected)
-    }
 }
 
 //======================================
@@ -184,7 +170,20 @@ extension AnythingTests {
     private class SomeClass: Anything {
         var property: String = "name"
     }
+    
+    func testClassName() {
+        assertEquals(string.className, "String")
 
+        let first = SomeStruct()
+        assertEquals(first.className, "SomeStruct")
+
+        let second = SomeClass()
+        assertEquals(second.className, "SomeClass")
+
+        let expected = "AnythingTests"
+        assertEquals((self as Anything).className, expected)
+    }
+    
     func testStaticClassName() {
         assertEquals(String.className, "String")
         assertEquals(Int.className, "Int")
