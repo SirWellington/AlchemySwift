@@ -179,7 +179,10 @@ extension AnythingTests {
         let second = SomeClass()
         assertEquals(second.className, "SomeClass")
 
-        print("Classname is \(className)")
+        print("Full Type Description:", String(describing: type(of: self)))
+        print("Actual Self:", self)
+        print("Self as Any.Type:", type(of: self as Any))
+        
         assertEquals(className, "AnythingTests")
     }
 
