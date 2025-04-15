@@ -25,7 +25,7 @@ class DictionariesPlusAlchemyTests: AlchemyTest {
             toInclusive: 50
         )
 
-        for _ in 0 ..< size {
+        for _ in 0..<size {
             let key = newString
             let value = newInt
             dictionary[key] = value

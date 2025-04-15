@@ -33,7 +33,7 @@ class BooleansPlusAlchemyTests: AlchemyTest {
     func testRandomBool() {
         var set = Set<Bool>()
 
-        for _ in 0 ... 100 {
+        for _ in 0...100 {
             set.insert(Bool.random)
         }
 

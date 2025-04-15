@@ -22,13 +22,13 @@ final class ArraysPlusAlchemyTests: AlchemyTest {
     private var numbers: [Int] = []
 
     override func beforeEachTest() {
-        strings = AlchemyGenerator.array(size: Int.random(in: 25 ... 50)) {
+        strings = AlchemyGenerator.array(size: Int.random(in: 25...50)) {
             AlchemyGenerator.Strings.alphabetic
         }
-        secondStrings = AlchemyGenerator.array(size: Int.random(in: 25 ... 50)) {
+        secondStrings = AlchemyGenerator.array(size: Int.random(in: 25...50)) {
             AlchemyGenerator.alphanumericString()
         }
-        numbers = AlchemyGenerator.array(size: Int.random(in: 25 ... 50)) {
+        numbers = AlchemyGenerator.array(size: Int.random(in: 25...50)) {
             AlchemyGenerator.anyInteger()
         }
     }
@@ -88,7 +88,7 @@ final class ArraysPlusAlchemyTests: AlchemyTest {
         repeatTest {
             let min = 0
             let max = Int.randomFrom(minInclusive: 1, maxExclusive: 1_000)
-            let range = min ..< max
+            let range = min..<max
 
             let result = range.anyElement!
             assertTrue(result >= min)
@@ -197,7 +197,7 @@ extension ArraysPlusAlchemyTests {
         repeatTest {
             let first = strings.first!
             let last = strings.last!
-            let expected = strings[1 ..< strings.size - 1].toArray()
+            let expected = strings[1..<strings.size - 1].toArray()
             strings.removeElements([first, last])
             assertEquals(strings, expected)
         }
@@ -231,7 +231,7 @@ extension ArraysPlusAlchemyTests {
 //======================================
 extension ArraysPlusAlchemyTests {
     func testCirculateNext() {
-        let range = (0 ... 99)
+        let range = (0...99)
         var numbers = Array(range)
 
         var result = [Int]()
@@ -246,7 +246,7 @@ extension ArraysPlusAlchemyTests {
     }
 
     func testCirculatePrevious() {
-        let range = (0 ... 99)
+        let range = (0...99)
         var numbers = Array(range)
         let size = numbers.size
 
@@ -361,7 +361,7 @@ extension ArraysPlusAlchemyTests {
             counter += 1
         }
 
-        (1 ... 100).repeatBlock(block)
+        (1...100).repeatBlock(block)
 
         assertTrue(counter == 100)
     }
@@ -478,7 +478,7 @@ extension ArraysPlusAlchemyTests {
 extension ArraysPlusAlchemyTests {
     func testArraySliceToArray() {
         repeatTest {
-            let slice = strings[0 ..< strings.size]
+            let slice = strings[0..<strings.size]
             let result = slice.toArray()
             assertEquals(result, strings)
         }

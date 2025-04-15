@@ -22,7 +22,7 @@ public extension Array {
             return nil
         }
 
-        guard let index = (0 ..< count).anyElement, isValidIndex(index) else {
+        guard let index = (0..<count).anyElement, isValidIndex(index) else {
             return nil
         }
 

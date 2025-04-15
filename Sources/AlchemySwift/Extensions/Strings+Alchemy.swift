@@ -117,7 +117,7 @@ public extension String {
         while let range = range(
             of: substring,
             options: options,
-            range: (ranges.last?.upperBound ?? startIndex) ..< endIndex,
+            range: (ranges.last?.upperBound ?? startIndex)..<endIndex,
             locale: locale
         ) {
             ranges.append(range)

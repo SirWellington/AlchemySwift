@@ -55,6 +55,6 @@ public extension Int {
     func repeatBlock(_ block: () -> Void) {
         guard self > 0 else { return }
 
-        (1 ... self).repeatBlock(block)
+        (1...self).repeatBlock(block)
     }
 }

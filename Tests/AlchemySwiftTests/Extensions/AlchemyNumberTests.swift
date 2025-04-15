@@ -280,7 +280,7 @@ extension AlchemyNumberTests {
 
     func testAbsoluteValueDouble() {
         repeatTest {
-            let value = Double.random(in: -1_000.0 ... 1_000.0)
+            let value = Double.random(in: -1_000.0...1_000.0)
             if value < 0 {
                 assertEquals(value.abs, -value)
             } else {
@@ -291,7 +291,7 @@ extension AlchemyNumberTests {
 
     func testAbsoluteValueFloat() {
         repeatTest {
-            let value = Float.random(in: -1_000.0 ... 1_000.0)
+            let value = Float.random(in: -1_000.0...1_000.0)
             if value < 0 {
                 assertEquals(value.abs, -value)
             } else {
