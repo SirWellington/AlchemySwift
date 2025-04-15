@@ -301,7 +301,7 @@ extension StringsPlusAlchemyTests {
         repeatTest {
             let string = self.newString
             let attributed = string.asAttributed
-            
+
             let link = AlchemyGenerator.url()
             let result = attributed.copyWithAttributes([
                 .link: link,
