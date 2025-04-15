@@ -15,18 +15,22 @@ import Foundation
 //======================================
 // MARK: CONVENIENCE METHOD TESTS
 //======================================
-class ArraysPlusAlchemyTests: AlchemyTest {
-    override var iterations: Int { return 100 }
-
+final class ArraysPlusAlchemyTests: AlchemyTest {
     private var anyString: String { return AlchemyGenerator.Strings.alphanumeric }
     private var strings: [String] = []
     private var secondStrings: [String] = []
     private var numbers: [Int] = []
 
     override func beforeEachTest() {
-        strings = AlchemyGenerator.array { AlchemyGenerator.Strings.alphabetic }
-        secondStrings = AlchemyGenerator.array { AlchemyGenerator.alphanumericString() }
-        numbers = AlchemyGenerator.array { AlchemyGenerator.anyInteger() }
+        strings = AlchemyGenerator.array(size: Int.random(in: 25...50)) {
+            AlchemyGenerator.Strings.alphabetic
+        }
+        secondStrings = AlchemyGenerator.array(size: Int.random(in: 25...50)) {
+            AlchemyGenerator.alphanumericString()
+        }
+        numbers = AlchemyGenerator.array(size: Int.random(in: 25...50)) {
+            AlchemyGenerator.anyInteger()
+        }
     }
 
     func testNotEmpty() {
