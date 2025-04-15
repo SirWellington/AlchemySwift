@@ -182,6 +182,7 @@ extension AnythingTests {
         print("Full Type Description:", String(describing: type(of: self)))
         print("Actual Self:", self)
         print("Self as Any.Type:", type(of: self as Any))
+        print("className", self.className)
         
         assertEquals(className, "AnythingTests")
     }
