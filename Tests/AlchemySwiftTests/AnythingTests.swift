@@ -179,12 +179,13 @@ extension AnythingTests {
         let second = SomeClass()
         assertEquals(second.className, "SomeClass")
 
+        let expected = "AnythingTests"
         print("Full Type Description:", String(describing: type(of: self)))
         print("Actual Self:", self)
         print("Self as Any.Type:", type(of: self as Any))
-        print("className", className)
-
-        assertEquals(className, "AnythingTests")
+        print("className=", className, " expected=", expected)
+        XCTAssertEqual(className, expected)
+        assertEquals(className, expected)
     }
 
     func testStaticClassName() {
