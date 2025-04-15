@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,7 +15,6 @@
 		1329B9A92544BA8000DDD7BE /* Integers+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B9962544BA8000DDD7BE /* Integers+Alchemy.swift */; };
 		1329B9AA2544BA8000DDD7BE /* Strings+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B9972544BA8000DDD7BE /* Strings+Alchemy.swift */; };
 		1329B9AB2544BA8000DDD7BE /* AlchemyNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B9982544BA8000DDD7BE /* AlchemyNumber.swift */; };
-		1329B9AC2544BA8000DDD7BE /* NSObjects+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B9992544BA8000DDD7BE /* NSObjects+Alchemy.swift */; };
 		1329B9AD2544BA8000DDD7BE /* Async+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B99A2544BA8000DDD7BE /* Async+Alchemy.swift */; };
 		1329B9AE2544BA8000DDD7BE /* Codables+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B99B2544BA8000DDD7BE /* Codables+.swift */; };
 		1329B9B02544BA8000DDD7BE /* Dictionaries+Alchemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329B99D2544BA8000DDD7BE /* Dictionaries+Alchemy.swift */; };
@@ -78,7 +77,6 @@
 		1329B9962544BA8000DDD7BE /* Integers+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Integers+Alchemy.swift"; sourceTree = "<group>"; };
 		1329B9972544BA8000DDD7BE /* Strings+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Alchemy.swift"; sourceTree = "<group>"; };
 		1329B9982544BA8000DDD7BE /* AlchemyNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlchemyNumber.swift; sourceTree = "<group>"; };
-		1329B9992544BA8000DDD7BE /* NSObjects+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObjects+Alchemy.swift"; sourceTree = "<group>"; };
 		1329B99A2544BA8000DDD7BE /* Async+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Async+Alchemy.swift"; sourceTree = "<group>"; };
 		1329B99B2544BA8000DDD7BE /* Codables+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Codables+.swift"; sourceTree = "<group>"; };
 		1329B99D2544BA8000DDD7BE /* Dictionaries+Alchemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionaries+Alchemy.swift"; sourceTree = "<group>"; };
@@ -106,6 +104,8 @@
 		1329B9CA2544BA8900DDD7BE /* AlchemyBoxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlchemyBoxTests.swift; sourceTree = "<group>"; };
 		1329B9CB2544BA8900DDD7BE /* FunctionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionsTests.swift; sourceTree = "<group>"; };
 		1329B9CC2544BA8900DDD7BE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1331DEDB2DAD77C800D85276 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		1331DEE02DAD997300D85276 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		DE125EDE1FF6999300A3C98B /* AlchemySwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlchemySwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE125EE71FF6999300A3C98B /* AlchemySwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlchemySwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -166,7 +166,6 @@
 				1329B99D2544BA8000DDD7BE /* Dictionaries+Alchemy.swift */,
 				1329B9942544BA8000DDD7BE /* Doubles+Alchemy.swift */,
 				1329B9962544BA8000DDD7BE /* Integers+Alchemy.swift */,
-				1329B9992544BA8000DDD7BE /* NSObjects+Alchemy.swift */,
 				1329B9972544BA8000DDD7BE /* Strings+Alchemy.swift */,
 			);
 			path = Extensions;
@@ -223,6 +222,8 @@
 		DE125ED41FF6999300A3C98B = {
 			isa = PBXGroup;
 			children = (
+				1331DEE02DAD997300D85276 /* .swiftformat */,
+				1331DEDB2DAD77C800D85276 /* Package.swift */,
 				1329B98E2544BA8000DDD7BE /* Sources */,
 				1329B9B82544BA8900DDD7BE /* Tests */,
 				DE125EDF1FF6999300A3C98B /* Products */,
@@ -286,6 +287,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				1331DEDD2DAD79BB00D85276 /* PBXTargetDependency */,
+				1331DEDF2DAD79BB00D85276 /* PBXTargetDependency */,
 				DE125EEA1FF6999300A3C98B /* PBXTargetDependency */,
 			);
 			name = AlchemySwiftTests;
@@ -365,7 +368,6 @@
 				1329B9A82544BA8000DDD7BE /* Dates+Alchemy.swift in Sources */,
 				1329B9B22544BA8000DDD7BE /* Arrays+Alchemy.swift in Sources */,
 				1329B9B52544BA8000DDD7BE /* Anything.swift in Sources */,
-				1329B9AC2544BA8000DDD7BE /* NSObjects+Alchemy.swift in Sources */,
 				1329B9AE2544BA8000DDD7BE /* Codables+.swift in Sources */,
 				1329B9AB2544BA8000DDD7BE /* AlchemyNumber.swift in Sources */,
 				1329B9B12544BA8000DDD7BE /* Booleans+Alchemy.swift in Sources */,
@@ -406,6 +408,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1331DEDD2DAD79BB00D85276 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 1331DEDC2DAD79BB00D85276 /* AlchemyGenerator */;
+		};
+		1331DEDF2DAD79BB00D85276 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 1331DEDE2DAD79BB00D85276 /* AlchemyTest */;
+		};
 		DE125EEA1FF6999300A3C98B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DE125EDD1FF6999300A3C98B /* AlchemySwift */;
@@ -548,7 +558,7 @@
 				);
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -579,7 +589,7 @@
 				);
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -605,6 +615,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -628,6 +639,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -698,6 +710,16 @@
 			productName = AlchemyGenerator;
 		};
 		1329B9F72544CD2400DDD7BE /* AlchemyTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1329B9F62544CD2400DDD7BE /* XCRemoteSwiftPackageReference "AlchemyTest" */;
+			productName = AlchemyTest;
+		};
+		1331DEDC2DAD79BB00D85276 /* AlchemyGenerator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1329B9E72544BB8C00DDD7BE /* XCRemoteSwiftPackageReference "AlchemyGenerator" */;
+			productName = AlchemyGenerator;
+		};
+		1331DEDE2DAD79BB00D85276 /* AlchemyTest */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1329B9F62544CD2400DDD7BE /* XCRemoteSwiftPackageReference "AlchemyTest" */;
 			productName = AlchemyTest;

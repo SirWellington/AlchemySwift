@@ -3,35 +3,30 @@
 //  AlchemySwift
 //
 //  Created by Wellington Moreno on 12/29/2017.
-//  Copyright © 2019 Wellington Moreno. All rights reserved.
+//  Copyright © 2025 Wellington Moreno. All rights reserved.
 //
 
 import Foundation
 
 //=====================================
-//MARK: BASICS
+// MARK: BASICS
 //=====================================
-public extension Int
-{
+public extension Int {
 
-    func isValidIndex<T>(toArray array: Array<T>) -> Bool
-    {
+    func isValidIndex<T>(toArray array: [T]) -> Bool {
 
-        if self < 0
-        {
+        if self < 0 {
             return false
         }
 
         return self < array.count
     }
 
-    static func randomFrom(minInclusive: Int, maxExclusive: Int) -> Int
-    {
+    static func randomFrom(minInclusive: Int, maxExclusive: Int) -> Int {
 
         guard maxExclusive > minInclusive
-        else
-        {
-            return maxExclusive
+        else {
+            return Swift.min(minInclusive, maxExclusive)
         }
 
         let distance = maxExclusive - minInclusive
@@ -42,26 +37,24 @@ public extension Int
         return result
     }
 
-    var isEven: Bool
-    {
+    var isEven: Bool {
         return self % 2 == 0
     }
 
-    var isOdd: Bool
-    {
+    var isOdd: Bool {
         return !isEven
     }
 
-    static var random: Int
-    {
-        return randomFrom(minInclusive: 0, maxExclusive: 10_000)
+    static var random: Int {
+        return randomFrom(
+            minInclusive: 0,
+            maxExclusive: 10_000
+        )
     }
 
-    func repeatBlock(_ block: () -> ())
-    {
+    func repeatBlock(_ block: () -> Void) {
         guard self > 0 else { return }
 
         (1...self).repeatBlock(block)
     }
 }
-

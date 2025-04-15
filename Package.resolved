@@ -1,10 +1,9 @@
 {
-  "originHash" : "b61a6f52d5a2aa517752dde2aa9e83f04273ed95a20cd703905b11eb5aff37f2",
   "pins" : [
     {
       "identity" : "alchemygenerator",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/SirWellington/AlchemyGenerator",
+      "location" : "https://github.com/SirWellington/alchemygenerator",
       "state" : {
         "branch" : "develop",
         "revision" : "ca14f1b6945d22204f58424b14b42b32025898bf"
@@ -13,12 +12,12 @@
     {
       "identity" : "alchemytest",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/SirWellington/AlchemyTest",
+      "location" : "https://github.com/SirWellington/alchemytest",
       "state" : {
         "branch" : "develop",
         "revision" : "275db00b631cb0616fa4a4aab061cb2496c124e4"
       }
     }
   ],
-  "version" : 3
+  "version" : 2
 }
