@@ -10,22 +10,6 @@ import AlchemyGenerator
 @testable import AlchemySwift
 import AlchemyTest
 import Foundation
-import SwiftUI
-import XCTest
-
-//
-//  Strings+AlchemyTests.swift
-//  AlchemySwift
-//
-//  Created by Wellington Moreno on 01/26/2018.
-//  Copyright © 2025 Wellington Moreno. All rights reserved.
-//
-
-import AlchemyGenerator
-@testable import AlchemySwift
-import AlchemyTest
-import Foundation
-import UIKit
 import XCTest
 
 class StringsPlusAlchemyTests: AlchemyTest {
