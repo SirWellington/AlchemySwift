@@ -47,12 +47,8 @@ public extension Anything {
 
     var className: String {
         let full = String(describing: type(of: self))
-        // Remove square brackets if present
-        let cleaned = full
-            .replacingOccurrences(of: "[", with: "")
-            .replacingOccurrences(of: "]", with: "")
-        let components = cleaned.components(separatedBy: ".")
-        return components.last ?? cleaned
+        let names = cleaned.components(separatedBy: ".")
+        return names.last ?? cleaned
     }
 
     static var className: String {
