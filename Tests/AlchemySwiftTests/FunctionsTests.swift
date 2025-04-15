@@ -70,7 +70,6 @@ class FunctionsTests: AlchemyTest {
             )
 
             assertEquals(result, expected)
-            print("\(result)%")
         }
     }
 }
