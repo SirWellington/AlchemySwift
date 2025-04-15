@@ -55,6 +55,7 @@ public extension Anything {
     static var className: String {
         let full = String(describing: self)
         let names = full.components(separatedBy: ".")
+        print("static full=\(full), names=\(names)")
         return names.last ?? ""
     }
 }
