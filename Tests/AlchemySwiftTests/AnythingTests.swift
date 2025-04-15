@@ -179,8 +179,8 @@ extension AnythingTests {
         let second = SomeClass()
         assertEquals(second.className, "SomeClass")
 
-        print("Classname is \(self.className)")
-        assertEquals(self.className, "AnythingTests")
+        print("Classname is \(className)")
+        assertEquals(className, "AnythingTests")
     }
 
     func testStaticClassName() {
