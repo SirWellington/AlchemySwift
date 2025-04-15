@@ -30,3 +30,4 @@
 --disable blankLinesAtStartOfScope
 --enable numberformatting 
 --decimalGrouping 3
+--ranges no-space
