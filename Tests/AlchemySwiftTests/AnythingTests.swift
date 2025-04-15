@@ -183,9 +183,9 @@ extension AnythingTests {
         print("Full Type Description:", String(describing: type(of: self)))
         print("Actual Self:", self)
         print("Self as Any.Type:", type(of: self as Any))
-        print("className=", className, " expected=", expected)
-        XCTAssertEqual(className, expected)
-        assertEquals(className, expected)
+        print("className=", self.className, " expected=", expected)
+        XCTAssertEqual(self.className, expected)
+        assertEquals(self.className, expected)
     }
 
     func testStaticClassName() {
