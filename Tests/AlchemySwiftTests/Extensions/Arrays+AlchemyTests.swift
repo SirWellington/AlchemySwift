@@ -22,13 +22,13 @@ final class ArraysPlusAlchemyTests: AlchemyTest {
     private var numbers: [Int] = []
 
     override func beforeEachTest() {
-        strings = AlchemyGenerator.array(size: Int.random(in: 25...50)) {
+        strings = AlchemyGenerator.array(size: Int.random(in: 25 ... 50)) {
             AlchemyGenerator.Strings.alphabetic
         }
-        secondStrings = AlchemyGenerator.array(size: Int.random(in: 25...50)) {
+        secondStrings = AlchemyGenerator.array(size: Int.random(in: 25 ... 50)) {
             AlchemyGenerator.alphanumericString()
         }
-        numbers = AlchemyGenerator.array(size: Int.random(in: 25...50)) {
+        numbers = AlchemyGenerator.array(size: Int.random(in: 25 ... 50)) {
             AlchemyGenerator.anyInteger()
         }
     }
