@@ -52,9 +52,9 @@ public extension Anything {
     }
 
     static var className: String {
-        let full = String(describing: type(of: self))
+        let full = String(describing: self)
         let names = full.components(separatedBy: ".")
-        return names.last ?? full
+        return names.last ?? ""
     }
 }
 

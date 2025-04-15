@@ -15,7 +15,7 @@ import XCTest
 //======================================
 // MARK: BASE TEST
 //======================================
-class AnythingTests: AlchemyTest {
+final class AnythingTests: AlchemyTest {
 
     private var string = ""
     private var int = 0
