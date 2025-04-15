@@ -46,13 +46,15 @@ public extension Anything {
     }
 
     var className: String {
-        let names = String(describing: type(of: self)).components(separatedBy: ".")
-        return names.last ?? "\(type(of: self.self))"
+        let names = String(
+            describing: type(of: self)
+        ).components(separatedBy: ".")
+        return names.last ?? ""
     }
 
     static var className: String {
         let names = String(describing: self).components(separatedBy: ".")
-        return names.last ?? "\(type(of: self.self))"
+        return names.last ?? ""
     }
 }
 
