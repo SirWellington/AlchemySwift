@@ -47,13 +47,14 @@ public extension Anything {
 
     var className: String {
         let full = String(describing: type(of: self))
-        let names = cleaned.components(separatedBy: ".")
-        return names.last ?? cleaned
+        let names = full.components(separatedBy: ".")
+        return names.last ?? full
     }
 
     static var className: String {
-        let names = String(describing: self).components(separatedBy: ".")
-        return names.last ?? ""
+        let full = String(describing: type(of: self))
+        let names = full.components(separatedBy: ".")
+        return names.last ?? full
     }
 }
 
