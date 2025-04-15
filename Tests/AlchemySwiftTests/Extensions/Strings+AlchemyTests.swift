@@ -12,7 +12,7 @@ import AlchemyTest
 import Foundation
 import XCTest
 
-class StringsPlusAlchemyTests: AlchemyTest {
+final class StringsPlusAlchemyTests: AlchemyTest {
 
     private var newString: String {
         AlchemyGenerator.Strings.alphabetic

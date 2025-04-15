@@ -46,9 +46,7 @@ public extension Anything {
     }
 
     var className: String {
-        let names = String(
-            describing: type(of: self)
-        ).components(separatedBy: ".")
+        let names = String(describing: type(of: self)).components(separatedBy: ".")
         return names.last ?? ""
     }
 
