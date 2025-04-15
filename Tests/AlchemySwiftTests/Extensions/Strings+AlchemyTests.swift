@@ -10,7 +10,7 @@ import AlchemyGenerator
 @testable import AlchemySwift
 import AlchemyTest
 import Foundation
-import UIKit
+import SwiftUI
 import XCTest
 
 //
@@ -301,27 +301,27 @@ extension StringsPlusAlchemyTests {
         repeatTest {
             let string = self.newString
             let attributed = string.asAttributed
-            let font = UIFont.systemFont(
-                ofSize: Int.randomFrom(
-                    minInclusive: 10,
-                    maxExclusive: 40
-                ).cgFloatValue
-            )
+            
+            let link = AlchemyGenerator.url()
             let result = attributed.copyWithAttributes([
-                .font: font
+                .link: link,
+                .underlineStyle: NSUnderlineStyle.double
             ])
             let expected = NSMutableAttributedString(
                 string: string,
-                attributes: [.font: font]
+                attributes: [
+                    .link: link,
+                    .underlineStyle: NSUnderlineStyle.double
+                ]
             )
             assertEquals(result, expected)
             assertEquals(
                 result.attribute(
-                    .font,
+                    .link,
                     at: 0,
                     effectiveRange: nil
-                ) as? UIFont,
-                font
+                ) as? String,
+                link
             )
         }
     }
@@ -329,14 +329,10 @@ extension StringsPlusAlchemyTests {
     func testSetAttributes() {
         repeatTest {
             let string = self.newString
-            let font = UIFont.systemFont(
-                ofSize: Int.randomFrom(
-                    minInclusive: 10,
-                    maxExclusive: 40
-                ).cgFloatValue
-            )
+            let link = AlchemyGenerator.url()
             let attrs: [NSAttributedString.Key: Any] = [
-                .font: font
+                .link: link,
+                .underlineStyle: NSUnderlineStyle.double
             ]
 
             let expected = NSAttributedString(
@@ -361,13 +357,10 @@ extension StringsPlusAlchemyTests {
             )
             let attributed = string.asAttributed
 
-            let fontSize = Int.randomFrom(
-                minInclusive: 8,
-                maxExclusive: 100
-            ).asCGFloat
-            let font = UIFont.systemFont(ofSize: fontSize)
+            let link = AlchemyGenerator.url()
             let attrs: [NSAttributedString.Key: Any] = [
-                .font: font
+                .link: link,
+                .underlineStyle: NSUnderlineStyle.byWord
             ]
 
             let expected = attributed.asMutable()
@@ -396,13 +389,9 @@ extension StringsPlusAlchemyTests {
             let substring = (nsString.substring(with: range)) as String
             let attributed = string.asAttributed
 
-            let fontSize = Int.randomFrom(
-                minInclusive: 8,
-                maxExclusive: 100
-            ).asCGFloat
-            let font = UIFont.systemFont(ofSize: fontSize)
+            let link = AlchemyGenerator.url()
             let attrs: [NSAttributedString.Key: Any] = [
-                .font: font
+                .link: link
             ]
 
             let expected = attributed.asMutable()
