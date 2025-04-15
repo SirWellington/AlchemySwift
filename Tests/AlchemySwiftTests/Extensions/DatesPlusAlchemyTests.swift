@@ -104,14 +104,14 @@ class DatesPlusAlchemyTests: AlchemyTest {
 
     private func _testDateFormatterWithFormat(_ format: String) {
         let date = Date()
-        
+
         let formatter = DateFormatter()
         formatter.timeZone = .current
         formatter.dateFormat = format
-        
+
         let expected = formatter.string(from: date)
         let result = date.formatTo(dateFormat: format)
-        
+
         assertEquals(result, expected)
     }
 
